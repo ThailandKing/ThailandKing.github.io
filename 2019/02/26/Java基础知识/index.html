@@ -5,26 +5,27 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <link rel="dns-prefetch" href="https://thailandking.github.io">
+  <title>Java基础知识 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Java基础[TOC] 一、常见对象1.1 object根类，所有类的超类，java.lang包下 1.1.1 hashCode1234567891011返回对象的哈希码值，物理地址Object obj=new Object();int hashCode = obj.hashCode();System.out.println(hashCode);堆内存相同，hashcode相同Student s1">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/2019/02/26/Java基础/index.html">
+<meta property="og:title" content="Java基础知识">
+<meta property="og:url" content="https://thailandking.github.io/2019/02/26/Java基础知识/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Java基础[TOC] 一、常见对象1.1 object根类，所有类的超类，java.lang包下 1.1.1 hashCode1234567891011返回对象的哈希码值，物理地址Object obj=new Object();int hashCode = obj.hashCode();System.out.println(hashCode);堆内存相同，hashcode相同Student s1">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/assets/堆缓冲原理.png">
-<meta property="og:image" content="http://yoursite.com/assets/数组储存图.png">
-<meta property="og:image" content="http://yoursite.com/assets/集合体系结构.png">
-<meta property="og:image" content="http://yoursite.com/assets/bufferstream.png">
-<meta property="og:image" content="http://yoursite.com/assets/线程状态图.png">
-<meta property="og:updated_time" content="2019-02-26T01:07:46.479Z">
+<meta property="og:image" content="https://thailandking.github.io/assets/堆缓冲原理.png">
+<meta property="og:image" content="https://thailandking.github.io/assets/数组储存图.png">
+<meta property="og:image" content="https://thailandking.github.io/assets/集合体系结构.png">
+<meta property="og:image" content="https://thailandking.github.io/assets/bufferstream.png">
+<meta property="og:image" content="https://thailandking.github.io/assets/线程状态图.png">
+<meta property="og:updated_time" content="2019-02-26T01:25:25.839Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Java基础知识">
 <meta name="twitter:description" content="Java基础[TOC] 一、常见对象1.1 object根类，所有类的超类，java.lang包下 1.1.1 hashCode1234567891011返回对象的哈希码值，物理地址Object obj=new Object();int hashCode = obj.hashCode();System.out.println(hashCode);堆内存相同，hashcode相同Student s1">
-<meta name="twitter:image" content="http://yoursite.com/assets/堆缓冲原理.png">
+<meta name="twitter:image" content="https://thailandking.github.io/assets/堆缓冲原理.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -156,15 +157,29 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java基础" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java基础知识" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java基础知识
+    </h1>
+  
+
+        
+        <a href="/2019/02/26/Java基础知识/" class="archive-article-date">
+  	<time datetime="2019-02-26T01:19:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-26</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h1><p>[TOC]</p>
 <h2 id="一、常见对象"><a href="#一、常见对象" class="headerlink" title="一、常见对象"></a>一、常见对象</h2><h3 id="1-1-object"><a href="#1-1-object" class="headerlink" title="1.1 object"></a>1.1 object</h3><p>根类，所有类的超类，java.lang包下</p>
 <h4 id="1-1-1-hashCode"><a href="#1-1-1-hashCode" class="headerlink" title="1.1.1 hashCode"></a>1.1.1 hashCode</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">返回对象的哈希码值，物理地址</span><br><span class="line">Object obj=<span class="keyword">new</span> Object();</span><br><span class="line"><span class="keyword">int</span> hashCode = obj.hashCode();</span><br><span class="line">System.out.println(hashCode);</span><br><span class="line">堆内存相同，hashcode相同</span><br><span class="line">Student s1=<span class="keyword">new</span> Student(<span class="string">"wgt"</span>,<span class="number">21</span>);</span><br><span class="line">Student s2=<span class="keyword">new</span> Student(<span class="string">"shw"</span>,<span class="number">20</span>);</span><br><span class="line">Student s3=s1;</span><br><span class="line">System.out.println(s1.hashCode());</span><br><span class="line">System.out.println(s2.hashCode());</span><br><span class="line">System.out.println(s3.hashCode());</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
 <h4 id="1-1-2-getClass"><a href="#1-1-2-getClass" class="headerlink" title="1.1.2 getClass"></a>1.1.2 getClass</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">获取字节码对象，进而获取全类名</span><br><span class="line">Student student=<span class="keyword">new</span> Student(<span class="string">"wgt"</span>,<span class="number">21</span>);</span><br><span class="line">Class aClass = student.getClass();</span><br><span class="line">String name = aClass.getName();</span><br><span class="line">System.out.println(name);</span><br></pre></td></tr></table></figure>
 <h4 id="1-1-3-toString"><a href="#1-1-3-toString" class="headerlink" title="1.1.3 toString"></a>1.1.3 toString</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">默认com.itshw.bean.Student@<span class="number">4554617</span>c</span><br><span class="line">开发中大多重写显示数据</span><br><span class="line">Student s=<span class="keyword">new</span> Student(<span class="string">"wgt"</span>,<span class="number">21</span>);</span><br><span class="line">System.out.println(s.toString());</span><br><span class="line">默认显示原理</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> getClass().getName() + <span class="string">"@"</span> + Integer.toHexString(hashCode());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="1-1-4-equals"><a href="#1-1-4-equals" class="headerlink" title="1.1.4 equals"></a>1.1.4 equals</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">默认比较的是地址值，而string类比较的是属性值</span><br><span class="line">Student s1=<span class="keyword">new</span> Student(<span class="string">"wgt"</span>,<span class="number">21</span>);</span><br><span class="line">Student s2=<span class="keyword">new</span> Student(<span class="string">"wgt"</span>,<span class="number">21</span>);</span><br><span class="line">System.out.println(s1.equals(s2));<span class="comment">//false</span></span><br><span class="line">System.out.println(s1==s2);<span class="comment">//false</span></span><br><span class="line">开发中需要重写来比较属性值</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">        Student s= (Student) obj;<span class="comment">//向下转型</span></span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">this</span>.name.equals(s.name))&amp;&amp;(<span class="keyword">this</span>.age==s.age);</span><br><span class="line">    &#125;</span><br><span class="line">区别：</span><br><span class="line">==：基本数据类型比较的是值，引用类型比较的是地址值</span><br><span class="line">equals：引用数据类型比较地址值，开发中重写来比较属性值</span><br></pre></td></tr></table></figure>
@@ -174,7 +189,7 @@
 <p>string类重写了toString方法，返回的是对象本身</p>
 <h4 id="1-3-1-构造"><a href="#1-3-1-构造" class="headerlink" title="1.3.1 构造"></a>1.3.1 构造</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">字节数组构造</span><br><span class="line"><span class="keyword">byte</span>[] bytes=&#123;<span class="number">97</span>,<span class="number">98</span>,<span class="number">99</span>&#125;;</span><br><span class="line">String str=<span class="keyword">new</span> String(bytes);</span><br><span class="line">System.out.println(str);</span><br><span class="line">字符数组构造</span><br><span class="line"><span class="keyword">char</span>[] chars=&#123;<span class="string">'a'</span>,<span class="string">'s'</span>,<span class="string">'d'</span>&#125;;</span><br><span class="line">String str2=<span class="keyword">new</span> String(chars);</span><br><span class="line">System.out.println(str2);</span><br></pre></td></tr></table></figure>
 <h4 id="1-3-2-比较（难点面试）"><a href="#1-3-2-比较（难点面试）" class="headerlink" title="1.3.2 比较（难点面试）"></a>1.3.2 比较（难点面试）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">常量池与常量池</span><br><span class="line">String s1=<span class="string">"abc"</span>;</span><br><span class="line">String s2=<span class="string">"abc"</span>;</span><br><span class="line">System.out.println(s1==s2);<span class="comment">//true</span></span><br><span class="line">System.out.println(s1.equals(s2));<span class="comment">//true</span></span><br><span class="line">堆与常量池</span><br><span class="line">String s1=<span class="keyword">new</span> String(<span class="string">"abc"</span>);<span class="comment">//创建2个对象</span></span><br><span class="line">String s2=<span class="string">"abc"</span>;</span><br><span class="line">System.out.println(s1==s2);<span class="comment">//false</span></span><br><span class="line">System.out.println(s1.equals(s2));<span class="comment">//true</span></span><br><span class="line">堆与堆</span><br><span class="line">String s1=<span class="keyword">new</span> String(<span class="string">"abc"</span>);</span><br><span class="line">String s2=<span class="keyword">new</span> String(<span class="string">"abc"</span>);</span><br><span class="line">System.out.println(s1==s2);<span class="comment">//false</span></span><br><span class="line">System.out.println(s1.equals(s2));<span class="comment">//true</span></span><br><span class="line">常量优化机制</span><br><span class="line">String s1=<span class="string">"abc"</span>;</span><br><span class="line">String s2=<span class="string">"a"</span>+<span class="string">"b"</span>+<span class="string">"c"</span>;</span><br><span class="line">System.out.println(s1==s2);<span class="comment">//true</span></span><br><span class="line">System.out.println(s1.equals(s2));<span class="comment">//true</span></span><br><span class="line">缓冲机制</span><br><span class="line">String s1=<span class="string">"ab"</span>;</span><br><span class="line">String s2=<span class="string">"abc"</span>;</span><br><span class="line">String s3=s1+<span class="string">"c"</span>;</span><br><span class="line">System.out.println(s2==s3);<span class="comment">//false</span></span><br><span class="line">System.out.println(s3.equals(s2));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<p><img src="/assets/堆缓冲原理.png" alt></p>
+<p><img src="/assets/堆缓冲原理.png" alt="堆缓冲原理"></p>
 <h4 id="1-3-3-函数"><a href="#1-3-3-函数" class="headerlink" title="1.3.3 函数"></a>1.3.3 函数</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">s1.contains(<span class="string">"str"</span>);</span><br><span class="line">s1.isEmpty();</span><br><span class="line">s1.length();</span><br><span class="line">s1.equals(<span class="string">"str"</span>);</span><br><span class="line">s1.substring(<span class="number">0</span>,<span class="number">4</span>);</span><br><span class="line">s1.split(<span class="string">"："</span>);</span><br><span class="line">s.replace(<span class="string">"j"</span>,<span class="string">"y"</span>);</span><br><span class="line">s.trim();<span class="comment">//注册时去除空格</span></span><br><span class="line"><span class="comment">//字符串反转</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">reverse2</span><span class="params">(String s)</span></span>&#123;</span><br><span class="line">    String str;</span><br><span class="line">    StringBuffer sbBuffer =<span class="keyword">new</span> StringBuffer(s);</span><br><span class="line">    str=sbBuffer.reverse().toString();</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br><span class="line">区别：</span><br><span class="line">“”是字符常量，也是一个string对象</span><br><span class="line"><span class="keyword">null</span>是空常量，不能调用任何方法</span><br><span class="line">思考：基本类型转换？</span><br></pre></td></tr></table></figure>
 <h3 id="1-4-stringbuffer"><a href="#1-4-stringbuffer" class="headerlink" title="1.4 stringbuffer"></a>1.4 stringbuffer</h3><p>java.lang包下，线程安全的，效率低，一个字符串缓冲区</p>
 <h4 id="1-4-1-构造"><a href="#1-4-1-构造" class="headerlink" title="1.4.1 构造"></a>1.4.1 构造</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">无参构造</span><br><span class="line">StringBuffer sb=<span class="keyword">new</span> StringBuffer();</span><br><span class="line">System.out.println(sb.length());<span class="comment">//0</span></span><br><span class="line">System.out.println(sb.capacity());<span class="comment">//16</span></span><br><span class="line">数值构造</span><br><span class="line">StringBuffer sb2=<span class="keyword">new</span> StringBuffer(<span class="number">10</span>);</span><br><span class="line">System.out.println(sb2.length());<span class="comment">//0</span></span><br><span class="line">System.out.println(sb2.capacity());<span class="comment">//10</span></span><br><span class="line">字符串构造</span><br><span class="line">StringBuffer sb3=<span class="keyword">new</span> StringBuffer(<span class="string">"itshw"</span>);</span><br><span class="line">System.out.println(sb3.length());<span class="comment">//5</span></span><br><span class="line">System.out.println(sb3.capacity());<span class="comment">//21	5+16</span></span><br></pre></td></tr></table></figure>
@@ -348,6 +363,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -398,7 +424,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/26/Java基础/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/02/26/Java基础知识/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -537,6 +563,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
