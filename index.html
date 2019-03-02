@@ -152,6 +152,89 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java字符串池深度解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/02/Java字符串池深度解析/">Java字符串池深度解析</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/02/Java字符串池深度解析/" class="archive-article-date">
+  	<time datetime="2019-03-02T13:01:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    </p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在工作中，String类是我们使用频率非常高的一种对象类型。JVM为了提升性能和减少内存开销，避免字符串的重复创建，其维护了一块特殊的内存空间，这就是我们今天要讨论的核心，即字符串池（String Pool）。字符串池由String类私有的维护。</p>
+<h2 id="字符串对象的创建"><a href="#字符串对象的创建" class="headerlink" title="字符串对象的创建"></a>字符串对象的创建</h2><p>我们知道，在Java中有两种创建字符串对象的方式：</p>
+<p>1）采用字面值的方式赋值  </p>
+<p>2）采用new关键字新建一个字符串对象。</p>
+<p>这两种方式在性能和内存占用方面存在着差别。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">string pool</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/02/Java字符串池深度解析/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-深入理解Java装箱与拆箱" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -173,7 +256,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="基本数据类型与包装类型"><a href="#基本数据类型与包装类型" class="headerlink" title="基本数据类型与包装类型"></a>基本数据类型与包装类型</h2><p>在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">基本数据类型		包装类型</span><br><span class="line"><span class="keyword">byte</span>			Byte</span><br><span class="line"><span class="keyword">short</span>			Short</span><br><span class="line"><span class="keyword">int</span>				Integer</span><br><span class="line"><span class="keyword">long</span>			Long</span><br><span class="line"><span class="keyword">float</span>			Float</span><br><span class="line"><span class="keyword">double</span>			Double</span><br><span class="line"><span class="keyword">char</span>			Character</span><br><span class="line"><span class="keyword">boolean</span>			Boolean</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">基本数据类型		包装类型</span><br><span class="line"><span class="keyword">byte</span>			Byte</span><br><span class="line"><span class="keyword">short</span>			Short</span><br><span class="line"><span class="keyword">int</span>			Integer</span><br><span class="line"><span class="keyword">long</span>			Long</span><br><span class="line"><span class="keyword">float</span>			Float</span><br><span class="line"><span class="keyword">double</span>			Double</span><br><span class="line"><span class="keyword">char</span>			Character</span><br><span class="line"><span class="keyword">boolean</span>			Boolean</span><br></pre></td></tr></table></figure>
         
       
 
@@ -385,6 +468,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
               </li>
             
             <div class="clearfix"></div>

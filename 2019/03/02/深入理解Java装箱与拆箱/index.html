@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://thailandking.github.io">
   <title>深入理解Java装箱与拆箱 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基本数据类型与包装类型在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型： 123456789基本数据类型		包装类型byte			Byteshort			Shortint				Integerlong			Longfloat			Floatdouble			Doublechar			Characterboolean			Boolean">
+  <meta name="description" content="基本数据类型与包装类型在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型： 123456789基本数据类型		包装类型byte			Byteshort			Shortint			Integerlong			Longfloat			Floatdouble			Doublechar			Characterboolean			Boolean">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解Java装箱与拆箱">
 <meta property="og:url" content="https://thailandking.github.io/2019/03/02/深入理解Java装箱与拆箱/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="基本数据类型与包装类型在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型： 123456789基本数据类型		包装类型byte			Byteshort			Shortint				Integerlong			Longfloat			Floatdouble			Doublechar			Characterboolean			Boolean">
+<meta property="og:description" content="基本数据类型与包装类型在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型： 123456789基本数据类型		包装类型byte			Byteshort			Shortint			Integerlong			Longfloat			Floatdouble			Doublechar			Characterboolean			Boolean">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-02T12:57:53.222Z">
+<meta property="og:updated_time" content="2019-03-02T13:50:25.767Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解Java装箱与拆箱">
-<meta name="twitter:description" content="基本数据类型与包装类型在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型： 123456789基本数据类型		包装类型byte			Byteshort			Shortint				Integerlong			Longfloat			Floatdouble			Doublechar			Characterboolean			Boolean">
+<meta name="twitter:description" content="基本数据类型与包装类型在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型： 123456789基本数据类型		包装类型byte			Byteshort			Shortint			Integerlong			Longfloat			Floatdouble			Doublechar			Characterboolean			Boolean">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -172,7 +172,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="基本数据类型与包装类型"><a href="#基本数据类型与包装类型" class="headerlink" title="基本数据类型与包装类型"></a>基本数据类型与包装类型</h2><p>在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">基本数据类型		包装类型</span><br><span class="line"><span class="keyword">byte</span>			Byte</span><br><span class="line"><span class="keyword">short</span>			Short</span><br><span class="line"><span class="keyword">int</span>				Integer</span><br><span class="line"><span class="keyword">long</span>			Long</span><br><span class="line"><span class="keyword">float</span>			Float</span><br><span class="line"><span class="keyword">double</span>			Double</span><br><span class="line"><span class="keyword">char</span>			Character</span><br><span class="line"><span class="keyword">boolean</span>			Boolean</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">基本数据类型		包装类型</span><br><span class="line"><span class="keyword">byte</span>			Byte</span><br><span class="line"><span class="keyword">short</span>			Short</span><br><span class="line"><span class="keyword">int</span>			Integer</span><br><span class="line"><span class="keyword">long</span>			Long</span><br><span class="line"><span class="keyword">float</span>			Float</span><br><span class="line"><span class="keyword">double</span>			Double</span><br><span class="line"><span class="keyword">char</span>			Character</span><br><span class="line"><span class="keyword">boolean</span>			Boolean</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="装箱与拆箱"><a href="#装箱与拆箱" class="headerlink" title="装箱与拆箱"></a>装箱与拆箱</h2><p>装箱：基本数据类型转换为包装类型</p>
 <p>拆箱：包装类型转换为基本数据类型</p>
@@ -297,6 +297,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/03/02/Java字符串池深度解析/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java字符串池深度解析
+        
+      </div>
+    </a>
   
   
     <a href="/2019/02/26/JavaSE基础知识/" id="article-nav-older" class="article-nav-link-wrap">
@@ -429,6 +438,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
               </li>
             
             <div class="clearfix"></div>
