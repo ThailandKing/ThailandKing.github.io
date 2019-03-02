@@ -172,17 +172,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="深入理解Java装箱与拆箱"><a href="#深入理解Java装箱与拆箱" class="headerlink" title="深入理解Java装箱与拆箱"></a>深入理解Java装箱与拆箱</h1><h2 id="基本数据类型与包装类型"><a href="#基本数据类型与包装类型" class="headerlink" title="基本数据类型与包装类型"></a>基本数据类型与包装类型</h2><p>在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型：</p>
-<pre><code>基本数据类型        包装类型
-byte            Byte
-short            Short
-int                Integer
-long            Long
-float            Float
-double            Double
-char            Character
-boolean            Boolean
-</code></pre>
+        <h2 id="基本数据类型与包装类型"><a href="#基本数据类型与包装类型" class="headerlink" title="基本数据类型与包装类型"></a>基本数据类型与包装类型</h2><p>在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">基本数据类型		包装类型</span><br><span class="line"><span class="keyword">byte</span>			Byte</span><br><span class="line"><span class="keyword">short</span>			Short</span><br><span class="line"><span class="keyword">int</span>				Integer</span><br><span class="line"><span class="keyword">long</span>			Long</span><br><span class="line"><span class="keyword">float</span>			Float</span><br><span class="line"><span class="keyword">double</span>			Double</span><br><span class="line"><span class="keyword">char</span>			Character</span><br><span class="line"><span class="keyword">boolean</span>			Boolean</span><br></pre></td></tr></table></figure>
         
       
 
@@ -256,8 +247,7 @@ boolean            Boolean
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h1><p>[TOC]</p>
-<h2 id="一、常见对象"><a href="#一、常见对象" class="headerlink" title="一、常见对象"></a>一、常见对象</h2><h3 id="1-1-object"><a href="#1-1-object" class="headerlink" title="1.1 object"></a>1.1 object</h3><p>根类，所有类的超类，java.lang包下</p>
+        <h2 id="一、常见对象"><a href="#一、常见对象" class="headerlink" title="一、常见对象"></a>一、常见对象</h2><h3 id="1-1-object"><a href="#1-1-object" class="headerlink" title="1.1 object"></a>1.1 object</h3><p>根类，所有类的超类，java.lang包下</p>
 <h4 id="1-1-1-hashCode"><a href="#1-1-1-hashCode" class="headerlink" title="1.1.1 hashCode"></a>1.1.1 hashCode</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">返回对象的哈希码值，物理地址</span><br><span class="line">Object obj=<span class="keyword">new</span> Object();</span><br><span class="line"><span class="keyword">int</span> hashCode = obj.hashCode();</span><br><span class="line">System.out.println(hashCode);</span><br><span class="line">堆内存相同，hashcode相同</span><br><span class="line">Student s1=<span class="keyword">new</span> Student(<span class="string">"wgt"</span>,<span class="number">21</span>);</span><br><span class="line">Student s2=<span class="keyword">new</span> Student(<span class="string">"shw"</span>,<span class="number">20</span>);</span><br><span class="line">Student s3=s1;</span><br><span class="line">System.out.println(s1.hashCode());</span><br><span class="line">System.out.println(s2.hashCode());</span><br><span class="line">System.out.println(s3.hashCode());</span><br></pre></td></tr></table></figure>
         
       

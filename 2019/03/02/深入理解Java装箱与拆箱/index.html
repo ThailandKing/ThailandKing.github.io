@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://thailandking.github.io">
   <title>深入理解Java装箱与拆箱 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="深入理解Java装箱与拆箱基本数据类型与包装类型在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型： 基本数据类型        包装类型 byte            Byte short            Short int                Integer long            Long float            Float do">
+  <meta name="description" content="基本数据类型与包装类型在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型： 123456789基本数据类型		包装类型byte			Byteshort			Shortint				Integerlong			Longfloat			Floatdouble			Doublechar			Characterboolean			Boolean">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解Java装箱与拆箱">
 <meta property="og:url" content="https://thailandking.github.io/2019/03/02/深入理解Java装箱与拆箱/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="深入理解Java装箱与拆箱基本数据类型与包装类型在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型： 基本数据类型        包装类型 byte            Byte short            Short int                Integer long            Long float            Float do">
+<meta property="og:description" content="基本数据类型与包装类型在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型： 123456789基本数据类型		包装类型byte			Byteshort			Shortint				Integerlong			Longfloat			Floatdouble			Doublechar			Characterboolean			Boolean">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-02T12:41:57.220Z">
+<meta property="og:updated_time" content="2019-03-02T12:57:53.222Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解Java装箱与拆箱">
-<meta name="twitter:description" content="深入理解Java装箱与拆箱基本数据类型与包装类型在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型： 基本数据类型        包装类型 byte            Byte short            Short int                Integer long            Long float            Float do">
+<meta name="twitter:description" content="基本数据类型与包装类型在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型： 123456789基本数据类型		包装类型byte			Byteshort			Shortint				Integerlong			Longfloat			Floatdouble			Doublechar			Characterboolean			Boolean">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -171,17 +171,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="深入理解Java装箱与拆箱"><a href="#深入理解Java装箱与拆箱" class="headerlink" title="深入理解Java装箱与拆箱"></a>深入理解Java装箱与拆箱</h1><h2 id="基本数据类型与包装类型"><a href="#基本数据类型与包装类型" class="headerlink" title="基本数据类型与包装类型"></a>基本数据类型与包装类型</h2><p>在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型：</p>
-<pre><code>基本数据类型        包装类型
-byte            Byte
-short            Short
-int                Integer
-long            Long
-float            Float
-double            Double
-char            Character
-boolean            Boolean
-</code></pre><a id="more"></a>
+        <h2 id="基本数据类型与包装类型"><a href="#基本数据类型与包装类型" class="headerlink" title="基本数据类型与包装类型"></a>基本数据类型与包装类型</h2><p>在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">基本数据类型		包装类型</span><br><span class="line"><span class="keyword">byte</span>			Byte</span><br><span class="line"><span class="keyword">short</span>			Short</span><br><span class="line"><span class="keyword">int</span>				Integer</span><br><span class="line"><span class="keyword">long</span>			Long</span><br><span class="line"><span class="keyword">float</span>			Float</span><br><span class="line"><span class="keyword">double</span>			Double</span><br><span class="line"><span class="keyword">char</span>			Character</span><br><span class="line"><span class="keyword">boolean</span>			Boolean</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="装箱与拆箱"><a href="#装箱与拆箱" class="headerlink" title="装箱与拆箱"></a>装箱与拆箱</h2><p>装箱：基本数据类型转换为包装类型</p>
 <p>拆箱：包装类型转换为基本数据类型</p>
 <h2 id="实现本质"><a href="#实现本质" class="headerlink" title="实现本质"></a>实现本质</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer i=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> j=i;</span><br></pre></td></tr></table></figure>
@@ -335,7 +327,7 @@ boolean            Boolean
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#深入理解Java装箱与拆箱"><span class="toc-number">1.</span> <span class="toc-text">深入理解Java装箱与拆箱</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本数据类型与包装类型"><span class="toc-number">1.1.</span> <span class="toc-text">基本数据类型与包装类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#装箱与拆箱"><span class="toc-number">1.2.</span> <span class="toc-text">装箱与拆箱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现本质"><span class="toc-number">1.3.</span> <span class="toc-text">实现本质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要有包装类型"><span class="toc-number">1.4.</span> <span class="toc-text">为什么要有包装类型</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本数据类型与包装类型"><span class="toc-number">1.</span> <span class="toc-text">基本数据类型与包装类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#装箱与拆箱"><span class="toc-number">2.</span> <span class="toc-text">装箱与拆箱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现本质"><span class="toc-number">3.</span> <span class="toc-text">实现本质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要有包装类型"><span class="toc-number">4.</span> <span class="toc-text">为什么要有包装类型</span></a></li></ol>
                     </div>
                 </span>
             </div>
