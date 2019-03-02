@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>Java字符串池深度解析 | thailandking</title>
+  <title>hashCode为何使用数字31 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概述在工作中，String类是我们使用频率非常高的一种对象类型。JVM为了提升性能和减少内存开销，避免字符串的重复创建，其维护了一块特殊的内存空间，这就是我们今天要讨论的核心，即字符串池（String Pool）。字符串池由String类私有的维护。 字符串对象的创建我们知道，在Java中有两种创建字符串对象的方式： 1）采用字面值的方式赋值   2）采用new关键字新建一个字符串对象。 这两种方">
-<meta name="keywords" content="java,string pool">
+  <meta name="description" content="源码123456789101112public int hashCode() &amp;#123;    int h = hash;    if (h == 0 &amp;amp;&amp;amp; value.length &amp;gt; 0) &amp;#123;        char val[] = value;        for (int i = 0; i &amp;lt; value.length; i++) &amp;#123;">
+<meta name="keywords" content="java,hashcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java字符串池深度解析">
-<meta property="og:url" content="https://thailandking.github.io/2019/03/02/Java字符串池深度解析/index.html">
+<meta property="og:title" content="hashCode为何使用数字31">
+<meta property="og:url" content="https://thailandking.github.io/2019/03/02/hashCode为何使用数字31/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="概述在工作中，String类是我们使用频率非常高的一种对象类型。JVM为了提升性能和减少内存开销，避免字符串的重复创建，其维护了一块特殊的内存空间，这就是我们今天要讨论的核心，即字符串池（String Pool）。字符串池由String类私有的维护。 字符串对象的创建我们知道，在Java中有两种创建字符串对象的方式： 1）采用字面值的方式赋值   2）采用new关键字新建一个字符串对象。 这两种方">
+<meta property="og:description" content="源码123456789101112public int hashCode() &amp;#123;    int h = hash;    if (h == 0 &amp;amp;&amp;amp; value.length &amp;gt; 0) &amp;#123;        char val[] = value;        for (int i = 0; i &amp;lt; value.length; i++) &amp;#123;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-02T15:27:09.570Z">
+<meta property="og:updated_time" content="2019-03-02T15:43:55.360Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java字符串池深度解析">
-<meta name="twitter:description" content="概述在工作中，String类是我们使用频率非常高的一种对象类型。JVM为了提升性能和减少内存开销，避免字符串的重复创建，其维护了一块特殊的内存空间，这就是我们今天要讨论的核心，即字符串池（String Pool）。字符串池由String类私有的维护。 字符串对象的创建我们知道，在Java中有两种创建字符串对象的方式： 1）采用字面值的方式赋值   2）采用new关键字新建一个字符串对象。 这两种方">
+<meta name="twitter:title" content="hashCode为何使用数字31">
+<meta name="twitter:description" content="源码123456789101112public int hashCode() &amp;#123;    int h = hash;    if (h == 0 &amp;amp;&amp;amp; value.length &amp;gt; 0) &amp;#123;        char val[] = value;        for (int i = 0; i &amp;lt; value.length; i++) &amp;#123;">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -151,49 +151,32 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java字符串池深度解析" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-hashCode为何使用数字31" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Java字符串池深度解析
+      hashCode为何使用数字31
     </h1>
   
 
         
-        <a href="/2019/03/02/Java字符串池深度解析/" class="archive-article-date">
-  	<time datetime="2019-03-02T13:01:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
+        <a href="/2019/03/02/hashCode为何使用数字31/" class="archive-article-date">
+  	<time datetime="2019-03-02T15:33:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在工作中，String类是我们使用频率非常高的一种对象类型。JVM为了提升性能和减少内存开销，避免字符串的重复创建，其维护了一块特殊的内存空间，这就是我们今天要讨论的核心，即字符串池（String Pool）。字符串池由String类私有的维护。</p>
-<h2 id="字符串对象的创建"><a href="#字符串对象的创建" class="headerlink" title="字符串对象的创建"></a>字符串对象的创建</h2><p>我们知道，在Java中有两种创建字符串对象的方式：</p>
-<p>1）采用字面值的方式赋值  </p>
-<p>2）采用new关键字新建一个字符串对象。</p>
-<p>这两种方式在性能和内存占用方面存在着差别。</p>
-<a id="more"></a>
-<p>方式一：采用字面值的方式赋值，例如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String str1=<span class="string">"aaa"</span>;</span><br><span class="line">String str2=<span class="string">"aaa"</span>;</span><br><span class="line">System.out.println(str1==str2);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<p>采用字面值的方式创建一个字符串时，JVM首先会去字符串池中查找是否存在”aaa”这个对象，如果不存在，则在字符串池中创建”aaa”这个对象，然后将池中”aaa”这个对象的引用地址返回给字符串常量str，这样str会指向池中”aaa”这个字符串对象；如果存在，则不创建任何对象，直接将池中”aaa”这个对象的地址返回，赋给字符串常量。</p>
-<p>方式二：采用new关键字新建一个字符串对象，例如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String str3=<span class="keyword">new</span> String(<span class="string">"aaa"</span>);</span><br><span class="line">String str4=<span class="keyword">new</span> String(<span class="string">"aaa"</span>);</span><br><span class="line">System.out.println(str3==str4);<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-<p>采用new关键字创建对象时，每次new出来的都是一个新的对象，也即是说引用str3和str4指向的是两个不同的对象，因此语句System.out.println(str3 == str4)输出：false。</p>
-<h2 id="new-String-“abc”-本质"><a href="#new-String-“abc”-本质" class="headerlink" title="new String(“abc”)本质"></a>new String(“abc”)本质</h2><p>采用new关键字新建一个字符串对象时，JVM首先在字符串池中查找有没有”abc”这个字符串对象，如果有，则不在池中再去创建”abc”这个对象了，直接在堆中创建一个”abc”字符串对象，然后将堆中的这个”abc”对象的地址返回赋给引用str，这样str就指向了堆中创建的这个”abc”字符串对象；如果没有，则首先在字符串池中创建一个”abc”字符串对象，然后再在堆中创建一个”abc”字符串对象，然后将堆中这个”abc”字符串对象的地址返回赋给str引用，这样str指向了堆中创建的这个”abc”字符串对象。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="keyword">new</span> String(<span class="string">"abc"</span>);</span><br></pre></td></tr></table></figure>
-<p>先使用 javac编译、然后javap -verbose 进行反编译，得到以下内容：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line">Constant pool:</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">   #2 = Class              #18            // java/lang/String</span><br><span class="line">   #3 = String             #19            // abc</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">  #18 = Utf8               java/lang/String</span><br><span class="line">  #19 = Utf8               abc</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(java.lang.String[])</span></span>;</span><br><span class="line">    descriptor: ([Ljava/lang/String;)V</span><br><span class="line">    flags: ACC_PUBLIC, ACC_STATIC</span><br><span class="line">    Code:</span><br><span class="line">      stack=<span class="number">3</span>, locals=<span class="number">2</span>, args_size=<span class="number">1</span></span><br><span class="line">         0: new           #2                  // class java/lang/String</span><br><span class="line">         <span class="number">3</span>: dup</span><br><span class="line">         4: ldc           #3                  // String abc</span><br><span class="line">         6: invokespecial #4                  // Method java/lang/String."&lt;init&gt;":(Ljava/lang/String;)V</span><br><span class="line">         <span class="number">9</span>: astore_1</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
-<p>在 Constant Pool 中，#19 存储这字符串字面量 “abc”，#3 是 String Pool 的字符串对象，它指向 #19 这个字符串字面量。在 main 方法中，0: 行使用 new #2 在堆中创建一个字符串对象，并且使用 ldc #3 将 String Pool 中的字符串对象作为 String 构造函数的参数。</p>
-<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><p>字符串池的优点就是避免了相同内容的字符串的创建，节省了内存，省去了创建相同字符串的时间，同时提升了性能；</p>
-<p>字符串池的缺点就是牺牲了JVM在常量池中遍历对象所需要的时间，不过其时间成本相比而言比较低</p>
-<h2 id="intern方法"><a href="#intern方法" class="headerlink" title="intern方法"></a>intern方法</h2><p>一个初始为空的字符串池，它由类String独自维护。当调用 intern方法时，如果池已经包含一个等于此String对象的字符串（用equals(oject)方法确定），则返回池中的字符串。否则，将此String对象添加到池中，并返回此String对象的引用。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="keyword">new</span> String(<span class="string">"aaa"</span>);</span><br><span class="line">String s3 = s1.intern();</span><br><span class="line">String s4 = s1.intern();</span><br><span class="line">System.out.println(s3 == s4);<span class="comment">// true</span></span><br><span class="line">System.out.println(s1 == s3);<span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-<h2 id="gc回收"><a href="#gc回收" class="headerlink" title="gc回收"></a>gc回收</h2><p>字符串池中维护了共享的字符串对象，这些字符串不会被垃圾收集器回收</p>
-<h2 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h2><p>在 Java 7 之前，String Pool 被放在方法区（运行时常量池）中，它属于永久代。而在 Java 7，String Pool 被移到堆中。这是因为永久代的空间有限，在大量使用字符串的场景下会导致 OutOfMemoryError 错误。</p>
+        <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> h = hash;</span><br><span class="line">    <span class="keyword">if</span> (h == <span class="number">0</span> &amp;&amp; value.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">char</span> val[] = value;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; value.length; i++) &#123;</span><br><span class="line">            h = <span class="number">31</span> * h + val[i];</span><br><span class="line">        &#125;</span><br><span class="line">        hash = h;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> h;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="原因一：更少的乘积结果冲突"><a href="#原因一：更少的乘积结果冲突" class="headerlink" title="原因一：更少的乘积结果冲突"></a>原因一：更少的乘积结果冲突</h2><p>31是质子数中一个“不大不小”的存在，如果你使用的是一个如2的较小质数，那么得出的乘积会在一个很小的范围，很容易造成哈希值的冲突。而如果选择一个100以上的质数，得出的哈希值会超出int的最大范围，这两种都不合适。而如果对超过 50,000 个英文单词（由两个不同版本的 Unix 字典合并而成）进行 hash code 运算，并使用常数 31, 33, 37, 39 和 41 作为乘子，每个常数算出的哈希值冲突数都小于7个（国外大神做的测试），那么这几个数就被作为生成hashCode值得备选乘数了。 </p>
+<h2 id="原因二：31可以被JVM优化"><a href="#原因二：31可以被JVM优化" class="headerlink" title="原因二：31可以被JVM优化"></a>原因二：31可以被JVM优化</h2><p>JVM里最有效的计算方式就是进行位运算了： </p>
+<p>左移 &lt;&lt; : 左边的最高位丢弃，右边补全0（把 &lt;&lt; 左边的数据*2的移动次幂） </p>
+<p>右移 &gt;&gt; : 把&gt;&gt;左边的数据/2的移动次幂 </p>
+<p><code>31 * i = (i &lt;&lt; 5) - i（左边  31*2=62,右边   2*2^5-2=62）</code></p>
 
       
 
@@ -242,7 +225,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">string pool</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hashcode</a>
         		</li>
       		
 		</ul>
@@ -298,7 +281,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/02/Java字符串池深度解析/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/02/hashCode为何使用数字31/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -312,18 +295,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/02/深入理解Java中的String、StringBuilder与StringBuffer/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          深入理解Java中的String、StringBuilder与StringBuffer
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/02/深入理解Java装箱与拆箱/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">深入理解Java装箱与拆箱</div>
+    <a href="/2019/03/02/深入理解Java中的String、StringBuilder与StringBuffer/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">深入理解Java中的String、StringBuilder与StringBuffer</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -350,7 +324,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串对象的创建"><span class="toc-number">2.</span> <span class="toc-text">字符串对象的创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#new-String-“abc”-本质"><span class="toc-number">3.</span> <span class="toc-text">new String(“abc”)本质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优缺点"><span class="toc-number">4.</span> <span class="toc-text">优缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#intern方法"><span class="toc-number">5.</span> <span class="toc-text">intern方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gc回收"><span class="toc-number">6.</span> <span class="toc-text">gc回收</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新特性"><span class="toc-number">7.</span> <span class="toc-text">新特性</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#源码"><span class="toc-number">1.</span> <span class="toc-text">源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原因一：更少的乘积结果冲突"><span class="toc-number">2.</span> <span class="toc-text">原因一：更少的乘积结果冲突</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原因二：31可以被JVM优化"><span class="toc-number">3.</span> <span class="toc-text">原因二：31可以被JVM优化</span></a></li></ol>
                     </div>
                 </span>
             </div>
