@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>transient与volatile关键字 | thailandking</title>
+  <title>巧用Arrays工具类 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="volatilevolatile修饰的成员变量在每次被线程访问时，都强迫从主内存中重读该成员变量的值。而且，当成员变量发生变化时，强迫线程将变化值回写到主内存。这样在任何时刻，两个不同的线程总是看到某个成员变量的同一个值。 Java语言规范中指出：为了获得最佳速度，允许线程保存共享成员变量的私有拷贝，而且只当线程进入或者离开同步代码块时才与共享成员变量的原始值对比。          这样当多个线">
-<meta name="keywords" content="java,transient,volatile">
+  <meta name="description" content="toString将数组中的数据转换为字符串形式输出 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;System.out.println(Arrays.toString(arr)); sort将数组中的元素进行排序 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;Arrays.sort(arr);">
+<meta name="keywords" content="java,Arrays">
 <meta property="og:type" content="article">
-<meta property="og:title" content="transient与volatile关键字">
-<meta property="og:url" content="https://thailandking.github.io/2019/03/03/transient与volatile关键字/index.html">
+<meta property="og:title" content="巧用Arrays工具类">
+<meta property="og:url" content="https://thailandking.github.io/2019/03/03/巧用Arrays工具类/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="volatilevolatile修饰的成员变量在每次被线程访问时，都强迫从主内存中重读该成员变量的值。而且，当成员变量发生变化时，强迫线程将变化值回写到主内存。这样在任何时刻，两个不同的线程总是看到某个成员变量的同一个值。 Java语言规范中指出：为了获得最佳速度，允许线程保存共享成员变量的私有拷贝，而且只当线程进入或者离开同步代码块时才与共享成员变量的原始值对比。          这样当多个线">
+<meta property="og:description" content="toString将数组中的数据转换为字符串形式输出 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;System.out.println(Arrays.toString(arr)); sort将数组中的元素进行排序 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;Arrays.sort(arr);">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-03T09:09:55.035Z">
+<meta property="og:updated_time" content="2019-03-03T14:15:15.560Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="transient与volatile关键字">
-<meta name="twitter:description" content="volatilevolatile修饰的成员变量在每次被线程访问时，都强迫从主内存中重读该成员变量的值。而且，当成员变量发生变化时，强迫线程将变化值回写到主内存。这样在任何时刻，两个不同的线程总是看到某个成员变量的同一个值。 Java语言规范中指出：为了获得最佳速度，允许线程保存共享成员变量的私有拷贝，而且只当线程进入或者离开同步代码块时才与共享成员变量的原始值对比。          这样当多个线">
+<meta name="twitter:title" content="巧用Arrays工具类">
+<meta name="twitter:description" content="toString将数组中的数据转换为字符串形式输出 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;System.out.println(Arrays.toString(arr)); sort将数组中的元素进行排序 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;Arrays.sort(arr);">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -151,37 +151,40 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-transient与volatile关键字" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-巧用Arrays工具类" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      transient与volatile关键字
+      巧用Arrays工具类
     </h1>
   
 
         
-        <a href="/2019/03/03/transient与volatile关键字/" class="archive-article-date">
-  	<time datetime="2019-03-03T03:18:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
+        <a href="/2019/03/03/巧用Arrays工具类/" class="archive-article-date">
+  	<time datetime="2019-03-03T13:53:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h2><p>volatile修饰的成员变量在每次被线程访问时，都强迫从主内存中重读该成员变量的值。而且，当成员变量发生变化时，强迫线程将变化值回写到主内存。这样在任何时刻，两个不同的线程总是看到某个成员变量的同一个值。</p>
-<p>Java语言规范中指出：为了获得最佳速度，允许线程保存共享成员变量的私有拷贝，而且只当线程进入或者离开同步代码块时才与共享成员变量的原始值对比。         </p>
-<p>这样当多个线程同时与某个对象交互时，就必须要注意到要让线程及时的得到共享成员变量的变化。           </p>
-<p>而volatile关键字就是提示VM：对于这个成员变量不能保存它的私有拷贝，而应直接与共享成员变量交互。         </p>
-<p>使用建议：在两个或者更多的线程访问的成员变量上使用volatile。当要访问的变量已在synchronized代码块中，或者为常量时，不必使用。由于使用volatile屏蔽掉了VM中必要的代码优化，所以在效率上比较低，因此一定在必要时才使用此关键字。 </p>
+        <h2 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString"></a>toString</h2><p>将数组中的数据转换为字符串形式输出</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer[] arr=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">System.out.println(Arrays.toString(arr));</span><br></pre></td></tr></table></figure>
+<h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><p>将数组中的元素进行排序</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer[] arr=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">Arrays.sort(arr);</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="transient"><a href="#transient" class="headerlink" title="transient"></a>transient</h2><p>Java的serialization提供了一种持久化对象实例的机制。当持久化对象时，可能有一个特殊的对象数据成员，我们不想用serialization机制来保存它。为了在一个特定对象的一个域上关闭serialization，可以在这个域前加上关键字transient。       </p>
-<p>transient是Java语言的关键字，用来表示一个域不是该对象串行化的一部分。当一个对象被串行化的时候，transient型变量的值不包括在串行化的表示中，然而非transient型的变量是被包括进去的。  </p>
-<p>注意static变量也是可以串行化的 。</p>
-<p>参考链接</p>
-<p><a href="https://www.cnblogs.com/wangmingshun/p/5389042.html" target="_blank" rel="noopener">https://www.cnblogs.com/wangmingshun/p/5389042.html</a> </p>
+<h2 id="binarySearch"><a href="#binarySearch" class="headerlink" title="binarySearch"></a>binarySearch</h2><p>二分查找数组中指定元素</p>
+<p>传入数组必须有序</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer[] arr=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> index=Arrays.binarySearch(arr,<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="asList"><a href="#asList" class="headerlink" title="asList"></a>asList</h2><p>将数组转换为集合，集合不能进行操作（添加、移除等）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread <span class="string">"main"</span> java.lang.UnsupportedOperationException</span><br></pre></td></tr></table></figure>
+<p>数组必须为引用类型（Integer/int）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//int[] arr=&#123;1,2,3&#125;;</span></span><br><span class="line">Integer[] arr=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">List&lt;Integer&gt; list = Arrays.asList(arr);</span><br><span class="line"><span class="comment">//list.add(4);</span></span><br><span class="line"><span class="keyword">for</span>(Integer a:list)&#123;</span><br><span class="line">    System.out.println(a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="copyOf"><a href="#copyOf" class="headerlink" title="copyOf"></a>copyOf</h2><p>数组拷贝</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] arr=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">int</span>[] copy = Arrays.copyOf(arr, arr.length + <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
 
       
 
@@ -230,11 +233,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">transient</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">volatile</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Arrays</a>
         		</li>
       		
 		</ul>
@@ -290,7 +289,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/03/transient与volatile关键字/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/03/巧用Arrays工具类/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -304,18 +303,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/03/无锁执行者CAS/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          无锁执行者CAS
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/02/hashCode为何使用数字31/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hashCode为何使用数字31</div>
+    <a href="/2019/03/03/Java位掩码在程序设计中的使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java位掩码在程序设计中的使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -342,7 +332,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#volatile"><span class="toc-number">1.</span> <span class="toc-text">volatile</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#transient"><span class="toc-number">2.</span> <span class="toc-text">transient</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#toString-NaN"><span class="toc-number">1.</span> <span class="toc-text">toString</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sort"><span class="toc-number">2.</span> <span class="toc-text">sort</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#binarySearch"><span class="toc-number">3.</span> <span class="toc-text">binarySearch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#asList"><span class="toc-number">4.</span> <span class="toc-text">asList</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#copyOf"><span class="toc-number">5.</span> <span class="toc-text">copyOf</span></a></li></ol>
                     </div>
                 </span>
             </div>
