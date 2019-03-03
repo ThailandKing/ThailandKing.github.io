@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="thailandking">
 <meta property="og:description" content="1234List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;String&amp;gt;();list.add(&quot;aaa&quot;);list.add(&quot;bbb&quot;);list.add(&quot;ccc&quot;); for循环123for(int i = 0 ; i &amp;lt; list.size() ; i++) &amp;#123;    system.out.println(list.get(i))">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-03T14:28:17.039Z">
+<meta property="og:updated_time" content="2019-03-03T14:55:49.011Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="List集合的遍历">
 <meta name="twitter:description" content="1234List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;String&amp;gt;();list.add(&quot;aaa&quot;);list.add(&quot;bbb&quot;);list.add(&quot;ccc&quot;); for循环123for(int i = 0 ; i &amp;lt; list.size() ; i++) &amp;#123;    system.out.println(list.get(i))">
@@ -174,9 +174,10 @@
         <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">list.add(<span class="string">"aaa"</span>);</span><br><span class="line">list.add(<span class="string">"bbb"</span>);</span><br><span class="line">list.add(<span class="string">"ccc"</span>);</span><br></pre></td></tr></table></figure>
 <h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; list.size() ; i++) &#123;</span><br><span class="line">    system.out.println(list.get(i));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="foreach"><a href="#foreach" class="headerlink" title="foreach"></a>foreach</h2><p>比较推荐使用</p>
+<h2 id="foreach"><a href="#foreach" class="headerlink" title="foreach"></a>foreach</h2><p>遍历比较推荐使用</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(String attribute : list) &#123;</span><br><span class="line">    System.out.println(attribute);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="iterator"><a href="#iterator" class="headerlink" title="iterator"></a>iterator</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Iterator it = list.iterator();</span><br><span class="line"><span class="keyword">while</span>(it.hasNext()) &#123;</span><br><span class="line">    System.ou.println(it.next);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="iterator"><a href="#iterator" class="headerlink" title="iterator"></a>iterator</h2><p>涉及到遍历操作只能使用迭代器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Iterator it = list.iterator();</span><br><span class="line"><span class="keyword">while</span>(it.hasNext()) &#123;</span><br><span class="line">    System.ou.println(it.next);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -442,11 +443,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
+                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -466,15 +471,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
+                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CAS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
               </li>
              
               <li class="article-tag-list-item">
