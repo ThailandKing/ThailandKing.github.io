@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>Tag: CAS | thailandking</title>
+  <title>Java中的编码与解码 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="personal blog">
-<meta name="keywords" content="computer，programming">
-<meta property="og:type" content="website">
-<meta property="og:title" content="thailandking">
-<meta property="og:url" content="https://thailandking.github.io/tags/CAS/index.html">
+  <meta name="description" content="编码与解码编码就是把字符转换为字节，而解码是把字节重新组合成字符。 如果编码和解码过程使用不同的编码方式那么就出现了乱码。  GBK 编码中，中文字符占 2 个字节，英文字符占 1 个字节； UTF-8 编码中，中文字符占 3 个字节，英文字符占 1 个字节； UTF-16be 编码中，中文字符和英文字符都占 2 个字节  UTF-16be 中的 be 指的是 Big Endian，也就是大端。相">
+<meta name="keywords" content="java,code">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java中的编码与解码">
+<meta property="og:url" content="https://thailandking.github.io/2019/03/05/Java中的编码与解码/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="personal blog">
+<meta property="og:description" content="编码与解码编码就是把字符转换为字节，而解码是把字节重新组合成字符。 如果编码和解码过程使用不同的编码方式那么就出现了乱码。  GBK 编码中，中文字符占 2 个字节，英文字符占 1 个字节； UTF-8 编码中，中文字符占 3 个字节，英文字符占 1 个字节； UTF-16be 编码中，中文字符和英文字符都占 2 个字节  UTF-16be 中的 be 指的是 Big Endian，也就是大端。相">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-05T03:17:02.929Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="thailandking">
-<meta name="twitter:description" content="personal blog">
+<meta name="twitter:title" content="Java中的编码与解码">
+<meta name="twitter:description" content="编码与解码编码就是把字符转换为字节，而解码是把字节重新组合成字符。 如果编码和解码过程使用不同的编码方式那么就出现了乱码。  GBK 编码中，中文字符占 2 个字节，英文字符占 1 个字节； UTF-8 编码中，中文字符占 3 个字节，英文字符占 1 个字节； UTF-16be 编码中，中文字符和英文字符都占 2 个字节  UTF-16be 中的 be 指的是 Big Endian，也就是大端。相">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -150,36 +151,81 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Java中的编码与解码" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/03/无锁执行者CAS/" class="archive-article-date">
-  	<time datetime="2019-03-03T03:41:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/03/无锁执行者CAS/">无锁执行者CAS</a>
+    <h1 class="article-title" itemprop="name">
+      Java中的编码与解码
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/05/Java中的编码与解码/" class="archive-article-date">
+  	<time datetime="2019-03-05T02:29:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="编码与解码"><a href="#编码与解码" class="headerlink" title="编码与解码"></a>编码与解码</h2><p>编码就是把字符转换为字节，而解码是把字节重新组合成字符。</p>
+<p>如果编码和解码过程使用不同的编码方式那么就出现了乱码。</p>
+<ul>
+<li>GBK 编码中，中文字符占 2 个字节，英文字符占 1 个字节；</li>
+<li>UTF-8 编码中，中文字符占 3 个字节，英文字符占 1 个字节；</li>
+<li>UTF-16be 编码中，中文字符和英文字符都占 2 个字节</li>
+</ul>
+<p>UTF-16be 中的 be 指的是 Big Endian，也就是大端。相应地也有 UTF-16le，le 指的是 Little Endian，也就是小端。</p>
+<p>Java 的内存编码使用双字节编码 UTF-16be，这不是指 Java 只支持这一种编码方式，而是说 char 这种类型使用 UTF-16be 进行编码。char 类型占 16 位，也就是两个字节，Java 使用这种双字节编码是为了让一个中文或者一个英文都能使用一个 char 来存储。</p>
+<a id="more"></a>
+<h2 id="编解码的常见使用"><a href="#编解码的常见使用" class="headerlink" title="编解码的常见使用"></a>编解码的常见使用</h2><p>1、流读取文件，具有转换编码功能的有：<strong>OutputStreamWriter</strong> 和 <strong>InputStreamReader</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建指定字符集的 InputStreamReader</span></span><br><span class="line">InputStreamReader(InputStream in, String CharsetName)</span><br><span class="line"><span class="comment">// 创建使用指定字符集的 OutputStreamWriter</span></span><br><span class="line">OutputStreamWriter(OutputStream out, String CharsetName)</span><br></pre></td></tr></table></figure>
+<p>2、处理字符串编码问题 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//a. 重新对获取的字符串进行编码</span></span><br><span class="line">Byte[] bytes = str.getBytes(String encodeCharName);</span><br><span class="line"></span><br><span class="line"><span class="comment">//b. 重新对bytes进行编码，创建新的字符串对象</span></span><br><span class="line">str = <span class="keyword">new</span> String(Byte[] bytes, String decodeCharsetName);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一般结合使用</span></span><br><span class="line">str = <span class="keyword">new</span> String(str.getBytes(String encodeName), String decodeCharsetName);</span><br></pre></td></tr></table></figure>
+<p>3、处理请求参数传递编码问题  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java中编码：URLEncoder.encode(strUri, “UTF-<span class="number">8</span>”); </span><br><span class="line">java中解码：URLDecoder.decode(strUri, “UTF-<span class="number">8</span>”);</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixinpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -189,25 +235,125 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CAS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/05/Java中的编码与解码/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/03/03/线程安全的ArrayList/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">线程安全的ArrayList</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#编码与解码"><span class="toc-number">1.</span> <span class="toc-text">编码与解码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编解码的常见使用"><span class="toc-number">2.</span> <span class="toc-text">编解码的常见使用</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -226,9 +372,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
