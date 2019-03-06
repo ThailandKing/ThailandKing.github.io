@@ -6,20 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>巧用Arrays工具类 | thailandking</title>
+  <title>Java三大体系整合 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="toString将数组中的数据转换为字符串形式输出 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;System.out.println(Arrays.toString(arr)); sort将数组中的元素进行排序 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;Arrays.sort(arr);">
-<meta name="keywords" content="java,Arrays">
+  <meta name="description" content="容器体系迭代器模式       异常体系   IO体系装饰者模式 字节流输入流：   输出流：    字符流输入流：   输出流：">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="巧用Arrays工具类">
-<meta property="og:url" content="https://thailandking.github.io/2019/03/03/巧用Arrays工具类/index.html">
+<meta property="og:title" content="Java三大体系整合">
+<meta property="og:url" content="https://thailandking.github.io/2019/03/06/Java三大体系整合/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="toString将数组中的数据转换为字符串形式输出 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;System.out.println(Arrays.toString(arr)); sort将数组中的元素进行排序 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;Arrays.sort(arr);">
+<meta property="og:description" content="容器体系迭代器模式       异常体系   IO体系装饰者模式 字节流输入流：   输出流：    字符流输入流：   输出流：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-03T14:15:15.560Z">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/06/Java三大体系整合/集合体系.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/06/Java三大体系整合/map体系.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/06/Java三大体系整合/异常体系.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/06/Java三大体系整合/input字节流.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/06/Java三大体系整合/output字节流.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/06/Java三大体系整合/reader字符流.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/06/Java三大体系整合/writer字符流.png">
+<meta property="og:updated_time" content="2019-03-06T15:18:52.575Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="巧用Arrays工具类">
-<meta name="twitter:description" content="toString将数组中的数据转换为字符串形式输出 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;System.out.println(Arrays.toString(arr)); sort将数组中的元素进行排序 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;Arrays.sort(arr);">
+<meta name="twitter:title" content="Java三大体系整合">
+<meta name="twitter:description" content="容器体系迭代器模式       异常体系   IO体系装饰者模式 字节流输入流：   输出流：    字符流输入流：   输出流：">
+<meta name="twitter:image" content="https://thailandking.github.io/2019/03/06/Java三大体系整合/集合体系.png">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -151,40 +159,41 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-巧用Arrays工具类" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java三大体系整合" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      巧用Arrays工具类
+      Java三大体系整合
     </h1>
   
 
         
-        <a href="/2019/03/03/巧用Arrays工具类/" class="archive-article-date">
-  	<time datetime="2019-03-03T13:53:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
+        <a href="/2019/03/06/Java三大体系整合/" class="archive-article-date">
+  	<time datetime="2019-03-06T15:05:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString"></a>toString</h2><p>将数组中的数据转换为字符串形式输出</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer[] arr=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">System.out.println(Arrays.toString(arr));</span><br></pre></td></tr></table></figure>
-<h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><p>将数组中的元素进行排序</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer[] arr=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">Arrays.sort(arr);</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="binarySearch"><a href="#binarySearch" class="headerlink" title="binarySearch"></a>binarySearch</h2><p>二分查找数组中指定元素</p>
-<p>传入数组必须有序</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer[] arr=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> index=Arrays.binarySearch(arr,<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="asList"><a href="#asList" class="headerlink" title="asList"></a>asList</h2><p>将数组转换为集合，集合不能进行操作（添加、移除等）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread <span class="string">"main"</span> java.lang.UnsupportedOperationException</span><br></pre></td></tr></table></figure>
-<p>数组必须为引用类型（Integer/int）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//int[] arr=&#123;1,2,3&#125;;</span></span><br><span class="line">Integer[] arr=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">List&lt;Integer&gt; list = Arrays.asList(arr);</span><br><span class="line"><span class="comment">//list.add(4);</span></span><br><span class="line"><span class="keyword">for</span>(Integer a:list)&#123;</span><br><span class="line">    System.out.println(a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="copyOf"><a href="#copyOf" class="headerlink" title="copyOf"></a>copyOf</h2><p>数组拷贝</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] arr=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">int</span>[] copy = Arrays.copyOf(arr, arr.length + <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+        <h2 id="容器体系"><a href="#容器体系" class="headerlink" title="容器体系"></a>容器体系</h2><p>迭代器模式</p>
+<p><div align="center"> <img src="/2019/03/06/Java三大体系整合/集合体系.png" alt></div></p>
+<p> <br></p>
+<p><div align="center"> <img src="/2019/03/06/Java三大体系整合/map体系.png" alt></div><br></p>
+<h2 id="异常体系"><a href="#异常体系" class="headerlink" title="异常体系"></a>异常体系</h2><p> <div align="center"> <img src="/2019/03/06/Java三大体系整合/异常体系.png" alt></div><br></p>
+<h2 id="IO体系"><a href="#IO体系" class="headerlink" title="IO体系"></a>IO体系</h2><p>装饰者模式</p>
+<h3 id="字节流"><a href="#字节流" class="headerlink" title="字节流"></a>字节流</h3><p>输入流：</p>
+<p><div align="center"> <img src="/2019/03/06/Java三大体系整合/input字节流.png" alt></div><br></p>
+<p>输出流：</p>
+<p><div align="center"> <img src="/2019/03/06/Java三大体系整合/output字节流.png" alt></div></p>
+<p><br></p>
+<h3 id="字符流"><a href="#字符流" class="headerlink" title="字符流"></a>字符流</h3><p>输入流：</p>
+<p><div align="center"> <img src="/2019/03/06/Java三大体系整合/reader字符流.png" alt></div><br></p>
+<p>输出流：</p>
+<p><div align="center"> <img src="/2019/03/06/Java三大体系整合/writer字符流.png" alt></div><br></p>
 
       
 
@@ -230,10 +239,6 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Arrays</a>
         		</li>
       		
 		</ul>
@@ -289,7 +294,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/03/巧用Arrays工具类/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/06/Java三大体系整合/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -303,18 +308,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/03/List集合的遍历/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          List集合的遍历
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/03/Java位掩码在程序设计中的使用/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java位掩码在程序设计中的使用</div>
+    <a href="/2019/03/05/HashMap内部解析/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HashMap内部解析</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -341,7 +337,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#toString-NaN"><span class="toc-number">1.</span> <span class="toc-text">toString</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sort"><span class="toc-number">2.</span> <span class="toc-text">sort</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#binarySearch"><span class="toc-number">3.</span> <span class="toc-text">binarySearch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#asList"><span class="toc-number">4.</span> <span class="toc-text">asList</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#copyOf"><span class="toc-number">5.</span> <span class="toc-text">copyOf</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#容器体系"><span class="toc-number">1.</span> <span class="toc-text">容器体系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异常体系"><span class="toc-number">2.</span> <span class="toc-text">异常体系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IO体系"><span class="toc-number">3.</span> <span class="toc-text">IO体系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字节流"><span class="toc-number">3.1.</span> <span class="toc-text">字节流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符流"><span class="toc-number">3.2.</span> <span class="toc-text">字符流</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
