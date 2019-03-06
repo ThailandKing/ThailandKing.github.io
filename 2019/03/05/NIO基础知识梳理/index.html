@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://thailandking.github.io/2019/03/05/NIO基础知识梳理/4.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/03/05/NIO基础知识梳理/5.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/03/05/NIO基础知识梳理/6.jpg">
-<meta property="og:updated_time" content="2019-03-05T13:39:49.704Z">
+<meta property="og:updated_time" content="2019-03-05T14:35:47.482Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NIO基础知识梳理">
 <meta name="twitter:description" content="简介java.nio全称java non-blocking IO，是指jdk1.4 及以上版本里提供的新api（New IO）， 为所有的原始类型（boolean类型除外）提供缓存支持的数据容器，使用它可以提供非阻塞式的高伸缩性网络。 流与块I/O 与 NIO 最重要的区别是数据打包和传输的方式，I/O 以流的方式处理数据，而 NIO 以块的方式处理数据。 面向流的 I/O 一次处理一个字节数据：">
@@ -259,8 +259,10 @@
 <li>NIO 是非阻塞的；</li>
 <li>NIO 面向块，I/O 面向流</li>
 </ul>
-<h2 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h2><p><a href="https://cyc2018.github.io/CS-Notes/#/notes/Java%20IO?id=%e4%b8%83%e3%80%81nio" target="_blank" rel="noopener">https://cyc2018.github.io/CS-Notes/#/notes/Java%20IO?id=%e4%b8%83%e3%80%81nio</a></p>
-<p>## </p>
+<h2 id="参考说明"><a href="#参考说明" class="headerlink" title="参考说明"></a>参考说明</h2><p>原文链接：</p>
+<p><a href="https://cyc2018.github.io/CS-Notes/#/notes/Java%20IO?id=%e4%b8%83%e3%80%81nio" target="_blank" rel="noopener">https://cyc2018.github.io/CS-Notes/#/notes/Java%20IO?id=%e4%b8%83%e3%80%81nio</a></p>
+<p>扩展：</p>
+<p><a href="https://blog.csdn.net/HUXINY/article/details/79900479" target="_blank" rel="noopener">https://blog.csdn.net/HUXINY/article/details/79900479</a></p>
 
       
 
@@ -379,6 +381,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/03/05/HashMap内部解析/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          HashMap内部解析
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/03/05/序列化与反序列化/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">序列化与反序列化</div>
@@ -408,7 +419,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流与块"><span class="toc-number">2.</span> <span class="toc-text">流与块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通道与缓冲区"><span class="toc-number">3.</span> <span class="toc-text">通道与缓冲区</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、通道"><span class="toc-number">3.1.</span> <span class="toc-text">1、通道</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-缓冲区"><span class="toc-number">3.2.</span> <span class="toc-text">2. 缓冲区</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缓冲区状态变量"><span class="toc-number">4.</span> <span class="toc-text">缓冲区状态变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件-NIO-实例"><span class="toc-number">5.</span> <span class="toc-text">文件 NIO 实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择器"><span class="toc-number">6.</span> <span class="toc-text">选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-创建选择器"><span class="toc-number">6.1.</span> <span class="toc-text">1. 创建选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-将通道注册到选择器上"><span class="toc-number">6.2.</span> <span class="toc-text">2. 将通道注册到选择器上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-监听事件"><span class="toc-number">6.3.</span> <span class="toc-text">3. 监听事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-获取到达的事件"><span class="toc-number">6.4.</span> <span class="toc-text">4. 获取到达的事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-事件循环"><span class="toc-number">6.5.</span> <span class="toc-text">5. 事件循环</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#套接字-NIO-实例"><span class="toc-number">7.</span> <span class="toc-text">套接字 NIO 实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存映射文件"><span class="toc-number">8.</span> <span class="toc-text">内存映射文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对比"><span class="toc-number">9.</span> <span class="toc-text">对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原文链接"><span class="toc-number">10.</span> <span class="toc-text">原文链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流与块"><span class="toc-number">2.</span> <span class="toc-text">流与块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通道与缓冲区"><span class="toc-number">3.</span> <span class="toc-text">通道与缓冲区</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、通道"><span class="toc-number">3.1.</span> <span class="toc-text">1、通道</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-缓冲区"><span class="toc-number">3.2.</span> <span class="toc-text">2. 缓冲区</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缓冲区状态变量"><span class="toc-number">4.</span> <span class="toc-text">缓冲区状态变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件-NIO-实例"><span class="toc-number">5.</span> <span class="toc-text">文件 NIO 实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择器"><span class="toc-number">6.</span> <span class="toc-text">选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-创建选择器"><span class="toc-number">6.1.</span> <span class="toc-text">1. 创建选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-将通道注册到选择器上"><span class="toc-number">6.2.</span> <span class="toc-text">2. 将通道注册到选择器上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-监听事件"><span class="toc-number">6.3.</span> <span class="toc-text">3. 监听事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-获取到达的事件"><span class="toc-number">6.4.</span> <span class="toc-text">4. 获取到达的事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-事件循环"><span class="toc-number">6.5.</span> <span class="toc-text">5. 事件循环</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#套接字-NIO-实例"><span class="toc-number">7.</span> <span class="toc-text">套接字 NIO 实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存映射文件"><span class="toc-number">8.</span> <span class="toc-text">内存映射文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对比"><span class="toc-number">9.</span> <span class="toc-text">对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考说明"><span class="toc-number">10.</span> <span class="toc-text">参考说明</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -513,35 +524,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transient</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -553,7 +544,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string</a>
+                <a href="javascript:void(0)" class="js-tag color5">transient</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -562,6 +561,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CAS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">string</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">hashmap</a>
               </li>
              
               <li class="article-tag-list-item">
