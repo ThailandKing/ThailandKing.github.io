@@ -6,19 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>Tag: ArrayList | thailandking</title>
+  <title>TCP与UDP | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="personal blog">
-<meta name="keywords" content="computer，programming">
-<meta property="og:type" content="website">
-<meta property="og:title" content="thailandking">
-<meta property="og:url" content="https://thailandking.github.io/tags/ArrayList/index.html">
+  <meta name="description" content="TCP与UDP特点 TCP是面向连接的，可靠传输，有流量控制、拥塞控制，面向字节流 UDP是无连接的，不可靠传输，无流量控制、拥塞控制，面向报文 TCP主要用于可靠数据传输 UDP主要用于流媒体技术  UDP 首部格式    首部字段只有 8 个字节，包括源端口、目的端口、长度、检验和。 12 字节的伪首部是为了计算检验和临时添加的。">
+<meta name="keywords" content="tcp,udp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TCP与UDP">
+<meta property="og:url" content="https://thailandking.github.io/2019/03/07/TCP与UDP/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="personal blog">
+<meta property="og:description" content="TCP与UDP特点 TCP是面向连接的，可靠传输，有流量控制、拥塞控制，面向字节流 UDP是无连接的，不可靠传输，无流量控制、拥塞控制，面向报文 TCP主要用于可靠数据传输 UDP主要用于流媒体技术  UDP 首部格式    首部字段只有 8 个字节，包括源端口、目的端口、长度、检验和。 12 字节的伪首部是为了计算检验和临时添加的。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/07/TCP与UDP/1.jpg">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/07/TCP与UDP/2.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/07/TCP与UDP/3.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/07/TCP与UDP/4.jpg">
+<meta property="og:image" content="https://latex.codecogs.com/gif.latex?RTTs=(1-a)*(RTTs)+a*RTT">
+<meta property="og:image" content="https://latex.codecogs.com/gif.latex?RTO=RTTs+4*RTT_d">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/07/TCP与UDP/5.jpg">
+<meta property="og:updated_time" content="2019-03-07T15:22:34.782Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="thailandking">
-<meta name="twitter:description" content="personal blog">
+<meta name="twitter:title" content="TCP与UDP">
+<meta name="twitter:description" content="TCP与UDP特点 TCP是面向连接的，可靠传输，有流量控制、拥塞控制，面向字节流 UDP是无连接的，不可靠传输，无流量控制、拥塞控制，面向报文 TCP主要用于可靠数据传输 UDP主要用于流媒体技术  UDP 首部格式    首部字段只有 8 个字节，包括源端口、目的端口、长度、检验和。 12 字节的伪首部是为了计算检验和临时添加的。">
+<meta name="twitter:image" content="https://thailandking.github.io/2019/03/07/TCP与UDP/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -150,64 +159,292 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-TCP与UDP" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/03/线程安全的ArrayList/" class="archive-article-date">
-  	<time datetime="2019-03-03T14:31:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/03/线程安全的ArrayList/">线程安全的ArrayList</a>
+    <h1 class="article-title" itemprop="name">
+      TCP与UDP
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/07/TCP与UDP/" class="archive-article-date">
+  	<time datetime="2019-03-07T14:24:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="TCP与UDP特点"><a href="#TCP与UDP特点" class="headerlink" title="TCP与UDP特点"></a>TCP与UDP特点</h2><ul>
+<li>TCP是面向连接的，可靠传输，有流量控制、拥塞控制，面向字节流</li>
+<li>UDP是无连接的，不可靠传输，无流量控制、拥塞控制，面向报文</li>
+<li>TCP主要用于可靠数据传输</li>
+<li>UDP主要用于流媒体技术</li>
+</ul>
+<h2 id="UDP-首部格式"><a href="#UDP-首部格式" class="headerlink" title="UDP 首部格式"></a>UDP 首部格式</h2><p><div align="center"> <img src="/2019/03/07/TCP与UDP/1.jpg" width="600"> </div></p>
+<p><br></p>
+<p>首部字段只有 8 个字节，包括源端口、目的端口、长度、检验和。</p>
+<p>12 字节的伪首部是为了计算检验和临时添加的。</p>
+<a id="more"></a>
+<h2 id="TCP-首部格式"><a href="#TCP-首部格式" class="headerlink" title="TCP 首部格式"></a>TCP 首部格式</h2><p><div align="center"> <img src="/2019/03/07/TCP与UDP/2.png" width="700"> </div></p>
+<p><br></p>
+<ul>
+<li><p><strong>20字节固定</strong></p>
+</li>
+<li><p><strong>序号</strong>  ：用于对字节流进行编号，例如序号为 301，表示第一个字节的编号为 301，如果携带的数据长度为 100 字节，那么下一个报文段的序号应为 401。</p>
+</li>
+<li><strong>确认号</strong>  ：期望收到的下一个报文段的序号。例如 B 正确收到 A 发送来的一个报文段，序号为 501，携带的数据长度为 200 字节，因此 B 期望下一个报文段的序号为 701，B 发送给 A 的确认报文段中确认号就为 701。</li>
+<li><strong>数据偏移</strong>  ：指的是数据部分距离报文段起始处的偏移量，实际上指的是首部的长度。</li>
+<li><strong>确认 ACK</strong>  ：当 ACK=1 时确认号字段有效，否则无效。TCP 规定，在连接建立后所有传送的报文段都必须把 ACK 置 1。</li>
+<li><strong>同步 SYN</strong>  ：在连接建立时用来同步序号。当 SYN=1，ACK=0 时表示这是一个连接请求报文段。若对方同意建立连接，则响应报文中 SYN=1，ACK=1。</li>
+<li><strong>终止 FIN</strong>  ：用来释放一个连接，当 FIN=1 时，表示此报文段的发送方的数据已发送完毕，并要求释放连接。</li>
+<li><strong>窗口</strong>  ：窗口值作为接收方让发送方设置其发送窗口的依据。之所以要有这个限制，是因为接收方的数据缓存空间是有限的。</li>
+</ul>
+<h2 id="TCP-的三次握手"><a href="#TCP-的三次握手" class="headerlink" title="TCP 的三次握手"></a>TCP 的三次握手</h2><p><div align="center"> <img src="/2019/03/07/TCP与UDP/3.png" width="600"> </div><br></p>
+<p>假设 A 为客户端，B 为服务器端。</p>
+<ul>
+<li>首先 B 处于 LISTEN（监听）状态，等待客户的连接请求。</li>
+<li>A 向 B 发送连接请求报文，SYN=1，ACK=0，选择一个初始的序号 x。</li>
+<li>B 收到连接请求报文，如果同意建立连接，则向 A 发送连接确认报文，SYN=1，ACK=1，确认号为 x+1，同时也选择一个初始的序号 y。</li>
+<li>A 收到 B 的连接确认报文后，还要向 B 发出确认，确认号为 y+1，序号为 x+1。</li>
+<li>B 收到 A 的确认后，连接建立。</li>
+</ul>
+<p><strong>三次握手的原因</strong> </p>
+<p>第三次握手是为了防止失效的连接请求到达服务器，让服务器错误打开连接。</p>
+<p>客户端发送的连接请求如果在网络中滞留，那么就会隔很长一段时间才能收到服务器端发回的连接确认。客户端等待一个超时重传时间之后，就会重新请求连接。但是这个滞留的连接请求最后还是会到达服务器，如果不进行三次握手，那么服务器就会打开两个连接。如果有第三次握手，客户端会忽略服务器之后发送的对滞留连接请求的连接确认，不进行第三次握手，因此就不会再次打开连接。</p>
+<h2 id="TCP-的四次挥手"><a href="#TCP-的四次挥手" class="headerlink" title="TCP 的四次挥手"></a>TCP 的四次挥手</h2><p><div align="center"> <img src="/2019/03/07/TCP与UDP/4.jpg" width="600"> </div></p>
+<p><br></p>
+<p>以下描述不讨论序号和确认号，因为序号和确认号的规则比较简单。并且不讨论 ACK，因为 ACK 在连接建立之后都为 1。</p>
+<ul>
+<li>A 发送连接释放报文，FIN=1。</li>
+<li>B 收到之后发出确认，此时 TCP 属于半关闭状态，B 能向 A 发送数据但是 A 不能向 B 发送数据。</li>
+<li>当 B 不再需要连接时，发送连接释放报文，FIN=1。</li>
+<li>A 收到后发出确认，进入 TIME-WAIT 状态，等待 2 MSL（最大报文存活时间）后释放连接。</li>
+<li>B 收到 A 的确认后释放连接。</li>
+</ul>
+<p><strong>四次挥手的原因</strong> </p>
+<p>客户端发送了 FIN 连接释放报文之后，服务器收到了这个报文，就进入了 CLOSE-WAIT 状态。这个状态是为了让服务器端发送还未传送完毕的数据，传送完毕之后，服务器会发送 FIN 连接释放报文。</p>
+<p><strong>TIME_WAIT</strong> </p>
+<p>客户端接收到服务器端的 FIN 报文后进入此状态，此时并不是直接进入 CLOSED 状态，还需要等待一个时间计时器设置的时间 2MSL。这么做有两个理由：</p>
+<ul>
+<li>确保最后一个确认报文能够到达。如果 B 没收到 A 发送来的确认报文，那么就会重新发送连接释放请求报文，A 等待一段时间就是为了处理这种情况的发生。</li>
+<li>等待一段时间是为了让本连接持续时间内所产生的所有报文都从网络中消失，使得下一个新的连接不会出现旧的连接请求报文。</li>
+</ul>
+<h2 id="TCP-可靠传输"><a href="#TCP-可靠传输" class="headerlink" title="TCP 可靠传输"></a>TCP 可靠传输</h2><h3 id="设置超时时间"><a href="#设置超时时间" class="headerlink" title="设置超时时间"></a>设置超时时间</h3><p>如果一个已经发送的报文段在超时时间内没有收到确认，那么就重传这个报文段。</p>
+<p>一个报文段从发送再到接收到确认所经过的时间称为往返时间 RTT，加权平均往返时间 RTTs 计算如下：</p>
+<p><div align="center"><img src="https://latex.codecogs.com/gif.latex?RTTs=(1-a)*(RTTs)+a*RTT"></div> <br></p>
+<p>超时时间 RTO 应该略大于 RTTs，TCP 使用的超时时间计算如下：</p>
+<p><div align="center"><img src="https://latex.codecogs.com/gif.latex?RTO=RTTs+4*RTT_d"></div> <br></p>
+<p>其中 RTT<sub>d</sub> 为偏差。</p>
+<h3 id="快速重传"><a href="#快速重传" class="headerlink" title="快速重传"></a>快速重传</h3><p>对重复ACK进行计数，达到3次进行重传</p>
+<h2 id="TCP-流量控制"><a href="#TCP-流量控制" class="headerlink" title="TCP 流量控制"></a>TCP 流量控制</h2><p>接收方处理数据慢，发送方发送数据快，造成缓存覆盖</p>
+<p>利用报文段中receive window进行说明（将窗口字段设置为 0，则发送方不能发送数据）</p>
+<h2 id="TCP-拥塞控制"><a href="#TCP-拥塞控制" class="headerlink" title="TCP 拥塞控制"></a>TCP 拥塞控制</h2><p>当发生拥塞时，会造成大量分组丢失/延迟</p>
+<h3 id="感知拥塞"><a href="#感知拥塞" class="headerlink" title="感知拥塞"></a>感知拥塞</h3><p>当出现超时未反馈或者连续收到接收方的3个冗余ACK，则出现丢包事件。则发送方认为在发送方到接收方的路径上出现了拥塞的指示。  </p>
+<h3 id="拥塞控制"><a href="#拥塞控制" class="headerlink" title="拥塞控制"></a>拥塞控制</h3><p>合理调整发送速率</p>
+<h4 id="AIMD（加性增乘性减）"><a href="#AIMD（加性增乘性减）" class="headerlink" title="AIMD（加性增乘性减）"></a>AIMD（加性增乘性减）</h4><ul>
+<li>加性增：每个RTT将CongWin增大一个MSS</li>
+<li>乘性减：发生loss时CongWin减为一半</li>
+</ul>
+<h4 id="慢启动"><a href="#慢启动" class="headerlink" title="慢启动"></a>慢启动</h4><ul>
+<li>Threshold为上次loss时CongWin的一半</li>
+<li>指数增长到Threshold</li>
+<li>线性增长</li>
+<li>发生loss事件，Threshold变为CongWin一半，CongWin为1</li>
+</ul>
+<h4 id="控制算法"><a href="#控制算法" class="headerlink" title="控制算法"></a>控制算法</h4><ul>
+<li>Th为一个设定值</li>
+<li>CongWin为1MSS</li>
+<li>指数增长到Th</li>
+<li><p>线性增长</p>
+</li>
+<li><p>接收到3个重复ACK时，视作轻度拥塞</p>
+</li>
+<li>Th为CongWin的一半</li>
+<li>CongWin设置为Th，开始线性增长</li>
+<li>发生timeout事件时，视为重度拥塞</li>
+<li>Th为CongWin的一半</li>
+<li>CongWin设置为1，开始指数增长</li>
+</ul>
+<h2 id="流量控制vs拥塞控制"><a href="#流量控制vs拥塞控制" class="headerlink" title="流量控制vs拥塞控制"></a>流量控制vs拥塞控制</h2><ul>
+<li>流量控制：端到端之间</li>
+<li>拥塞控制：网络之间</li>
+</ul>
+<h2 id="TCP-滑动窗口"><a href="#TCP-滑动窗口" class="headerlink" title="TCP 滑动窗口"></a>TCP 滑动窗口</h2><p>窗口是缓存的一部分，用来暂时存放字节流。发送方和接收方各有一个窗口，接收方通过 TCP 报文段中的窗口字段告诉发送方自己的窗口大小，发送方根据这个值和其它信息设置自己的窗口大小。</p>
+<p>发送窗口内的字节都允许被发送，接收窗口内的字节都允许被接收。如果发送窗口左部的字节已经发送并且收到了确认，那么就将发送窗口向右滑动一定距离，直到左部第一个字节不是已发送并且已确认的状态；接收窗口的滑动类似，接收窗口左部字节已经发送确认并交付主机，就向右滑动接收窗口。</p>
+<p>接收窗口只会对窗口内最后一个按序到达的字节进行确认，例如接收窗口已经收到的字节为 {31, 34, 35}，其中 {31} 按序到达，而 {34, 35} 就不是，因此只对字节 31 进行确认。发送方得到一个字节的确认之后，就知道这个字节之前的所有字节都已经被接收。</p>
+<p><div align="center"> <img src="/2019/03/07/TCP与UDP/5.jpg" width="800"> </div><br></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixinpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">tcp</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ArrayList</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">udp</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/07/TCP与UDP/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/03/06/Java常见名词总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java常见名词总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP与UDP特点"><span class="toc-number">1.</span> <span class="toc-text">TCP与UDP特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UDP-首部格式"><span class="toc-number">2.</span> <span class="toc-text">UDP 首部格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-首部格式"><span class="toc-number">3.</span> <span class="toc-text">TCP 首部格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-的三次握手"><span class="toc-number">4.</span> <span class="toc-text">TCP 的三次握手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-的四次挥手"><span class="toc-number">5.</span> <span class="toc-text">TCP 的四次挥手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-可靠传输"><span class="toc-number">6.</span> <span class="toc-text">TCP 可靠传输</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置超时时间"><span class="toc-number">6.1.</span> <span class="toc-text">设置超时时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快速重传"><span class="toc-number">6.2.</span> <span class="toc-text">快速重传</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-流量控制"><span class="toc-number">7.</span> <span class="toc-text">TCP 流量控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-拥塞控制"><span class="toc-number">8.</span> <span class="toc-text">TCP 拥塞控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#感知拥塞"><span class="toc-number">8.1.</span> <span class="toc-text">感知拥塞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拥塞控制"><span class="toc-number">8.2.</span> <span class="toc-text">拥塞控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#AIMD（加性增乘性减）"><span class="toc-number">8.2.1.</span> <span class="toc-text">AIMD（加性增乘性减）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#慢启动"><span class="toc-number">8.2.2.</span> <span class="toc-text">慢启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#控制算法"><span class="toc-number">8.2.3.</span> <span class="toc-text">控制算法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流量控制vs拥塞控制"><span class="toc-number">9.</span> <span class="toc-text">流量控制vs拥塞控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-滑动窗口"><span class="toc-number">10.</span> <span class="toc-text">TCP 滑动窗口</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -226,9 +463,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
