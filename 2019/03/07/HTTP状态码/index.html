@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>线程安全的ArrayList | thailandking</title>
+  <title>HTTP状态码 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Collections获取12List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;&amp;gt;();List&amp;lt;String&amp;gt; synList = Collections.synchronizedList(list); CopyOnWriteArrayList推荐使用 concurrent 并发包下的 CopyOnWriteArrayList 类 1List">
-<meta name="keywords" content="java,ArrayList">
+  <meta name="description" content="服务器返回的  响应报文  中第一行为状态行，包含了状态码以及原因短语，用来告知客户端请求的结果。    状态码 类别 含义     1XX Informational（信息性状态码） 接收的请求正在处理   2XX Success（成功状态码） 请求正常处理完毕   3XX Redirection（重定向状态码） 需要进行附加操作以完成请求   4XX Client Error（客户端错误状态码">
+<meta name="keywords" content="http">
 <meta property="og:type" content="article">
-<meta property="og:title" content="线程安全的ArrayList">
-<meta property="og:url" content="https://thailandking.github.io/2019/03/03/线程安全的ArrayList/index.html">
+<meta property="og:title" content="HTTP状态码">
+<meta property="og:url" content="https://thailandking.github.io/2019/03/07/HTTP状态码/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="Collections获取12List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;&amp;gt;();List&amp;lt;String&amp;gt; synList = Collections.synchronizedList(list); CopyOnWriteArrayList推荐使用 concurrent 并发包下的 CopyOnWriteArrayList 类 1List">
+<meta property="og:description" content="服务器返回的  响应报文  中第一行为状态行，包含了状态码以及原因短语，用来告知客户端请求的结果。    状态码 类别 含义     1XX Informational（信息性状态码） 接收的请求正在处理   2XX Success（成功状态码） 请求正常处理完毕   3XX Redirection（重定向状态码） 需要进行附加操作以完成请求   4XX Client Error（客户端错误状态码">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-03T14:42:56.348Z">
+<meta property="og:updated_time" content="2019-03-07T15:38:19.813Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="线程安全的ArrayList">
-<meta name="twitter:description" content="Collections获取12List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;&amp;gt;();List&amp;lt;String&amp;gt; synList = Collections.synchronizedList(list); CopyOnWriteArrayList推荐使用 concurrent 并发包下的 CopyOnWriteArrayList 类 1List">
+<meta name="twitter:title" content="HTTP状态码">
+<meta name="twitter:description" content="服务器返回的  响应报文  中第一行为状态行，包含了状态码以及原因短语，用来告知客户端请求的结果。    状态码 类别 含义     1XX Informational（信息性状态码） 接收的请求正在处理   2XX Success（成功状态码） 请求正常处理完毕   3XX Redirection（重定向状态码） 需要进行附加操作以完成请求   4XX Client Error（客户端错误状态码">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -151,39 +151,90 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-线程安全的ArrayList" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-HTTP状态码" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      线程安全的ArrayList
+      HTTP状态码
     </h1>
   
 
         
-        <a href="/2019/03/03/线程安全的ArrayList/" class="archive-article-date">
-  	<time datetime="2019-03-03T14:31:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
+        <a href="/2019/03/07/HTTP状态码/" class="archive-article-date">
+  	<time datetime="2019-03-07T15:35:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Collections获取"><a href="#Collections获取" class="headerlink" title="Collections获取"></a>Collections获取</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">List&lt;String&gt; synList = Collections.synchronizedList(list);</span><br></pre></td></tr></table></figure>
-<h2 id="CopyOnWriteArrayList"><a href="#CopyOnWriteArrayList" class="headerlink" title="CopyOnWriteArrayList"></a>CopyOnWriteArrayList</h2><p>推荐使用 concurrent 并发包下的 CopyOnWriteArrayList 类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> CopyOnWriteArrayList&lt;&gt;();</span><br></pre></td></tr></table></figure>
+        <p>服务器返回的  <strong>响应报文</strong>  中第一行为状态行，包含了状态码以及原因短语，用来告知客户端请求的结果。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">状态码</th>
+<th style="text-align:center">类别</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1XX</td>
+<td style="text-align:center">Informational（信息性状态码）</td>
+<td style="text-align:center">接收的请求正在处理</td>
+</tr>
+<tr>
+<td style="text-align:center">2XX</td>
+<td style="text-align:center">Success（成功状态码）</td>
+<td style="text-align:center">请求正常处理完毕</td>
+</tr>
+<tr>
+<td style="text-align:center">3XX</td>
+<td style="text-align:center">Redirection（重定向状态码）</td>
+<td style="text-align:center">需要进行附加操作以完成请求</td>
+</tr>
+<tr>
+<td style="text-align:center">4XX</td>
+<td style="text-align:center">Client Error（客户端错误状态码）</td>
+<td style="text-align:center">服务器无法处理请求</td>
+</tr>
+<tr>
+<td style="text-align:center">5XX</td>
+<td style="text-align:center">Server Error（服务器错误状态码）</td>
+<td style="text-align:center">服务器处理请求出错</td>
+</tr>
+</tbody>
+</table>
 <a id="more"></a>
-<h3 id="读写分离"><a href="#读写分离" class="headerlink" title="读写分离"></a>读写分离</h3><p>写操作在一个复制的数组上进行，读操作还是在原始数组中进行，读写分离，互不影响。</p>
-<p>写操作需要加锁，防止并发写入时导致写入数据丢失。</p>
-<p>写操作结束之后需要把原始数组指向新的复制数组。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> ReentrantLock lock = <span class="keyword">this</span>.lock;</span><br><span class="line">    lock.lock();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Object[] elements = getArray();</span><br><span class="line">        <span class="keyword">int</span> len = elements.length;</span><br><span class="line">        Object[] newElements = Arrays.copyOf(elements, len + <span class="number">1</span>);</span><br><span class="line">        newElements[len] = e;</span><br><span class="line">        setArray(newElements);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">final</span> <span class="keyword">void</span> <span class="title">setArray</span><span class="params">(Object[] a)</span> </span>&#123;</span><br><span class="line">    array = a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line"><span class="function"><span class="keyword">private</span> E <span class="title">get</span><span class="params">(Object[] a, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (E) a[index];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h3><p>CopyOnWriteArrayList 在写操作的同时允许读操作，大大提高了读操作的性能，因此很适合<code>读多写少</code>的应用场景。</p>
-<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>内存占用：在写操作时需要复制一个新的数组，使得内存占用为原来的两倍左右；</p>
-<p>数据不一致：读操作不能读取实时性的数据，因为部分写操作的数据还未同步到读数组中。</p>
-<p>所以 CopyOnWriteArrayList 不适合内存敏感以及对实时性要求很高的场景。</p>
+<h2 id="1XX-信息"><a href="#1XX-信息" class="headerlink" title="1XX 信息"></a>1XX 信息</h2><ul>
+<li><strong>100 Continue</strong> ：表明到目前为止都很正常，客户端可以继续发送请求或者忽略这个响应。</li>
+</ul>
+<h2 id="2XX-成功"><a href="#2XX-成功" class="headerlink" title="2XX 成功"></a>2XX 成功</h2><ul>
+<li><strong>200 OK</strong> </li>
+<li><strong>204 No Content</strong> ：请求已经成功处理，但是返回的响应报文不包含实体的主体部分。一般在只需要从客户端往服务器发送信息，而不需要返回数据时使用。</li>
+<li><strong>206 Partial Content</strong> ：表示客户端进行了范围请求，响应报文包含由 Content-Range 指定范围的实体内容。</li>
+</ul>
+<h2 id="3XX-重定向"><a href="#3XX-重定向" class="headerlink" title="3XX 重定向"></a>3XX 重定向</h2><ul>
+<li><strong>301 Moved Permanently</strong> ：永久性重定向</li>
+<li><strong>302 Found</strong> ：临时性重定向</li>
+<li><strong>303 See Other</strong> ：和 302 有着相同的功能，但是 303 明确要求客户端应该采用 GET 方法获取资源。</li>
+<li>注：虽然 HTTP 协议规定 301、302 状态下重定向时不允许把 POST 方法改成 GET 方法，但是大多数浏览器都会在 301、302 和 303 状态下的重定向把 POST 方法改成 GET 方法。</li>
+<li><strong>304 Not Modified</strong> ：如果请求报文首部包含一些条件，例如：If-Match，If-Modified-Since，If-None-Match，If-Range，If-Unmodified-Since，如果不满足条件，则服务器会返回 304 状态码。</li>
+<li><strong>307 Temporary Redirect</strong> ：临时重定向，与 302 的含义类似，但是 307 要求浏览器不会把重定向请求的 POST 方法改成 GET 方法。</li>
+</ul>
+<h2 id="4XX-客户端错误"><a href="#4XX-客户端错误" class="headerlink" title="4XX 客户端错误"></a>4XX 客户端错误</h2><ul>
+<li><strong>400 Bad Request</strong> ：请求报文中存在语法错误。</li>
+<li><strong>401 Unauthorized</strong> ：该状态码表示发送的请求需要有认证信息（BASIC 认证、DIGEST 认证）。如果之前已进行过一次请求，则表示用户认证失败。</li>
+<li><strong>403 Forbidden</strong> ：请求被拒绝。</li>
+<li><strong>404 Not Found</strong> </li>
+</ul>
+<h2 id="5XX-服务器错误"><a href="#5XX-服务器错误" class="headerlink" title="5XX 服务器错误"></a>5XX 服务器错误</h2><ul>
+<li><strong>500 Internal Server Error</strong> ：服务器正在执行请求时发生错误。</li>
+<li><strong>503 Service Unavailable</strong> ：服务器暂时处于超负载或正在进行停机维护，现在无法处理请求。</li>
+</ul>
 
       
 
@@ -228,11 +279,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ArrayList</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
         		</li>
       		
 		</ul>
@@ -288,7 +335,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/03/线程安全的ArrayList/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/07/HTTP状态码/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -302,18 +349,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/05/Java中的编码与解码/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Java中的编码与解码
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/03/List集合的遍历/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">List集合的遍历</div>
+    <a href="/2019/03/07/TCP与UDP/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">TCP与UDP</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -340,7 +378,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Collections获取"><span class="toc-number">1.</span> <span class="toc-text">Collections获取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CopyOnWriteArrayList"><span class="toc-number">2.</span> <span class="toc-text">CopyOnWriteArrayList</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#读写分离"><span class="toc-number">2.1.</span> <span class="toc-text">读写分离</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#适用场景"><span class="toc-number">2.2.</span> <span class="toc-text">适用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优缺点"><span class="toc-number">2.3.</span> <span class="toc-text">优缺点</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1XX-信息"><span class="toc-number">1.</span> <span class="toc-text">1XX 信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2XX-成功"><span class="toc-number">2.</span> <span class="toc-text">2XX 成功</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3XX-重定向"><span class="toc-number">3.</span> <span class="toc-text">3XX 重定向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4XX-客户端错误"><span class="toc-number">4.</span> <span class="toc-text">4XX 客户端错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5XX-服务器错误"><span class="toc-number">5.</span> <span class="toc-text">5XX 服务器错误</span></a></li></ol>
                     </div>
                 </span>
             </div>
