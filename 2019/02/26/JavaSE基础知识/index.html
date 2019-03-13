@@ -8,23 +8,23 @@
   <link rel="dns-prefetch" href="https://thailandking.github.io">
   <title>JavaSE基础知识 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、常见对象1.1 object根类，所有类的超类，java.lang包下 1.1.1 hashCode1234567891011返回对象的哈希码值，物理地址Object obj=new Object();int hashCode = obj.hashCode();System.out.println(hashCode);堆内存相同，hashcode相同Student s1=new Student">
+  <meta name="description" content="一、常见对象1.1 object根类，所有类的超类，java.lang包下 1.1.1 hashCode1234567891011默认情况下，Object中的hashCode() 返回对象的32位jvm内存地址。也就是说如果对象不重写该方法，则返回相应对象的32为JVM内存地址。（String、Integer重写）Object obj=new Object();int hashCode = obj">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaSE基础知识">
 <meta property="og:url" content="https://thailandking.github.io/2019/02/26/JavaSE基础知识/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="一、常见对象1.1 object根类，所有类的超类，java.lang包下 1.1.1 hashCode1234567891011返回对象的哈希码值，物理地址Object obj=new Object();int hashCode = obj.hashCode();System.out.println(hashCode);堆内存相同，hashcode相同Student s1=new Student">
+<meta property="og:description" content="一、常见对象1.1 object根类，所有类的超类，java.lang包下 1.1.1 hashCode1234567891011默认情况下，Object中的hashCode() 返回对象的32位jvm内存地址。也就是说如果对象不重写该方法，则返回相应对象的32为JVM内存地址。（String、Integer重写）Object obj=new Object();int hashCode = obj">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://thailandking.github.io/2019/02/26/JavaSE基础知识/堆缓冲原理.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/02/26/JavaSE基础知识/数组储存图.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/02/26/JavaSE基础知识/集合体系结构.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/02/26/JavaSE基础知识/bufferstream.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/02/26/JavaSE基础知识/线程状态图.png">
-<meta property="og:updated_time" content="2019-03-03T14:20:10.562Z">
+<meta property="og:updated_time" content="2019-03-13T11:00:49.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaSE基础知识">
-<meta name="twitter:description" content="一、常见对象1.1 object根类，所有类的超类，java.lang包下 1.1.1 hashCode1234567891011返回对象的哈希码值，物理地址Object obj=new Object();int hashCode = obj.hashCode();System.out.println(hashCode);堆内存相同，hashcode相同Student s1=new Student">
+<meta name="twitter:description" content="一、常见对象1.1 object根类，所有类的超类，java.lang包下 1.1.1 hashCode1234567891011默认情况下，Object中的hashCode() 返回对象的32位jvm内存地址。也就是说如果对象不重写该方法，则返回相应对象的32为JVM内存地址。（String、Integer重写）Object obj=new Object();int hashCode = obj">
 <meta name="twitter:image" content="https://thailandking.github.io/2019/02/26/JavaSE基础知识/堆缓冲原理.png">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
@@ -178,7 +178,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="一、常见对象"><a href="#一、常见对象" class="headerlink" title="一、常见对象"></a>一、常见对象</h2><h3 id="1-1-object"><a href="#1-1-object" class="headerlink" title="1.1 object"></a>1.1 object</h3><p>根类，所有类的超类，java.lang包下</p>
-<h4 id="1-1-1-hashCode"><a href="#1-1-1-hashCode" class="headerlink" title="1.1.1 hashCode"></a>1.1.1 hashCode</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">返回对象的哈希码值，物理地址</span><br><span class="line">Object obj=<span class="keyword">new</span> Object();</span><br><span class="line"><span class="keyword">int</span> hashCode = obj.hashCode();</span><br><span class="line">System.out.println(hashCode);</span><br><span class="line">堆内存相同，hashcode相同</span><br><span class="line">Student s1=<span class="keyword">new</span> Student(<span class="string">"wgt"</span>,<span class="number">21</span>);</span><br><span class="line">Student s2=<span class="keyword">new</span> Student(<span class="string">"shw"</span>,<span class="number">20</span>);</span><br><span class="line">Student s3=s1;</span><br><span class="line">System.out.println(s1.hashCode());</span><br><span class="line">System.out.println(s2.hashCode());</span><br><span class="line">System.out.println(s3.hashCode());</span><br></pre></td></tr></table></figure>
+<h4 id="1-1-1-hashCode"><a href="#1-1-1-hashCode" class="headerlink" title="1.1.1 hashCode"></a>1.1.1 hashCode</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">默认情况下，Object中的hashCode() 返回对象的<span class="number">32</span>位jvm内存地址。也就是说如果对象不重写该方法，则返回相应对象的<span class="number">32</span>为JVM内存地址。（String、Integer重写）</span><br><span class="line">Object obj=<span class="keyword">new</span> Object();</span><br><span class="line"><span class="keyword">int</span> hashCode = obj.hashCode();</span><br><span class="line">System.out.println(hashCode);</span><br><span class="line">堆内存相同，hashcode相同</span><br><span class="line">Student s1=<span class="keyword">new</span> Student(<span class="string">"wgt"</span>,<span class="number">21</span>);</span><br><span class="line">Student s2=<span class="keyword">new</span> Student(<span class="string">"shw"</span>,<span class="number">20</span>);</span><br><span class="line">Student s3=s1;</span><br><span class="line">System.out.println(s1.hashCode());</span><br><span class="line">System.out.println(s2.hashCode());</span><br><span class="line">System.out.println(s3.hashCode());</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h4 id="1-1-2-getClass"><a href="#1-1-2-getClass" class="headerlink" title="1.1.2 getClass"></a>1.1.2 getClass</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">获取字节码对象，进而获取全类名</span><br><span class="line">Student student=<span class="keyword">new</span> Student(<span class="string">"wgt"</span>,<span class="number">21</span>);</span><br><span class="line">Class aClass = student.getClass();</span><br><span class="line">String name = aClass.getName();</span><br><span class="line">System.out.println(name);</span><br></pre></td></tr></table></figure>
 <h4 id="1-1-3-toString"><a href="#1-1-3-toString" class="headerlink" title="1.1.3 toString"></a>1.1.3 toString</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">默认com.itshw.bean.Student@<span class="number">4554617</span>c</span><br><span class="line">开发中大多重写显示数据</span><br><span class="line">Student s=<span class="keyword">new</span> Student(<span class="string">"wgt"</span>,<span class="number">21</span>);</span><br><span class="line">System.out.println(s.toString());</span><br><span class="line">默认显示原理</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> getClass().getName() + <span class="string">"@"</span> + Integer.toHexString(hashCode());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -592,6 +592,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">java8</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
@@ -600,27 +608,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">udp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -632,19 +620,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string</a>
+                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -656,7 +632,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">udp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">string</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -664,11 +660,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hashmap</a>
+                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">hashmap</a>
               </li>
             
             <div class="clearfix"></div>
