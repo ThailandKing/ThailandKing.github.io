@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://thailandking.github.io/2019/03/17/垃圾收集器与内存分配策略/7.jpg">
 <meta property="og:image" content="https://thailandking.github.io/2019/03/17/垃圾收集器与内存分配策略/8.jpg">
 <meta property="og:image" content="https://thailandking.github.io/2019/03/17/垃圾收集器与内存分配策略/9.jpg">
-<meta property="og:updated_time" content="2019-03-17T14:53:43.437Z">
+<meta property="og:updated_time" content="2019-03-17T15:15:22.467Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="垃圾收集器与内存分配策略">
 <meta name="twitter:description" content="一、概述程序计数器、虚拟机栈、本地方法栈3个区域随线程而生，线程而灭，内存分配和回收都具备确定性 堆与方法区是线程共享区域，内存分配和回收都具备动态性，因此垃圾收集器关注的是这两个区域 GC需要完成的三件事情  what：哪些内存需要回收？ when：什么时候回收？ how：如何回收？">
@@ -360,7 +360,12 @@
 <p>虚拟机给每个对象定义一个对象年龄计数器，如果对象在Eden出生并经过第一次Minor GC后仍然存活，并且能被Survivor容纳的话，将被移动到Survivor空间中，并且对象年龄设为1。对象在Survivor区每熬过一次Minor GC，年龄就增加一岁。</p>
 <h3 id="动态年龄判定"><a href="#动态年龄判定" class="headerlink" title="动态年龄判定"></a>动态年龄判定</h3><p>如果Survivor空间中相同年龄所有对象大小总和大于Survivor空间的一半，年龄大于或等于该年龄的对象就可以直接进入老年代，无须等到MaxTenuringThreshold要求的年龄。</p>
 <h3 id="空间分配担保"><a href="#空间分配担保" class="headerlink" title="空间分配担保"></a>空间分配担保</h3><p>当发生Minor GC时，JVM会首先检查老年代最大的可用连续空间是否大于新生代所有对象的总和，如果大于，那么这次Minor GC是安全的，如果不大于的话，JVM就需要判断HandlePromotionFailure是否允许空间分配担保。 如果允许，JVM继续检查老年代最大的可用连续空间是否大于历次晋升到老年代的对象的平均大小，如果大于，则正常进行一次Minor GC，尽管有风险（因为判断的是平均大小，有可能这次的晋升对象比平均值大很多）；如果小于，或者HandlePromotionFailure设置不允许空间分配担保，这时要进行一次Full GC。</p>
-<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
+<li><a href="https://www.jianshu.com/p/e5364c05cc80" target="_blank" rel="noopener">通过例子了解Java中的引用</a></li>
+<li><a href="https://blog.csdn.net/coderlius/article/details/79272773" target="_blank" rel="noopener">详解G1垃圾收集器</a></li>
+<li><a href="https://blog.csdn.net/shi2huang/article/details/80085193" target="_blank" rel="noopener">设置JVM垃圾收集器</a></li>
+</ul>
+
       
 
       
@@ -616,15 +621,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jvm</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -636,19 +645,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">database</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -660,11 +657,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">udp</a>
+                <a href="javascript:void(0)" class="js-tag color4">database</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -676,11 +673,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
+                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
+                <a href="javascript:void(0)" class="js-tag color4">udp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -692,15 +693,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
+                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -708,11 +705,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nio</a>
+                <a href="javascript:void(0)" class="js-tag color2">string</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">hashmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nio</a>
               </li>
              
               <li class="article-tag-list-item">
