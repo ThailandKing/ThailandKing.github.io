@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>Tag: BitMask | thailandking</title>
+  <title>虚拟机性能监控与故障处理工具 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="personal blog">
-<meta name="keywords" content="computer，programming">
-<meta property="og:type" content="website">
-<meta property="og:title" content="thailandking">
-<meta property="og:url" content="https://thailandking.github.io/tags/BitMask/index.html">
+  <meta name="description" content="一、概述给一个系统定位问题的时候，知识、经验是关键基础，数据是依据，工具是运用知识处理数据的手段 命令行工具大多数是jdk/lib/tools.jar类库的一层薄包装 二、javac12#编译javac hello.java hello 三、java12#运行java ./hello">
+<meta name="keywords" content="jvm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="虚拟机性能监控与故障处理工具">
+<meta property="og:url" content="https://thailandking.github.io/2019/03/19/虚拟机性能监控与故障处理工具/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="personal blog">
+<meta property="og:description" content="一、概述给一个系统定位问题的时候，知识、经验是关键基础，数据是依据，工具是运用知识处理数据的手段 命令行工具大多数是jdk/lib/tools.jar类库的一层薄包装 二、javac12#编译javac hello.java hello 三、java12#运行java ./hello">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-19T03:52:48.432Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="thailandking">
-<meta name="twitter:description" content="personal blog">
+<meta name="twitter:title" content="虚拟机性能监控与故障处理工具">
+<meta name="twitter:description" content="一、概述给一个系统定位问题的时候，知识、经验是关键基础，数据是依据，工具是运用知识处理数据的手段 命令行工具大多数是jdk/lib/tools.jar类库的一层薄包装 二、javac12#编译javac hello.java hello 三、java12#运行java ./hello">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -150,64 +151,245 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-虚拟机性能监控与故障处理工具" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/03/Java位掩码在程序设计中的使用/" class="archive-article-date">
-  	<time datetime="2019-03-03T13:23:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/03/Java位掩码在程序设计中的使用/">Java位掩码在程序设计中的使用</a>
+    <h1 class="article-title" itemprop="name">
+      虚拟机性能监控与故障处理工具
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/19/虚拟机性能监控与故障处理工具/" class="archive-article-date">
+  	<time datetime="2019-03-19T01:26:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>给一个系统定位问题的时候，知识、经验是关键基础，数据是依据，工具是运用知识处理数据的手段</p>
+<p>命令行工具大多数是<strong>jdk/lib/tools.jar</strong>类库的一层薄包装</p>
+<h2 id="二、javac"><a href="#二、javac" class="headerlink" title="二、javac"></a>二、javac</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#编译</span><br><span class="line">javac hello.java hello</span><br></pre></td></tr></table></figure>
+<h2 id="三、java"><a href="#三、java" class="headerlink" title="三、java"></a>三、java</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#运行</span><br><span class="line">java ./hello</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="四、jps：虚拟机进程状况工具"><a href="#四、jps：虚拟机进程状况工具" class="headerlink" title="四、jps：虚拟机进程状况工具"></a>四、jps：虚拟机进程状况工具</h2><p>作用：</p>
+<p>可以列出正在运行的虚拟机进程，并显示虚拟机执行主类名称以及这些进程的本地虚拟机唯一ID（LVMID）</p>
+<p>命令格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jps [options] [hostid]</span><br></pre></td></tr></table></figure>
+<p>常用命令举例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#输出主类的全名</span><br><span class="line">jps -l</span><br></pre></td></tr></table></figure>
+<p>jps可以通过RMI协议查询开启了RMI服务的远程虚拟机进程状态，hostid为RMI注册表中的注册的主机名</p>
+<h2 id="五、jstat：虚拟机统计信息监视工具"><a href="#五、jstat：虚拟机统计信息监视工具" class="headerlink" title="五、jstat：虚拟机统计信息监视工具"></a>五、jstat：虚拟机统计信息监视工具</h2><p>作用：</p>
+<p>用于监视虚拟机各种运行状态信息的命令行工具，显示本地或者远程虚拟机进程中的类加载、内存、垃圾收集、JIT编译等运行数据</p>
+<p>命令格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jstat [option vmid [interval[s|ms] [count]] ]</span><br></pre></td></tr></table></figure>
+<p>常用命令举例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#监视类</span><br><span class="line">jstat -<span class="class"><span class="keyword">class</span> 2764</span></span><br><span class="line"><span class="class">#监视垃圾收集（全信息）    </span></span><br><span class="line"><span class="class"><span class="title">jstat</span> -<span class="title">gc</span> 2764</span></span><br><span class="line"><span class="class">#监视垃圾收集（空间信息） </span></span><br><span class="line"><span class="class"><span class="title">jstat</span> -<span class="title">gcutil</span> 2764</span></span><br><span class="line"><span class="class">#监视<span class="title">JIT</span>编译信息    </span></span><br><span class="line"><span class="class"><span class="title">jstat</span> -<span class="title">compiler</span> 2764</span></span><br></pre></td></tr></table></figure>
+<h2 id="六、jinfo：配置信息工具"><a href="#六、jinfo：配置信息工具" class="headerlink" title="六、jinfo：配置信息工具"></a>六、jinfo：配置信息工具</h2><p>作用：</p>
+<p>实时查看和调整虚拟机各项参数</p>
+<p>命令格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jinfo [option] pid</span><br></pre></td></tr></table></figure>
+<p>常用命令举例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#查看虚拟机启动时显式指定的参数列表</span><br><span class="line">jps -v</span><br><span class="line">#查看虚拟机参数默认值</span><br><span class="line">java -XX:+PrintFlagsFinal</span><br><span class="line">#查看虚拟机指定参数值</span><br><span class="line">jinfo -flag XX <span class="number">1444</span></span><br></pre></td></tr></table></figure>
+<h2 id="七、jmap：内存映像工具"><a href="#七、jmap：内存映像工具" class="headerlink" title="七、jmap：内存映像工具"></a>七、jmap：内存映像工具</h2><p>作用：</p>
+<p>用于生成堆转储快照（dump文件）</p>
+<p>命令格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jmap [option] vmid</span><br></pre></td></tr></table></figure>
+<p>常用命令举例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#生成堆转储快照</span><br><span class="line">jmap -dump</span><br><span class="line">#显示堆中对象统计信息</span><br><span class="line">jmap -histo</span><br></pre></td></tr></table></figure>
+<h2 id="八、jhat：堆转储快照分析工具"><a href="#八、jhat：堆转储快照分析工具" class="headerlink" title="八、jhat：堆转储快照分析工具"></a>八、jhat：堆转储快照分析工具</h2><p>作用：</p>
+<p>来分析jmap生成的堆转储快照</p>
+<p>命令格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jhat dump_file</span><br></pre></td></tr></table></figure>
+<p>一般不会直接使用jhat命令来分析dump文件，原因如下：</p>
+<ul>
+<li>分析工作是一个耗时而且消耗硬件资源的过程，不会在部署服务器上直接进行分析，将生成的dump文件复制到其他机器上分析，就没有必要受限于命令行工具</li>
+<li>分析功能比较简陋，不如VisualVM</li>
+</ul>
+<h2 id="九、jstack：堆栈跟踪工具"><a href="#九、jstack：堆栈跟踪工具" class="headerlink" title="九、jstack：堆栈跟踪工具"></a>九、jstack：堆栈跟踪工具</h2><p>作用：</p>
+<p>用于生成虚拟机当前时刻的线程快照（threaddump），线程快照就是当前虚拟机内每一条线程正在执行的方法堆栈的集合</p>
+<p>目的：</p>
+<p>定位长时间停顿、死锁、死循环、外部资源等待耗时</p>
+<p>命令格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jstack [option] vmid</span><br></pre></td></tr></table></figure>
+<p>常用命令举例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#线程快照</span><br><span class="line">jstack -l <span class="number">3500</span></span><br></pre></td></tr></table></figure>
+<h2 id="JConsole：监视与管理控制台"><a href="#JConsole：监视与管理控制台" class="headerlink" title="JConsole：监视与管理控制台"></a>JConsole：监视与管理控制台</h2><p>一种基于JMX（Java Management Extensions，即Java管理扩展 ）的可视化监视、管理工具</p>
+<p><strong>结合书中例子，实际操作一下，便于理解</strong></p>
+<h2 id="VisualVM：多合一故障处理工具"><a href="#VisualVM：多合一故障处理工具" class="headerlink" title="VisualVM：多合一故障处理工具"></a>VisualVM：多合一故障处理工具</h2><p>功能最强大的运行监视和故障处理程序</p>
+<p>不需要被监视的程序基于特殊Agent（代理）运行，因此它对应用程序的实际性能的影响很小，使得它可以直接应用在生产环境中。</p>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
+<li><a href="https://www.cnblogs.com/xt0810/p/3640167.html" target="_blank" rel="noopener">RMI远程方法调用</a></li>
+<li><a href="https://www.cnblogs.com/happy-rabbit/p/6232581.html" target="_blank" rel="noopener">VisualVM分析实例</a></li>
+<li><a href="https://www.cnblogs.com/ceshi2016/p/8447989.html" target="_blank" rel="noopener">JVM调优</a></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixinpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">BitMask</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/19/虚拟机性能监控与故障处理工具/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/03/17/垃圾收集器与内存分配策略/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">垃圾收集器与内存分配策略</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、概述"><span class="toc-number">1.</span> <span class="toc-text">一、概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、javac"><span class="toc-number">2.</span> <span class="toc-text">二、javac</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、java"><span class="toc-number">3.</span> <span class="toc-text">三、java</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、jps：虚拟机进程状况工具"><span class="toc-number">4.</span> <span class="toc-text">四、jps：虚拟机进程状况工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、jstat：虚拟机统计信息监视工具"><span class="toc-number">5.</span> <span class="toc-text">五、jstat：虚拟机统计信息监视工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、jinfo：配置信息工具"><span class="toc-number">6.</span> <span class="toc-text">六、jinfo：配置信息工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、jmap：内存映像工具"><span class="toc-number">7.</span> <span class="toc-text">七、jmap：内存映像工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、jhat：堆转储快照分析工具"><span class="toc-number">8.</span> <span class="toc-text">八、jhat：堆转储快照分析工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九、jstack：堆栈跟踪工具"><span class="toc-number">9.</span> <span class="toc-text">九、jstack：堆栈跟踪工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JConsole：监视与管理控制台"><span class="toc-number">10.</span> <span class="toc-text">JConsole：监视与管理控制台</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VisualVM：多合一故障处理工具"><span class="toc-number">11.</span> <span class="toc-text">VisualVM：多合一故障处理工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">12.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -226,9 +408,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
