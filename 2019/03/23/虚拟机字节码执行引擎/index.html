@@ -6,38 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>类文件结构 | thailandking</title>
+  <title>虚拟机字节码执行引擎 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、概述程序编译成二进制本地机器码才能执行，越来越多的程序语言选择了与操作系统和机器指令集无关的、平台中立的格式作为程序编译后的存储格式。 二、无关性平台无关性 各种不同平台的虚拟机与所有平台都统一使用的程序存储格式字节码是构成平台无关性的基石。 语言无关性 虚拟机不与特定语言绑定，只与class文件这种特定的二进制文件格式所关联，class文件中包含了虚拟机指令集和符号表以及若干其他辅助信息。">
+  <meta name="description" content="一、概述执行引擎是Java虚拟机最核心的组成部分之一，物理机的执行引擎是直接建立在处理器、硬件、指令集和操作系统层面上的，而虚拟机的执行引擎则是由自己实现的，可以自行制定指令集与执行引擎的结构体系，并且能够执行那些不被硬件直接支持的指令集格式。 在不同的虚拟机实现里面，执行引擎在执行Java代码的时候可能会有解释执行（通过解释器）和编译执行（通过即时编译器产生本地代码执行）两种选择 二、运行时栈帧">
 <meta name="keywords" content="jvm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="类文件结构">
-<meta property="og:url" content="https://thailandking.github.io/2019/03/20/类文件结构/index.html">
+<meta property="og:title" content="虚拟机字节码执行引擎">
+<meta property="og:url" content="https://thailandking.github.io/2019/03/23/虚拟机字节码执行引擎/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="一、概述程序编译成二进制本地机器码才能执行，越来越多的程序语言选择了与操作系统和机器指令集无关的、平台中立的格式作为程序编译后的存储格式。 二、无关性平台无关性 各种不同平台的虚拟机与所有平台都统一使用的程序存储格式字节码是构成平台无关性的基石。 语言无关性 虚拟机不与特定语言绑定，只与class文件这种特定的二进制文件格式所关联，class文件中包含了虚拟机指令集和符号表以及若干其他辅助信息。">
+<meta property="og:description" content="一、概述执行引擎是Java虚拟机最核心的组成部分之一，物理机的执行引擎是直接建立在处理器、硬件、指令集和操作系统层面上的，而虚拟机的执行引擎则是由自己实现的，可以自行制定指令集与执行引擎的结构体系，并且能够执行那些不被硬件直接支持的指令集格式。 在不同的虚拟机实现里面，执行引擎在执行Java代码的时候可能会有解释执行（通过解释器）和编译执行（通过即时编译器产生本地代码执行）两种选择 二、运行时栈帧">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/20/类文件结构/1.jpg">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/20/类文件结构/1.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/20/类文件结构/2.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/20/类文件结构/3.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/20/类文件结构/4.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/20/类文件结构/5.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/20/类文件结构/6.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/20/类文件结构/7.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/20/类文件结构/8.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/20/类文件结构/9.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/20/类文件结构/10.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/20/类文件结构/11.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/20/类文件结构/12.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/20/类文件结构/13.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/20/类文件结构/14.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/20/类文件结构/15.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/20/类文件结构/16.png">
-<meta property="og:updated_time" content="2019-03-20T15:47:08.491Z">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/23/虚拟机字节码执行引擎/1.jpg">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/23/虚拟机字节码执行引擎/1.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/23/虚拟机字节码执行引擎/2.jpg">
+<meta property="og:updated_time" content="2019-03-23T08:26:06.126Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="类文件结构">
-<meta name="twitter:description" content="一、概述程序编译成二进制本地机器码才能执行，越来越多的程序语言选择了与操作系统和机器指令集无关的、平台中立的格式作为程序编译后的存储格式。 二、无关性平台无关性 各种不同平台的虚拟机与所有平台都统一使用的程序存储格式字节码是构成平台无关性的基石。 语言无关性 虚拟机不与特定语言绑定，只与class文件这种特定的二进制文件格式所关联，class文件中包含了虚拟机指令集和符号表以及若干其他辅助信息。">
-<meta name="twitter:image" content="https://thailandking.github.io/2019/03/20/类文件结构/1.jpg">
+<meta name="twitter:title" content="虚拟机字节码执行引擎">
+<meta name="twitter:description" content="一、概述执行引擎是Java虚拟机最核心的组成部分之一，物理机的执行引擎是直接建立在处理器、硬件、指令集和操作系统层面上的，而虚拟机的执行引擎则是由自己实现的，可以自行制定指令集与执行引擎的结构体系，并且能够执行那些不被硬件直接支持的指令集格式。 在不同的虚拟机实现里面，执行引擎在执行Java代码的时候可能会有解释执行（通过解释器）和编译执行（通过即时编译器产生本地代码执行）两种选择 二、运行时栈帧">
+<meta name="twitter:image" content="https://thailandking.github.io/2019/03/23/虚拟机字节码执行引擎/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -169,352 +155,116 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-类文件结构" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-虚拟机字节码执行引擎" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      类文件结构
+      虚拟机字节码执行引擎
     </h1>
   
 
         
-        <a href="/2019/03/20/类文件结构/" class="archive-article-date">
-  	<time datetime="2019-03-20T00:51:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-20</time>
+        <a href="/2019/03/23/虚拟机字节码执行引擎/" class="archive-article-date">
+  	<time datetime="2019-03-23T04:54:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>程序编译成二进制本地机器码才能执行，越来越多的程序语言选择了与操作系统和机器指令集无关的、平台中立的格式作为程序编译后的存储格式。</p>
-<h2 id="二、无关性"><a href="#二、无关性" class="headerlink" title="二、无关性"></a>二、无关性</h2><p><strong>平台无关性</strong></p>
-<p>各种不同平台的<strong>虚拟机</strong>与所有平台都统一使用的程序存储格式<strong>字节码</strong>是构成平台无关性的基石。</p>
-<p><strong>语言无关性</strong></p>
-<p>虚拟机不与特定语言绑定，只与<strong>class文件</strong>这种特定的二进制文件格式所关联，class文件中包含了虚拟机指令集和符号表以及若干其他辅助信息。</p>
-<p>目前能在Java虚拟机上运行的语言有Clojure、Groovy、JRuby、Jython、Scala等</p>
+        <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>执行引擎是Java虚拟机最核心的组成部分之一，物理机的执行引擎是直接建立在处理器、硬件、指令集和操作系统层面上的，而虚拟机的执行引擎则是由自己实现的，可以自行制定指令集与执行引擎的结构体系，并且能够执行那些不被硬件直接支持的指令集格式。</p>
+<p>在不同的虚拟机实现里面，执行引擎在执行Java代码的时候可能会有<strong>解释执行</strong>（通过解释器）和<strong>编译执行</strong>（通过即时编译器产生本地代码执行）两种选择</p>
+<h2 id="二、运行时栈帧结构"><a href="#二、运行时栈帧结构" class="headerlink" title="二、运行时栈帧结构"></a>二、运行时栈帧结构</h2><p>栈帧存储了方法的<strong>局部变量表、操作数栈、动态连接和方法返回地址</strong>等信息</p>
+<p>对于执行引擎来说，在活动线程中，只有位于栈顶的栈帧才是有效的，称为<strong>当前栈帧</strong>，相关联的方法称为<strong>当前方法</strong></p>
+<p>执行引擎执行的所有字节码指令都只针对当前栈帧进行操作</p>
 <a id="more"></a>
-<p><img src="/2019/03/20/类文件结构/1.jpg" alt></p>
-<p>字节码命令所能提供的语义描述能力肯定会比Java语言本身更加强大。</p>
-<h2 id="三、Class类文件结构"><a href="#三、Class类文件结构" class="headerlink" title="三、Class类文件结构"></a>三、Class类文件结构</h2><p>Class文件是一组以<strong>8位字节为基础单位</strong>的二进制流，各个数据项目严格按照顺序紧凑地排列在class文件之中，没有空隙存在，也会进行分割存储，这也就解释前面提到<strong>对象对齐填充</strong>的原因。</p>
-<p>表是由多个无符号数（u1、u2、u4、u8）或者其他表作为数据项构成的复合数据类型，当需要描述同一类型但数量不定的多个数据时，经常会使用一个前置的容量计数器加若干个连续的数据项的形式为某一类型的集合</p>
-<p><img src="/2019/03/20/类文件结构/1.png" alt></p>
-<h3 id="1、魔数与版本"><a href="#1、魔数与版本" class="headerlink" title="1、魔数与版本"></a>1、魔数与版本</h3><p><strong>魔数</strong></p>
-<p>身份识别：每个class文件的头4个字节称为魔数，作用是确定这个文件是否为一个能被虚拟机接受的class文件</p>
-<p><strong>版本</strong></p>
-<p>紧接着魔数的4个字节存储的是class文件的版本号，第5、6字节是次版本号，7、8字节是主版本号，虚拟机拒绝执行超过其版本号的class文件</p>
-<table>
-<thead>
-<tr>
-<th>JDK版本</th>
-<th>魔数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1.8</td>
-<td>52</td>
-</tr>
-<tr>
-<td>1.7</td>
-<td>51</td>
-</tr>
-<tr>
-<td>1.6</td>
-<td>50</td>
-</tr>
-</tbody>
-</table>
-<h3 id="2、常量池"><a href="#2、常量池" class="headerlink" title="2、常量池"></a>2、常量池</h3><p>常量池可以理解为class文件之中的<strong>资源仓库</strong>，占用class文件空间最大的数据项目之一</p>
-<p>入口放置一个u2类型的数据，代表常量池<strong>容量计数</strong>值，这个容量计数是从1开始的，将第0项常量空出来满足不引用任何一个常量池项目的情况</p>
-<p><strong>存放内容</strong></p>
-<p><strong>字面量</strong>：文本字符串、声明为final的常量值</p>
-<p><strong>符号引用</strong>：类和接口的全限定名、字段的名称和描述符、方法的名称和描述符</p>
-<p>当虚拟机运行时，需要从常量池获得对应的符号引用，再在类创建或运行时解析、翻译到具体的内存地址之中，常量池中每一项常量都是一个表，表开始的第一位是一个u1类型的标志位（tag），代表当前属于常量类型</p>
-<p><img src="/2019/03/20/类文件结构/2.png" alt></p>
-<p><img src="/2019/03/20/类文件结构/3.png" alt></p>
-<h3 id="3、访问标志"><a href="#3、访问标志" class="headerlink" title="3、访问标志"></a>3、访问标志</h3><p>常量池结束后，紧接着两个字节代表<strong>访问标志</strong>（access_flags），用于识别一些类或接口层次的访问信息</p>
-<p><img src="/2019/03/20/类文件结构/4.png" alt></p>
-<p>access_flags中一共有16个标志位（2字节），当前只定义其中8个，没有使用到的标志位一律为0</p>
-<p>参考Java<strong>位掩码</strong>的设计思想</p>
-<h3 id="4、类索引、父类索引、接口索引集合"><a href="#4、类索引、父类索引、接口索引集合" class="headerlink" title="4、类索引、父类索引、接口索引集合"></a>4、类索引、父类索引、接口索引集合</h3><p>类索引（父类索引）用一个u2类型的索引值表示，指向一个CONSTANT_Class_info的类描述符常量，通过CONSTANT_Class_info常量中的索引值找到CONSTANT_Utf8_info中的全限定名字符串</p>
-<p>​                            <strong>CONSTANT_Class_info型常量结构</strong></p>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>名称</th>
-<th>数量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>u1</td>
-<td>tag</td>
-<td>1</td>
-</tr>
-<tr>
-<td>u2</td>
-<td>name_index</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-<p>​                            <strong>CONSTANT_Utf8_info型常量结构</strong></p>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>名称</th>
-<th>数量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>u1</td>
-<td>tag</td>
-<td>1</td>
-</tr>
-<tr>
-<td>u2</td>
-<td>length</td>
-<td>1</td>
-</tr>
-<tr>
-<td>u1</td>
-<td>bytes</td>
-<td>length</td>
-</tr>
-</tbody>
-</table>
-<p>对于接口索引集合，入口为一项u2类型数据-<strong>接口计数器</strong>，表示索引表的容量</p>
-<h3 id="5、字段表集合"><a href="#5、字段表集合" class="headerlink" title="5、字段表集合"></a>5、字段表集合</h3><p>字段表用于描述接口或者类中声明的变量。字段包括类级变量（static）、实例级变量，但不包括方法内声明的局部变量</p>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>名称</th>
-<th>数量</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>u2</td>
-<td>access_flags</td>
-<td>1</td>
-<td>修饰符</td>
-</tr>
-<tr>
-<td>u2</td>
-<td>name_index</td>
-<td>1</td>
-<td>代表字段的简单名称，占2字节，是一个对常量池的引用</td>
-</tr>
-<tr>
-<td>u2</td>
-<td>descriptor_index</td>
-<td>1</td>
-<td>代表字段的描述符，占2个字节，是一个对常量池的引用</td>
-</tr>
-<tr>
-<td>u2</td>
-<td>attributes_count</td>
-<td>1</td>
-<td>属性计数器</td>
-</tr>
-<tr>
-<td>attribute_info</td>
-<td>attributes</td>
-<td>attributes_count</td>
-<td>属性表集合</td>
-</tr>
-</tbody>
-</table>
-<h3 id="6、方法表集合"><a href="#6、方法表集合" class="headerlink" title="6、方法表集合"></a>6、方法表集合</h3><p>方法表用于描述接口或者类中声明的方法</p>
-<p><img src="/2019/03/20/类文件结构/5.png" alt></p>
-<p>方法里的Java代码，经过编译器编译成字节码指令后，存放在方法属性表集合Code属性中</p>
-<p>有可能出现编译器自动添加的方法，最典型的便是类构造器<clinit>方法和实例构造器<init>方法</init></clinit></p>
-<h3 id="7、属性表集合"><a href="#7、属性表集合" class="headerlink" title="7、属性表集合"></a>7、属性表集合</h3><p>在class文件、字段表、方法表都可以携带自己的属性表集合，用于描述某些场景专有的信息</p>
-<p><img src="/2019/03/20/类文件结构/6.png" alt></p>
-<p><strong>属性表结构：</strong></p>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>名称</th>
-<th>数量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>u2</td>
-<td>attribute_name_index（属性名称）</td>
-<td>1</td>
-</tr>
-<tr>
-<td>u4</td>
-<td>attribute_length（属性值长度，不包含名称）</td>
-<td>1</td>
-</tr>
-<tr>
-<td>u1</td>
-<td>info</td>
-<td>attribute_length</td>
-</tr>
-</tbody>
-</table>
-<p><strong>1、Code属性</strong></p>
-<p><strong>方法里的Java代码，经过编译器编译成字节码指令后，存放在方法属性表集合Code属性中</strong></p>
-<p><img src="/2019/03/20/类文件结构/7.png" alt></p>
-<p>Code属性是class文件中最重要的一个属性，一个Java程序中的信息分为<strong>代码</strong>（Code）和<strong>元数据</strong>（Metadata）两部分，Code属性用于描述方法体中代码，元数据用于描述所有其他数据项目（类、字段、方法）</p>
-<p><strong>2、Exceptions属性</strong></p>
-<p>列出方法中可能抛出的受查异常，也就是方法描述时throws关键字后面列举的异常</p>
-<p><img src="/2019/03/20/类文件结构/8.png" alt></p>
-<p><strong>3、LineNumberTable属性</strong></p>
-<p>用于描述Java源码行号与字节码行号（字节码的偏移量）之间的对应关系</p>
-<p>不是必须的，主要影响就是当抛出异常时，堆栈中将不会显示出错的行号</p>
-<p><img src="/2019/03/20/类文件结构/9.png" alt></p>
-<p><strong>4、LocalVariableTable属性</strong></p>
-<p>用于描述栈帧中局部变量表中的变量与Java源码中定义的变量之间的关系</p>
-<p>不是必须的，最大的影响就是当引用某方法时，IDE将会使用arg0、arg1之类占位符代替原有参数名</p>
-<p>对于非泛型来说，描述符和特征签名是基本一致的，泛型引入后（JDK1.5），由于描述符中泛型的参数化类型被擦除掉，描述符就不能准确的描述泛型类型了，因此出现了<strong>LocalVariableTypeTable</strong></p>
-<p><img src="/2019/03/20/类文件结构/10.png" alt></p>
-<p><img src="/2019/03/20/类文件结构/11.png" alt></p>
-<p><strong>5、SourceFile属性</strong></p>
-<p>用于记录生成这个class文件的源码文件名称</p>
-<p>不是必须的，如果不生成这项属性，当抛出异常时，堆栈中将不会显示出错代码所属的文件名</p>
-<p><img src="/2019/03/20/类文件结构/12.png" alt></p>
-<p><strong>6、ConstantValue属性</strong></p>
-<p>作用是通知虚拟机自动为静态变量赋值，只有被使用static关键字修饰的变量才可以使用此属性</p>
-<p><img src="/2019/03/20/类文件结构/13.png" alt></p>
-<table>
-<thead>
-<tr>
-<th>赋值情况</th>
-<th>虚拟机操作</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>非static类型变量</td>
-<td>实例构造器<init>方法进行</init></td>
-</tr>
-<tr>
-<td>final+static+基本类型/String</td>
-<td>生成ConstantValue属性来进行初始化</td>
-</tr>
-<tr>
-<td>static，非final/基本类型、String</td>
-<td>类构造器<clinit>方法进行</clinit></td>
-</tr>
-</tbody>
-</table>
-<p><strong>7、InnerClasses属性</strong></p>
-<p>用于记录内部类与宿主类之间的关联</p>
-<p><img src="/2019/03/20/类文件结构/14.png" alt></p>
-<p><img src="/2019/03/20/类文件结构/15.png" alt></p>
-<p><strong>8、Deprecated及Synthetic属性</strong></p>
-<p>两个属性都属于标志类型的布尔属性，只存在有和没有的区别，没有属性值的概念</p>
-<p>Deprecated属性用于表示某个类、字段、方法为不再推荐使用（过时/替换）</p>
-<p>Synthetic属性用于表示字段、方法由编译器自行添加的（init、clinit特殊）</p>
-<p><img src="/2019/03/20/类文件结构/16.png" alt></p>
-<p><strong>9、StackMapTable属性</strong></p>
-<p>这个属性会在虚拟机类加载的字节码验证阶段被<strong>类型检查验证器</strong>使用，代替之前比较消耗性能的基于数据流分析的<strong>类型推导验证器</strong></p>
-<p>在编译阶段将一系列的验证类型直接记录在class文件之中，通过检查这些验证类型代替类型推导过程，大幅提升了字节码验证的性能，JDK1.7替换掉类型推导验证器</p>
-<p><strong>10、Signature属性</strong></p>
-<p>之所以要专门使用这样一个属性去记录泛型数据，是因为Java泛型采用的是擦除法实现的伪泛型，在字节码中，泛型信息编译之后都通通被擦除</p>
-<p>现在Java的反射API能够获取泛型数据源于这个属性</p>
-<p><strong>11、BootstrapMethods属性</strong></p>
-<p>用于保存invokedynamic指令引用的引导方法限定符</p>
-<h2 id="四、字节码指令"><a href="#四、字节码指令" class="headerlink" title="四、字节码指令"></a>四、字节码指令</h2><h3 id="0、简介"><a href="#0、简介" class="headerlink" title="0、简介"></a><strong>0、简介</strong></h3><p>字节码=操作码+操作数</p>
-<p>Java虚拟机采用面向<strong>操作数栈</strong>而不是<strong>寄存器</strong>的架构，所以大多数的指令都不包含操作数，只有一个操作码</p>
-<p>寄存器中读取指令，操作数栈执行操作</p>
-<p><strong>执行模型：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">    自动计算PC寄存器的值加+<span class="number">1</span>;</span><br><span class="line">    根据PC寄存器的指示位置，从字节码流中取出操作码;</span><br><span class="line">    <span class="keyword">if</span>(字节码存在操作数)	从字节码流中取出操作数;</span><br><span class="line">    执行操作码所定义的操作;</span><br><span class="line">&#125;<span class="keyword">while</span>(字节码流长度&gt;<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="1、字节码与数据类型"><a href="#1、字节码与数据类型" class="headerlink" title="1、字节码与数据类型"></a>1、字节码与数据类型</h3><table>
-<thead>
-<tr>
-<th>字符</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>i</td>
-<td>int数据类型的操作</td>
-</tr>
-<tr>
-<td>l</td>
-<td>long数据类型的操作</td>
-</tr>
-<tr>
-<td>s</td>
-<td>short数据类型的操作</td>
-</tr>
-<tr>
-<td>b</td>
-<td>byte数据类型的操作</td>
-</tr>
-<tr>
-<td>c</td>
-<td>char数据类型的操作</td>
-</tr>
-<tr>
-<td>f</td>
-<td>float数据类型的操作</td>
-</tr>
-<tr>
-<td>d</td>
-<td>double数据类型的操作</td>
-</tr>
-<tr>
-<td>a</td>
-<td>reference数据类型的操作</td>
-</tr>
-</tbody>
-</table>
-<p>有一些单独的指令可以在必要的时候用来将一些不支持的类型转换为可被支持的类型（arraylength、goto）</p>
-<p>大多数的boolean、byte、short、char类型数据的操作，实际上都是使用相应的int类型作为运算类型</p>
-<h3 id="2、加载和存储指令"><a href="#2、加载和存储指令" class="headerlink" title="2、加载和存储指令"></a>2、加载和存储指令</h3><p>用于将数据在栈帧中的<strong>局部变量表</strong>和<strong>操作数栈</strong>之间来回传输</p>
-<p>加载：局部变量表-操作数栈</p>
-<p>存储：操作数栈-局部变量表</p>
-<h3 id="3、运算指令"><a href="#3、运算指令" class="headerlink" title="3、运算指令"></a>3、运算指令</h3><p>用于对两个操作数栈上的值进行某种特定运算，并把结果重新存入到操作数栈顶</p>
-<h3 id="4、类型转换指令"><a href="#4、类型转换指令" class="headerlink" title="4、类型转换指令"></a>4、类型转换指令</h3><p>将两种不同的数值类型进行相互转换</p>
-<h3 id="5、对象创建与访问指令"><a href="#5、对象创建与访问指令" class="headerlink" title="5、对象创建与访问指令"></a>5、对象创建与访问指令</h3><p>创建类实例的指令：new</p>
-<p>创建数组的指令：newarray</p>
-<p>访问类字段：getfield、putfield、getstatic、putstatic</p>
-<p>取数组长度：arraylength</p>
-<p>检查类实例类型：instanceof</p>
-<h3 id="6、操作数栈管理指令"><a href="#6、操作数栈管理指令" class="headerlink" title="6、操作数栈管理指令"></a>6、操作数栈管理指令</h3><p>直接操作操作数栈的指令</p>
-<p>操作数栈栈顶出栈：pop</p>
-<p>复制栈顶并重新压入栈顶：dup</p>
-<p>栈最顶端两个数值互换：swap</p>
-<h3 id="7、控制转移指令"><a href="#7、控制转移指令" class="headerlink" title="7、控制转移指令"></a>7、控制转移指令</h3><p>有条件或无条件的修改PC寄存器的值（循环、跳转）</p>
-<p>条件分支：ifeq</p>
-<p>复合条件分支：tableswitch</p>
-<p>无条件分支：goto</p>
-<p>各种类型的比较最终都会转化为int类型的比较操作，int类型比较是否方便完善就显得尤为重要，所以Java虚拟机提供的int类型的条件分支指令是最为丰富和强大的</p>
-<h3 id="8、方法调用和返回指令"><a href="#8、方法调用和返回指令" class="headerlink" title="8、方法调用和返回指令"></a>8、方法调用和返回指令</h3><p>invokevirtual：调用对象的实例方法</p>
-<p>invokeinterface：调用接口方法</p>
-<p>invokespecial：调用需要特殊处理的实例方法（实例初始化方法、私有方法、父类方法）</p>
-<p>invokestatic：调用类方法（static方法）</p>
-<p>invokedynamic：执行运行时动态解析出调用点限定符所引用的方法</p>
-<p>方法调用指令与数据类型无关，但方法返回指令是根据返回值类型区分的，如ireturn，还有一条return指令供声明为void的方法、实例初始化方法以及类和接口的类初始化方法使用</p>
-<h3 id="9、异常处理指令"><a href="#9、异常处理指令" class="headerlink" title="9、异常处理指令"></a>9、异常处理指令</h3><p>Java程序中显式抛出异常的操作（throw语句）都由athrow指令来实现，采用异常表完成</p>
-<h3 id="10、同步指令"><a href="#10、同步指令" class="headerlink" title="10、同步指令"></a>10、同步指令</h3><p>同步一段指令集序列通常是由Java语言中的<strong>synchronized</strong>语句块来表示的，Java虚拟机的指令集中有<strong>monitorenter</strong>和<strong>monitorexit</strong>两条指令来支持synchronized关键字的语义</p>
-<h2 id="五、公有设计和私有实现"><a href="#五、公有设计和私有实现" class="headerlink" title="五、公有设计和私有实现"></a>五、公有设计和私有实现</h2><p>公有设计：class文件格式、字节码指令集</p>
-<p>私有实现：class文件的处理（同步、异常不同实现）</p>
-<p><strong>虚拟机实现方式：</strong></p>
-<p>将输入的Java虚拟机代码在加载或执行时翻译成另外一种虚拟机的指令集</p>
-<p>将输入的Java虚拟机代码在加载或执行时翻译成宿主机CPU的本地指令集（JIT代码生成技术）</p>
-<h2 id="六、Class文件结构的发展"><a href="#六、Class文件结构的发展" class="headerlink" title="六、Class文件结构的发展"></a>六、Class文件结构的发展</h2><p>目前，所有对Class文件格式的改进，都集中在向访问标志、属性表这些在设计上就可扩展的数据结构中添加内容</p>
-<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
-<li><a href="https://www.cnblogs.com/longjee/p/8675771.html" target="_blank" rel="noopener">字节码指令大全</a></li>
-<li><a href="https://www.cnblogs.com/insistence/p/5901457.html" target="_blank" rel="noopener">JIT编译器理解</a></li>
-<li><a href="https://www.cnblogs.com/qiumingcheng/p/5400265.html" target="_blank" rel="noopener">机器码与字节码</a></li>
+<p><img src="/2019/03/23/虚拟机字节码执行引擎/1.jpg" alt></p>
+<h3 id="1、局部变量表"><a href="#1、局部变量表" class="headerlink" title="1、局部变量表"></a>1、局部变量表</h3><ul>
+<li>一组变量值存储空间，用于存放方法参数和方法内部定义的局部变量</li>
+<li>Class文件方法的Code属性<strong>max_locals</strong>数据项中确定了该方法所需要分配的局部变量表的最大容量</li>
+<li>局部变量表的容量以<strong>变量槽</strong>（slot）为最小单位，一个slot可以存放一个32位以内的数据类型，有boolean、byte、char、short、int、float、reference和returnAddress 8种类型</li>
+<li>reference类型表示对一个对象实例的引用（对象访问定位），returnAddress类型指向了一条字节码指令的地址</li>
+<li>对于64位的数据类型（long/double），虚拟机会以<strong>高位对齐</strong>的方式为其分配两个连续的slot空间，不允许采用任何方式单独访问其中的一个 </li>
+<li>局部变量表中第0位索引的slot默认用于传递方法所属对象实例的引用（解释了<strong>this</strong>访问）</li>
+</ul>
+<p><strong>初始化问题</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> a;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a;</span><br><span class="line">        System.out.println(a);<span class="comment">//a没有被初始化，编译失败</span></span><br><span class="line">        Test1 t=<span class="keyword">new</span> Test1();</span><br><span class="line">        System.out.println(t.a);<span class="comment">//0</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>局部变量定义了但没有赋初始值是不能使用的，不要认为Java中任何情况下整形默认为0，布尔型变量默认为false</strong></p>
+<h3 id="2、操作数栈"><a href="#2、操作数栈" class="headerlink" title="2、操作数栈"></a>2、操作数栈</h3><ul>
+<li>操作数栈的最大深度也在编译的时候写入到Code属性<strong>max_stacks</strong>数据项中</li>
+<li>32位数据类型占栈容量为1，64位为2</li>
+</ul>
+<p><strong>优化处理</strong></p>
+<p><img src="/2019/03/23/虚拟机字节码执行引擎/1.png" alt></p>
+<p>下面栈帧的部分操作数栈与上面栈帧的部分局部变量表重叠在一起，方法调用时就可以共用一部分数据，无需进行额外的参数复制传递（值传递）</p>
+<p><strong>原理解析</strong></p>
+<p>栈有一个很重要的特殊性，就是存在栈中的数据可以共享。假设我们同时定义：   int a = 3;   int b = 3；   编译器先处理int a = 3；首先它会在栈中创建一个变量为a的引用，然后查找栈中是否有3这个值，如果没找到，就将3存放进来，然后将a指向3。接着处理int b = 3；在创建完b的引用变量后，因为在栈中已经有3这个值，便将b直接指向3。这样，就出现了a与b同时均指向3的情况。这时，如果再令a=4；那么编译器 会重新搜索栈中是否有4值，如果没有，则将4存放进来，并令a指向4；如果已经有了，则直接将a指向这个地址。因此a值的改变不会影响到b的值。要注意这 种数据的共享与两个对象的引用同时指向一个对象的这种共享是不同的，因为这种情况a的修改并不会影响到b, 它是由编译器完成的，它有利于节省空间。而一个对象引用变量修改了这个对象的内部状态，会影响到另一个对象引用变量。   </p>
+<h3 id="3、动态连接"><a href="#3、动态连接" class="headerlink" title="3、动态连接"></a>3、动态连接</h3><p>每个栈帧都包含一个指向运行时常量池中该栈帧所属方法的引用，常量池符号引用一部分会在类加载阶段或者第一次使用的时候就转化为直接引用（称为<strong>静态解析</strong>），另一部分在运行期间转化为直接引用（称为<strong>动态连接</strong>）</p>
+<h3 id="4、方法返回地址"><a href="#4、方法返回地址" class="headerlink" title="4、方法返回地址"></a>4、方法返回地址</h3><p><strong>正常完成出口</strong></p>
+<ul>
+<li>执行引擎遇到任意一个方法返回的字节码指令，将返回值传递给上层的方法调用者</li>
+</ul>
+<p><strong>异常完成出口</strong></p>
+<ul>
+<li>方法执行过程中遇到了异常，程序中并没有处理操作，不会产生任何返回值</li>
+</ul>
+<p><strong>方法退出过程</strong></p>
+<ul>
+<li>恢复上层方法的局部变量表和操作数栈</li>
+<li>把返回值压入调用者栈帧的操作数栈中</li>
+<li>调整PC计数器指向下一条指令</li>
+</ul>
+<h3 id="5、附加信息"><a href="#5、附加信息" class="headerlink" title="5、附加信息"></a>5、附加信息</h3><p>在实际开发中，一般会把动态连接、方法返回值与其他附加信息全部归为一类，称为栈帧信息</p>
+<h2 id="三、方法调用"><a href="#三、方法调用" class="headerlink" title="三、方法调用"></a>三、方法调用</h2><p>方法调用并不等同于方法执行，方法调用阶段唯一的任务就是确定被调用方法的版本（即调用哪一个方法），暂时还不涉及方法内部的具体运行过程</p>
+<h3 id="1、解析"><a href="#1、解析" class="headerlink" title="1、解析"></a>1、解析</h3><ul>
+<li>编译期可知，运行期不可变</li>
+<li>静态方法、私有方法、实例构造器、父类方法4类，在类加载时候就会把符号引用解析为方法的直接引用</li>
+</ul>
+<h3 id="2、分派"><a href="#2、分派" class="headerlink" title="2、分派"></a>2、分派</h3><p><strong>静态类型与实际类型</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Human man=<span class="keyword">new</span> Man();</span><br></pre></td></tr></table></figure>
+<p>Human为man变量的<strong>静态类型</strong>，Man为<strong>实际类型</strong></p>
+<p><strong>静态类型是在编译期可知的，而实际类型变化的结果在运行期才可确定，编译程序时并不知道一个对象的实际类型</strong></p>
+<p><strong>静态分派</strong></p>
+<p>所有依赖静态类型来定位方法执行版本的分派动作称为静态分派，典型应用是<strong>方法重载</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticDispatch</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Human</span></span>&#123;&#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Man</span> <span class="keyword">extends</span> <span class="title">Human</span></span>&#123;&#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Woman</span> <span class="keyword">extends</span> <span class="title">Human</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">(Human man)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"hello,human"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">(Man man)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"hello,man"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">(Woman man)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"hello,woman"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Human man=<span class="keyword">new</span> Man();</span><br><span class="line">        Human woman=<span class="keyword">new</span> Woman();</span><br><span class="line">        StaticDispatch sd=<span class="keyword">new</span> StaticDispatch();</span><br><span class="line">        sd.hello(man);<span class="comment">//hello,human</span></span><br><span class="line">        sd.hello(woman);<span class="comment">//hello,human</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>静态分派发生在编译阶段，虚拟机重载时通过参数的静态类型作为判定依据</p>
+<p><strong>动态分派</strong></p>
+<p>所有依赖实际类型来定位方法执行版本的分派动作称为动态分派，典型应用是<strong>方法重写</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DynamicDispatch</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Human</span></span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Man</span> <span class="keyword">extends</span> <span class="title">Human</span></span>&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"hello,man"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Woman</span> <span class="keyword">extends</span> <span class="title">Human</span></span>&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"hello,woman"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Human man=<span class="keyword">new</span> Man();</span><br><span class="line">        Human woman=<span class="keyword">new</span> Woman();</span><br><span class="line">        man.hello();<span class="comment">//hello,man</span></span><br><span class="line">        woman.hello();<span class="comment">//hello,woman</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>动态分派发生在运行阶段，虚拟机重写时通过参数的实际类型作为判定依据</p>
+<p><strong>单分派与多分派</strong></p>
+<ul>
+<li>方法的接收者与方法的参数统称为方法的<strong>宗量</strong></li>
+<li>单分派是根据一个宗量对目标方法进行选择</li>
+<li>多分派是根据多个宗量对目标方法进行选择</li>
+</ul>
+<p>Java语言是一门静态多分派、动态单分派的语言（<strong>重载可多次、重写仅一次</strong>）</p>
+<p><strong>动态分派的实现</strong></p>
+<p>为类在方法区中建立一个<strong>虚方法表</strong>，存放各个方法的实际入口地址</p>
+<p>方法表一般在类加载的连接阶段进行初始化，准备了类的变量初始值后，虚拟机也会把类的方法表也初始化完毕</p>
+<p><img src="/2019/03/23/虚拟机字节码执行引擎/2.jpg" alt></p>
+<p>内联缓存、守护内联</p>
+<h3 id="3、动态类型语言支持"><a href="#3、动态类型语言支持" class="headerlink" title="3、动态类型语言支持"></a>3、动态类型语言支持</h3><p>静态类型语言：</p>
+<ul>
+<li>在编译期确定类型，编译器可以提供严谨的类型检查，利于稳定性及代码达到更大规模（C++、Java）</li>
+</ul>
+<p>动态类型语言：</p>
+<ul>
+<li>在运行期确定类型，为开发提供更大的灵活性，意味着开发效率的提升（JavaScript、python）</li>
+</ul>
+<p>java.lang.invoke包</p>
+<p>invokedynamic指令</p>
+<h2 id="四、基于栈的字节码解释执行引擎"><a href="#四、基于栈的字节码解释执行引擎" class="headerlink" title="四、基于栈的字节码解释执行引擎"></a>四、基于栈的字节码解释执行引擎</h2><p>两种指令集计算1+1的结果</p>
+<h3 id="1、栈的指令集"><a href="#1、栈的指令集" class="headerlink" title="1、栈的指令集"></a>1、栈的指令集</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">iconst_1</span><br><span class="line">iconst_1</span><br><span class="line">iadd</span><br><span class="line">istore_0</span><br></pre></td></tr></table></figure>
+<p>两条iconst_1指令连续把两个常量1压入栈后，iadd指令把栈顶的两个值出栈、相加，然后把结果放回栈顶，最后istore_0把栈顶的值放到局部变量表的第0个Slot中</p>
+<h3 id="2、寄存器的指令集"><a href="#2、寄存器的指令集" class="headerlink" title="2、寄存器的指令集"></a>2、寄存器的指令集</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mov eax, <span class="number">1</span></span><br><span class="line">add eax, <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>mov指令把eax寄存器的值设为1，然后add指令把这个值加1，结果保存在eax寄存器里</p>
+<h3 id="3、对比"><a href="#3、对比" class="headerlink" title="3、对比"></a>3、对比</h3><p>基于栈的指令集主要的优点就是可移植，缺点是执行速度稍慢一些（出栈、入栈比较频繁）</p>
+<h3 id="4、基于栈的解释器执行过程"><a href="#4、基于栈的解释器执行过程" class="headerlink" title="4、基于栈的解释器执行过程"></a>4、基于栈的解释器执行过程</h3><h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
+<li><a href="https://www.cnblogs.com/zzzz76/p/8076536.html" target="_blank" rel="noopener">动态加载</a></li>
 </ul>
 
       
@@ -616,7 +366,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/20/类文件结构/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/23/虚拟机字节码执行引擎/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -630,18 +380,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/21/虚拟机类加载机制/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          虚拟机类加载机制
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/19/虚拟机性能监控与故障处理工具/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">虚拟机性能监控与故障处理工具</div>
+    <a href="/2019/03/21/虚拟机类加载机制/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">虚拟机类加载机制</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -668,7 +409,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、概述"><span class="toc-number">1.</span> <span class="toc-text">一、概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、无关性"><span class="toc-number">2.</span> <span class="toc-text">二、无关性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、Class类文件结构"><span class="toc-number">3.</span> <span class="toc-text">三、Class类文件结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、魔数与版本"><span class="toc-number">3.1.</span> <span class="toc-text">1、魔数与版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、常量池"><span class="toc-number">3.2.</span> <span class="toc-text">2、常量池</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、访问标志"><span class="toc-number">3.3.</span> <span class="toc-text">3、访问标志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、类索引、父类索引、接口索引集合"><span class="toc-number">3.4.</span> <span class="toc-text">4、类索引、父类索引、接口索引集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、字段表集合"><span class="toc-number">3.5.</span> <span class="toc-text">5、字段表集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、方法表集合"><span class="toc-number">3.6.</span> <span class="toc-text">6、方法表集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、属性表集合"><span class="toc-number">3.7.</span> <span class="toc-text">7、属性表集合</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、字节码指令"><span class="toc-number">4.</span> <span class="toc-text">四、字节码指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0、简介"><span class="toc-number">4.1.</span> <span class="toc-text">0、简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1、字节码与数据类型"><span class="toc-number">4.2.</span> <span class="toc-text">1、字节码与数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、加载和存储指令"><span class="toc-number">4.3.</span> <span class="toc-text">2、加载和存储指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、运算指令"><span class="toc-number">4.4.</span> <span class="toc-text">3、运算指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、类型转换指令"><span class="toc-number">4.5.</span> <span class="toc-text">4、类型转换指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、对象创建与访问指令"><span class="toc-number">4.6.</span> <span class="toc-text">5、对象创建与访问指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、操作数栈管理指令"><span class="toc-number">4.7.</span> <span class="toc-text">6、操作数栈管理指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、控制转移指令"><span class="toc-number">4.8.</span> <span class="toc-text">7、控制转移指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8、方法调用和返回指令"><span class="toc-number">4.9.</span> <span class="toc-text">8、方法调用和返回指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9、异常处理指令"><span class="toc-number">4.10.</span> <span class="toc-text">9、异常处理指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10、同步指令"><span class="toc-number">4.11.</span> <span class="toc-text">10、同步指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、公有设计和私有实现"><span class="toc-number">5.</span> <span class="toc-text">五、公有设计和私有实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、Class文件结构的发展"><span class="toc-number">6.</span> <span class="toc-text">六、Class文件结构的发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">7.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、概述"><span class="toc-number">1.</span> <span class="toc-text">一、概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、运行时栈帧结构"><span class="toc-number">2.</span> <span class="toc-text">二、运行时栈帧结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、局部变量表"><span class="toc-number">2.1.</span> <span class="toc-text">1、局部变量表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、操作数栈"><span class="toc-number">2.2.</span> <span class="toc-text">2、操作数栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、动态连接"><span class="toc-number">2.3.</span> <span class="toc-text">3、动态连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、方法返回地址"><span class="toc-number">2.4.</span> <span class="toc-text">4、方法返回地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、附加信息"><span class="toc-number">2.5.</span> <span class="toc-text">5、附加信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、方法调用"><span class="toc-number">3.</span> <span class="toc-text">三、方法调用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、解析"><span class="toc-number">3.1.</span> <span class="toc-text">1、解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、分派"><span class="toc-number">3.2.</span> <span class="toc-text">2、分派</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、动态类型语言支持"><span class="toc-number">3.3.</span> <span class="toc-text">3、动态类型语言支持</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、基于栈的字节码解释执行引擎"><span class="toc-number">4.</span> <span class="toc-text">四、基于栈的字节码解释执行引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、栈的指令集"><span class="toc-number">4.1.</span> <span class="toc-text">1、栈的指令集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、寄存器的指令集"><span class="toc-number">4.2.</span> <span class="toc-text">2、寄存器的指令集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、对比"><span class="toc-number">4.3.</span> <span class="toc-text">3、对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、基于栈的解释器执行过程"><span class="toc-number">4.4.</span> <span class="toc-text">4、基于栈的解释器执行过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">5.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
                     </div>
                 </span>
             </div>
