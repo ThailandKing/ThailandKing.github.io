@@ -16,15 +16,15 @@
 <meta property="og:site_name" content="thailandking">
 <meta property="og:description" content="一、概述良好的设计规则不得不向现实做出一些让步，我们必须让程序在计算机中正确无误地运行，然后再考虑如何将代码组织的更好，让程序运行的更快。 对于高效并发，首先需要保证并发的正确性，然后在此基础上实现高效 二、线程安全当多个线程访问操作一个对象时都可以获取正确的结果，那这个对象是线程安全的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/26/线程安全与锁优化/线程安全与锁优化/1.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/26/线程安全与锁优化/线程安全与锁优化/2.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/26/线程安全与锁优化/线程安全与锁优化/3.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/26/线程安全与锁优化/线程安全与锁优化/4.png">
-<meta property="og:updated_time" content="2019-03-27T08:30:28.487Z">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/26/线程安全与锁优化/1.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/26/线程安全与锁优化/2.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/26/线程安全与锁优化/3.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/26/线程安全与锁优化/4.png">
+<meta property="og:updated_time" content="2019-03-27T08:52:00.716Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线程安全与锁优化">
 <meta name="twitter:description" content="一、概述良好的设计规则不得不向现实做出一些让步，我们必须让程序在计算机中正确无误地运行，然后再考虑如何将代码组织的更好，让程序运行的更快。 对于高效并发，首先需要保证并发的正确性，然后在此基础上实现高效 二、线程安全当多个线程访问操作一个对象时都可以获取正确的结果，那这个对象是线程安全的">
-<meta name="twitter:image" content="https://thailandking.github.io/2019/03/26/线程安全与锁优化/线程安全与锁优化/1.png">
+<meta name="twitter:image" content="https://thailandking.github.io/2019/03/26/线程安全与锁优化/1.png">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -246,14 +246,14 @@
 <p>重量级锁：互斥量</p>
 <p>轻量级锁：CAS操作</p>
 <p><strong>对象头Mark Word</strong></p>
-<p><img src="/2019/03/26/线程安全与锁优化/./线程安全与锁优化/1.png" alt></p>
+<p><img src="/2019/03/26/线程安全与锁优化/1.png" alt></p>
 <p><strong>加锁过程</strong></p>
 <p>1）在代码进入同步块的时候，如果同步对象锁状态为无锁状态（锁标志位为“01”状态，是否为偏向锁为“0”），虚拟机首先将在当前线程的栈帧中建立一个名为锁记录（Lock Record）的空间，用于存储锁对象目前的Mark Word的拷贝，这时候线程堆栈与对象头的状态如图所示</p>
-<p><img src="/2019/03/26/线程安全与锁优化/./线程安全与锁优化\2.png" alt></p>
+<p><img src="/2019/03/26/线程安全与锁优化/2.png" alt></p>
 <p>2）拷贝对象头中的Mark Word复制到锁记录中</p>
 <p>3）拷贝成功后，虚拟机将使用CAS操作尝试将对象的Mark Word更新为指向Lock Record的指针，并将Lock record里的owner指针指向object mark word。如果更新成功，则执行步骤（4），否则执行步骤（5）</p>
 <p>4）如果这个更新动作成功了，那么这个线程就拥有了该对象的锁，并且对象Mark Word的锁标志位设置为“00”，即表示此对象处于轻量级锁定状态，这时候线程堆栈与对象头的状态如图所示</p>
-<p><img src="/2019/03/26/线程安全与锁优化/./线程安全与锁优化\3.png" alt></p>
+<p><img src="/2019/03/26/线程安全与锁优化/3.png" alt></p>
 <p>5）如果这个更新操作失败了，虚拟机首先会检查对象的Mark Word是否指向当前线程的栈帧，如果是就说明当前线程已经拥有了这个对象的锁，那就可以直接进入同步块继续执行。否则说明多个线程竞争锁，轻量级锁就要膨胀为重量级锁，锁标志的状态值变为“10”，Mark Word中存储的就是指向重量级锁（互斥量）的指针，后面等待锁的线程也要进入阻塞状态，而当前线程便尝试使用自旋来获取锁，</p>
 <p><strong>解锁过程</strong></p>
 <p>1）通过CAS操作尝试把线程中复制的Displaced Mark Word对象替换当前的Mark Word。</p>
@@ -269,7 +269,7 @@
 <p>5）执行同步代码</p>
 <p><strong>释放锁过程</strong></p>
 <p>偏向锁只有遇到其他线程尝试竞争偏向锁时，持有偏向锁的线程才会释放锁，线程不会主动去释放偏向锁。偏向锁的撤销，会首先暂停拥有偏向锁的线程，判断锁对象是否处于被锁定状态，撤销偏向锁后恢复到未锁定（标志位为“01”）或轻量级锁（标志位为“00”）的状态</p>
-<h3 id="6、锁之间的转换"><a href="#6、锁之间的转换" class="headerlink" title="6、锁之间的转换"></a>6、锁之间的转换</h3><p><img src="/2019/03/26/线程安全与锁优化/./线程安全与锁优化\4.png" alt></p>
+<h3 id="6、锁之间的转换"><a href="#6、锁之间的转换" class="headerlink" title="6、锁之间的转换"></a>6、锁之间的转换</h3><p><img src="/2019/03/26/线程安全与锁优化/4.png" alt></p>
 <h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
 <li><a href="https://www.jianshu.com/p/ae653c30b4d9" target="_blank" rel="noopener">ThreadLocal线程本地存储</a></li>
 <li><a href="https://www.cnblogs.com/zhangfengshi/p/9203191.html" target="_blank" rel="noopener">ReentrantLock实现原理</a></li>
@@ -531,23 +531,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,11 +543,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">java8</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hashmap</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -579,10 +579,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
               </li>
              
@@ -592,6 +588,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,15 +611,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CAS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">hashmap</a>
               </li>
              
               <li class="article-tag-list-item">
