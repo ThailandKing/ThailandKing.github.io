@@ -6,20 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>Mysql事务总结 | thailandking</title>
+  <title>线程安全与锁优化 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="事务的特性（ACID）1、原子性（Atomicity ）：事务执行时不可拆分 2、一致性（Consistency ）：事务执行前后不破坏数据库的完整性（A扣钱，B增钱） 3、隔离性（Isolation ）：事务执行之间互不干扰 4、持久性（Durability ）：事务完成后，对数据库的改变是持久的">
-<meta name="keywords" content="mysql">
+  <meta name="description" content="一、概述良好的设计规则不得不向现实做出一些让步，我们必须让程序在计算机中正确无误地运行，然后再考虑如何将代码组织的更好，让程序运行的更快。 对于高效并发，首先需要保证并发的正确性，然后在此基础上实现高效 二、线程安全当多个线程访问操作一个对象时都可以获取正确的结果，那这个对象是线程安全的">
+<meta name="keywords" content="jvm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mysql事务总结">
-<meta property="og:url" content="https://thailandking.github.io/2019/03/12/Mysql事务总结/index.html">
+<meta property="og:title" content="线程安全与锁优化">
+<meta property="og:url" content="https://thailandking.github.io/2019/03/26/线程安全与锁优化/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="事务的特性（ACID）1、原子性（Atomicity ）：事务执行时不可拆分 2、一致性（Consistency ）：事务执行前后不破坏数据库的完整性（A扣钱，B增钱） 3、隔离性（Isolation ）：事务执行之间互不干扰 4、持久性（Durability ）：事务完成后，对数据库的改变是持久的">
+<meta property="og:description" content="一、概述良好的设计规则不得不向现实做出一些让步，我们必须让程序在计算机中正确无误地运行，然后再考虑如何将代码组织的更好，让程序运行的更快。 对于高效并发，首先需要保证并发的正确性，然后在此基础上实现高效 二、线程安全当多个线程访问操作一个对象时都可以获取正确的结果，那这个对象是线程安全的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-13T06:36:53.061Z">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/26/线程安全与锁优化/线程安全与锁优化/1.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/26/线程安全与锁优化/线程安全与锁优化/2.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/26/线程安全与锁优化/线程安全与锁优化/3.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/26/线程安全与锁优化/线程安全与锁优化/4.png">
+<meta property="og:updated_time" content="2019-03-27T08:30:28.487Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mysql事务总结">
-<meta name="twitter:description" content="事务的特性（ACID）1、原子性（Atomicity ）：事务执行时不可拆分 2、一致性（Consistency ）：事务执行前后不破坏数据库的完整性（A扣钱，B增钱） 3、隔离性（Isolation ）：事务执行之间互不干扰 4、持久性（Durability ）：事务完成后，对数据库的改变是持久的">
+<meta name="twitter:title" content="线程安全与锁优化">
+<meta name="twitter:description" content="一、概述良好的设计规则不得不向现实做出一些让步，我们必须让程序在计算机中正确无误地运行，然后再考虑如何将代码组织的更好，让程序运行的更快。 对于高效并发，首先需要保证并发的正确性，然后在此基础上实现高效 二、线程安全当多个线程访问操作一个对象时都可以获取正确的结果，那这个对象是线程安全的">
+<meta name="twitter:image" content="https://thailandking.github.io/2019/03/26/线程安全与锁优化/线程安全与锁优化/1.png">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -151,85 +156,125 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Mysql事务总结" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-线程安全与锁优化" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Mysql事务总结
+      线程安全与锁优化
     </h1>
   
 
         
-        <a href="/2019/03/12/Mysql事务总结/" class="archive-article-date">
-  	<time datetime="2019-03-12T15:20:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-12</time>
+        <a href="/2019/03/26/线程安全与锁优化/" class="archive-article-date">
+  	<time datetime="2019-03-26T12:52:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="事务的特性（ACID）"><a href="#事务的特性（ACID）" class="headerlink" title="事务的特性（ACID）"></a>事务的特性（ACID）</h2><p>1、原子性（<strong>Atomicity</strong> ）：事务执行时不可拆分</p>
-<p>2、一致性（<strong>Consistency</strong> ）：事务执行前后不破坏数据库的完整性（A扣钱，B增钱）</p>
-<p>3、隔离性（<strong>Isolation</strong> ）：事务执行之间互不干扰</p>
-<p>4、持久性（<strong>Durability</strong> ）：事务完成后，对数据库的改变是持久的</p>
+        <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>良好的设计规则不得不向现实做出一些让步，我们必须让程序在计算机中正确无误地运行，然后再考虑如何将代码组织的更好，让程序运行的更快。</p>
+<p>对于高效并发，首先需要保证并发的正确性，然后在此基础上实现高效</p>
+<h2 id="二、线程安全"><a href="#二、线程安全" class="headerlink" title="二、线程安全"></a>二、线程安全</h2><p>当多个线程访问操作一个对象时都可以获取正确的结果，那这个对象是线程安全的</p>
 <a id="more"></a>
-<h2 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h2><p>1、读已提交（read-committed） </p>
-<p>2、读未提交（read-uncommitted） </p>
-<p>3、可重复读（repeatable-read） </p>
-<p>4、串行化（serializable） </p>
-<h2 id="默认隔离级别"><a href="#默认隔离级别" class="headerlink" title="默认隔离级别"></a>默认隔离级别</h2><p>可重复读（repeatable-read） </p>
-<p>1.查看当前会话隔离级别 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select @<span class="meta">@tx</span>_isolation;</span><br></pre></td></tr></table></figure>
-<p>2.查看系统当前隔离级别 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select @<span class="meta">@global</span>.tx_isolation;</span><br></pre></td></tr></table></figure>
-<p>3.设置当前会话隔离级别 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set session transaction isolatin level repeatable read;</span><br></pre></td></tr></table></figure>
-<p>4.设置系统当前隔离级别 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set global transaction isolation level repeatable read;</span><br></pre></td></tr></table></figure>
-<h2 id="事务的并发问题"><a href="#事务的并发问题" class="headerlink" title="事务的并发问题"></a>事务的并发问题</h2><p>1、脏读：事务A读取了事务B更新的数据，然后B回滚操作，那么A读取到的数据是脏数据 </p>
-<p>2、不可重复读：事务A多次读取同一数据，事务B在事务A多次读取的过程中，对数据作了更新并提交，导致事务A多次读取同一数据时，结果 不一致。 </p>
-<p>3、幻读：系统管理员A将数据库中所有学生的成绩从具体分数改为ABCDE等级，但是系统管理员B就在这个时候插入了一条具体分数的记录，当系统管理员A改结束后发现还有一条记录没有改过来，就好像发生了幻觉一样，这就叫幻读。 </p>
-<table>
-<thead>
-<tr>
-<th>事务隔离级别</th>
-<th>脏读</th>
-<th>不可重复读</th>
-<th>幻读</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>读未提交（read-uncommitted）</td>
-<td>是</td>
-<td>是</td>
-<td>是</td>
-</tr>
-<tr>
-<td>读已提交（read-committed）</td>
-<td>否</td>
-<td>是</td>
-<td>是</td>
-</tr>
-<tr>
-<td>可重复读（repeatable-read）</td>
-<td>否</td>
-<td>否</td>
-<td>是</td>
-</tr>
-<tr>
-<td>串行化（serializable）</td>
-<td>否</td>
-<td>否</td>
-<td>否</td>
-</tr>
-</tbody>
-</table>
-<p><strong>小结：不可重复读的和幻读很容易混淆，不可重复读侧重于修改，幻读侧重于新增或删除。解决不可重复读的问题只需锁住满足条件的行，解决幻读需要锁表</strong> </p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://www.cnblogs.com/huanongying/p/7021555.html" target="_blank" rel="noopener">https://www.cnblogs.com/huanongying/p/7021555.html</a></p>
+<h3 id="1、Java中的线程安全"><a href="#1、Java中的线程安全" class="headerlink" title="1、Java中的线程安全"></a>1、Java中的线程安全</h3><h4 id="1-1-不可变"><a href="#1-1-不可变" class="headerlink" title="1.1 不可变"></a>1.1 不可变</h4><p>不可变的对象一定是线程安全的，带来的安全性是最简单和最纯粹的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">String</span></span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span>, <span class="title">Comparable</span>&lt;<span class="title">String</span>&gt;, <span class="title">CharSequence</span> </span>&#123;</span><br><span class="line">    <span class="comment">//采用final修饰，一经初始化就不可变</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">char</span> value[];</span><br></pre></td></tr></table></figure>
+<h4 id="1-2-绝对线程安全"><a href="#1-2-绝对线程安全" class="headerlink" title="1.2 绝对线程安全"></a>1.2 绝对线程安全</h4><p>不管运行时环境如何，调用者都不需要任何额外的同步措施</p>
+<p>Java API中标注线程安全的类，大多数都不是绝对线程安全的</p>
+<p><strong>对vector线程安全的测试</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VectorTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Vector&lt;Integer&gt; vector = <span class="keyword">new</span> Vector&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">                vector.add(i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vector.size(); i++) &#123;</span><br><span class="line">                        <span class="comment">//并发下出现越界异常</span></span><br><span class="line">                        <span class="comment">//当vector还有1个元素时，线程A进入循环内部，准备执行删除操作，线程B先将元素删除，线程A没有数据可删除，抛出异常</span></span><br><span class="line">                        vector.remove(i);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread <span class="string">"Thread-2399"</span> java.lang.ArrayIndexOutOfBoundsException: Array index out of range: <span class="number">14</span></span><br><span class="line">    at java.util.Vector.remove(Vector.java:<span class="number">834</span>)</span><br><span class="line">    at threadsafe.VectorTest$<span class="number">1</span>.run(VectorTest.java:<span class="number">17</span>)</span><br><span class="line">    at java.lang.Thread.run(Thread.java:<span class="number">748</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//解决方法，同步对象</span></span><br><span class="line"><span class="keyword">synchronized</span> (vector) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vector.size(); i++) &#123;</span><br><span class="line">        vector.remove(i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="1-3-相对线程安全"><a href="#1-3-相对线程安全" class="headerlink" title="1.3 相对线程安全"></a>1.3 相对线程安全</h4><p>我们通常意义上讲的线程安全，Java中大部分线程安全类都属于此类型</p>
+<p>如vector、hashtable、CopyOnWriteArrayList、ConcurrentHashMap</p>
+<h4 id="1-4-线程兼容"><a href="#1-4-线程兼容" class="headerlink" title="1.4 线程兼容"></a>1.4 线程兼容</h4><p>对象本身不是线程安全的，但是可以通过在调用端正确地使用同步手段来保证对象在并发环境中可以安全地使用</p>
+<p>如ArrayList、HashMap</p>
+<h4 id="1-5-线程对立"><a href="#1-5-线程对立" class="headerlink" title="1.5 线程对立"></a>1.5 线程对立</h4><p>调用端无论是否采取同步措施，都无法并发使用</p>
+<p>如Thread类的suspend和resume方法，一个尝试中断线程，一个尝试恢复线程，存在死锁风险</p>
+<h3 id="2、线程安全的实现方法"><a href="#2、线程安全的实现方法" class="headerlink" title="2、线程安全的实现方法"></a>2、线程安全的实现方法</h3><h4 id="2-1-互斥同步"><a href="#2-1-互斥同步" class="headerlink" title="2.1 互斥同步"></a>2.1 互斥同步</h4><p><strong>synchronized关键字</strong></p>
+<p>由jvm实现，在执行monitorenter指令时，首先要尝试获取对象的锁，如果对象没被锁定或者当前线程拥有对象的锁，就把锁的计数器加1，在执行monitorexit指令时会将锁计数器减1，当计数器为0时，锁就被释放。如果获取对象锁失败，那当前线程就要阻塞等待，直到对象锁被另外一个线程释放为止</p>
+<p>synchronized是一个重量级锁，在必要情况下才去使用</p>
+<p><strong>ReentrantLock重入锁</strong></p>
+<p>由jdk实现，原理同synchronized</p>
+<p>相比synchronized，ReentrantLock增加了一些高级功能：</p>
+<ul>
+<li><strong>等待可中断</strong>：当持有锁的线程长期不释放锁的时候，等待的线程可以选择放弃等待</li>
+<li><strong>公平锁</strong>：线程按照申请锁的时间顺序来依次获得锁（ReentrantLock默认是非公平的，但可以设置）</li>
+<li><strong>绑定多个条件</strong>：可以同时绑定多个Condition对象</li>
+</ul>
+<p><strong>总结</strong></p>
+<p>synchronized能实现需求的情况下，优先考虑使用（毕竟是jvm原生的，一直在被优化）</p>
+<h4 id="2-2-非阻塞同步"><a href="#2-2-非阻塞同步" class="headerlink" title="2.2 非阻塞同步"></a>2.2 非阻塞同步</h4><p>互斥同步，也称阻塞同步，是一种悲观并发策略</p>
+<p>非阻塞同步，基于冲突检测的乐观并发策略，不需要把线程挂起</p>
+<p>CAS需要3个操作数，V代表当前值，A代表预期值，B代表新值，是一个原子操作</p>
+<p>JUC包下的整数原子类使用了Unsafe类的CAS操作</p>
+<p>JUC包提供一个带有标记的原子引用类<strong>AtomicStampedReference</strong>通过控制变量值的<strong>版本</strong>来保证CAS的正确性，解决了ABA的问题</p>
+<h4 id="2-3-无同步方案"><a href="#2-3-无同步方案" class="headerlink" title="2.3 无同步方案"></a>2.3 无同步方案</h4><p><strong>可重入代码</strong></p>
+<p>在代码执行的任何时刻中断它，转而执行另外一段代码，控制权返回后，原来的程序不会出现任何错误</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">fun</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>线程本地存储</strong></p>
+<ul>
+<li><p>把共享数据的可见范围限制在同一个线程之中，无需同步也能保证线程之间不出现数据争用的问题</p>
+</li>
+<li><p>每一个Thread对象都有一个ThreadLocal.ThreadLocalMap对象，存储了一组以ThreadLocal.threadLocalHashCode为键，以本地线程变量为值的K-V值对，ThreadLocal对象就是当前线程的ThreadLocalMap的访问入口，封装一些针对ThreadLocalMap的操作</p>
+</li>
+</ul>
+<h2 id="三、锁优化"><a href="#三、锁优化" class="headerlink" title="三、锁优化"></a>三、锁优化</h2><p>锁的状态总共有四种：无锁状态、偏向锁、轻量级锁和重量级锁</p>
+<h3 id="1、自旋锁"><a href="#1、自旋锁" class="headerlink" title="1、自旋锁"></a>1、自旋锁</h3><p><strong>背景</strong></p>
+<p>互斥同步时，共享数据的锁定状态只会持续很短的一段时间，为了这段时间去挂起和恢复线程并不值得</p>
+<p><strong>原理</strong></p>
+<p>为了让线程等待，我们只需让线程执行一个忙循环（自旋）</p>
+<p><strong>问题</strong></p>
+<p>如果锁被占用的时间很短，自旋等待的效果就会非常好，如果锁被占用时间很长，自旋的线程只会白白消耗处理器资源</p>
+<p><strong>自适应自旋</strong></p>
+<p>自旋次数默认值是10次，自适应自旋时间不再固定，由前一次在上一个锁上的自旋时间及锁的拥有者的状态确定</p>
+<h3 id="2、锁消除"><a href="#2、锁消除" class="headerlink" title="2、锁消除"></a>2、锁消除</h3><p><strong>定义</strong></p>
+<p>消除不可能存在共享数据竞争的锁</p>
+<p><strong>举例</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> String <span class="title">concat</span><span class="params">(String s1,String s2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> s1+s2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Javac转化后的操作</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">concat</span><span class="params">(String s1,String s2)</span></span>&#123;</span><br><span class="line">    StringBuffer sb=<span class="keyword">new</span> StringBuffer();</span><br><span class="line">    sb.append(s1);</span><br><span class="line">    sb.append(s2);</span><br><span class="line">    <span class="keyword">return</span> sb.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3、锁粗化-锁细化"><a href="#3、锁粗化-锁细化" class="headerlink" title="3、锁粗化/锁细化"></a>3、锁粗化/锁细化</h3><p><strong>定义</strong></p>
+<p>锁粗化：虚拟机探测到有一串零碎的操作都对同一个对象加锁，将会把锁同步的范围扩展到操作的外部</p>
+<p><strong>举例</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//范围扩大整个append操作</span></span><br><span class="line">StringBuffer sb=<span class="keyword">new</span> StringBuffer();</span><br><span class="line">sb.append(s1);</span><br><span class="line">sb.append(s2);</span><br></pre></td></tr></table></figure>
+<p>锁细化：将同步块的作用范围尽量变小，只在共享数据的实际作用域中才进行同步</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ConcurrentHashMap采用分段锁实现同步</span><br></pre></td></tr></table></figure>
+<h3 id="4、轻量级锁"><a href="#4、轻量级锁" class="headerlink" title="4、轻量级锁"></a>4、轻量级锁</h3><p>轻量级锁并不是代替重量级锁的，<strong>减少</strong>传统重量级锁使用操作系统互斥量产生的性能消耗</p>
+<p>重量级锁：互斥量</p>
+<p>轻量级锁：CAS操作</p>
+<p><strong>对象头Mark Word</strong></p>
+<p><img src="/2019/03/26/线程安全与锁优化/./线程安全与锁优化/1.png" alt></p>
+<p><strong>加锁过程</strong></p>
+<p>1）在代码进入同步块的时候，如果同步对象锁状态为无锁状态（锁标志位为“01”状态，是否为偏向锁为“0”），虚拟机首先将在当前线程的栈帧中建立一个名为锁记录（Lock Record）的空间，用于存储锁对象目前的Mark Word的拷贝，这时候线程堆栈与对象头的状态如图所示</p>
+<p><img src="/2019/03/26/线程安全与锁优化/./线程安全与锁优化\2.png" alt></p>
+<p>2）拷贝对象头中的Mark Word复制到锁记录中</p>
+<p>3）拷贝成功后，虚拟机将使用CAS操作尝试将对象的Mark Word更新为指向Lock Record的指针，并将Lock record里的owner指针指向object mark word。如果更新成功，则执行步骤（4），否则执行步骤（5）</p>
+<p>4）如果这个更新动作成功了，那么这个线程就拥有了该对象的锁，并且对象Mark Word的锁标志位设置为“00”，即表示此对象处于轻量级锁定状态，这时候线程堆栈与对象头的状态如图所示</p>
+<p><img src="/2019/03/26/线程安全与锁优化/./线程安全与锁优化\3.png" alt></p>
+<p>5）如果这个更新操作失败了，虚拟机首先会检查对象的Mark Word是否指向当前线程的栈帧，如果是就说明当前线程已经拥有了这个对象的锁，那就可以直接进入同步块继续执行。否则说明多个线程竞争锁，轻量级锁就要膨胀为重量级锁，锁标志的状态值变为“10”，Mark Word中存储的就是指向重量级锁（互斥量）的指针，后面等待锁的线程也要进入阻塞状态，而当前线程便尝试使用自旋来获取锁，</p>
+<p><strong>解锁过程</strong></p>
+<p>1）通过CAS操作尝试把线程中复制的Displaced Mark Word对象替换当前的Mark Word。</p>
+<p>2）如果替换成功，整个同步过程就完成了。</p>
+<p>3）如果替换失败，说明有其他线程尝试过获取该锁（此时锁已膨胀），那就要在释放锁的同时，唤醒被挂起的线程</p>
+<h3 id="5、偏向锁"><a href="#5、偏向锁" class="headerlink" title="5、偏向锁"></a>5、偏向锁</h3><p><strong>消除</strong>数据在<strong>无竞争</strong>情况下的同步原语，进一步提高程序的运行性能</p>
+<p>整个同步都消除掉，连CAS都不做</p>
+<p><strong>加锁过程</strong></p>
+<p>1）访问Mark Word中偏向锁的标识是否设置成1，锁标志位是否为01——确认为可偏向状态。</p>
+<p>2）如果为可偏向状态，则测试线程ID是否指向当前线程，如果是，进入步骤（5），否则进入步骤（3）。</p>
+<p>3）如果线程ID并未指向当前线程，则通过CAS操作竞争锁。如果竞争成功，则将Mark Word中线程ID设置为当前线程ID，然后执行（5）；如果竞争失败，执行（4）。</p>
+<p>4）如果CAS获取偏向锁失败，则表示有竞争。当到达全局安全点（safepoint）时获得偏向锁的线程被挂起，偏向锁升级为轻量级锁，然后被阻塞在安全点的线程继续往下执行同步代码。</p>
+<p>5）执行同步代码</p>
+<p><strong>释放锁过程</strong></p>
+<p>偏向锁只有遇到其他线程尝试竞争偏向锁时，持有偏向锁的线程才会释放锁，线程不会主动去释放偏向锁。偏向锁的撤销，会首先暂停拥有偏向锁的线程，判断锁对象是否处于被锁定状态，撤销偏向锁后恢复到未锁定（标志位为“01”）或轻量级锁（标志位为“00”）的状态</p>
+<h3 id="6、锁之间的转换"><a href="#6、锁之间的转换" class="headerlink" title="6、锁之间的转换"></a>6、锁之间的转换</h3><p><img src="/2019/03/26/线程安全与锁优化/./线程安全与锁优化\4.png" alt></p>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
+<li><a href="https://www.jianshu.com/p/ae653c30b4d9" target="_blank" rel="noopener">ThreadLocal线程本地存储</a></li>
+<li><a href="https://www.cnblogs.com/zhangfengshi/p/9203191.html" target="_blank" rel="noopener">ReentrantLock实现原理</a></li>
+<li><a href="https://www.cnblogs.com/wait-pigblog/p/9350569.html" target="_blank" rel="noopener">ReentrantReadWriteLock读写锁</a></li>
+</ul>
 
       
 
@@ -274,7 +319,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
         		</li>
       		
 		</ul>
@@ -330,7 +375,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/12/Mysql事务总结/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/26/线程安全与锁优化/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -344,18 +389,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/14/Redis基础知识/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Redis基础知识
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/09/Java常见包与Java8新特性/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java常见包与Java8新特性</div>
+    <a href="/2019/03/26/Java内存模型与线程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java内存模型与线程</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -382,7 +418,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#事务的特性（ACID）"><span class="toc-number">1.</span> <span class="toc-text">事务的特性（ACID）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事务的隔离级别"><span class="toc-number">2.</span> <span class="toc-text">事务的隔离级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#默认隔离级别"><span class="toc-number">3.</span> <span class="toc-text">默认隔离级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事务的并发问题"><span class="toc-number">4.</span> <span class="toc-text">事务的并发问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、概述"><span class="toc-number">1.</span> <span class="toc-text">一、概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、线程安全"><span class="toc-number">2.</span> <span class="toc-text">二、线程安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、Java中的线程安全"><span class="toc-number">2.1.</span> <span class="toc-text">1、Java中的线程安全</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-不可变"><span class="toc-number">2.1.1.</span> <span class="toc-text">1.1 不可变</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-绝对线程安全"><span class="toc-number">2.1.2.</span> <span class="toc-text">1.2 绝对线程安全</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-相对线程安全"><span class="toc-number">2.1.3.</span> <span class="toc-text">1.3 相对线程安全</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-线程兼容"><span class="toc-number">2.1.4.</span> <span class="toc-text">1.4 线程兼容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-线程对立"><span class="toc-number">2.1.5.</span> <span class="toc-text">1.5 线程对立</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、线程安全的实现方法"><span class="toc-number">2.2.</span> <span class="toc-text">2、线程安全的实现方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-互斥同步"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.1 互斥同步</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-非阻塞同步"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2 非阻塞同步</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-无同步方案"><span class="toc-number">2.2.3.</span> <span class="toc-text">2.3 无同步方案</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、锁优化"><span class="toc-number">3.</span> <span class="toc-text">三、锁优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、自旋锁"><span class="toc-number">3.1.</span> <span class="toc-text">1、自旋锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、锁消除"><span class="toc-number">3.2.</span> <span class="toc-text">2、锁消除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、锁粗化-锁细化"><span class="toc-number">3.3.</span> <span class="toc-text">3、锁粗化/锁细化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、轻量级锁"><span class="toc-number">3.4.</span> <span class="toc-text">4、轻量级锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、偏向锁"><span class="toc-number">3.5.</span> <span class="toc-text">5、偏向锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、锁之间的转换"><span class="toc-number">3.6.</span> <span class="toc-text">6、锁之间的转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">4.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
                     </div>
                 </span>
             </div>

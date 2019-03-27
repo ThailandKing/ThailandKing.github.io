@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>Mysql事务总结 | thailandking</title>
+  <title>Archives: 2019/3 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="事务的特性（ACID）1、原子性（Atomicity ）：事务执行时不可拆分 2、一致性（Consistency ）：事务执行前后不破坏数据库的完整性（A扣钱，B增钱） 3、隔离性（Isolation ）：事务执行之间互不干扰 4、持久性（Durability ）：事务完成后，对数据库的改变是持久的">
-<meta name="keywords" content="mysql">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Mysql事务总结">
-<meta property="og:url" content="https://thailandking.github.io/2019/03/12/Mysql事务总结/index.html">
+  <meta name="description" content="personal blog">
+<meta name="keywords" content="computer，programming">
+<meta property="og:type" content="website">
+<meta property="og:title" content="thailandking">
+<meta property="og:url" content="https://thailandking.github.io/archives/2019/03/page/4/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="事务的特性（ACID）1、原子性（Atomicity ）：事务执行时不可拆分 2、一致性（Consistency ）：事务执行前后不破坏数据库的完整性（A扣钱，B增钱） 3、隔离性（Isolation ）：事务执行之间互不干扰 4、持久性（Durability ）：事务完成后，对数据库的改变是持久的">
+<meta property="og:description" content="personal blog">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-13T06:36:53.061Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mysql事务总结">
-<meta name="twitter:description" content="事务的特性（ACID）1、原子性（Atomicity ）：事务执行时不可拆分 2、一致性（Consistency ）：事务执行前后不破坏数据库的完整性（A扣钱，B增钱） 3、隔离性（Isolation ）：事务执行之间互不干扰 4、持久性（Durability ）：事务完成后，对数据库的改变是持久的">
+<meta name="twitter:title" content="thailandking">
+<meta name="twitter:description" content="personal blog">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -151,256 +150,63 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Mysql事务总结" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Mysql事务总结
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/03/02/深入理解Java装箱与拆箱/" class="archive-article-date">
+  	<time datetime="2019-03-02T09:22:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/03/02/深入理解Java装箱与拆箱/">深入理解Java装箱与拆箱</a>
     </h1>
   
 
-        
-        <a href="/2019/03/12/Mysql事务总结/" class="archive-article-date">
-  	<time datetime="2019-03-12T15:20:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="事务的特性（ACID）"><a href="#事务的特性（ACID）" class="headerlink" title="事务的特性（ACID）"></a>事务的特性（ACID）</h2><p>1、原子性（<strong>Atomicity</strong> ）：事务执行时不可拆分</p>
-<p>2、一致性（<strong>Consistency</strong> ）：事务执行前后不破坏数据库的完整性（A扣钱，B增钱）</p>
-<p>3、隔离性（<strong>Isolation</strong> ）：事务执行之间互不干扰</p>
-<p>4、持久性（<strong>Durability</strong> ）：事务完成后，对数据库的改变是持久的</p>
-<a id="more"></a>
-<h2 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h2><p>1、读已提交（read-committed） </p>
-<p>2、读未提交（read-uncommitted） </p>
-<p>3、可重复读（repeatable-read） </p>
-<p>4、串行化（serializable） </p>
-<h2 id="默认隔离级别"><a href="#默认隔离级别" class="headerlink" title="默认隔离级别"></a>默认隔离级别</h2><p>可重复读（repeatable-read） </p>
-<p>1.查看当前会话隔离级别 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select @<span class="meta">@tx</span>_isolation;</span><br></pre></td></tr></table></figure>
-<p>2.查看系统当前隔离级别 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select @<span class="meta">@global</span>.tx_isolation;</span><br></pre></td></tr></table></figure>
-<p>3.设置当前会话隔离级别 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set session transaction isolatin level repeatable read;</span><br></pre></td></tr></table></figure>
-<p>4.设置系统当前隔离级别 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set global transaction isolation level repeatable read;</span><br></pre></td></tr></table></figure>
-<h2 id="事务的并发问题"><a href="#事务的并发问题" class="headerlink" title="事务的并发问题"></a>事务的并发问题</h2><p>1、脏读：事务A读取了事务B更新的数据，然后B回滚操作，那么A读取到的数据是脏数据 </p>
-<p>2、不可重复读：事务A多次读取同一数据，事务B在事务A多次读取的过程中，对数据作了更新并提交，导致事务A多次读取同一数据时，结果 不一致。 </p>
-<p>3、幻读：系统管理员A将数据库中所有学生的成绩从具体分数改为ABCDE等级，但是系统管理员B就在这个时候插入了一条具体分数的记录，当系统管理员A改结束后发现还有一条记录没有改过来，就好像发生了幻觉一样，这就叫幻读。 </p>
-<table>
-<thead>
-<tr>
-<th>事务隔离级别</th>
-<th>脏读</th>
-<th>不可重复读</th>
-<th>幻读</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>读未提交（read-uncommitted）</td>
-<td>是</td>
-<td>是</td>
-<td>是</td>
-</tr>
-<tr>
-<td>读已提交（read-committed）</td>
-<td>否</td>
-<td>是</td>
-<td>是</td>
-</tr>
-<tr>
-<td>可重复读（repeatable-read）</td>
-<td>否</td>
-<td>否</td>
-<td>是</td>
-</tr>
-<tr>
-<td>串行化（serializable）</td>
-<td>否</td>
-<td>否</td>
-<td>否</td>
-</tr>
-</tbody>
-</table>
-<p><strong>小结：不可重复读的和幻读很容易混淆，不可重复读侧重于修改，幻读侧重于新增或删除。解决不可重复读的问题只需锁住满足条件的行，解决幻读需要锁表</strong> </p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://www.cnblogs.com/huanongying/p/7021555.html" target="_blank" rel="noopener">https://www.cnblogs.com/huanongying/p/7021555.html</a></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/weixinpay.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/12/Mysql事务总结/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/03/14/Redis基础知识/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Redis基础知识
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/03/09/Java常见包与Java8新特性/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java常见包与Java8新特性</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#事务的特性（ACID）"><span class="toc-number">1.</span> <span class="toc-text">事务的特性（ACID）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事务的隔离级别"><span class="toc-number">2.</span> <span class="toc-text">事务的隔离级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#默认隔离级别"><span class="toc-number">3.</span> <span class="toc-text">默认隔离级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事务的并发问题"><span class="toc-number">4.</span> <span class="toc-text">事务的并发问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/2019/03/page/3/">&laquo; Prev</a><a class="page-number" href="/archives/2019/03/">1</a><a class="page-number" href="/archives/2019/03/page/2/">2</a><a class="page-number" href="/archives/2019/03/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
   
 
 
@@ -420,8 +226,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
