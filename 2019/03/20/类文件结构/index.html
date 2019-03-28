@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="https://thailandking.github.io">
   <title>类文件结构 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、概述程序编译成二进制本地机器码才能执行，越来越多的程序语言选择了与操作系统和机器指令集无关的、平台中立的格式作为程序编译后的存储格式。 二、无关性平台无关性 各种不同平台的虚拟机与所有平台都统一使用的程序存储格式字节码是构成平台无关性的基石。 语言无关性 虚拟机不与特定语言绑定，只与class文件这种特定的二进制文件格式所关联，class文件中包含了虚拟机指令集和符号表以及若干其他辅助信息。">
+  <meta name="description" content="一、概述程序编译成二进制本地机器码才能执行，越来越多的程序语言选择了与操作系统和机器指令集无关的、平台中立的格式作为程序编译后的存储格式 二、无关性平台无关性 各种不同平台的虚拟机与所有平台都统一使用的程序存储格式字节码是构成平台无关性的基石。 语言无关性 虚拟机不与特定语言绑定，只与class文件这种特定的二进制文件格式所关联，class文件中包含了虚拟机指令集和符号表以及若干其他辅助信息 目前">
 <meta name="keywords" content="jvm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="类文件结构">
 <meta property="og:url" content="https://thailandking.github.io/2019/03/20/类文件结构/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="一、概述程序编译成二进制本地机器码才能执行，越来越多的程序语言选择了与操作系统和机器指令集无关的、平台中立的格式作为程序编译后的存储格式。 二、无关性平台无关性 各种不同平台的虚拟机与所有平台都统一使用的程序存储格式字节码是构成平台无关性的基石。 语言无关性 虚拟机不与特定语言绑定，只与class文件这种特定的二进制文件格式所关联，class文件中包含了虚拟机指令集和符号表以及若干其他辅助信息。">
+<meta property="og:description" content="一、概述程序编译成二进制本地机器码才能执行，越来越多的程序语言选择了与操作系统和机器指令集无关的、平台中立的格式作为程序编译后的存储格式 二、无关性平台无关性 各种不同平台的虚拟机与所有平台都统一使用的程序存储格式字节码是构成平台无关性的基石。 语言无关性 虚拟机不与特定语言绑定，只与class文件这种特定的二进制文件格式所关联，class文件中包含了虚拟机指令集和符号表以及若干其他辅助信息 目前">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://thailandking.github.io/2019/03/20/类文件结构/1.jpg">
 <meta property="og:image" content="https://thailandking.github.io/2019/03/20/类文件结构/1.png">
@@ -33,10 +33,10 @@
 <meta property="og:image" content="https://thailandking.github.io/2019/03/20/类文件结构/14.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/03/20/类文件结构/15.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/03/20/类文件结构/16.png">
-<meta property="og:updated_time" content="2019-03-20T15:47:08.491Z">
+<meta property="og:updated_time" content="2019-03-28T06:01:46.139Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="类文件结构">
-<meta name="twitter:description" content="一、概述程序编译成二进制本地机器码才能执行，越来越多的程序语言选择了与操作系统和机器指令集无关的、平台中立的格式作为程序编译后的存储格式。 二、无关性平台无关性 各种不同平台的虚拟机与所有平台都统一使用的程序存储格式字节码是构成平台无关性的基石。 语言无关性 虚拟机不与特定语言绑定，只与class文件这种特定的二进制文件格式所关联，class文件中包含了虚拟机指令集和符号表以及若干其他辅助信息。">
+<meta name="twitter:description" content="一、概述程序编译成二进制本地机器码才能执行，越来越多的程序语言选择了与操作系统和机器指令集无关的、平台中立的格式作为程序编译后的存储格式 二、无关性平台无关性 各种不同平台的虚拟机与所有平台都统一使用的程序存储格式字节码是构成平台无关性的基石。 语言无关性 虚拟机不与特定语言绑定，只与class文件这种特定的二进制文件格式所关联，class文件中包含了虚拟机指令集和符号表以及若干其他辅助信息 目前">
 <meta name="twitter:image" content="https://thailandking.github.io/2019/03/20/类文件结构/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
@@ -189,16 +189,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>程序编译成二进制本地机器码才能执行，越来越多的程序语言选择了与操作系统和机器指令集无关的、平台中立的格式作为程序编译后的存储格式。</p>
+        <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>程序编译成二进制本地机器码才能执行，越来越多的程序语言选择了与操作系统和机器指令集无关的、平台中立的格式作为程序编译后的存储格式</p>
 <h2 id="二、无关性"><a href="#二、无关性" class="headerlink" title="二、无关性"></a>二、无关性</h2><p><strong>平台无关性</strong></p>
 <p>各种不同平台的<strong>虚拟机</strong>与所有平台都统一使用的程序存储格式<strong>字节码</strong>是构成平台无关性的基石。</p>
 <p><strong>语言无关性</strong></p>
-<p>虚拟机不与特定语言绑定，只与<strong>class文件</strong>这种特定的二进制文件格式所关联，class文件中包含了虚拟机指令集和符号表以及若干其他辅助信息。</p>
+<p>虚拟机不与特定语言绑定，只与<strong>class文件</strong>这种特定的二进制文件格式所关联，class文件中包含了虚拟机指令集和符号表以及若干其他辅助信息</p>
 <p>目前能在Java虚拟机上运行的语言有Clojure、Groovy、JRuby、Jython、Scala等</p>
 <a id="more"></a>
 <p><img src="/2019/03/20/类文件结构/1.jpg" alt></p>
-<p>字节码命令所能提供的语义描述能力肯定会比Java语言本身更加强大。</p>
-<h2 id="三、Class类文件结构"><a href="#三、Class类文件结构" class="headerlink" title="三、Class类文件结构"></a>三、Class类文件结构</h2><p>Class文件是一组以<strong>8位字节为基础单位</strong>的二进制流，各个数据项目严格按照顺序紧凑地排列在class文件之中，没有空隙存在，也会进行分割存储，这也就解释前面提到<strong>对象对齐填充</strong>的原因。</p>
+<p>字节码命令所能提供的语义描述能力肯定会比Java语言本身更加强大</p>
+<h2 id="三、Class类文件结构"><a href="#三、Class类文件结构" class="headerlink" title="三、Class类文件结构"></a>三、Class类文件结构</h2><p>Class文件是一组以<strong>8位字节为基础单位</strong>的二进制流，各个数据项目严格按照顺序紧凑地排列在class文件之中，没有空隙存在，也会进行分割存储，这也就解释前面提到<strong>对象对齐填充</strong>的原因</p>
 <p>表是由多个无符号数（u1、u2、u4、u8）或者其他表作为数据项构成的复合数据类型，当需要描述同一类型但数量不定的多个数据时，经常会使用一个前置的容量计数器加若干个连续的数据项的形式为某一类型的集合</p>
 <p><img src="/2019/03/20/类文件结构/1.png" alt></p>
 <h3 id="1、魔数与版本"><a href="#1、魔数与版本" class="headerlink" title="1、魔数与版本"></a>1、魔数与版本</h3><p><strong>魔数</strong></p>
@@ -773,11 +773,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -785,11 +785,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
+                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -797,15 +793,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">java8</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -813,11 +805,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">database</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -841,14 +829,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">transient</a>
               </li>
              
@@ -857,11 +837,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">string</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CAS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -874,10 +874,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nio</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">gc</a>
               </li>
             
             <div class="clearfix"></div>

@@ -9,7 +9,7 @@
   <title>垃圾收集器与内存分配策略 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一、概述程序计数器、虚拟机栈、本地方法栈3个区域随线程而生，线程而灭，内存分配和回收都具备确定性 堆与方法区是线程共享区域，内存分配和回收都具备动态性，因此垃圾收集器关注的是这两个区域 GC需要完成的三件事情  what：哪些内存需要回收？ when：什么时候回收？ how：如何回收？">
-<meta name="keywords" content="jvm,gc">
+<meta name="keywords" content="jvm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="垃圾收集器与内存分配策略">
 <meta property="og:url" content="https://thailandking.github.io/2019/03/17/垃圾收集器与内存分配策略/index.html">
@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://thailandking.github.io/2019/03/17/垃圾收集器与内存分配策略/7.jpg">
 <meta property="og:image" content="https://thailandking.github.io/2019/03/17/垃圾收集器与内存分配策略/8.jpg">
 <meta property="og:image" content="https://thailandking.github.io/2019/03/17/垃圾收集器与内存分配策略/9.jpg">
-<meta property="og:updated_time" content="2019-03-17T15:15:22.467Z">
+<meta property="og:updated_time" content="2019-03-28T02:42:05.709Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="垃圾收集器与内存分配策略">
 <meta name="twitter:description" content="一、概述程序计数器、虚拟机栈、本地方法栈3个区域随线程而生，线程而灭，内存分配和回收都具备确定性 堆与方法区是线程共享区域，内存分配和回收都具备动态性，因此垃圾收集器关注的是这两个区域 GC需要完成的三件事情  what：哪些内存需要回收？ when：什么时候回收？ how：如何回收？">
@@ -193,7 +193,7 @@
 <a id="more"></a>
 <h2 id="二、对象死亡"><a href="#二、对象死亡" class="headerlink" title="二、对象死亡"></a>二、对象死亡</h2><p>解决内容：哪些内存需要回收？</p>
 <h3 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h3><p>给对象添加一个引用计数器，初始为1，每当被引用时，计数器加1，当引用失效时，计数器减1，任何时刻计数器为0的对象就是不可再被使用的。</p>
-<p>但是，主流的虚拟机没有采用引用计数法来管理内存，主要原因是很难解决对象之间循环引用问题。</p>
+<p>但是，主流的虚拟机没有采用引用计数法来管理内存，主要原因是很难解决对象之间<strong>循环引用</strong>问题。</p>
 <h3 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h3><p>通过一系列GC Roots对象作为起始点向下搜索，走过的路径称为引用链，当一个对象到GC Roots对象没有任何引用链相连时（即图上对象不可到达），则证明对象是不可用的。</p>
 <p><img src="/2019/03/17/垃圾收集器与内存分配策略/1.png" alt></p>
 <p><strong>可作为GC Roots对象</strong></p>
@@ -206,18 +206,18 @@
 <h3 id="最终判定"><a href="#最终判定" class="headerlink" title="最终判定"></a>最终判定</h3><p>如果对象在进行可达性分析后发现没有与GC Roots对象相连接的引用链，它将等待标记进行回收</p>
 <p><strong>第一次标记</strong></p>
 <ul>
-<li>当对象没有覆盖finalize（）方法，或者finalize方法已经被虚拟机调用过，虚拟机视为没有必要执行</li>
-<li>如果对象被判定有必要执行finalize方法，对象将会被放置一个F-Queue队列之中，并在稍后由一个虚拟机自动建立的、低优先级的Finalizer线程去执行它。</li>
+<li>当对象没有覆盖finalize方法，或者finalize方法已经被虚拟机调用过，虚拟机视为没有必要执行</li>
+<li>如果对象被判定有必要执行finalize方法，对象将会被放置一个F-Queue队列之中，并在稍后由一个虚拟机自动建立的、低优先级的Finalizer线程去执行它</li>
 </ul>
 <p><strong>第二次标记</strong></p>
 <ul>
-<li>GC对F-Queue中的对象进行第二次小规模的标记，如果对象重新与引用链上的任何一个对象建立关联（例如将自身赋值给某个变量），便会成功拯救自己，避免被回收的命运</li>
+<li>GC对F-Queue中的对象进行第二次小规模的标记，如果对象重新与引用链上的任何一个对象建立关联（例如将自身赋值给某个变量），便会成功拯救自己，避免被回收的命运（<strong>逃逸</strong>）</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FinalizeEscapeGC</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> FinalizeEscapeGC SAVE_HOOK = <span class="keyword">null</span>;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.finalize();</span><br><span class="line">        System.out.println(<span class="string">"finalize method executed"</span>);</span><br><span class="line">        FinalizeEscapeGC.SAVE_HOOK = <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">helpGC</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        SAVE_HOOK = <span class="keyword">null</span>;</span><br><span class="line">        System.gc();</span><br><span class="line">        Thread.sleep(<span class="number">500</span>);</span><br><span class="line">        <span class="keyword">if</span> (SAVE_HOOK != <span class="keyword">null</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">"yes, i am still alive."</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"no, i am dead."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        SAVE_HOOK = <span class="keyword">new</span> FinalizeEscapeGC();</span><br><span class="line">        helpGC(); <span class="comment">// 第一次执行了finalize自救</span></span><br><span class="line">        helpGC(); <span class="comment">// finalize执行过了一次便不再执行了</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">finalize method executed</span><br><span class="line">yes, i am still alive.</span><br><span class="line">no, i am dead.</span><br></pre></td></tr></table></figure>
 <h3 id="对象引用"><a href="#对象引用" class="headerlink" title="对象引用"></a>对象引用</h3><p><strong>强引用</strong></p>
 <ul>
-<li>强引用就是指在程序代码中普遍存在的，类似<code>Object obj = new Object()</code>这类似的引用，只要强引用在，垃圾搜集器永远不会搜集被引用的对象</li>
+<li>强引用就是指在程序代码中普遍存在的，类似<code>Object obj = new Object()</code>这类似的引用，只要强引用在，垃圾收集器永远不会收集被引用的对象</li>
 </ul>
 <p><strong>软引用</strong></p>
 <ul>
@@ -285,7 +285,7 @@
 <p><img src="/2019/03/17/垃圾收集器与内存分配策略/5.jpg" alt></p>
 <p>特性：</p>
 <ul>
-<li>单线程收集器，</li>
+<li>单线程收集器</li>
 <li>必须暂停其他所有工作线程，直到它收集结束</li>
 <li>简单高效，没有线程交互的开销</li>
 </ul>
@@ -410,10 +410,6 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">gc</a>
         		</li>
       		
 		</ul>
@@ -626,11 +622,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -638,11 +634,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
+                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -650,15 +642,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">java8</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -666,11 +654,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">database</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -694,14 +678,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">transient</a>
               </li>
              
@@ -710,11 +686,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">string</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CAS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -727,10 +723,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nio</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">gc</a>
               </li>
             
             <div class="clearfix"></div>
