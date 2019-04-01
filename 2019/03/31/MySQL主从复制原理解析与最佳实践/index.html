@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>thailandking</title>
+  <title>MySQL主从复制原理解析与最佳实践 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="personal blog">
-<meta name="keywords" content="computer，programming">
-<meta property="og:type" content="website">
-<meta property="og:title" content="thailandking">
-<meta property="og:url" content="https://thailandking.github.io/page/4/index.html">
+  <meta name="description" content="一、主从复制1、复制的基本原理主要涉及三个线程：binlog 线程、I/O 线程和 SQL 线程  binlog 线程 ：负责将主服务器上的数据更改写入二进制日志（Binary log）中 I/O 线程 ：负责在主服务器上读取二进制日志，并写入从服务器的中继日志（Relay log） SQL 线程 ：负责读取中继日志，解析出主服务器已经执行的数据更改并在从服务器中执行">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL主从复制原理解析与最佳实践">
+<meta property="og:url" content="https://thailandking.github.io/2019/03/31/MySQL主从复制原理解析与最佳实践/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="personal blog">
+<meta property="og:description" content="一、主从复制1、复制的基本原理主要涉及三个线程：binlog 线程、I/O 线程和 SQL 线程  binlog 线程 ：负责将主服务器上的数据更改写入二进制日志（Binary log）中 I/O 线程 ：负责在主服务器上读取二进制日志，并写入从服务器的中继日志（Relay log） SQL 线程 ：负责读取中继日志，解析出主服务器已经执行的数据更改并在从服务器中执行">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://thailandking.github.io/2019/03/31/MySQL主从复制原理解析与最佳实践/1.png">
+<meta property="og:updated_time" content="2019-04-01T01:17:48.861Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="thailandking">
-<meta name="twitter:description" content="personal blog">
+<meta name="twitter:title" content="MySQL主从复制原理解析与最佳实践">
+<meta name="twitter:description" content="一、主从复制1、复制的基本原理主要涉及三个线程：binlog 线程、I/O 线程和 SQL 线程  binlog 线程 ：负责将主服务器上的数据更改写入二进制日志（Binary log）中 I/O 线程 ：负责在主服务器上读取二进制日志，并写入从服务器的中继日志（Relay log） SQL 线程 ：负责读取中继日志，解析出主服务器已经执行的数据更改并在从服务器中执行">
+<meta name="twitter:image" content="https://thailandking.github.io/2019/03/31/MySQL主从复制原理解析与最佳实践/1.png">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -150,36 +153,122 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Java字符串池深度解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-MySQL主从复制原理解析与最佳实践" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/02/Java字符串池深度解析/">Java字符串池深度解析</a>
+    <h1 class="article-title" itemprop="name">
+      MySQL主从复制原理解析与最佳实践
     </h1>
   
 
         
-        <a href="/2019/03/02/Java字符串池深度解析/" class="archive-article-date">
-  	<time datetime="2019-03-02T13:01:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
+        <a href="/2019/03/31/MySQL主从复制原理解析与最佳实践/" class="archive-article-date">
+  	<time datetime="2019-03-31T07:24:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在工作中，String类是我们使用频率非常高的一种对象类型。JVM为了提升性能和减少内存开销，避免字符串的重复创建，其维护了一块特殊的内存空间，这就是我们今天要讨论的核心，即字符串池（String Pool）。字符串池由String类私有的维护。</p>
-<h2 id="字符串对象的创建"><a href="#字符串对象的创建" class="headerlink" title="字符串对象的创建"></a>字符串对象的创建</h2><p>我们知道，在Java中有两种创建字符串对象的方式：</p>
-<p>1）采用字面值的方式赋值  </p>
-<p>2）采用new关键字新建一个字符串对象。</p>
-<p>这两种方式在性能和内存占用方面存在着差别。</p>
-        
+        <h2 id="一、主从复制"><a href="#一、主从复制" class="headerlink" title="一、主从复制"></a>一、主从复制</h2><h3 id="1、复制的基本原理"><a href="#1、复制的基本原理" class="headerlink" title="1、复制的基本原理"></a>1、复制的基本原理</h3><p>主要涉及三个线程：binlog 线程、I/O 线程和 SQL 线程</p>
+<ul>
+<li><strong>binlog 线程</strong> ：负责将主服务器上的数据更改写入二进制日志（Binary log）中</li>
+<li><strong>I/O 线程</strong> ：负责在主服务器上读取二进制日志，并写入从服务器的中继日志（Relay log）</li>
+<li><strong>SQL 线程</strong> ：负责读取中继日志，解析出主服务器已经执行的数据更改并在从服务器中执行</li>
+</ul>
+<p><img src="/2019/03/31/MySQL主从复制原理解析与最佳实践/1.png" alt></p>
+<a id="more"></a>
+<h3 id="2、复制的基本原则"><a href="#2、复制的基本原则" class="headerlink" title="2、复制的基本原则"></a>2、复制的基本原则</h3><ul>
+<li>每个master可以有多个slave</li>
+<li>每个slave只有一个master</li>
+<li>每个slave只能有一个唯一的服务器ID</li>
+</ul>
+<h2 id="二、最佳实践"><a href="#二、最佳实践" class="headerlink" title="二、最佳实践"></a>二、最佳实践</h2><p>本次实践采用一主一从复制，一主为windows，一从为虚拟机Centos7，MySQL版本5.7保持一致</p>
+<h3 id="1、ping测试"><a href="#1、ping测试" class="headerlink" title="1、ping测试"></a>1、ping测试</h3><p>虚拟机采用NAT连接，物理机关闭防火墙</p>
+<p>双方互相进行ping测试，记录主从各自服务器的IP地址</p>
+<h3 id="2、主服务器配置"><a href="#2、主服务器配置" class="headerlink" title="2、主服务器配置"></a>2、主服务器配置</h3><p>修改<strong>my.ini</strong>文件，默认在<strong>C:\ProgramData\MySQL\MySQL Server 5.7</strong></p>
+<p><strong>主服务器唯一ID</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">server-id=1</span><br></pre></td></tr></table></figure>
+<p><strong>启用二进制文件</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">log-bin=&quot;mysqlbin&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>关闭只读</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#可选</span><br><span class="line">read-only=0</span><br></pre></td></tr></table></figure>
+<p><strong>忽略备份</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#可选</span><br><span class="line">binlog-ignore-db=mysql</span><br></pre></td></tr></table></figure>
+<p><strong>设置备份</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#可选</span><br><span class="line">binlog-do-db=test</span><br></pre></td></tr></table></figure>
+<h3 id="3、从服务器配置"><a href="#3、从服务器配置" class="headerlink" title="3、从服务器配置"></a>3、从服务器配置</h3><p><strong>从服务器唯一ID</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">server-id=2</span><br></pre></td></tr></table></figure>
+<p><strong>启用二进制文件</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">log-bin=&quot;mysqlbin&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="4、主服务器设置"><a href="#4、主服务器设置" class="headerlink" title="4、主服务器设置"></a>4、主服务器设置</h3><p>CMD打开MySQL会话</p>
+<p><strong>创建用户</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#可选</span><br><span class="line">CREATE USER &apos;test&apos;@&apos;从服务器IP&apos; IDENTIFIED BY &apos;test&apos;;</span><br><span class="line">#CREATE USER &apos;test&apos;@&apos;192.168.189.129&apos; IDENTIFIED BY &apos;test&apos;;</span><br></pre></td></tr></table></figure>
+<p><strong>赋予权限</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant replication slave on *.* to &apos;test&apos;@&apos;192.168.189.129&apos; identified by &apos;test&apos;;</span><br></pre></td></tr></table></figure>
+<p><strong>刷新权限</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+<p><strong>查看master状态</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show master status\G;</span><br></pre></td></tr></table></figure>
+<p><strong>记录二进制文件名和位置</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+------------------+----------+--------------+------------------+</span><br><span class="line">| File             | Position | Binlog_Do_DB | Binlog_Ignore_DB |</span><br><span class="line">+------------------+----------+--------------+------------------+</span><br><span class="line">| mysql-bin.000003 | 73       | test         | manual,mysql     |</span><br><span class="line">+------------------+----------+--------------+------------------+</span><br></pre></td></tr></table></figure>
+<h3 id="5、从服务器设置"><a href="#5、从服务器设置" class="headerlink" title="5、从服务器设置"></a>5、从服务器设置</h3><p>CMD打开MySQL会话</p>
+<p><strong>执行同步SQL</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">change master to master_host=&apos;192.168.189.1&apos;,</span><br><span class="line">master_user=&apos;test&apos;,</span><br><span class="line">master_password=&apos;test&apos;,</span><br><span class="line">master_log_file=&apos;mysql-bin.000003&apos;,master_log_pos=73;</span><br><span class="line">#主服务器IP、用户名、密码、二进制文件名、位置</span><br></pre></td></tr></table></figure>
+<p><strong>开启slave</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start slave;</span><br></pre></td></tr></table></figure>
+<p><strong>查看slave状态</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show slave status\G;</span><br><span class="line">*************************** 1. row ***************************</span><br><span class="line">               Slave_IO_State: Waiting for master to send event</span><br><span class="line">                  Master_Host: 182.92.172.80</span><br><span class="line">                  Master_User: rep1</span><br><span class="line">                  Master_Port: 3306</span><br><span class="line">                Connect_Retry: 60</span><br><span class="line">              Master_Log_File: mysql-bin.000013</span><br><span class="line">          Read_Master_Log_Pos: 11662</span><br><span class="line">               Relay_Log_File: mysqld-relay-bin.000022</span><br><span class="line">                Relay_Log_Pos: 11765</span><br><span class="line">        Relay_Master_Log_File: mysql-bin.000013</span><br><span class="line">             Slave_IO_Running: Yes</span><br><span class="line">            Slave_SQL_Running: Yes</span><br><span class="line">              Replicate_Do_DB: </span><br><span class="line">          Replicate_Ignore_DB:</span><br></pre></td></tr></table></figure>
+<p>当Slave_IO_Running和Slave_SQL_Running都为YES的时候就表示主从同步设置成功了。如果不成功，先关闭slave，重新进行从服务器设置</p>
+<h3 id="6、主从测试"><a href="#6、主从测试" class="headerlink" title="6、主从测试"></a>6、主从测试</h3><ul>
+<li><p>在主服务器备份的数据库（本次为test）中插入一条数据，在从服务器中验证是否复制成功（成功）</p>
+</li>
+<li><p>在主服务器中新建一个数据库，插入多条数据，在从服务器中验证是否复制成功（备份指定数据库，复制失败）</p>
+</li>
+<li><p>关闭slave（mysql&gt;stop slave;）,然后再修改master，看slave是否也相应修改（停止slave后，master的修改不会同步到slave），就可以完成主从复制功能的验证了</p>
+</li>
+</ul>
+<h3 id="7、关闭slave"><a href="#7、关闭slave" class="headerlink" title="7、关闭slave"></a>7、关闭slave</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stop slave;</span><br></pre></td></tr></table></figure>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://www.cnblogs.com/gl-developer/p/6170423.html" target="_blank" rel="noopener">Mysql主从复制</a></li>
+</ul>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixinpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -190,11 +279,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">string pool</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		
 		</ul>
@@ -203,16 +288,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/02/Java字符串池深度解析/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/31/MySQL主从复制原理解析与最佳实践/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/26/线程安全与锁优化/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">线程安全与锁优化</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -227,167 +371,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-深入理解Java装箱与拆箱" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/02/深入理解Java装箱与拆箱/">深入理解Java装箱与拆箱</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/02/深入理解Java装箱与拆箱/" class="archive-article-date">
-  	<time datetime="2019-03-02T09:22:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="基本数据类型与包装类型"><a href="#基本数据类型与包装类型" class="headerlink" title="基本数据类型与包装类型"></a>基本数据类型与包装类型</h2><p>在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">基本数据类型		包装类型</span><br><span class="line"><span class="keyword">byte</span>			Byte</span><br><span class="line"><span class="keyword">short</span>			Short</span><br><span class="line"><span class="keyword">int</span>			Integer</span><br><span class="line"><span class="keyword">long</span>			Long</span><br><span class="line"><span class="keyword">float</span>			Float</span><br><span class="line"><span class="keyword">double</span>			Double</span><br><span class="line"><span class="keyword">char</span>			Character</span><br><span class="line"><span class="keyword">boolean</span>			Boolean</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/02/深入理解Java装箱与拆箱/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、主从复制"><span class="toc-number">1.</span> <span class="toc-text">一、主从复制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、复制的基本原理"><span class="toc-number">1.1.</span> <span class="toc-text">1、复制的基本原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、复制的基本原则"><span class="toc-number">1.2.</span> <span class="toc-text">2、复制的基本原则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、最佳实践"><span class="toc-number">2.</span> <span class="toc-text">二、最佳实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、ping测试"><span class="toc-number">2.1.</span> <span class="toc-text">1、ping测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、主服务器配置"><span class="toc-number">2.2.</span> <span class="toc-text">2、主服务器配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、从服务器配置"><span class="toc-number">2.3.</span> <span class="toc-text">3、从服务器配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、主服务器设置"><span class="toc-number">2.4.</span> <span class="toc-text">4、主服务器设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、从服务器设置"><span class="toc-number">2.5.</span> <span class="toc-text">5、从服务器设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、主从测试"><span class="toc-number">2.6.</span> <span class="toc-text">6、主从测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、关闭slave"><span class="toc-number">2.7.</span> <span class="toc-text">7、关闭slave</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">3.</span> <span class="toc-text">参考链接</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-JavaSE基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/26/JavaSE基础知识/">JavaSE基础知识</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/26/JavaSE基础知识/" class="archive-article-date">
-  	<time datetime="2019-02-26T02:45:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、常见对象"><a href="#一、常见对象" class="headerlink" title="一、常见对象"></a>一、常见对象</h2><h3 id="1-1-object"><a href="#1-1-object" class="headerlink" title="1.1 object"></a>1.1 object</h3><p>根类，所有类的超类，java.lang包下</p>
-<h4 id="1-1-1-hashCode"><a href="#1-1-1-hashCode" class="headerlink" title="1.1.1 hashCode"></a>1.1.1 hashCode</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">默认情况下，Object中的hashCode() 返回对象的<span class="number">32</span>位jvm内存地址。也就是说如果对象不重写该方法，则返回相应对象的<span class="number">32</span>为JVM内存地址。（String、Integer重写）</span><br><span class="line">Object obj=<span class="keyword">new</span> Object();</span><br><span class="line"><span class="keyword">int</span> hashCode = obj.hashCode();</span><br><span class="line">System.out.println(hashCode);</span><br><span class="line">堆内存相同，hashcode相同</span><br><span class="line">Student s1=<span class="keyword">new</span> Student(<span class="string">"wgt"</span>,<span class="number">21</span>);</span><br><span class="line">Student s2=<span class="keyword">new</span> Student(<span class="string">"shw"</span>,<span class="number">20</span>);</span><br><span class="line">Student s3=s1;</span><br><span class="line">System.out.println(s1.hashCode());</span><br><span class="line">System.out.println(s2.hashCode());</span><br><span class="line">System.out.println(s3.hashCode());</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/26/JavaSE基础知识/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -406,8 +415,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
