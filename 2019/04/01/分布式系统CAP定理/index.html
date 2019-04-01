@@ -6,31 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>垃圾收集器与内存分配策略 | thailandking</title>
+  <title>分布式系统CAP定理 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、概述程序计数器、虚拟机栈、本地方法栈3个区域随线程而生，线程而灭，内存分配和回收都具备确定性 堆与方法区是线程共享区域，内存分配和回收都具备动态性，因此垃圾收集器关注的是这两个区域 GC需要完成的三件事情  what：哪些内存需要回收？ when：什么时候回收？ how：如何回收？">
-<meta name="keywords" content="jvm">
+  <meta name="description" content="一、分布式系统的三个指标 一致性（Consistency）：在分布式系统中，任一时刻所有节点数据备份相同 高可用性（Availability）：在集群中一部分节点故障后，集群整体还能响应客户端的读写请求 分区容错性（Partition ）：分区相当于对通信的时限要求">
+<meta name="keywords" content="cap">
 <meta property="og:type" content="article">
-<meta property="og:title" content="垃圾收集器与内存分配策略">
-<meta property="og:url" content="https://thailandking.github.io/2019/03/17/垃圾收集器与内存分配策略/index.html">
+<meta property="og:title" content="分布式系统CAP定理">
+<meta property="og:url" content="https://thailandking.github.io/2019/04/01/分布式系统CAP定理/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="一、概述程序计数器、虚拟机栈、本地方法栈3个区域随线程而生，线程而灭，内存分配和回收都具备确定性 堆与方法区是线程共享区域，内存分配和回收都具备动态性，因此垃圾收集器关注的是这两个区域 GC需要完成的三件事情  what：哪些内存需要回收？ when：什么时候回收？ how：如何回收？">
+<meta property="og:description" content="一、分布式系统的三个指标 一致性（Consistency）：在分布式系统中，任一时刻所有节点数据备份相同 高可用性（Availability）：在集群中一部分节点故障后，集群整体还能响应客户端的读写请求 分区容错性（Partition ）：分区相当于对通信的时限要求">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/17/垃圾收集器与内存分配策略/1.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/17/垃圾收集器与内存分配策略/1.jpg">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/17/垃圾收集器与内存分配策略/3.jpg">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/17/垃圾收集器与内存分配策略/2.jpg">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/17/垃圾收集器与内存分配策略/4.jpg">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/17/垃圾收集器与内存分配策略/5.jpg">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/17/垃圾收集器与内存分配策略/6.jpg">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/17/垃圾收集器与内存分配策略/7.jpg">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/17/垃圾收集器与内存分配策略/8.jpg">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/17/垃圾收集器与内存分配策略/9.jpg">
-<meta property="og:updated_time" content="2019-03-28T02:42:05.709Z">
+<meta property="og:updated_time" content="2019-04-01T05:15:11.647Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="垃圾收集器与内存分配策略">
-<meta name="twitter:description" content="一、概述程序计数器、虚拟机栈、本地方法栈3个区域随线程而生，线程而灭，内存分配和回收都具备确定性 堆与方法区是线程共享区域，内存分配和回收都具备动态性，因此垃圾收集器关注的是这两个区域 GC需要完成的三件事情  what：哪些内存需要回收？ when：什么时候回收？ how：如何回收？">
-<meta name="twitter:image" content="https://thailandking.github.io/2019/03/17/垃圾收集器与内存分配策略/1.png">
+<meta name="twitter:title" content="分布式系统CAP定理">
+<meta name="twitter:description" content="一、分布式系统的三个指标 一致性（Consistency）：在分布式系统中，任一时刻所有节点数据备份相同 高可用性（Availability）：在集群中一部分节点故障后，集群整体还能响应客户端的读写请求 分区容错性（Partition ）：分区相当于对通信的时限要求">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -162,208 +151,46 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-垃圾收集器与内存分配策略" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-分布式系统CAP定理" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      垃圾收集器与内存分配策略
+      分布式系统CAP定理
     </h1>
   
 
         
-        <a href="/2019/03/17/垃圾收集器与内存分配策略/" class="archive-article-date">
-  	<time datetime="2019-03-17T03:12:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-17</time>
+        <a href="/2019/04/01/分布式系统CAP定理/" class="archive-article-date">
+  	<time datetime="2019-04-01T04:48:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>程序计数器、虚拟机栈、本地方法栈3个区域随线程而生，线程而灭，内存分配和回收都具备确定性</p>
-<p>堆与方法区是线程共享区域，内存分配和回收都具备动态性，因此垃圾收集器关注的是这两个区域</p>
-<p><strong>GC需要完成的三件事情</strong></p>
-<ul>
-<li><strong>what</strong>：哪些内存需要回收？</li>
-<li><strong>when</strong>：什么时候回收？</li>
-<li><strong>how</strong>：如何回收？</li>
+        <h2 id="一、分布式系统的三个指标"><a href="#一、分布式系统的三个指标" class="headerlink" title="一、分布式系统的三个指标"></a>一、分布式系统的三个指标</h2><ul>
+<li>一致性（Consistency）：在分布式系统中，任一时刻所有节点数据备份相同</li>
+<li>高可用性（Availability）：在集群中一部分节点故障后，集群整体还能响应客户端的读写请求</li>
+<li>分区容错性（Partition ）：分区相当于对通信的时限要求</li>
 </ul>
 <a id="more"></a>
-<h2 id="二、对象死亡"><a href="#二、对象死亡" class="headerlink" title="二、对象死亡"></a>二、对象死亡</h2><p>解决内容：哪些内存需要回收？</p>
-<h3 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h3><p>给对象添加一个引用计数器，初始为1，每当被引用时，计数器加1，当引用失效时，计数器减1，任何时刻计数器为0的对象就是不可再被使用的。</p>
-<p>但是，主流的虚拟机没有采用引用计数法来管理内存，主要原因是很难解决对象之间<strong>循环引用</strong>问题。</p>
-<h3 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h3><p>通过一系列GC Roots对象作为起始点向下搜索，走过的路径称为引用链，当一个对象到GC Roots对象没有任何引用链相连时（即图上对象不可到达），则证明对象是不可用的。</p>
-<p><img src="/2019/03/17/垃圾收集器与内存分配策略/1.png" alt></p>
-<p><strong>可作为GC Roots对象</strong></p>
+<h2 id="二、CAP定理"><a href="#二、CAP定理" class="headerlink" title="二、CAP定理"></a>二、CAP定理</h2><p>CAP定理描述的是一个分布式系统必须满足P，C与A之间只能选择满足一个</p>
+<h2 id="三、选择权衡"><a href="#三、选择权衡" class="headerlink" title="三、选择权衡"></a>三、选择权衡</h2><p>对于C、A的选择，在不同应用场景下有着不同的策略</p>
 <ul>
-<li>虚拟机栈中引用的对象</li>
-<li>方法区中类静态属性引用的对象</li>
-<li>方法区中常量引用的对象</li>
-<li>本地方法栈中引用的对象</li>
+<li>对于一些并发量较高的场景，优先选择A，例如京东、淘宝</li>
+<li>对于一些数据量较大的场景，优先选择C，例如微博、头条</li>
 </ul>
-<h3 id="最终判定"><a href="#最终判定" class="headerlink" title="最终判定"></a>最终判定</h3><p>如果对象在进行可达性分析后发现没有与GC Roots对象相连接的引用链，它将等待标记进行回收</p>
-<p><strong>第一次标记</strong></p>
-<ul>
-<li>当对象没有覆盖finalize方法，或者finalize方法已经被虚拟机调用过，虚拟机视为没有必要执行</li>
-<li>如果对象被判定有必要执行finalize方法，对象将会被放置一个F-Queue队列之中，并在稍后由一个虚拟机自动建立的、低优先级的Finalizer线程去执行它</li>
+<h2 id="四、个人理解"><a href="#四、个人理解" class="headerlink" title="四、个人理解"></a>四、个人理解</h2><ul>
+<li><p>电商平台虽说数据量大，但相对都是静态的，并发量较高，而且特别注重用户的体验，所以选择高可用性，至于一致性，可以通过消息队列、缓存实现逻辑控制</p>
+</li>
+<li><p>自媒体平台数据属于流式数据，相对不确定、量大，用户刷新等待几秒也能接受，用户更在意数据发送前后的一致性，所以选择一致性，至于高可用性，可以通过负载均衡实现</p>
+</li>
 </ul>
-<p><strong>第二次标记</strong></p>
-<ul>
-<li>GC对F-Queue中的对象进行第二次小规模的标记，如果对象重新与引用链上的任何一个对象建立关联（例如将自身赋值给某个变量），便会成功拯救自己，避免被回收的命运（<strong>逃逸</strong>）</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FinalizeEscapeGC</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> FinalizeEscapeGC SAVE_HOOK = <span class="keyword">null</span>;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.finalize();</span><br><span class="line">        System.out.println(<span class="string">"finalize method executed"</span>);</span><br><span class="line">        FinalizeEscapeGC.SAVE_HOOK = <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">helpGC</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        SAVE_HOOK = <span class="keyword">null</span>;</span><br><span class="line">        System.gc();</span><br><span class="line">        Thread.sleep(<span class="number">500</span>);</span><br><span class="line">        <span class="keyword">if</span> (SAVE_HOOK != <span class="keyword">null</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">"yes, i am still alive."</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"no, i am dead."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        SAVE_HOOK = <span class="keyword">new</span> FinalizeEscapeGC();</span><br><span class="line">        helpGC(); <span class="comment">// 第一次执行了finalize自救</span></span><br><span class="line">        helpGC(); <span class="comment">// finalize执行过了一次便不再执行了</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">finalize method executed</span><br><span class="line">yes, i am still alive.</span><br><span class="line">no, i am dead.</span><br></pre></td></tr></table></figure>
-<h3 id="对象引用"><a href="#对象引用" class="headerlink" title="对象引用"></a>对象引用</h3><p><strong>强引用</strong></p>
-<ul>
-<li>强引用就是指在程序代码中普遍存在的，类似<code>Object obj = new Object()</code>这类似的引用，只要强引用在，垃圾收集器永远不会收集被引用的对象</li>
-</ul>
-<p><strong>软引用</strong></p>
-<ul>
-<li>软引用用来描述一些有用但非必需的对象，在系统将要发生内存溢出异常之前，将会把这些对象进行回收，如果仍没有足够的内存，才会抛出OutOfMemoryError异常</li>
-</ul>
-<p><strong>弱引用</strong></p>
-<ul>
-<li>弱引用用来描述非必需的对象，被弱引用关联的对象只能生存到下一次垃圾收集之前，当垃圾收集器工作时，不管内存是否足够，都会回收掉弱引用对象</li>
-</ul>
-<p><strong>虚引用</strong></p>
-<ul>
-<li>最弱的引用，为对象设置虚引用关联的唯一目的就是让对象被回收时收到一个系统通知</li>
-</ul>
-<h3 id="回收方法区"><a href="#回收方法区" class="headerlink" title="回收方法区"></a>回收方法区</h3><p>Java虚拟机规范中不要求虚拟机在方法区实现垃圾收集，因为性价比一般较低</p>
-<p>永久代的垃圾收集主要回收两部分内容：废弃常量和无用的类</p>
-<p><strong>废弃常量</strong></p>
-<ul>
-<li>常量池中字面量没有任何对象引用，就会被系统清理出常量池</li>
-</ul>
-<p><strong>无用的类</strong></p>
-<ul>
-<li>类的所有实例被回收（堆中不存在该类的任何实例）</li>
-<li>类的ClassLoader被回收</li>
-<li>类的class对象不被引用（指反射）</li>
-</ul>
-<h2 id="三、回收时间"><a href="#三、回收时间" class="headerlink" title="三、回收时间"></a>三、回收时间</h2><p>解决内容：什么时候回收？</p>
-<h3 id="枚举根节点"><a href="#枚举根节点" class="headerlink" title="枚举根节点"></a>枚举根节点</h3><p>枚举根节点是必须要停顿的，因为分析工作必须在一个能确保一致性的快照中进行（一致性指系统被冻结在某个时间点上，称为”stop the world“）</p>
-<p>目前虚拟机使用的是准确式gc，并不需要一个不漏的检查完所有执行上下文和全局引用的位置，在HotSpot中使用一组称为OopMap的数据结构来达到这个目的，在类加载完成的时候，就把对象内什么偏移量上是什么类型数据计算出来，在JIT编译过程中，也会在特定位置（安全点）记录下栈和寄存器中哪些位置是引用</p>
-<h3 id="安全点"><a href="#安全点" class="headerlink" title="安全点"></a>安全点</h3><p>程序执行时并非在所有地方都能停顿下来开始GC，只有到达安全点时才能暂停，安全点太少，GC等待时间太长，安全点太多，增加运行时的负荷。</p>
-<p><strong>产生位置</strong></p>
-<ul>
-<li>方法调用</li>
-<li>循环跳转</li>
-<li>异常跳转</li>
-</ul>
-<p>如何让所有线程在发生GC时都跑到最近安全点上停顿下来？</p>
-<p><strong>抢先式中断</strong></p>
-<ul>
-<li>发生GC时，所有线程中断，如果有线程不在安全点上，就恢复线程跑到安全点上</li>
-</ul>
-<p><strong>主动式中断</strong></p>
-<ul>
-<li>发生GC时，设置一个GC中断标志，各个线程执行时主动去轮询，发现中断标志为真就自动中断挂起</li>
-<li>中断标志的地方和安全点是重合的</li>
-</ul>
-<h3 id="安全区域"><a href="#安全区域" class="headerlink" title="安全区域"></a>安全区域</h3><p>安全区域是指在一段代码片段之中，引用关系不会发生变化。</p>
-<p>任意地方开始GC都是安全的，可以看作被扩展了的安全点</p>
-<p>在线程执行到Safe Region中的代码时，首先标识自己已经进入了Safe Region，那样，当在这段时间里JVM要发起GC时，就不用管标识自己为Safe Region状态的线程了。在线程要离开Safe Region时，它要检查系统是否已经完成了根节点枚举（或者是整个GC过程），如果完成了，那线程就继续执行，否则它就必须等待直到收到可以安全离开Safe Region的信号为止。 </p>
-<h2 id="四、垃圾收集算法"><a href="#四、垃圾收集算法" class="headerlink" title="四、垃圾收集算法"></a>四、垃圾收集算法</h2><p>解决内容：如何回收？</p>
-<h3 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h3><p>首先标记出所有需要回收的对象，标记完成后统一回收</p>
-<p><img src="/2019/03/17/垃圾收集器与内存分配策略/1.jpg" alt></p>
-<p>效率问题：标记和清除两个过程的效率都不高</p>
-<p>空间问题：产生大量不连续的内存碎片</p>
-<h3 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h3><p>将可用内存分为大小相等的两块A、B，每次使用A，当A用完后，将A中存活的对象复制到B中，再把A清除</p>
-<p><img src="/2019/03/17/垃圾收集器与内存分配策略/3.jpg" alt></p>
-<p>效率问题有了进一步的解决，但可使用内存缩小一半，代价太高</p>
-<p>虚拟机采用这种算法回收新生代，将内存分为一块Eden和两块Survivor空间（默认配置8：1：1），每次使用一块Eden和一块Survivor，发生GC时，将Eden和一块Survivor中存活的对象一次性复制到另一块Survivor空间上，最后清除Eden和一块Survivor。</p>
-<p>内存的分配担保也一样，如果另一块Survivor空间没有足够空间存放上一次新生代收集下来的存活对象时，这些对象将会直接通过分配担保机制进入老年代。</p>
-<h3 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h3><p>标记所有回收的对象，让存活的对象都向一端移动，然后清除掉端边界以外的内存</p>
-<p><img src="/2019/03/17/垃圾收集器与内存分配策略/2.jpg" alt></p>
-<h3 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h3><p>当前虚拟机采用分代收集算法，把堆分为新生代和老年代，新生代每次都有大批对象死去，少量存活，采用复制算法，而老年代对象存活率高，没有额外空间进行分配担保，采用标记-清除，标记-整理算法进行回收</p>
-<h2 id="五、垃圾收集器"><a href="#五、垃圾收集器" class="headerlink" title="五、垃圾收集器"></a>五、垃圾收集器</h2><p>解决内容：垃圾回收全过程</p>
-<p><img src="/2019/03/17/垃圾收集器与内存分配策略/4.jpg" alt></p>
-<h3 id="Serial-Serial-Old收集器"><a href="#Serial-Serial-Old收集器" class="headerlink" title="Serial/Serial Old收集器"></a>Serial/Serial Old收集器</h3><p>原理：</p>
-<p><img src="/2019/03/17/垃圾收集器与内存分配策略/5.jpg" alt></p>
-<p>特性：</p>
-<ul>
-<li>单线程收集器</li>
-<li>必须暂停其他所有工作线程，直到它收集结束</li>
-<li>简单高效，没有线程交互的开销</li>
-</ul>
-<p>场景：</p>
-<ul>
-<li>运行在Client模式下的虚拟机</li>
-</ul>
-<h3 id="ParNew收集器"><a href="#ParNew收集器" class="headerlink" title="ParNew收集器"></a>ParNew收集器</h3><p>原理：</p>
-<p><img src="/2019/03/17/垃圾收集器与内存分配策略/6.jpg" alt></p>
-<p>特性：</p>
-<ul>
-<li>就是Serial多线程版本</li>
-</ul>
-<p>场景：</p>
-<ul>
-<li>运行在Server模式下的虚拟机中首选的新生代收集器</li>
-<li>除Serial外，只有它能与CMS收集器配合工作</li>
-</ul>
-<h3 id="Parallel-Scavenge-Parallel-Old收集器"><a href="#Parallel-Scavenge-Parallel-Old收集器" class="headerlink" title="Parallel Scavenge/Parallel Old收集器"></a>Parallel Scavenge/Parallel Old收集器</h3><p>原理：</p>
-<p><img src="/2019/03/17/垃圾收集器与内存分配策略/7.jpg" alt></p>
-<p>特性：</p>
-<ul>
-<li>吞吐量优先收集器</li>
-<li>自适应调节策略</li>
-</ul>
-<p>场景：</p>
-<ul>
-<li>适合在后台运算而不需要太多交互的任务</li>
-<li>注重吞吐量及CPU资源敏感场合</li>
-</ul>
-<h3 id="CMS收集器"><a href="#CMS收集器" class="headerlink" title="CMS收集器"></a>CMS收集器</h3><p><img src="/2019/03/17/垃圾收集器与内存分配策略/8.jpg" alt></p>
-<p>CMS收集器是一种以获取<strong>最短回收停顿时间</strong>为目标的收集器，尤其重视服务的响应速度，希望系统停顿时间最短，以给用户带来较好的体验，目前应用在很大一部分B/S系统<strong>服务端</strong>。</p>
-<p>CMS收集器基于标记-清除算法实现，过程分为4个步骤：</p>
-<ul>
-<li>初始标记：需要短暂停顿，标记一下GC Roots能<strong>直接</strong>关联到的对象</li>
-<li>并发标记：进行GC Roots Tracing的过程</li>
-<li>重新标记：需要短暂停顿，修正并发标记期间产生变动的一部分对象</li>
-<li>并发清除：进行对象回收</li>
-</ul>
-<p>从总体上说，初始标记、重新标记要短暂停顿，并发标记、并发清除耗时较长，可以看作内存回收过程是与用户线程一起并发执行的，也被称为并发低停顿收集器。</p>
-<p><strong>明显的缺点</strong></p>
-<ul>
-<li>对CPU资源非常敏感（并发标记、并发清除）</li>
-<li>无法处理浮动垃圾（并发清除过程中，用户线程还会产生垃圾，可能会触发下一次GC）</li>
-<li>空间碎片问题（基于标记-清除算法）</li>
-</ul>
-<h3 id="G1收集器"><a href="#G1收集器" class="headerlink" title="G1收集器"></a>G1收集器</h3><p><img src="/2019/03/17/垃圾收集器与内存分配策略/9.jpg" alt></p>
-<p>G1是一款面向服务端应用的垃圾收集器，具备如下特点：</p>
-<ul>
-<li>并行与并发：能充分利用多CPU、多核环境下的硬件优势（并发标记）</li>
-<li>分代收集</li>
-<li>空间整合：基于标记-整理算法实现</li>
-<li>可预测停顿：几乎具备实时垃圾收集器的特征（基于优先列表）</li>
-</ul>
-<p><strong>可预测停顿原理</strong></p>
-<p>将整个堆分为多个大小相等独立区域（Region），G1跟踪各个Region里面的垃圾堆积的价值大小（回收获得空间大小、回收所需时间）在后台维护一个优先列表，每次根据允许的收集时间，优先回收价值最大的Region，保证了尽可能高的收集效率。</p>
-<p><strong>避免全堆扫描</strong></p>
-<p>在G1收集器中，Region之间的对象引用以及其他收集器中的新生代与老年代之间的对象引用，虚拟机都是使用Remembered Set来避免全堆扫描的。G1中每个Region都有一个对应的Remembered Set，发现程序在对Reference类型数据进行写操作时，会产生一个Write Barrier暂时中断写操作，检查Reference引用的对象是否处于不同的Region之中，如果是，便通过CardTable把相关引用信息记录到被引用对象所属的Region的Remembered Set之中。当发生GC时，在GC根节点的枚举范围中加入Remembered Set即可保证不对全堆扫描也不会遗漏。</p>
-<p>G1基于标记-整理算法实现，过程分为4个步骤：</p>
-<ul>
-<li>初始标记</li>
-<li>并发标记</li>
-<li>最终标记</li>
-<li>筛选回收</li>
-</ul>
-<p>各过程与CMS大体相同</p>
-<h2 id="六、内存分配与回收策略"><a href="#六、内存分配与回收策略" class="headerlink" title="六、内存分配与回收策略"></a>六、内存分配与回收策略</h2><h3 id="对象优先在Eden分配"><a href="#对象优先在Eden分配" class="headerlink" title="对象优先在Eden分配"></a>对象优先在Eden分配</h3><p>当Eden区没有足够空间进行分配时，虚拟机将发起一次Minor GC</p>
-<p>Minor GC：新生代GC</p>
-<p>Full GC：老年代GC</p>
-<h3 id="大对象直接进入老年代"><a href="#大对象直接进入老年代" class="headerlink" title="大对象直接进入老年代"></a>大对象直接进入老年代</h3><p>虚拟机提供了一个-XX:PretenureSizeThreshold参数，令大于设置值的对象直接在老年代分配</p>
-<h3 id="长期存活的对象进入老年代"><a href="#长期存活的对象进入老年代" class="headerlink" title="长期存活的对象进入老年代"></a>长期存活的对象进入老年代</h3><p>对象晋升老年代的年龄阈值，可以通过参数-XX:MaxTenuringThreshold设置，默认为15岁</p>
-<p>虚拟机给每个对象定义一个对象年龄计数器，如果对象在Eden出生并经过第一次Minor GC后仍然存活，并且能被Survivor容纳的话，将被移动到Survivor空间中，并且对象年龄设为1。对象在Survivor区每熬过一次Minor GC，年龄就增加一岁。</p>
-<h3 id="动态年龄判定"><a href="#动态年龄判定" class="headerlink" title="动态年龄判定"></a>动态年龄判定</h3><p>如果Survivor空间中相同年龄所有对象大小总和大于Survivor空间的一半，年龄大于或等于该年龄的对象就可以直接进入老年代，无须等到MaxTenuringThreshold要求的年龄。</p>
-<h3 id="空间分配担保"><a href="#空间分配担保" class="headerlink" title="空间分配担保"></a>空间分配担保</h3><p>当发生Minor GC时，JVM会首先检查老年代最大的可用连续空间是否大于新生代所有对象的总和，如果大于，那么这次Minor GC是安全的，如果不大于的话，JVM就需要判断HandlePromotionFailure是否允许空间分配担保。 如果允许，JVM继续检查老年代最大的可用连续空间是否大于历次晋升到老年代的对象的平均大小，如果大于，则正常进行一次Minor GC，尽管有风险（因为判断的是平均大小，有可能这次的晋升对象比平均值大很多）；如果小于，或者HandlePromotionFailure设置不允许空间分配担保，这时要进行一次Full GC。</p>
 <h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
-<li><a href="https://www.jianshu.com/p/e5364c05cc80" target="_blank" rel="noopener">通过例子了解Java中的引用</a></li>
-<li><a href="https://blog.csdn.net/coderlius/article/details/79272773" target="_blank" rel="noopener">详解G1垃圾收集器</a></li>
-<li><a href="https://blog.csdn.net/shi2huang/article/details/80085193" target="_blank" rel="noopener">设置JVM垃圾收集器</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2018/07/cap.html" target="_blank" rel="noopener">CAP定理的含义</a></li>
 </ul>
 
       
@@ -409,7 +236,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cap</a>
         		</li>
       		
 		</ul>
@@ -465,7 +292,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/17/垃圾收集器与内存分配策略/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/04/01/分布式系统CAP定理/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -479,18 +306,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/19/虚拟机性能监控与故障处理工具/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          虚拟机性能监控与故障处理工具
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/16/Java内存区域与溢出异常/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java内存区域与溢出异常</div>
+    <a href="/2019/03/31/MySQL主从复制原理解析与最佳实践/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySQL主从复制原理解析与最佳实践</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -517,7 +335,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、概述"><span class="toc-number">1.</span> <span class="toc-text">一、概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、对象死亡"><span class="toc-number">2.</span> <span class="toc-text">二、对象死亡</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引用计数法"><span class="toc-number">2.1.</span> <span class="toc-text">引用计数法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可达性分析算法"><span class="toc-number">2.2.</span> <span class="toc-text">可达性分析算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最终判定"><span class="toc-number">2.3.</span> <span class="toc-text">最终判定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象引用"><span class="toc-number">2.4.</span> <span class="toc-text">对象引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#回收方法区"><span class="toc-number">2.5.</span> <span class="toc-text">回收方法区</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、回收时间"><span class="toc-number">3.</span> <span class="toc-text">三、回收时间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#枚举根节点"><span class="toc-number">3.1.</span> <span class="toc-text">枚举根节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安全点"><span class="toc-number">3.2.</span> <span class="toc-text">安全点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安全区域"><span class="toc-number">3.3.</span> <span class="toc-text">安全区域</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、垃圾收集算法"><span class="toc-number">4.</span> <span class="toc-text">四、垃圾收集算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#标记-清除算法"><span class="toc-number">4.1.</span> <span class="toc-text">标记-清除算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复制算法"><span class="toc-number">4.2.</span> <span class="toc-text">复制算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标记-整理算法"><span class="toc-number">4.3.</span> <span class="toc-text">标记-整理算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分代收集算法"><span class="toc-number">4.4.</span> <span class="toc-text">分代收集算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、垃圾收集器"><span class="toc-number">5.</span> <span class="toc-text">五、垃圾收集器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Serial-Serial-Old收集器"><span class="toc-number">5.1.</span> <span class="toc-text">Serial/Serial Old收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ParNew收集器"><span class="toc-number">5.2.</span> <span class="toc-text">ParNew收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Parallel-Scavenge-Parallel-Old收集器"><span class="toc-number">5.3.</span> <span class="toc-text">Parallel Scavenge/Parallel Old收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMS收集器"><span class="toc-number">5.4.</span> <span class="toc-text">CMS收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#G1收集器"><span class="toc-number">5.5.</span> <span class="toc-text">G1收集器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、内存分配与回收策略"><span class="toc-number">6.</span> <span class="toc-text">六、内存分配与回收策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对象优先在Eden分配"><span class="toc-number">6.1.</span> <span class="toc-text">对象优先在Eden分配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#大对象直接进入老年代"><span class="toc-number">6.2.</span> <span class="toc-text">大对象直接进入老年代</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#长期存活的对象进入老年代"><span class="toc-number">6.3.</span> <span class="toc-text">长期存活的对象进入老年代</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态年龄判定"><span class="toc-number">6.4.</span> <span class="toc-text">动态年龄判定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#空间分配担保"><span class="toc-number">6.5.</span> <span class="toc-text">空间分配担保</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">7.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、分布式系统的三个指标"><span class="toc-number">1.</span> <span class="toc-text">一、分布式系统的三个指标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、CAP定理"><span class="toc-number">2.</span> <span class="toc-text">二、CAP定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、选择权衡"><span class="toc-number">3.</span> <span class="toc-text">三、选择权衡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、个人理解"><span class="toc-number">4.</span> <span class="toc-text">四、个人理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">5.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
                     </div>
                 </span>
             </div>
