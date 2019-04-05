@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="thailandking">
 <meta property="og:description" content="同步/异步同步:发送一个请求,等待返回,然后再发送下一个请求   异步:发送一个请求,不等待返回,随时可以再发送下一个请求    同步可以避免出现死锁，读脏数据的发生，一般共享某一资源的时候用，如果每个人都有修改权限，同时修改一个文件，有可能使一个人读取另一个人已经删除的内容，就会出错，同步就会按顺序来修改。  异步则是可以提高效率了，现在cpu都是双核，四核，异步处理的话可以同时做多项工作，当然">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-27T12:08:47.255Z">
+<meta property="og:updated_time" content="2019-04-05T13:40:26.146Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java常见名词总结">
 <meta name="twitter:description" content="同步/异步同步:发送一个请求,等待返回,然后再发送下一个请求   异步:发送一个请求,不等待返回,随时可以再发送下一个请求    同步可以避免出现死锁，读脏数据的发生，一般共享某一资源的时候用，如果每个人都有修改权限，同时修改一个文件，有可能使一个人读取另一个人已经删除的内容，就会出错，同步就会按顺序来修改。  异步则是可以提高效率了，现在cpu都是双核，四核，异步处理的话可以同时做多项工作，当然">
@@ -196,6 +196,30 @@
 <p>版权声明：本文为博主原创文章，转载请附上博文链接！</p>
 <h2 id="单核-多核"><a href="#单核-多核" class="headerlink" title="单核/多核"></a>单核/多核</h2><p>单核可以并发（通过上下文切换）</p>
 <p>多核可以并行</p>
+<h2 id="DDL-DML-DCL"><a href="#DDL-DML-DCL" class="headerlink" title="DDL/DML/DCL"></a>DDL/DML/DCL</h2><ul>
+<li>DML（data manipulation language）数据操纵语言：SELECT、UPDATE、INSERT、DELETE</li>
+<li>DDL（data definition language）数据库定义语言：CREATE、ALTER、DROP</li>
+<li>DCL（Data Control Language）数据库控制语言：GRANT、DENY、REVOKE</li>
+</ul>
+<h2 id="OLTP-OLAP"><a href="#OLTP-OLAP" class="headerlink" title="OLTP/OLAP"></a>OLTP/OLAP</h2><ul>
+<li>OLTP（On-Line Transaction Processing）联机事务处理：高可用事务型系统</li>
+<li>OLAP（On-Line Analytical Processing）联机分析处理：数据仓库</li>
+</ul>
+<p>OLTP适用于事务并发，OLAP适用于数据清洗分析</p>
+<h2 id="缓冲-缓存"><a href="#缓冲-缓存" class="headerlink" title="缓冲/缓存"></a>缓冲/缓存</h2><ul>
+<li>缓冲（buffer）缓解冲击：比如你每秒要写100次硬盘，对系统冲击很大，用个buffer暂存起来，变成每秒写10次硬盘，对系统的冲击就很小</li>
+<li>缓存（cache）缓和存储：比如一个很复杂的计算做完了，把结果存起来，下次不用再算了，加快了数据取用的速度</li>
+</ul>
+<p>缓冲侧重于写，缓存侧重于读</p>
+<h2 id="BLOB-TEXT"><a href="#BLOB-TEXT" class="headerlink" title="BLOB/TEXT"></a>BLOB/TEXT</h2><ul>
+<li>BLOB被视为二进制字符串(字节字符串)，无字符集</li>
+<li>TEXT被视为非二进制字符串(字符字符串)，有字符集</li>
+</ul>
+<p>BLOB倾向于存储图片、视频、音频数据，TEXT倾向于存储文章、长文本</p>
+<h2 id="UNION-UNION-ALL"><a href="#UNION-UNION-ALL" class="headerlink" title="UNION/UNION ALL"></a>UNION/UNION ALL</h2><ul>
+<li>union返回去重后的结果集</li>
+<li>union all返回所有结果集</li>
+</ul>
 
       
 
@@ -352,7 +376,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#同步-异步"><span class="toc-number">1.</span> <span class="toc-text">同步/异步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#阻塞-非阻塞"><span class="toc-number">2.</span> <span class="toc-text">阻塞/非阻塞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并发-并行"><span class="toc-number">3.</span> <span class="toc-text">并发/并行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单核-多核"><span class="toc-number">4.</span> <span class="toc-text">单核/多核</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#同步-异步"><span class="toc-number">1.</span> <span class="toc-text">同步/异步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#阻塞-非阻塞"><span class="toc-number">2.</span> <span class="toc-text">阻塞/非阻塞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并发-并行"><span class="toc-number">3.</span> <span class="toc-text">并发/并行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单核-多核"><span class="toc-number">4.</span> <span class="toc-text">单核/多核</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DDL-DML-DCL"><span class="toc-number">5.</span> <span class="toc-text">DDL/DML/DCL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OLTP-OLAP"><span class="toc-number">6.</span> <span class="toc-text">OLTP/OLAP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缓冲-缓存"><span class="toc-number">7.</span> <span class="toc-text">缓冲/缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BLOB-TEXT"><span class="toc-number">8.</span> <span class="toc-text">BLOB/TEXT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UNION-UNION-ALL"><span class="toc-number">9.</span> <span class="toc-text">UNION/UNION ALL</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -469,19 +493,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jvm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color1">java8</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,15 +513,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">database</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -513,15 +529,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
+                <a href="javascript:void(0)" class="js-tag color4">database</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,15 +545,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cap</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">copy</a>
               </li>
              
               <li class="article-tag-list-item">
