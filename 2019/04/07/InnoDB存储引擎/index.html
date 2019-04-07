@@ -6,19 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>Archives: 2019/3 | thailandking</title>
+  <title>InnoDB存储引擎 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="personal blog">
-<meta name="keywords" content="computer，programming">
-<meta property="og:type" content="website">
-<meta property="og:title" content="thailandking">
-<meta property="og:url" content="https://thailandking.github.io/archives/2019/03/page/4/index.html">
+  <meta name="description" content="一、InnoDB体系结构  内存池由多个内存块组成，缓存磁盘上的数据，重做日志缓冲  后台线程负责刷新内存池中的数据，同步到磁盘文件">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="InnoDB存储引擎">
+<meta property="og:url" content="https://thailandking.github.io/2019/04/07/InnoDB存储引擎/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="personal blog">
+<meta property="og:description" content="一、InnoDB体系结构  内存池由多个内存块组成，缓存磁盘上的数据，重做日志缓冲  后台线程负责刷新内存池中的数据，同步到磁盘文件">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://thailandking.github.io/2019/04/07/InnoDB存储引擎/1.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/04/07/InnoDB存储引擎/2.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/04/07/InnoDB存储引擎/1.jpg">
+<meta property="og:updated_time" content="2019-04-07T16:23:41.206Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="thailandking">
-<meta name="twitter:description" content="personal blog">
+<meta name="twitter:title" content="InnoDB存储引擎">
+<meta name="twitter:description" content="一、InnoDB体系结构  内存池由多个内存块组成，缓存磁盘上的数据，重做日志缓冲  后台线程负责刷新内存池中的数据，同步到磁盘文件">
+<meta name="twitter:image" content="https://thailandking.github.io/2019/04/07/InnoDB存储引擎/1.png">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -150,105 +155,399 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-InnoDB存储引擎" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/02/Java字符串池深度解析/" class="archive-article-date">
-  	<time datetime="2019-03-02T13:01:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/02/Java字符串池深度解析/">Java字符串池深度解析</a>
+    <h1 class="article-title" itemprop="name">
+      InnoDB存储引擎
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/04/07/InnoDB存储引擎/" class="archive-article-date">
+  	<time datetime="2019-04-07T12:53:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、InnoDB体系结构"><a href="#一、InnoDB体系结构" class="headerlink" title="一、InnoDB体系结构"></a>一、InnoDB体系结构</h2><p><img src="/2019/04/07/InnoDB存储引擎/1.png" alt></p>
+<ul>
+<li><p>内存池由多个内存块组成，缓存磁盘上的数据，重做日志缓冲</p>
+</li>
+<li><p>后台线程负责刷新内存池中的数据，同步到磁盘文件</p>
+</li>
+</ul>
+<a id="more"></a>
+<h3 id="1、后台线程"><a href="#1、后台线程" class="headerlink" title="1、后台线程"></a>1、后台线程</h3><h4 id="1-1-Master-Thread"><a href="#1-1-Master-Thread" class="headerlink" title="1.1 Master Thread"></a>1.1 Master Thread</h4><ul>
+<li>将缓冲池中的数据异步刷新到磁盘，保证数据的一致性，包括脏页的刷新、合并插入缓冲、UNDO页的回收</li>
+</ul>
+<h4 id="1-2-IO-Thread"><a href="#1-2-IO-Thread" class="headerlink" title="1.2 IO Thread"></a>1.2 IO Thread</h4><ul>
+<li><p>负责AIO请求的回调处理，极大提高数据库的性能</p>
+</li>
+<li><p>共有4个IO Thread，为write、read、insert buffer、log IO thread</p>
+</li>
+</ul>
+<h4 id="1-3-Purge-Thread"><a href="#1-3-Purge-Thread" class="headerlink" title="1.3 Purge Thread"></a>1.3 Purge Thread</h4><ul>
+<li>事务被提交后，回收已经使用并分配的undo页</li>
+</ul>
+<h4 id="1-4-Page-Cleaner-Thread"><a href="#1-4-Page-Cleaner-Thread" class="headerlink" title="1.4 Page Cleaner Thread"></a>1.4 Page Cleaner Thread</h4><ul>
+<li>将脏页的刷新操作放入单独的线程中来完成，减轻Master Thread对用户查询线程的阻塞</li>
+</ul>
+<h3 id="2、内存"><a href="#2、内存" class="headerlink" title="2、内存"></a>2、内存</h3><p><img src="/2019/04/07/InnoDB存储引擎/2.png" alt></p>
+<h4 id="2-1-缓冲池"><a href="#2-1-缓冲池" class="headerlink" title="2.1 缓冲池"></a>2.1 缓冲池</h4><ul>
+<li><p>InnoDB是基于磁盘存储的，将其中的记录按照页的方式进行管理，由于CPU速度与磁盘速度之间的鸿沟，使用缓冲池技术来提高数据库的整体性能</p>
+</li>
+<li><p>对于数据库中的页的修改操作，则先修改在缓冲池中的页，然后再以一定的频率刷新到磁盘上</p>
+</li>
+</ul>
+<h4 id="2-2-LRU-List、Free-List、Flush-List"><a href="#2-2-LRU-List、Free-List、Flush-List" class="headerlink" title="2.2 LRU List、Free List、Flush List"></a>2.2 LRU List、Free List、Flush List</h4><ul>
+<li>数据库中的缓冲池是通过LRU算法来进行管理的</li>
+</ul>
+<p><strong>LRU mid插入策略</strong></p>
+<ul>
+<li>InnoDB LRU列表中加入了midpoint，新读取到的页，不是直接放在首部，而是放到midpoint位置，midpoint后的列表称为old列表，之前的列表称为new列表</li>
+<li>好处：避免索引或者数据扫描需要临时访问许多页覆盖较多<strong>热点数据</strong></li>
+<li>由参数innodb_old_blocks_pct控制</li>
+</ul>
+<p><strong>Free List</strong></p>
+<ul>
+<li>数据库启动时，页都存放在Free列表中，当需要从缓冲池中分页时，会首先从<strong>Free列表</strong>中查找是否有可用的空闲页。如有，则将该页从Free列表中删除，放入LRU列表中。否则，淘汰LRU列表末尾的页，将该内存空间分配给新的页</li>
+</ul>
+<p><strong>unzip_LRU列表</strong></p>
+<ul>
+<li>对不同压缩页大小的页进行分别管理（16KB、8KB、4KB、2KB、1KB）</li>
+<li>通过<strong>伙伴算法</strong>进行内存的分配</li>
+</ul>
+<p><strong>Flush List</strong></p>
+<ul>
+<li>在LRU列表中的页被修改后，称为脏页，Flush List中存放的就是脏页列表</li>
+<li>脏页即存在LRU列表中，用来管理缓冲池中的页可用性</li>
+<li>脏页也存在Flush列表中，用来管理将页刷新回磁盘</li>
+</ul>
+<h4 id="2-3-重做日志缓冲"><a href="#2-3-重做日志缓冲" class="headerlink" title="2.3 重做日志缓冲"></a>2.3 重做日志缓冲</h4><ul>
+<li>称为redo log buffer，默认8M</li>
+<li>InnoDB存储引擎首先将重做日志信息放入这个缓冲区，然后按一定的频率将其刷新到重做日志文件</li>
+</ul>
+<p><strong>触发重做日志刷新</strong></p>
+<ul>
+<li>Master Thread每一秒进行</li>
+<li>每个事务提交</li>
+<li>重做日志缓冲池剩余空间小于1/2</li>
+</ul>
+<h4 id="2-4-额外内存池"><a href="#2-4-额外内存池" class="headerlink" title="2.4 额外内存池"></a>2.4 额外内存池</h4><ul>
+<li>缓冲池中的帧缓冲、缓冲控制对象需要从额外内存池中申请</li>
+</ul>
+<h2 id="二、Checkpoint技术"><a href="#二、Checkpoint技术" class="headerlink" title="二、Checkpoint技术"></a>二、Checkpoint技术</h2><h3 id="1、解决问题"><a href="#1、解决问题" class="headerlink" title="1、解决问题"></a>1、解决问题</h3><ul>
+<li>将缓冲池中脏页刷新到磁盘</li>
+</ul>
+<h3 id="2、Sharp-Checkpoint"><a href="#2、Sharp-Checkpoint" class="headerlink" title="2、Sharp Checkpoint"></a>2、Sharp Checkpoint</h3><ul>
+<li>发生在数据库关闭时将所有的脏页都刷新回磁盘</li>
+</ul>
+<h3 id="3、Fuzzy-Checkpoint"><a href="#3、Fuzzy-Checkpoint" class="headerlink" title="3、Fuzzy Checkpoint"></a>3、Fuzzy Checkpoint</h3><ul>
+<li>指定情况下刷新部分脏页</li>
+<li>InnoDB内部默认使用</li>
+</ul>
+<p><strong>触发Fuzzy Checkpoint</strong></p>
+<ul>
+<li>Master Thread每秒/每十秒的速度从缓冲池的脏页列表中刷新一定比例的页回磁盘</li>
+<li>存储引擎需要保证LRU列表中有100个空闲页可供使用，如果没有，会将尾部页移除，如果移除页中有脏页，将会添加到Flush列表中，等待刷新到磁盘</li>
+<li>重做日志不可用（循环使用）需要强制将Flush列表中一些页刷新到磁盘</li>
+<li>脏页数量太多，由参数innodb_max_dirty_pages_pct控制，默认75%</li>
+</ul>
+<h2 id="三、Master-Thread工作方式"><a href="#三、Master-Thread工作方式" class="headerlink" title="三、Master Thread工作方式"></a>三、Master Thread工作方式</h2><p>Master Thread具备最高的线程优先级别，完成大部分InnoDB存储引擎的核心操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">loop:</span><br><span class="line">　　　　for(int i=0;i&lt;10;i++)&#123;</span><br><span class="line">　　　　　thread_sleep(1);//sleep 1 second</span><br><span class="line">　　　　　doing something&#123;</span><br><span class="line">　　　　　 //每一秒钟要做的</span><br><span class="line">　　　　　　do log buffer flush to disk;</span><br><span class="line">　　　　　　if(last_one_second_ios &lt; 5%*innodb_io_capacity)&#123;</span><br><span class="line">　　　　　　do merge at most 5% innodb_io_capacity insert buffer;</span><br><span class="line">　　　　　&#125;</span><br><span class="line">　　　　　if(buffer_pool_modified_page_ratio_pct &gt; innodb_max_dirty_page_pct)&#123;</span><br><span class="line">　　　　　　do buffer pool flush 100% innodb_io_capacity dirty pages;</span><br><span class="line">　　　　　&#125;else if(enable adaptive flush)&#123;</span><br><span class="line">　　　　　　do buffer pool flush desired amount dirty pages;</span><br><span class="line">　　　　　&#125;</span><br><span class="line">　　　　　if(not user activity)&#123;</span><br><span class="line">　　　　　　goto background loop;</span><br><span class="line">　　　　　&#125;</span><br><span class="line">　　　　&#125; </span><br><span class="line">　　　&#125;</span><br><span class="line">　　　doging something;&#123;</span><br><span class="line">　　　 //每10秒要做的</span><br><span class="line">　　　　if(last_ten_seconds_ios &lt; innodb_io_capacity)&#123;</span><br><span class="line">　　　　　　do merge 100% innodb_io_capacity dirty pages;</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　　　do log buffer flush to disk;</span><br><span class="line">　　　　do merge at most 5% innodb_io_capacity insert buffer;</span><br><span class="line">　　　　do full purge,at most 20 undo pages;</span><br><span class="line">　　　　if(buffer_pool_modified_page_ratio_pct &lt; 70%)&#123;</span><br><span class="line">　　　　　　do buffer pool flush 100% innodb_io_capacity dirty pages;</span><br><span class="line">　　　　&#125;else&#123;</span><br><span class="line">　　　　　　do buffer pool flush 10% innodb_io_capacity dirty pages;</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　　　do fuzzy checkpoint;</span><br><span class="line">　　　&#125;</span><br><span class="line"></span><br><span class="line">　　background loop循环伪代码如下：</span><br><span class="line"></span><br><span class="line">　　background loop:</span><br><span class="line">　　　　do full purge,at most 20 undo pages;</span><br><span class="line">　　　　do merge 100% innodb_io_capacity insert buffer;</span><br><span class="line">　　　　if(not idle)&#123;</span><br><span class="line">　　　　　　goto loop;</span><br><span class="line">　　　　&#125;else&#123;</span><br><span class="line">　　　　　　goto flush loop;</span><br><span class="line">　　　　&#125;</span><br><span class="line"></span><br><span class="line">　　flush loop循环伪代码如下：</span><br><span class="line"></span><br><span class="line">　　flush loop:</span><br><span class="line">　　　　do buffer pool flush 100% innodb_io_capacity dirty pages;</span><br><span class="line">　　　　if(buffer_pool_modified_page_ratio_pct &gt; innodb_max_dirty_page_pct)&#123;</span><br><span class="line">　　　　　　goto flush loop;</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　　　goto suspend loop;</span><br><span class="line"></span><br><span class="line">　　suspendloop循环伪代码如下：</span><br><span class="line"></span><br><span class="line">　　suspend loop:</span><br><span class="line">　　　　suspend thread();</span><br><span class="line">　　　　waiting event;</span><br><span class="line">　　　　goto loop;</span><br></pre></td></tr></table></figure>
+<h2 id="四、InnoDB关键特性"><a href="#四、InnoDB关键特性" class="headerlink" title="四、InnoDB关键特性"></a>四、InnoDB关键特性</h2><h3 id="1、插入缓冲"><a href="#1、插入缓冲" class="headerlink" title="1、插入缓冲"></a>1、插入缓冲</h3><h4 id="1-1-Insert-Buffer"><a href="#1-1-Insert-Buffer" class="headerlink" title="1.1 Insert Buffer"></a>1.1 Insert Buffer</h4><ul>
+<li><p>插入聚集索引时，按照主键递增顺序进行插入，无须缓冲</p>
+</li>
+<li><p>插入非聚集索引（辅助索引）时，具有离散性，需要缓冲</p>
+</li>
+</ul>
+<p><strong>使用条件</strong></p>
+<ul>
+<li>索引是辅助索引</li>
+<li>索引不唯一</li>
+</ul>
+<p><strong>原理解析</strong></p>
+<ul>
+<li>缓冲插入，合并一次执行</li>
+<li>先判断插入的非聚集索引页是否在缓冲池中，若在，直接插入，若不在，放入到Insert Buffer对象中，以一定频率进行和辅助索引页子节点的合并操作</li>
+</ul>
+<h4 id="1-2-Change-Buffer"><a href="#1-2-Change-Buffer" class="headerlink" title="1.2 Change Buffer"></a>1.2 Change Buffer</h4><ul>
+<li>包含 Insert Buffer、Delete Buffer、Purge Buffer，适用非唯一的辅助索引</li>
+</ul>
+<p><strong>update操作两个过程</strong></p>
+<ul>
+<li>将记录标记为已删除（Delete）</li>
+<li>正真将记录删除（Purge）</li>
+</ul>
+<h4 id="1-3-Insert-Buffer内部实现"><a href="#1-3-Insert-Buffer内部实现" class="headerlink" title="1.3  Insert Buffer内部实现"></a>1.3  Insert Buffer内部实现</h4><ul>
+<li>Insert Buffer是一棵B+树，存放在共享表空间中</li>
+</ul>
+<p><strong>非叶子节点</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">space</th>
+<th>marker</th>
+<th>offset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">占4个字节，表示插入记录所在表空间id</td>
+<td>占1个字节，兼容老版本</td>
+<td>占4个字节，表示页所在的偏移量</td>
+</tr>
+</tbody>
+</table>
+<p><strong>叶子节点</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">space</th>
+<th>marker</th>
+<th>offset</th>
+<th>metadata</th>
+<th>record</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">同上</td>
+<td>同上</td>
+<td>同上</td>
+<td>辅助信息</td>
+<td>数据记录</td>
+</tr>
+</tbody>
+</table>
+<p> <strong>Insert Buffer Bitmap</strong></p>
+<ul>
+<li>一个特殊的页用来标记每个辅助索引页可用空间</li>
+</ul>
+<h4 id="1-4-Merge-Insert-Buffer"><a href="#1-4-Merge-Insert-Buffer" class="headerlink" title="1.4 Merge  Insert Buffer"></a>1.4 Merge  Insert Buffer</h4><ul>
+<li>辅助索引页被读取到缓冲池</li>
+<li>辅助索引页无可用空间（小于1/32页）</li>
+<li>Master Thread</li>
+</ul>
+<h3 id="2、两次写"><a href="#2、两次写" class="headerlink" title="2、两次写"></a>2、两次写</h3><p> Insert Buffer带给存储引擎性能上的提升，Double Write带给存储引擎数据页的可靠性</p>
+<p>在对缓冲池的脏页进行刷新时，并不直接写入磁盘，先复制到内存中的Double Write Buffer，一次写入共享表空间，一次写入磁盘数据文件，称为两次写</p>
+<p><img src="/2019/04/07/InnoDB存储引擎/1.jpg" alt></p>
+<h3 id="3、自适应哈希索引"><a href="#3、自适应哈希索引" class="headerlink" title="3、自适应哈希索引"></a>3、自适应哈希索引</h3><ul>
+<li><p>InnoDB存储引擎会监控对表上各索引页的查询，如果观察到建立哈希索引可以带来速度的提升，则建立哈希索引，所以称之为自适应哈希索引</p>
+</li>
+<li><p>自适应哈希索引通过缓冲池的B+树构造而来，因此建立的速度很快。而且不需要将整个表都建哈希索引，InnoDB存储引擎会自动根据访问的频率和模式来为某些页建立哈希索引</p>
+</li>
+<li>哈希索引只能用来搜索等值的查询，不适用范围查找、模糊查找</li>
+</ul>
+<h3 id="4、异步IO"><a href="#4、异步IO" class="headerlink" title="4、异步IO"></a>4、异步IO</h3><ul>
+<li>为了提高磁盘操作性能，当前数据库系统都采用异步IO处理磁盘操作</li>
+</ul>
+<h3 id="5、刷新邻接页"><a href="#5、刷新邻接页" class="headerlink" title="5、刷新邻接页"></a>5、刷新邻接页</h3><ul>
+<li>当刷新一个脏页时，会刷新该脏页所在区所有脏页</li>
+</ul>
+<h2 id="五、启动、关闭、恢复"><a href="#五、启动、关闭、恢复" class="headerlink" title="五、启动、关闭、恢复"></a>五、启动、关闭、恢复</h2><p>在关闭时，参数<strong>innodb_fast_shutdown</strong>决定着表的存储引擎行为</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>full purge和merge insert buffer</th>
+<th>脏页刷新</th>
+<th>日志</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>完成所有</td>
+<td>完成所有</td>
+<td>写入所有</td>
+</tr>
+<tr>
+<td>1（默认）</td>
+<td>不需要完成</td>
+<td>完成缓冲池中脏页的刷新</td>
+<td>写入所有</td>
+</tr>
+<tr>
+<td></td>
+<td>不需要完成</td>
+<td>不需要完成</td>
+<td>写入所有</td>
+</tr>
+</tbody>
+</table>
+<p>1为参数的默认值，当参数为2时，属于非正常关闭，下次MySQL数据库启动时会进行恢复操作</p>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
+<li><a href="https://blog.csdn.net/jc_benben/article/details/78967380" target="_blank" rel="noopener">InnoDB两次写特性</a></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixinpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">string pool</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/04/07/InnoDB存储引擎/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/02/深入理解Java装箱与拆箱/" class="archive-article-date">
-  	<time datetime="2019-03-02T09:22:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/05/深拷贝与浅拷贝的理解及实现/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">深拷贝与浅拷贝的理解及实现</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/02/深入理解Java装箱与拆箱/">深入理解Java装箱与拆箱</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、InnoDB体系结构"><span class="toc-number">1.</span> <span class="toc-text">一、InnoDB体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、后台线程"><span class="toc-number">1.1.</span> <span class="toc-text">1、后台线程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-Master-Thread"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 Master Thread</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-IO-Thread"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 IO Thread</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-Purge-Thread"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.3 Purge Thread</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-Page-Cleaner-Thread"><span class="toc-number">1.1.4.</span> <span class="toc-text">1.4 Page Cleaner Thread</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、内存"><span class="toc-number">1.2.</span> <span class="toc-text">2、内存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-缓冲池"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 缓冲池</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-LRU-List、Free-List、Flush-List"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 LRU List、Free List、Flush List</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-重做日志缓冲"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 重做日志缓冲</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-额外内存池"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4 额外内存池</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Checkpoint技术"><span class="toc-number">2.</span> <span class="toc-text">二、Checkpoint技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、解决问题"><span class="toc-number">2.1.</span> <span class="toc-text">1、解决问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、Sharp-Checkpoint"><span class="toc-number">2.2.</span> <span class="toc-text">2、Sharp Checkpoint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、Fuzzy-Checkpoint"><span class="toc-number">2.3.</span> <span class="toc-text">3、Fuzzy Checkpoint</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、Master-Thread工作方式"><span class="toc-number">3.</span> <span class="toc-text">三、Master Thread工作方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、InnoDB关键特性"><span class="toc-number">4.</span> <span class="toc-text">四、InnoDB关键特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、插入缓冲"><span class="toc-number">4.1.</span> <span class="toc-text">1、插入缓冲</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-Insert-Buffer"><span class="toc-number">4.1.1.</span> <span class="toc-text">1.1 Insert Buffer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-Change-Buffer"><span class="toc-number">4.1.2.</span> <span class="toc-text">1.2 Change Buffer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-Insert-Buffer内部实现"><span class="toc-number">4.1.3.</span> <span class="toc-text">1.3  Insert Buffer内部实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-Merge-Insert-Buffer"><span class="toc-number">4.1.4.</span> <span class="toc-text">1.4 Merge  Insert Buffer</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、两次写"><span class="toc-number">4.2.</span> <span class="toc-text">2、两次写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、自适应哈希索引"><span class="toc-number">4.3.</span> <span class="toc-text">3、自适应哈希索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、异步IO"><span class="toc-number">4.4.</span> <span class="toc-text">4、异步IO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、刷新邻接页"><span class="toc-number">4.5.</span> <span class="toc-text">5、刷新邻接页</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、启动、关闭、恢复"><span class="toc-number">5.</span> <span class="toc-text">五、启动、关闭、恢复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">6.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2019/03/page/3/">&laquo; Prev</a><a class="page-number" href="/archives/2019/03/">1</a><a class="page-number" href="/archives/2019/03/page/2/">2</a><a class="page-number" href="/archives/2019/03/page/3/">3</a><span class="page-number current">4</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -268,8 +567,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
