@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://thailandking.github.io/2019/04/07/InnoDB存储引擎/1.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/04/07/InnoDB存储引擎/2.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/04/07/InnoDB存储引擎/1.jpg">
-<meta property="og:updated_time" content="2019-04-07T16:23:41.206Z">
+<meta property="og:updated_time" content="2019-04-10T07:11:03.023Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="InnoDB存储引擎">
 <meta name="twitter:description" content="一、InnoDB体系结构  内存池由多个内存块组成，缓存磁盘上的数据，重做日志缓冲  后台线程负责刷新内存池中的数据，同步到磁盘文件">
@@ -212,7 +212,7 @@
 <ul>
 <li>InnoDB LRU列表中加入了midpoint，新读取到的页，不是直接放在首部，而是放到midpoint位置，midpoint后的列表称为old列表，之前的列表称为new列表</li>
 <li>好处：避免索引或者数据扫描需要临时访问许多页覆盖较多<strong>热点数据</strong></li>
-<li>由参数innodb_old_blocks_pct控制</li>
+<li>由参数<strong>innodb_old_blocks_pct</strong>控制</li>
 </ul>
 <p><strong>Free List</strong></p>
 <ul>
@@ -375,7 +375,7 @@
 <td>写入所有</td>
 </tr>
 <tr>
-<td></td>
+<td>2</td>
 <td>不需要完成</td>
 <td>不需要完成</td>
 <td>写入所有</td>
@@ -385,6 +385,7 @@
 <p>1为参数的默认值，当参数为2时，属于非正常关闭，下次MySQL数据库启动时会进行恢复操作</p>
 <h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
 <li><a href="https://blog.csdn.net/jc_benben/article/details/78967380" target="_blank" rel="noopener">InnoDB两次写特性</a></li>
+<li><a href="https://www.cnblogs.com/yuyue2014/p/3802779.html" target="_blank" rel="noopener">Insert Buffer</a></li>
 </ul>
 
       
@@ -499,6 +500,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/04/10/文件/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          文件
+        
+      </div>
+    </a>
   
   
     <a href="/2019/04/05/深拷贝与浅拷贝的理解及实现/" id="article-nav-older" class="article-nav-link-wrap">
@@ -642,19 +652,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
+                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">java8</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -671,14 +681,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">udp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -702,19 +704,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string</a>
+                <a href="javascript:void(0)" class="js-tag color4">udp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -726,7 +720,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CAS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">string</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -734,11 +744,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hashmap</a>
+                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
+                <a href="javascript:void(0)" class="js-tag color3">hashmap</a>
               </li>
              
               <li class="article-tag-list-item">
