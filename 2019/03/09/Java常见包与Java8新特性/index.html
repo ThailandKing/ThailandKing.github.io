@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://thailandking.github.io">
   <title>Java常见包与Java8新特性 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="常见包 8个  12345678java.io.*java.util.*java.lang.*java.math.*java.sql.*java.text.*java.awt.*javax.swing.*">
+  <meta name="description" content="一、常见包 8个  12345678java.io.*java.util.*java.lang.*java.math.*java.sql.*java.text.*java.awt.*javax.swing.*">
 <meta name="keywords" content="java8">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java常见包与Java8新特性">
 <meta property="og:url" content="https://thailandking.github.io/2019/03/09/Java常见包与Java8新特性/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="常见包 8个  12345678java.io.*java.util.*java.lang.*java.math.*java.sql.*java.text.*java.awt.*javax.swing.*">
+<meta property="og:description" content="一、常见包 8个  12345678java.io.*java.util.*java.lang.*java.math.*java.sql.*java.text.*java.awt.*javax.swing.*">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-09T09:13:34.666Z">
+<meta property="og:updated_time" content="2019-04-20T13:28:10.825Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java常见包与Java8新特性">
-<meta name="twitter:description" content="常见包 8个  12345678java.io.*java.util.*java.lang.*java.math.*java.sql.*java.text.*java.awt.*javax.swing.*">
+<meta name="twitter:description" content="一、常见包 8个  12345678java.io.*java.util.*java.lang.*java.math.*java.sql.*java.text.*java.awt.*javax.swing.*">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -171,12 +171,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="常见包"><a href="#常见包" class="headerlink" title="常见包"></a>常见包</h2><ul>
+        <h2 id="一、常见包"><a href="#一、常见包" class="headerlink" title="一、常见包"></a>一、常见包</h2><ul>
 <li>8个</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">java.io.*</span><br><span class="line">java.util.*</span><br><span class="line">java.lang.*</span><br><span class="line">java.math.*</span><br><span class="line">java.sql.*</span><br><span class="line">java.text.*</span><br><span class="line">java.awt.*</span><br><span class="line">javax.swing.*</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h2><p>1、Lambda表达式</p>
+<h2 id="二、新特性"><a href="#二、新特性" class="headerlink" title="二、新特性"></a>二、新特性</h2><p>1、Lambda表达式</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; names=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">names.add(<span class="string">"wgt"</span>);</span><br><span class="line">names.add(<span class="string">"shw"</span>);</span><br><span class="line">names.add(<span class="string">"hyt"</span>);</span><br><span class="line">Collections.sort(names,(String a,String b)-&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> a.compareTo(b);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>2、接口的默认方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Calc</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">calc</span><span class="params">(<span class="keyword">int</span> b)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">int</span> <span class="title">square</span><span class="params">(<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> b*b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -185,7 +185,9 @@
 <li>链表转为红黑树</li>
 <li>Entry转为Node</li>
 </ul>
-<h2 id="扩展链接"><a href="#扩展链接" class="headerlink" title="扩展链接"></a>扩展链接</h2><p><a href="https://blog.csdn.net/shunfa888/article/details/80003216" target="_blank" rel="noopener">https://blog.csdn.net/shunfa888/article/details/80003216</a> </p>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
+<li><a href="https://blog.csdn.net/shunfa888/article/details/80003216" target="_blank" rel="noopener">Java8新特性</a></li>
+</ul>
 
       
 
@@ -338,7 +340,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#常见包"><span class="toc-number">1.</span> <span class="toc-text">常见包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新特性"><span class="toc-number">2.</span> <span class="toc-text">新特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展链接"><span class="toc-number">3.</span> <span class="toc-text">扩展链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、常见包"><span class="toc-number">1.</span> <span class="toc-text">一、常见包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、新特性"><span class="toc-number">2.</span> <span class="toc-text">二、新特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">3.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -459,19 +461,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">string pool</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color1">java8</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -483,11 +481,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">udp</a>
+                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -499,11 +497,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">udp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -515,27 +533,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">serializable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">login</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -543,15 +541,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CAS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">copy</a>
+                <a href="javascript:void(0)" class="js-tag color1">login</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">string</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">copy</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,26 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>Redis基础知识 | thailandking</title>
+  <title>Archives: 2019/4 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="简介 Redis 是速度非常快的非关系型（NoSQL）内存键值数据库  键的类型只能为字符串  默认端口为6379">
-<meta name="keywords" content="redis,database">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Redis基础知识">
-<meta property="og:url" content="https://thailandking.github.io/2019/03/14/Redis基础知识/index.html">
+  <meta name="description" content="personal blog">
+<meta name="keywords" content="computer，programming">
+<meta property="og:type" content="website">
+<meta property="og:title" content="thailandking">
+<meta property="og:url" content="https://thailandking.github.io/archives/2019/04/page/2/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="简介 Redis 是速度非常快的非关系型（NoSQL）内存键值数据库  键的类型只能为字符串  默认端口为6379">
+<meta property="og:description" content="personal blog">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/14/Redis基础知识/1.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/14/Redis基础知识/2.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/14/Redis基础知识/3.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/14/Redis基础知识/4.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/14/Redis基础知识/5.png">
-<meta property="og:updated_time" content="2019-03-14T03:21:57.107Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redis基础知识">
-<meta name="twitter:description" content="简介 Redis 是速度非常快的非关系型（NoSQL）内存键值数据库  键的类型只能为字符串  默认端口为6379">
-<meta name="twitter:image" content="https://thailandking.github.io/2019/03/14/Redis基础知识/1.png">
+<meta name="twitter:title" content="thailandking">
+<meta name="twitter:description" content="personal blog">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -157,341 +150,63 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Redis基础知识" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Redis基础知识
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/04/01/分布式系统CAP定理/" class="archive-article-date">
+  	<time datetime="2019-04-01T04:48:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-01</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/04/01/分布式系统CAP定理/">分布式系统CAP定理</a>
     </h1>
   
 
-        
-        <a href="/2019/03/14/Redis基础知识/" class="archive-article-date">
-  	<time datetime="2019-03-14T02:09:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
-<li>Redis 是速度非常快的非关系型（NoSQL）内存键值数据库 </li>
-<li>键的类型只能为字符串 </li>
-<li>默认端口为6379</li>
-</ul>
-<a id="more"></a>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="STRING"><a href="#STRING" class="headerlink" title="STRING"></a>STRING</h3><ul>
-<li>存储字符串、整数、浮点数、序列化的对象</li>
-</ul>
-<p><img src="/2019/03/14/Redis基础知识/1.png" alt></p>
-<table>
-<thead>
-<tr>
-<th>GET</th>
-<th>Fetches the data stored at the given key</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SET</td>
-<td>Sets the value stored at the given key</td>
-</tr>
-<tr>
-<td>DEL</td>
-<td>Deletes the value stored at the given key (works for all types)</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; set hello world</span><br><span class="line">OK</span><br><span class="line">&gt; get hello</span><br><span class="line"><span class="string">"world"</span></span><br><span class="line">&gt; del hello</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; get hello</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
-<h3 id="LIST"><a href="#LIST" class="headerlink" title="LIST"></a>LIST</h3><ul>
-<li>存储链表（有序）</li>
-<li>左右都可以进行操作（左出右进）</li>
-</ul>
-<p><img src="/2019/03/14/Redis基础知识/2.png" alt></p>
-<table>
-<thead>
-<tr>
-<th>RPUSH</th>
-<th>Pushes the value onto the right end of the list</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LRANGE</td>
-<td>Fetches a range of values from the list</td>
-</tr>
-<tr>
-<td>LINDEX</td>
-<td>Fetches an item at a given position in the list</td>
-</tr>
-<tr>
-<td>LPOP</td>
-<td>Pops the value from the left end of the list and returns it</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&gt; rpush list-key item</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; rpush list-key item2</span><br><span class="line">(integer) <span class="number">2</span></span><br><span class="line">&gt; rpush list-key item</span><br><span class="line">(integer) <span class="number">3</span></span><br><span class="line"></span><br><span class="line">&gt; lrange list-key <span class="number">0</span> -<span class="number">1</span>（-<span class="number">1</span>表示全部）</span><br><span class="line"><span class="number">1</span>) <span class="string">"item"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"item2"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"item"</span></span><br><span class="line"></span><br><span class="line">&gt; lrange list-key <span class="number">0</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"item"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"item2"</span></span><br><span class="line">    </span><br><span class="line">&gt; lindex list-key <span class="number">1</span></span><br><span class="line"><span class="string">"item2"</span></span><br><span class="line"></span><br><span class="line">&gt; lpop list-key</span><br><span class="line"><span class="string">"item"</span></span><br><span class="line"></span><br><span class="line">&gt; lrange list-key <span class="number">0</span> -<span class="number">1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"item2"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"item"</span></span><br></pre></td></tr></table></figure>
-<h3 id="SET"><a href="#SET" class="headerlink" title="SET"></a>SET</h3><ul>
-<li>存储集合（无序、不重复）</li>
-<li>用于求交集、并集、差集</li>
-</ul>
-<p><img src="/2019/03/14/Redis基础知识/3.png" alt></p>
-<table>
-<thead>
-<tr>
-<th>SADD</th>
-<th>Adds the item to the set</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SMEMBERS</td>
-<td>Returns the entire set of items</td>
-</tr>
-<tr>
-<td>SISMEMBER</td>
-<td>Checks if an item is in the set</td>
-</tr>
-<tr>
-<td>SREM</td>
-<td>Removes the item from the set, if it exists</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&gt; sadd set-key item</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; sadd set-key item2</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; sadd set-key item3</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; sadd set-key item</span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"></span><br><span class="line">&gt; smembers set-key</span><br><span class="line"><span class="number">1</span>) <span class="string">"item"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"item2"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"item3"</span></span><br><span class="line"></span><br><span class="line">&gt; sismember set-key item4</span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line">&gt; sismember set-key item</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"></span><br><span class="line">&gt; srem set-key item2</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; srem set-key item2</span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"></span><br><span class="line">&gt; smembers set-key</span><br><span class="line"><span class="number">1</span>) <span class="string">"item"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"item3"</span></span><br></pre></td></tr></table></figure>
-<h3 id="HASH"><a href="#HASH" class="headerlink" title="HASH"></a>HASH</h3><ul>
-<li>存储包含键值对的散列表（map）</li>
-</ul>
-<p><img src="/2019/03/14/Redis基础知识/4.png" alt></p>
-<table>
-<thead>
-<tr>
-<th>HSET</th>
-<th>Stores the value at the key in the hash</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>HGET</td>
-<td>Fetches the value at the given hash key</td>
-</tr>
-<tr>
-<td>HGETALL</td>
-<td>Fetches the entire hash</td>
-</tr>
-<tr>
-<td>HDEL</td>
-<td>Removes a key from the hash, if it exists</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&gt; hset hash-key sub-key1 value1</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; hset hash-key sub-key2 value2</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; hset hash-key sub-key1 value1</span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"></span><br><span class="line">&gt; hgetall hash-key</span><br><span class="line"><span class="number">1</span>) <span class="string">"sub-key1"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"value1"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"sub-key2"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"value2"</span></span><br><span class="line"></span><br><span class="line">&gt; hdel hash-key sub-key2</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; hdel hash-key sub-key2</span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"></span><br><span class="line">&gt; hget hash-key sub-key1</span><br><span class="line"><span class="string">"value1"</span></span><br><span class="line"></span><br><span class="line">&gt; hgetall hash-key</span><br><span class="line"><span class="number">1</span>) <span class="string">"sub-key1"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"value1"</span></span><br></pre></td></tr></table></figure>
-<h3 id="ZSET"><a href="#ZSET" class="headerlink" title="ZSET"></a>ZSET</h3><ul>
-<li>存储集合（有序、无重复）</li>
-<li>用于排行榜</li>
-</ul>
-<p><img src="/2019/03/14/Redis基础知识/5.png" alt></p>
-<table>
-<thead>
-<tr>
-<th>ZADD</th>
-<th>Adds member with the given score to the ZSET</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ZRANGE</td>
-<td>Fetches the items in the ZSET from their positions in sorted order</td>
-</tr>
-<tr>
-<td>ZRANGEBYSCORE</td>
-<td>Fetches items in the ZSET based on a range of scores</td>
-</tr>
-<tr>
-<td>ZREM</td>
-<td>Removes the item from the ZSET, if it exists</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&gt; zadd zset-key <span class="number">728</span> member1</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; zadd zset-key <span class="number">982</span> member0</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; zadd zset-key <span class="number">982</span> member0</span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"></span><br><span class="line">&gt; zrange zset-key <span class="number">0</span> -<span class="number">1</span> withscores</span><br><span class="line"><span class="number">1</span>) <span class="string">"member1"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"728"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"member0"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"982"</span></span><br><span class="line"></span><br><span class="line">&gt; zrangebyscore zset-key <span class="number">0</span> <span class="number">800</span> withscores</span><br><span class="line"><span class="number">1</span>) <span class="string">"member1"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"728"</span></span><br><span class="line"></span><br><span class="line">&gt; zrem zset-key member1</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; zrem zset-key member1</span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"></span><br><span class="line">&gt; zrange zset-key <span class="number">0</span> -<span class="number">1</span> withscores</span><br><span class="line"><span class="number">1</span>) <span class="string">"member0"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"982"</span></span><br></pre></td></tr></table></figure>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/weixinpay.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">database</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cap</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/14/Redis基础知识/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/03/16/Java内存区域与溢出异常/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Java内存区域与溢出异常
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/03/12/Mysql事务总结/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Mysql事务总结</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型"><span class="toc-number">2.</span> <span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#STRING"><span class="toc-number">2.1.</span> <span class="toc-text">STRING</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LIST"><span class="toc-number">2.2.</span> <span class="toc-text">LIST</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SET"><span class="toc-number">2.3.</span> <span class="toc-text">SET</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HASH"><span class="toc-number">2.4.</span> <span class="toc-text">HASH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ZSET"><span class="toc-number">2.5.</span> <span class="toc-text">ZSET</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/2019/04/">&laquo; Prev</a><a class="page-number" href="/archives/2019/04/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -511,8 +226,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
