@@ -6,24 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>Java内存区域与溢出异常 | thailandking</title>
+  <title>静态代理与动态代理详解 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、概述Java与C++之间有一堵由内存动态分配和垃圾收集技术所围成的高墙，墙外的人想进去，墙里的人想出来。 二、运行时数据区域">
-<meta name="keywords" content="jvm">
+  <meta name="description" content="一、代理模式 通过代理对象来增强原有对象的功能    分为静态代理、动态代理两种">
+<meta name="keywords" content="proxy">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java内存区域与溢出异常">
-<meta property="og:url" content="https://thailandking.github.io/2019/03/16/Java内存区域与溢出异常/index.html">
+<meta property="og:title" content="静态代理与动态代理详解">
+<meta property="og:url" content="https://thailandking.github.io/2019/04/25/静态代理与动态代理详解/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="一、概述Java与C++之间有一堵由内存动态分配和垃圾收集技术所围成的高墙，墙外的人想进去，墙里的人想出来。 二、运行时数据区域">
+<meta property="og:description" content="一、代理模式 通过代理对象来增强原有对象的功能    分为静态代理、动态代理两种">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/16/Java内存区域与溢出异常/1.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/16/Java内存区域与溢出异常/2.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/16/Java内存区域与溢出异常/3.png">
-<meta property="og:updated_time" content="2019-03-28T02:05:23.269Z">
+<meta property="og:image" content="https://thailandking.github.io/2019/04/25/静态代理与动态代理详解/1.jpg">
+<meta property="og:updated_time" content="2019-04-26T03:54:08.229Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java内存区域与溢出异常">
-<meta name="twitter:description" content="一、概述Java与C++之间有一堵由内存动态分配和垃圾收集技术所围成的高墙，墙外的人想进去，墙里的人想出来。 二、运行时数据区域">
-<meta name="twitter:image" content="https://thailandking.github.io/2019/03/16/Java内存区域与溢出异常/1.png">
+<meta name="twitter:title" content="静态代理与动态代理详解">
+<meta name="twitter:description" content="一、代理模式 通过代理对象来增强原有对象的功能    分为静态代理、动态代理两种">
+<meta name="twitter:image" content="https://thailandking.github.io/2019/04/25/静态代理与动态代理详解/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -155,110 +153,93 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java内存区域与溢出异常" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-静态代理与动态代理详解" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Java内存区域与溢出异常
+      静态代理与动态代理详解
     </h1>
   
 
         
-        <a href="/2019/03/16/Java内存区域与溢出异常/" class="archive-article-date">
-  	<time datetime="2019-03-16T12:22:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-16</time>
+        <a href="/2019/04/25/静态代理与动态代理详解/" class="archive-article-date">
+  	<time datetime="2019-04-25T14:19:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>Java与C++之间有一堵由<strong>内存动态分配</strong>和<strong>垃圾收集技术</strong>所围成的高墙，墙外的人想进去，墙里的人想出来。</p>
-<h2 id="二、运行时数据区域"><a href="#二、运行时数据区域" class="headerlink" title="二、运行时数据区域"></a>二、运行时数据区域</h2><p><img src="/2019/03/16/Java内存区域与溢出异常/1.png" alt></p>
+        <h2 id="一、代理模式"><a href="#一、代理模式" class="headerlink" title="一、代理模式"></a>一、代理模式</h2><ul>
+<li>通过代理对象来增强原有对象的功能</li>
+</ul>
+<p><img src="/2019/04/25/静态代理与动态代理详解/1.jpg" alt></p>
+<ul>
+<li>分为静态代理、动态代理两种</li>
+</ul>
 <a id="more"></a>
-<h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h3><ul>
-<li>可以看作是当前线程所执行字节码的<strong>行号指示器</strong></li>
-<li>Java虚拟机的多线程是通过线程轮流切换并分配处理器执行时间的方式实现的，在任何一个时刻，一个处理器（对于多核处理器来说是一个内核）都只会执行一条线程中的指令，每条线程都需要有一个独立的程序计数器，属于线程私有。</li>
+<h2 id="二、静态代理"><a href="#二、静态代理" class="headerlink" title="二、静态代理"></a>二、静态代理</h2><h3 id="1、定义"><a href="#1、定义" class="headerlink" title="1、定义"></a>1、定义</h3><ul>
+<li>通过Java代码指定实现，在程序运行前代理类的.class文件就已经存在了</li>
 </ul>
-<h3 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h3><ul>
-<li>为虚拟机执行Java方法服务，描述的是Java方法执行的<strong>内存模型</strong>，生命周期与线程相同，线程私有。</li>
-<li>每个方法在执行时都会创建一个<strong>栈帧</strong>，用于存储局部变量表、操作数栈、动态链接、方法出口等信息，方法执行的过程，就对应一个栈帧在虚拟机栈中入栈到出栈的过程。</li>
-<li>局部变量表存放了编译期可知的各种基本数据类型、reference类型、returnAddress类型，其中64位长度的long和double会占用2个局部变量空间，其余占用1个。局部变量表所需的内存空间在编译期间完成分配，在方法运行期间不会改变表的大小。</li>
-<li>如果线程请求的栈深度大于虚拟机允许的深度，将抛出<strong>StackOverflowError</strong></li>
+<h3 id="2、举例"><a href="#2、举例" class="headerlink" title="2、举例"></a>2、举例</h3><p><strong>2.1 用户管理接口</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserManager</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.2 用户管理具体实现类</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserManagerImpl</span> <span class="keyword">implements</span> <span class="title">UserManager</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"add user "</span>+name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.3 用户管理的代理对象</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserManagerProxy</span> <span class="keyword">implements</span> <span class="title">UserManager</span></span>&#123;</span><br><span class="line">    <span class="comment">//依赖具体的实现类</span></span><br><span class="line">    <span class="keyword">private</span> UserManagerImpl userManager;</span><br><span class="line">    <span class="comment">//通过构造方法传入赋值</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserManagerProxy</span><span class="params">(UserManagerImpl userManager)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.userManager=userManager;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//指定增强的方法</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"add user before....."</span>);</span><br><span class="line">        userManager.add(name);</span><br><span class="line">        System.out.println(<span class="string">"add user after......"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.4 测试使用</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SproxyDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        UserManager userManager=<span class="keyword">new</span> UserManagerProxy(<span class="keyword">new</span> UserManagerImpl());</span><br><span class="line">        userManager.add(<span class="string">"wgt"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">--------------------</span><br><span class="line">add user before.....</span><br><span class="line">add user wgt</span><br><span class="line">add user after......</span><br></pre></td></tr></table></figure>
+<h3 id="3、优缺点"><a href="#3、优缺点" class="headerlink" title="3、优缺点"></a>3、优缺点</h3><ul>
+<li>优点：解耦合，客户端不必关注实现细节，只需知道代理对象即可</li>
+<li>缺点：复用性差，客户端增加接口时，代理对象也要增加；一个代理对象只能服务一种类型对象</li>
 </ul>
-<h3 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h3><ul>
-<li>为虚拟机使用到的native方法服务</li>
-<li>HotSpot虚拟机直接把本地方法栈和虚拟机栈合二为一</li>
-<li>也会抛出<strong>StackOverflowError</strong></li>
+<h2 id="三、动态代理"><a href="#三、动态代理" class="headerlink" title="三、动态代理"></a>三、动态代理</h2><h3 id="1、定义-1"><a href="#1、定义-1" class="headerlink" title="1、定义"></a>1、定义</h3><ul>
+<li>在程序运行时运用反射机制动态创建而成</li>
 </ul>
-<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><ul>
-<li>是被所有<strong>线程共享</strong>的一块内存区域，在虚拟机启动时创建</li>
-<li>虚拟机管理内存最大一块，所有对象实例以及数组都要在堆上分配</li>
-<li>垃圾回收的主要区域，也被称为gc堆</li>
-<li>虚拟机按照可扩展来实现堆（通过-Xmx、-Xms），无法扩展时，将会抛出<strong>OutOfMemoryError</strong></li>
+<h3 id="2、基于JDK反射实现"><a href="#2、基于JDK反射实现" class="headerlink" title="2、基于JDK反射实现"></a>2、基于JDK反射实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">java.lang.reflect.InvocationHandler接口的定义如下：</span><br><span class="line"></span><br><span class="line"><span class="comment">//Object proxy:被代理的对象  </span></span><br><span class="line"><span class="comment">//Method method:要调用的方法  </span></span><br><span class="line"><span class="comment">//Object[] args:方法调用时所需要参数  </span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">InvocationHandler</span> </span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable</span>;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">java.lang.reflect.Proxy类的定义如下：</span><br><span class="line"></span><br><span class="line"><span class="comment">//CLassLoader loader:类的加载器  </span></span><br><span class="line"><span class="comment">//Class&lt;?&gt; interfaces:得到全部的接口  </span></span><br><span class="line"><span class="comment">//InvocationHandler h:得到InvocationHandler接口的子类的实例  </span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">newProxyInstance</span><span class="params">(ClassLoader loader, Class&lt;?&gt;[] interfaces, InvocationHandler h)</span> <span class="keyword">throws</span> IllegalArgumentException</span></span><br></pre></td></tr></table></figure>
+<p><strong>2.1 用户管理接口</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserManager</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.2 用户管理具体实现类</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserManagerImpl</span> <span class="keyword">implements</span> <span class="title">UserManager</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"add user "</span>+name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.3 用户管理的代理对象</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserManagerLogProxy</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span></span>&#123;</span><br><span class="line">    <span class="comment">//目标对象</span></span><br><span class="line">    <span class="keyword">private</span> Object targetObject;</span><br><span class="line">    <span class="comment">//绑定关系，也就是关联到哪个接口（与具体的实现类绑定）的哪些方法将被调用时，执行invoke方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">newProxyInstance</span><span class="params">(Object targetObject)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.targetObject=targetObject;</span><br><span class="line">        <span class="comment">//该方法用于为指定类装载器、一组接口及调用处理器生成动态代理类实例</span></span><br><span class="line">        <span class="comment">//第一个参数指定产生代理对象的类加载器，需要将其指定为和目标对象同一个类加载器</span></span><br><span class="line">        <span class="comment">//第二个参数要实现和目标对象一样的接口，所以只需要拿到目标对象的实现接口</span></span><br><span class="line">        <span class="comment">//第三个参数表明这些被拦截的方法在被拦截时需要执行哪个InvocationHandler的invoke方法</span></span><br><span class="line">        <span class="comment">//根据传入的目标返回一个代理对象</span></span><br><span class="line">        <span class="keyword">return</span> Proxy.newProxyInstance(targetObject.getClass().getClassLoader(),</span><br><span class="line">                                      targetObject.getClass().getInterfaces(),<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//关联实现类的方法被调用时将被执行</span></span><br><span class="line">    <span class="comment">//proxy表示代理对象(没有代表意义)，method表示源对象被调用的方法，args表示方法的参数</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        Object ret=<span class="keyword">null</span>;</span><br><span class="line">        System.out.println(<span class="string">"start log....."</span>);</span><br><span class="line">        ret=method.invoke(targetObject,args);</span><br><span class="line">        System.out.println(<span class="string">"stop log......"</span>);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.4 测试使用</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DproxyDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        UserManagerLogProxy proxy=<span class="keyword">new</span> UserManagerLogProxy();</span><br><span class="line">        UserManager userManager= (UserManager) proxy.newProxyInstance(<span class="keyword">new</span> 				    							  UserManagerImpl());</span><br><span class="line">        userManager.add(<span class="string">"shw"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">-------------------</span><br><span class="line">start log.....</span><br><span class="line">add user shw</span><br><span class="line">stop log......</span><br></pre></td></tr></table></figure>
+<h3 id="3、基于CGLIB实现"><a href="#3、基于CGLIB实现" class="headerlink" title="3、基于CGLIB实现"></a>3、基于CGLIB实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//基于net.sf.cglib.proxy.MethodInterceptor接口的intercept方法实现</span></span><br><span class="line"><span class="comment">//需要导入cglib-nodep-2.2.jar</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//proxy：代理对象，没有实际意义</span></span><br><span class="line"><span class="comment">//method：源对象被调用的方法</span></span><br><span class="line"><span class="comment">//args：方法的参数</span></span><br><span class="line"><span class="comment">//mp：代理方法，没有实际意义</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MethodInterceptor</span> <span class="keyword">extends</span> <span class="title">Callback</span> </span>&#123;</span><br><span class="line">    <span class="function">Object <span class="title">intercept</span><span class="params">(Object proxy, Method method, Object[] args, MethodProxy mp)</span> <span class="keyword">throws</span> 					Throwable</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3.1 用户管理接口</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserManager</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3.2 用户管理具体实现类</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserManagerImpl</span> <span class="keyword">implements</span> <span class="title">UserManager</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"add user "</span>+name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3.3 用户管理的代理对象</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserManagerCGlibProxy</span> <span class="keyword">implements</span> <span class="title">MethodInterceptor</span> </span>&#123;</span><br><span class="line">    <span class="comment">//需要代理的目标对象</span></span><br><span class="line">    <span class="keyword">private</span> Object targetObject;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//生成代理对象</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">createObject</span><span class="params">(Object obj)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.targetObject=obj;</span><br><span class="line">        Enhancer enhancer=<span class="keyword">new</span> Enhancer();</span><br><span class="line">        enhancer.setSuperclass(obj.getClass());</span><br><span class="line">        enhancer.setCallback(<span class="keyword">this</span>);</span><br><span class="line">        <span class="comment">//返回代理对象</span></span><br><span class="line">        Object proxy = enhancer.create();</span><br><span class="line">        <span class="keyword">return</span> proxy;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//关联实现类的方法被调用时将被执行</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">intercept</span><span class="params">(Object o, Method method, Object[] args, MethodProxy methodProxy)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        Object obj=<span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">"add"</span>.equals(method.getName())) &#123;</span><br><span class="line">            <span class="comment">// 检查权限</span></span><br><span class="line">            System.out.println(<span class="string">"check permission...."</span>);</span><br><span class="line">            obj = method.invoke(targetObject, args);</span><br><span class="line">            System.out.println(<span class="string">"check success......"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> obj;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3.4 测试使用</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CGlibproxyDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        UserManagerCGlibProxy proxy=<span class="keyword">new</span> UserManagerCGlibProxy();</span><br><span class="line">        UserManager userManager= (UserManager) proxy.createObject(<span class="keyword">new</span> UserManagerImpl());</span><br><span class="line">        userManager.add(<span class="string">"hyt"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">---------------</span><br><span class="line">check permission....</span><br><span class="line">add user hyt</span><br><span class="line">check success......</span><br></pre></td></tr></table></figure>
+<h3 id="4、二者对比"><a href="#4、二者对比" class="headerlink" title="4、二者对比"></a>4、二者对比</h3><ul>
+<li>JDK的动态代理机制只能代理实现了<strong>接口</strong>的类</li>
+<li>cglib是针对类来实现代理的，他的原理是对指定的目标类生成一个<strong>子类</strong>，并覆盖其中方法实现增强，但因为采用的是<strong>继承</strong>，所以不能对<strong>final</strong>修饰的类进行代理</li>
 </ul>
-<h3 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h3><ul>
-<li>用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译的代码，线程共享区域。</li>
+<h2 id="四、Spring-AOP中的应用"><a href="#四、Spring-AOP中的应用" class="headerlink" title="四、Spring AOP中的应用"></a>四、Spring AOP中的应用</h2><ul>
+<li><p>如果目标对象实现了接口，默认情况下会采用JDK的动态代理实现AOP </p>
+</li>
+<li><p>如果目标对象实现了接口，可以强制使用CGLIB实现AOP </p>
+</li>
+<li><p>如果目标对象没有实现了接口，必须采用CGLIB库</p>
+</li>
+<li><p>spring会自动在JDK动态代理和CGLIB之间转换</p>
+</li>
 </ul>
-<h3 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h3><ul>
-<li>用于存放编译期生成的各种字面量和符号引用</li>
-<li>方法区的一部分，当无法申请到内存时将会抛出<strong>OutOfMemoryError</strong></li>
+<h2 id="五、Mybatis中的应用"><a href="#五、Mybatis中的应用" class="headerlink" title="五、Mybatis中的应用"></a>五、Mybatis中的应用</h2><ul>
+<li>mybatis中二者均采用，默认使用JDK的动态代理，通常在延迟加载才用CGLIB代理</li>
 </ul>
-<h2 id="三、直接内存"><a href="#三、直接内存" class="headerlink" title="三、直接内存"></a>三、直接内存</h2><ul>
-<li>不是虚拟机运行时数据区的一部分，但也被频繁使用（如基于缓冲区的NIO）</li>
-<li>服务器在配置虚拟机参数时，会根据实际内存设置-Xmx等参数信息，常常忽略直接内存，使得各个内存区域总和大于物理内存的限制，从而出现<strong>OutOfMemoryError</strong>异常</li>
+<h2 id="六、对比装饰者模式"><a href="#六、对比装饰者模式" class="headerlink" title="六、对比装饰者模式"></a>六、对比装饰者模式</h2><ul>
+<li>装饰者模式会对客户端暴露具体实现对象</li>
 </ul>
-<h2 id="四、虚拟机对象"><a href="#四、虚拟机对象" class="headerlink" title="四、虚拟机对象"></a>四、虚拟机对象</h2><p>本文用虚拟机HotSpot和常用的内存区域Java堆为例，深入探讨对象分配、布局、访问的全过程。</p>
-<h3 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h3><p><strong>1、检查</strong></p>
-<ul>
-<li>虚拟机遇到一条new指令时，首先检查能否在常量池中定位到一个类的符号引用，并检查类是否已被加载、解析和初始化过。（如果没有，要执行相应的类加载过程）</li>
-</ul>
-<p><strong>2、分配内存</strong></p>
-<ul>
-<li><strong>指针碰撞</strong>：Java堆中内存是规整的，用过的内存和空闲的内存中间放着一个指针作为分界点的指示器，分配内存只需要把分界指针向空闲内存移动指定距离即可</li>
-<li><strong>空闲列表</strong>：Java堆中内存不规整，虚拟机维护一个列表记录空闲和占用的内存区域，分配内存只需要在列表中找到一块够大空间，并更新列表记录即可</li>
-<li>Java堆是否规整又由采用的垃圾收集器是否带有压缩整理功能决定（CMS、G1采用空闲列表，Serial、ParNew采用指针碰撞）</li>
-</ul>
-<p><strong>并发下内存分配</strong></p>
-<ul>
-<li>对分配内存空间动作进行同步处理，虚拟机采用CAS配上失败重试的方式保证更新操作的原子性</li>
-<li>本地线程分配缓冲（TLAB），在线程的TLAB上分配，只有TLAB用完需要重新分配时，才需要同步锁定</li>
-</ul>
-<p><strong>3、初始化</strong></p>
-<ul>
-<li>虚拟机将分配到的内存空间都初始化为零值（不包括对象头）</li>
-<li>保证了对象可以不赋初始值直接使用</li>
-</ul>
-<p><strong>4、设置对象头</strong></p>
-<ul>
-<li>类的实例、对象哈希码、对象GC分代年龄等</li>
-</ul>
-<p>一般来说，执行new指令之后会接着执行<code>&lt;init&gt;</code>方法，按照程序员意愿进行初始化，这样一个真正可用的对象才算产生。</p>
-<h3 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h3><p><strong>1、对象头</strong></p>
-<ul>
-<li>第一部分用于存储对象自身运行时数据，如哈希码、GC分代年龄、锁状态标志、偏向线程ID等，官方称它为<strong>Mark Word</strong></li>
-<li>另一部分是类型指针，虚拟机通过这个指针来确定这个对象是哪个类的实例，如果对象是一个数组，还必须有一块记录数组长度的数据</li>
-</ul>
-<p><strong>2、实例数据</strong></p>
-<ul>
-<li>对象真正存储的有效信息</li>
-</ul>
-<p><strong>3、对齐填充</strong></p>
-<ul>
-<li>自动内存管理要求对象的起始地址必须是8字节的整数倍，当对象实例数据部分没有对齐时，就需要通过对齐填充来补全</li>
-</ul>
-<h3 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h3><p>程序需要通过栈上的reference数据来操作堆上的具体对象</p>
-<p><strong>1、句柄</strong></p>
-<p><img src="/2019/03/16/Java内存区域与溢出异常/2.png" alt></p>
-<p>使用句柄来访问的最大好处就是reference中存储的是稳定的句柄地址，在对象被移动时，只会改变句柄中的实例数据指针，而reference本身不需要更改</p>
-<p><strong>2、直接指针</strong></p>
-<p><img src="/2019/03/16/Java内存区域与溢出异常/3.png" alt></p>
-<p>使用直接指针最大好处就是速度更快，节省了一次指针定位的时间开销</p>
 <h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
-<li><a href="https://www.cnblogs.com/yulei126/p/6777323.html" target="_blank" rel="noopener">Java8废除方法区永久代</a></li>
-<li><a href="https://www.cnblogs.com/z-sm/p/6235157.html?utm_source=itdadao&amp;utm_medium=referral" target="_blank" rel="noopener">Java直接内存与堆内存</a></li>
+<li><a href="https://blog.csdn.net/yhl_jxy/article/details/80635012" target="_blank" rel="noopener">JDK和CGLIB动态代理区别</a></li>
+<li><a href="https://www.jianshu.com/p/7da6ad6107ad" target="_blank" rel="noopener">动态代理与静态代理的区别</a></li>
 </ul>
 
       
@@ -304,7 +285,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">proxy</a>
         		</li>
       		
 		</ul>
@@ -360,7 +341,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/16/Java内存区域与溢出异常/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/04/25/静态代理与动态代理详解/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -374,18 +355,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/17/垃圾收集器与内存分配策略/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          垃圾收集器与内存分配策略
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/14/Redis基础知识/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Redis基础知识</div>
+    <a href="/2019/04/20/drop、truncate、delete区别详解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">drop、truncate、delete区别详解</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -412,7 +384,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、概述"><span class="toc-number">1.</span> <span class="toc-text">一、概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、运行时数据区域"><span class="toc-number">2.</span> <span class="toc-text">二、运行时数据区域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#程序计数器"><span class="toc-number">2.1.</span> <span class="toc-text">程序计数器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟机栈"><span class="toc-number">2.2.</span> <span class="toc-text">虚拟机栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本地方法栈"><span class="toc-number">2.3.</span> <span class="toc-text">本地方法栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#堆"><span class="toc-number">2.4.</span> <span class="toc-text">堆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法区"><span class="toc-number">2.5.</span> <span class="toc-text">方法区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行时常量池"><span class="toc-number">2.6.</span> <span class="toc-text">运行时常量池</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、直接内存"><span class="toc-number">3.</span> <span class="toc-text">三、直接内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、虚拟机对象"><span class="toc-number">4.</span> <span class="toc-text">四、虚拟机对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对象的创建"><span class="toc-number">4.1.</span> <span class="toc-text">对象的创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象的内存布局"><span class="toc-number">4.2.</span> <span class="toc-text">对象的内存布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象的访问定位"><span class="toc-number">4.3.</span> <span class="toc-text">对象的访问定位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">5.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、代理模式"><span class="toc-number">1.</span> <span class="toc-text">一、代理模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、静态代理"><span class="toc-number">2.</span> <span class="toc-text">二、静态代理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、定义"><span class="toc-number">2.1.</span> <span class="toc-text">1、定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、举例"><span class="toc-number">2.2.</span> <span class="toc-text">2、举例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、优缺点"><span class="toc-number">2.3.</span> <span class="toc-text">3、优缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、动态代理"><span class="toc-number">3.</span> <span class="toc-text">三、动态代理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、定义-1"><span class="toc-number">3.1.</span> <span class="toc-text">1、定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、基于JDK反射实现"><span class="toc-number">3.2.</span> <span class="toc-text">2、基于JDK反射实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、基于CGLIB实现"><span class="toc-number">3.3.</span> <span class="toc-text">3、基于CGLIB实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、二者对比"><span class="toc-number">3.4.</span> <span class="toc-text">4、二者对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、Spring-AOP中的应用"><span class="toc-number">4.</span> <span class="toc-text">四、Spring AOP中的应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、Mybatis中的应用"><span class="toc-number">5.</span> <span class="toc-text">五、Mybatis中的应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、对比装饰者模式"><span class="toc-number">6.</span> <span class="toc-text">六、对比装饰者模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">7.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
                     </div>
                 </span>
             </div>

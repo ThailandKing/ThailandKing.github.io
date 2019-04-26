@@ -6,24 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>Java内存区域与溢出异常 | thailandking</title>
+  <title>Tag: proxy | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、概述Java与C++之间有一堵由内存动态分配和垃圾收集技术所围成的高墙，墙外的人想进去，墙里的人想出来。 二、运行时数据区域">
-<meta name="keywords" content="jvm">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Java内存区域与溢出异常">
-<meta property="og:url" content="https://thailandking.github.io/2019/03/16/Java内存区域与溢出异常/index.html">
+  <meta name="description" content="personal blog">
+<meta name="keywords" content="computer，programming">
+<meta property="og:type" content="website">
+<meta property="og:title" content="thailandking">
+<meta property="og:url" content="https://thailandking.github.io/tags/proxy/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="一、概述Java与C++之间有一堵由内存动态分配和垃圾收集技术所围成的高墙，墙外的人想进去，墙里的人想出来。 二、运行时数据区域">
+<meta property="og:description" content="personal blog">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/16/Java内存区域与溢出异常/1.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/16/Java内存区域与溢出异常/2.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/16/Java内存区域与溢出异常/3.png">
-<meta property="og:updated_time" content="2019-03-28T02:05:23.269Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java内存区域与溢出异常">
-<meta name="twitter:description" content="一、概述Java与C++之间有一堵由内存动态分配和垃圾收集技术所围成的高墙，墙外的人想进去，墙里的人想出来。 二、运行时数据区域">
-<meta name="twitter:image" content="https://thailandking.github.io/2019/03/16/Java内存区域与溢出异常/1.png">
+<meta name="twitter:title" content="thailandking">
+<meta name="twitter:description" content="personal blog">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -155,283 +150,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java内存区域与溢出异常" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Java内存区域与溢出异常
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/04/25/静态代理与动态代理详解/" class="archive-article-date">
+  	<time datetime="2019-04-25T14:19:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-25</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/04/25/静态代理与动态代理详解/">静态代理与动态代理详解</a>
     </h1>
   
 
-        
-        <a href="/2019/03/16/Java内存区域与溢出异常/" class="archive-article-date">
-  	<time datetime="2019-03-16T12:22:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>Java与C++之间有一堵由<strong>内存动态分配</strong>和<strong>垃圾收集技术</strong>所围成的高墙，墙外的人想进去，墙里的人想出来。</p>
-<h2 id="二、运行时数据区域"><a href="#二、运行时数据区域" class="headerlink" title="二、运行时数据区域"></a>二、运行时数据区域</h2><p><img src="/2019/03/16/Java内存区域与溢出异常/1.png" alt></p>
-<a id="more"></a>
-<h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h3><ul>
-<li>可以看作是当前线程所执行字节码的<strong>行号指示器</strong></li>
-<li>Java虚拟机的多线程是通过线程轮流切换并分配处理器执行时间的方式实现的，在任何一个时刻，一个处理器（对于多核处理器来说是一个内核）都只会执行一条线程中的指令，每条线程都需要有一个独立的程序计数器，属于线程私有。</li>
-</ul>
-<h3 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h3><ul>
-<li>为虚拟机执行Java方法服务，描述的是Java方法执行的<strong>内存模型</strong>，生命周期与线程相同，线程私有。</li>
-<li>每个方法在执行时都会创建一个<strong>栈帧</strong>，用于存储局部变量表、操作数栈、动态链接、方法出口等信息，方法执行的过程，就对应一个栈帧在虚拟机栈中入栈到出栈的过程。</li>
-<li>局部变量表存放了编译期可知的各种基本数据类型、reference类型、returnAddress类型，其中64位长度的long和double会占用2个局部变量空间，其余占用1个。局部变量表所需的内存空间在编译期间完成分配，在方法运行期间不会改变表的大小。</li>
-<li>如果线程请求的栈深度大于虚拟机允许的深度，将抛出<strong>StackOverflowError</strong></li>
-</ul>
-<h3 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h3><ul>
-<li>为虚拟机使用到的native方法服务</li>
-<li>HotSpot虚拟机直接把本地方法栈和虚拟机栈合二为一</li>
-<li>也会抛出<strong>StackOverflowError</strong></li>
-</ul>
-<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><ul>
-<li>是被所有<strong>线程共享</strong>的一块内存区域，在虚拟机启动时创建</li>
-<li>虚拟机管理内存最大一块，所有对象实例以及数组都要在堆上分配</li>
-<li>垃圾回收的主要区域，也被称为gc堆</li>
-<li>虚拟机按照可扩展来实现堆（通过-Xmx、-Xms），无法扩展时，将会抛出<strong>OutOfMemoryError</strong></li>
-</ul>
-<h3 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h3><ul>
-<li>用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译的代码，线程共享区域。</li>
-</ul>
-<h3 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h3><ul>
-<li>用于存放编译期生成的各种字面量和符号引用</li>
-<li>方法区的一部分，当无法申请到内存时将会抛出<strong>OutOfMemoryError</strong></li>
-</ul>
-<h2 id="三、直接内存"><a href="#三、直接内存" class="headerlink" title="三、直接内存"></a>三、直接内存</h2><ul>
-<li>不是虚拟机运行时数据区的一部分，但也被频繁使用（如基于缓冲区的NIO）</li>
-<li>服务器在配置虚拟机参数时，会根据实际内存设置-Xmx等参数信息，常常忽略直接内存，使得各个内存区域总和大于物理内存的限制，从而出现<strong>OutOfMemoryError</strong>异常</li>
-</ul>
-<h2 id="四、虚拟机对象"><a href="#四、虚拟机对象" class="headerlink" title="四、虚拟机对象"></a>四、虚拟机对象</h2><p>本文用虚拟机HotSpot和常用的内存区域Java堆为例，深入探讨对象分配、布局、访问的全过程。</p>
-<h3 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h3><p><strong>1、检查</strong></p>
-<ul>
-<li>虚拟机遇到一条new指令时，首先检查能否在常量池中定位到一个类的符号引用，并检查类是否已被加载、解析和初始化过。（如果没有，要执行相应的类加载过程）</li>
-</ul>
-<p><strong>2、分配内存</strong></p>
-<ul>
-<li><strong>指针碰撞</strong>：Java堆中内存是规整的，用过的内存和空闲的内存中间放着一个指针作为分界点的指示器，分配内存只需要把分界指针向空闲内存移动指定距离即可</li>
-<li><strong>空闲列表</strong>：Java堆中内存不规整，虚拟机维护一个列表记录空闲和占用的内存区域，分配内存只需要在列表中找到一块够大空间，并更新列表记录即可</li>
-<li>Java堆是否规整又由采用的垃圾收集器是否带有压缩整理功能决定（CMS、G1采用空闲列表，Serial、ParNew采用指针碰撞）</li>
-</ul>
-<p><strong>并发下内存分配</strong></p>
-<ul>
-<li>对分配内存空间动作进行同步处理，虚拟机采用CAS配上失败重试的方式保证更新操作的原子性</li>
-<li>本地线程分配缓冲（TLAB），在线程的TLAB上分配，只有TLAB用完需要重新分配时，才需要同步锁定</li>
-</ul>
-<p><strong>3、初始化</strong></p>
-<ul>
-<li>虚拟机将分配到的内存空间都初始化为零值（不包括对象头）</li>
-<li>保证了对象可以不赋初始值直接使用</li>
-</ul>
-<p><strong>4、设置对象头</strong></p>
-<ul>
-<li>类的实例、对象哈希码、对象GC分代年龄等</li>
-</ul>
-<p>一般来说，执行new指令之后会接着执行<code>&lt;init&gt;</code>方法，按照程序员意愿进行初始化，这样一个真正可用的对象才算产生。</p>
-<h3 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h3><p><strong>1、对象头</strong></p>
-<ul>
-<li>第一部分用于存储对象自身运行时数据，如哈希码、GC分代年龄、锁状态标志、偏向线程ID等，官方称它为<strong>Mark Word</strong></li>
-<li>另一部分是类型指针，虚拟机通过这个指针来确定这个对象是哪个类的实例，如果对象是一个数组，还必须有一块记录数组长度的数据</li>
-</ul>
-<p><strong>2、实例数据</strong></p>
-<ul>
-<li>对象真正存储的有效信息</li>
-</ul>
-<p><strong>3、对齐填充</strong></p>
-<ul>
-<li>自动内存管理要求对象的起始地址必须是8字节的整数倍，当对象实例数据部分没有对齐时，就需要通过对齐填充来补全</li>
-</ul>
-<h3 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h3><p>程序需要通过栈上的reference数据来操作堆上的具体对象</p>
-<p><strong>1、句柄</strong></p>
-<p><img src="/2019/03/16/Java内存区域与溢出异常/2.png" alt></p>
-<p>使用句柄来访问的最大好处就是reference中存储的是稳定的句柄地址，在对象被移动时，只会改变句柄中的实例数据指针，而reference本身不需要更改</p>
-<p><strong>2、直接指针</strong></p>
-<p><img src="/2019/03/16/Java内存区域与溢出异常/3.png" alt></p>
-<p>使用直接指针最大好处就是速度更快，节省了一次指针定位的时间开销</p>
-<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
-<li><a href="https://www.cnblogs.com/yulei126/p/6777323.html" target="_blank" rel="noopener">Java8废除方法区永久代</a></li>
-<li><a href="https://www.cnblogs.com/z-sm/p/6235157.html?utm_source=itdadao&amp;utm_medium=referral" target="_blank" rel="noopener">Java直接内存与堆内存</a></li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/weixinpay.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">proxy</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/16/Java内存区域与溢出异常/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/03/17/垃圾收集器与内存分配策略/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          垃圾收集器与内存分配策略
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/03/14/Redis基础知识/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Redis基础知识</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、概述"><span class="toc-number">1.</span> <span class="toc-text">一、概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、运行时数据区域"><span class="toc-number">2.</span> <span class="toc-text">二、运行时数据区域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#程序计数器"><span class="toc-number">2.1.</span> <span class="toc-text">程序计数器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟机栈"><span class="toc-number">2.2.</span> <span class="toc-text">虚拟机栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本地方法栈"><span class="toc-number">2.3.</span> <span class="toc-text">本地方法栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#堆"><span class="toc-number">2.4.</span> <span class="toc-text">堆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法区"><span class="toc-number">2.5.</span> <span class="toc-text">方法区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行时常量池"><span class="toc-number">2.6.</span> <span class="toc-text">运行时常量池</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、直接内存"><span class="toc-number">3.</span> <span class="toc-text">三、直接内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、虚拟机对象"><span class="toc-number">4.</span> <span class="toc-text">四、虚拟机对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对象的创建"><span class="toc-number">4.1.</span> <span class="toc-text">对象的创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象的内存布局"><span class="toc-number">4.2.</span> <span class="toc-text">对象的内存布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象的访问定位"><span class="toc-number">4.3.</span> <span class="toc-text">对象的访问定位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">5.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -450,9 +222,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
