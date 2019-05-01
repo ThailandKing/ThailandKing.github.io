@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://thailandking.github.io/2019/05/01/表/4-8.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/05/01/表/4-9.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/05/01/表/4-10.jpg">
-<meta property="og:updated_time" content="2019-05-01T12:57:46.543Z">
+<meta property="og:updated_time" content="2019-05-01T13:38:20.894Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="表">
 <meta name="twitter:description" content="零、概述 表是关于特定实体的数据集合，是关系型数据库模型的核心  一、索引组织表Innodb中，表都是根据主键顺序组织存放的，这种存储方式的表称为索引组织表 如果创建表时没有显式地定义主键：  如果表中有非空的唯一索引，则该列为主键（根据定义索引的顺序，不是列的顺序） 如果没有，自动创建一个6字节大小的指针，作为主键">
@@ -376,6 +376,14 @@
 <li>ENUM、SET约束只限于对离散数值的约束</li>
 <li>对于传统的check约束，需要通过触发器实现</li>
 </ul>
+<p><strong>ENUM和SET对比</strong></p>
+<ul>
+<li>SET类型的值最多是由64个元素构成的组合</li>
+<li>SET类型的值可以取列表中的一个元素或者多个元素的组合</li>
+<li>ENUM类型的值最多是由65535个元素构成的组合</li>
+<li>ENUM类型只能从成员中选择一个</li>
+<li>ENUM用于性别、SET用于爱好</li>
+</ul>
 <h3 id="6-6-触发器与约束"><a href="#6-6-触发器与约束" class="headerlink" title="6.6 触发器与约束"></a>6.6 触发器与约束</h3><ul>
 <li>触发器的作用是在执行insert、update、delete命令之前或之后自动调用SQL命令或存储过程</li>
 </ul>
@@ -390,8 +398,8 @@
 <ul>
 <li><strong>CASCADE</strong>表示相应子表进行同样操作</li>
 <li><strong>SET NULL</strong>表示相应子表中的数据被更新为NULL值（列必须允许为NULL值）</li>
-<li><strong>NO ACTION</strong>表示相应子表无任何操作</li>
-<li><strong>RESTRICT</strong>表示不允许操作发生，抛出错误，默认的外键设置</li>
+<li><strong>NO ACTION</strong>表示不允许操作发生，抛出错误</li>
+<li><strong>RESTRICT</strong>同上，默认的外键设置</li>
 </ul>
 <h2 id="七、视图"><a href="#七、视图" class="headerlink" title="七、视图"></a>七、视图</h2><h3 id="7-1-定义"><a href="#7-1-定义" class="headerlink" title="7.1 定义"></a>7.1 定义</h3><ul>
 <li>视图是一个命名的<strong>虚表</strong>，由一个SQL查询来定义，可以当作表使用</li>
@@ -749,6 +757,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">string pool</a>
               </li>
              
@@ -757,7 +769,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -765,23 +777,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -793,15 +789,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
+                <a href="javascript:void(0)" class="js-tag color4">database</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -813,15 +817,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
+                <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">login</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+                <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -833,11 +833,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string</a>
+                <a href="javascript:void(0)" class="js-tag color5">swap</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">swap</a>
+                <a href="javascript:void(0)" class="js-tag color1">login</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">string</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -849,11 +857,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -861,11 +869,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nio</a>
+                <a href="javascript:void(0)" class="js-tag color4">LinkedHashMap</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LinkedHashMap</a>
+                <a href="javascript:void(0)" class="js-tag color4">nio</a>
               </li>
             
             <div class="clearfix"></div>
