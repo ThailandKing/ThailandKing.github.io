@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="https://thailandking.github.io">
   <title>一次docker部署的最佳实践 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、概述 解决了运行环境和配置问题的软件容器，方便做持续集成并有助于整体发布的容器虚拟化技术 一次构建，到处运行，解决了开发与运维之间的协调问题 基于go语言实现   二、基本组成 仓库 镜像 容器   三、Centos7安装docker1、前提 确保系统为centos7，可通过cat /etc/redhat-release查看 确保centos7能上网，可通过ping www.baidu.com">
+  <meta name="description" content="一、概述 解决了运行环境和配置问题的软件容器，方便做持续集成并有助于整体发布的容器虚拟化技术 一次构建，到处运行，解决了开发与运维之间的协调问题 基于go语言实现">
 <meta name="keywords" content="docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一次docker部署的最佳实践">
 <meta property="og:url" content="https://thailandking.github.io/2019/05/03/一次docker部署的最佳实践/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="一、概述 解决了运行环境和配置问题的软件容器，方便做持续集成并有助于整体发布的容器虚拟化技术 一次构建，到处运行，解决了开发与运维之间的协调问题 基于go语言实现   二、基本组成 仓库 镜像 容器   三、Centos7安装docker1、前提 确保系统为centos7，可通过cat /etc/redhat-release查看 确保centos7能上网，可通过ping www.baidu.com">
+<meta property="og:description" content="一、概述 解决了运行环境和配置问题的软件容器，方便做持续集成并有助于整体发布的容器虚拟化技术 一次构建，到处运行，解决了开发与运维之间的协调问题 基于go语言实现">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://thailandking.github.io/2019/05/03/一次docker部署的最佳实践/0.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/05/03/一次docker部署的最佳实践/1.jpg">
@@ -24,10 +24,10 @@
 <meta property="og:image" content="https://thailandking.github.io/2019/05/03/一次docker部署的最佳实践/4.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/05/03/一次docker部署的最佳实践/5.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/05/03/一次docker部署的最佳实践/6.png">
-<meta property="og:updated_time" content="2019-05-04T08:36:36.536Z">
+<meta property="og:updated_time" content="2019-05-04T09:03:33.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一次docker部署的最佳实践">
-<meta name="twitter:description" content="一、概述 解决了运行环境和配置问题的软件容器，方便做持续集成并有助于整体发布的容器虚拟化技术 一次构建，到处运行，解决了开发与运维之间的协调问题 基于go语言实现   二、基本组成 仓库 镜像 容器   三、Centos7安装docker1、前提 确保系统为centos7，可通过cat /etc/redhat-release查看 确保centos7能上网，可通过ping www.baidu.com">
+<meta name="twitter:description" content="一、概述 解决了运行环境和配置问题的软件容器，方便做持续集成并有助于整体发布的容器虚拟化技术 一次构建，到处运行，解决了开发与运维之间的协调问题 基于go语言实现">
 <meta name="twitter:image" content="https://thailandking.github.io/2019/05/03/一次docker部署的最佳实践/0.png">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
@@ -186,6 +186,7 @@
 <li>基于go语言实现</li>
 </ul>
 <p><img src="/2019/05/03/一次docker部署的最佳实践/0.png" alt></p>
+<a id="more"></a>
 <h2 id="二、基本组成"><a href="#二、基本组成" class="headerlink" title="二、基本组成"></a>二、基本组成</h2><ul>
 <li>仓库</li>
 <li>镜像</li>
@@ -559,7 +560,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
+                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -567,11 +568,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -579,19 +576,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">java8</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -607,15 +608,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tcp</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">udp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -627,7 +632,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color4">cap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -639,27 +644,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">login</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -667,11 +652,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string</a>
+                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hashmap</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">login</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">string</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -684,6 +681,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">hashmap</a>
               </li>
              
               <li class="article-tag-list-item">
