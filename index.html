@@ -152,6 +152,206 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-一次docker部署的最佳实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/03/一次docker部署的最佳实践/">一次docker部署的最佳实践</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/03/一次docker部署的最佳实践/" class="archive-article-date">
+  	<time datetime="2019-05-03T14:44:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><ul>
+<li>解决了运行环境和配置问题的软件容器，方便做持续集成并有助于整体发布的容器虚拟化技术</li>
+<li>一次构建，到处运行，解决了开发与运维之间的协调问题</li>
+<li>基于go语言实现</li>
+</ul>
+<p><img src="/2019/05/03/一次docker部署的最佳实践/0.png" alt></p>
+<h2 id="二、基本组成"><a href="#二、基本组成" class="headerlink" title="二、基本组成"></a>二、基本组成</h2><ul>
+<li>仓库</li>
+<li>镜像</li>
+<li>容器</li>
+</ul>
+<p><img src="/2019/05/03/一次docker部署的最佳实践/1.jpg" alt></p>
+<h2 id="三、Centos7安装docker"><a href="#三、Centos7安装docker" class="headerlink" title="三、Centos7安装docker"></a>三、Centos7安装docker</h2><h3 id="1、前提"><a href="#1、前提" class="headerlink" title="1、前提"></a>1、前提</h3><ul>
+<li>确保系统为centos7，可通过<code>cat /etc/redhat-release</code>查看</li>
+<li>确保centos7能上网，可通过<code>ping www.baidu.com</code>查看</li>
+</ul>
+<h3 id="2、yum安装gcc相关"><a href="#2、yum安装gcc相关" class="headerlink" title="2、yum安装gcc相关"></a>2、yum安装gcc相关</h3><ul>
+<li>yum -y install gcc</li>
+<li>yum -y install gcc-c++</li>
+</ul>
+<h3 id="3、卸载旧版本（可选）"><a href="#3、卸载旧版本（可选）" class="headerlink" title="3、卸载旧版本（可选）"></a>3、卸载旧版本（可选）</h3><ul>
+<li>yum -y remove docker docker-common docker-selinux docker-engine</li>
+</ul>
+<h3 id="4、安装需要的软件包"><a href="#4、安装需要的软件包" class="headerlink" title="4、安装需要的软件包"></a>4、安装需要的软件包</h3><ul>
+<li>yum install -y yum-utils device-mapper-persistent-data lvm2</li>
+</ul>
+<h3 id="5、设置stable镜像仓库"><a href="#5、设置stable镜像仓库" class="headerlink" title="5、设置stable镜像仓库"></a>5、设置stable镜像仓库</h3><ul>
+<li>yum-config-manager –add-repo <a href="http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo" target="_blank" rel="noopener">http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</a></li>
+<li>推荐此处设置为阿里云镜像，加快下载速度</li>
+</ul>
+<h3 id="6、更新yum软件包索引"><a href="#6、更新yum软件包索引" class="headerlink" title="6、更新yum软件包索引"></a>6、更新yum软件包索引</h3><ul>
+<li>yum makecache fast</li>
+</ul>
+<h3 id="7、安装DOCKER-CE"><a href="#7、安装DOCKER-CE" class="headerlink" title="7、安装DOCKER CE"></a>7、安装DOCKER CE</h3><ul>
+<li>yum -y install docker-ce</li>
+</ul>
+<h3 id="8、启动docker服务"><a href="#8、启动docker服务" class="headerlink" title="8、启动docker服务"></a>8、启动docker服务</h3><ul>
+<li>systemctl start docker</li>
+</ul>
+<h3 id="9、测试"><a href="#9、测试" class="headerlink" title="9、测试"></a>9、测试</h3><ul>
+<li>docker version</li>
+<li>docker run hello-world</li>
+</ul>
+<h3 id="10、配置镜像加速"><a href="#10、配置镜像加速" class="headerlink" title="10、配置镜像加速"></a>10、配置镜像加速</h3><ul>
+<li>参考阿里云镜像加速服务</li>
+<li>按照步骤执行即可</li>
+</ul>
+<p><img src="/2019/05/03/一次docker部署的最佳实践/1.png" alt></p>
+<h3 id="11、卸载"><a href="#11、卸载" class="headerlink" title="11、卸载"></a>11、卸载</h3><ul>
+<li>systemctl stop docker </li>
+<li>yum -y remove docker-ce</li>
+<li>rm -rf /var/lib/docker</li>
+</ul>
+<h2 id="四、项目部署"><a href="#四、项目部署" class="headerlink" title="四、项目部署"></a>四、项目部署</h2><h3 id="1、基本设置"><a href="#1、基本设置" class="headerlink" title="1、基本设置"></a>1、基本设置</h3><ul>
+<li>利用root身份登陆centos7系统</li>
+<li>进入根目录，创建一个名为webproject的文件夹，并进入</li>
+</ul>
+<h3 id="2、获取jar包"><a href="#2、获取jar包" class="headerlink" title="2、获取jar包"></a>2、获取jar包</h3><ul>
+<li>将本地web工程利用maven打包成jar包</li>
+<li>利用连接工具将本地jar包导入centos7的webproject文件夹下</li>
+</ul>
+<h3 id="3、编写Dockerfile文件"><a href="#3、编写Dockerfile文件" class="headerlink" title="3、编写Dockerfile文件"></a>3、<strong>编写Dockerfile文件</strong></h3><ul>
+<li>在webproject文件夹下创建Dockerfile文件</li>
+<li>利用vi编辑器编辑内容</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#java:8 是使用jdk版本</span><br><span class="line">FROM java:<span class="number">8</span></span><br><span class="line"></span><br><span class="line">#指定了临时文件目录为/tmp。</span><br><span class="line">VOLUME /tmp</span><br><span class="line"></span><br><span class="line">#添加jar到容器并重命名</span><br><span class="line">ADD docker_demo-<span class="number">0.0</span>.1-SNAPSHOT.jar /app.jar</span><br><span class="line"></span><br><span class="line">#执行jar文件</span><br><span class="line">ENTRYPOINT [<span class="string">"java"</span>,<span class="string">"-Djava.security.egd=file:/dev/./urandom"</span>,<span class="string">"-jar"</span>,<span class="string">"/app.jar"</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="4、安装mysql"><a href="#4、安装mysql" class="headerlink" title="4、安装mysql"></a>4、安装mysql</h3><ul>
+<li>docker search mysql</li>
+<li>docker pull mysql:5.6</li>
+<li>docker images</li>
+</ul>
+<h3 id="5、运行mysql"><a href="#5、运行mysql" class="headerlink" title="5、运行mysql"></a>5、运行mysql</h3><ul>
+<li>docker run会重新创建MySQL运行容器，之前的数据将会消失或被替换</li>
+<li>可以通过docker start唤醒处于关闭的MySQL容器，之前数据不会丢失</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3306:3306 --name mysql -v /zzyyuse/mysql/conf:/etc/mysql/conf.d -v /zzyyuse/mysql/logs:/logs -v /zzyyuse/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:5.6</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">命令说明：</span><br><span class="line">-p 3306:3306：将主机的3306端口映射到docker容器的3306端口</span><br><span class="line">--name mysql：运行服务名字</span><br><span class="line">-v /zzyyuse/mysql/conf:/etc/mysql/conf.d ：将主机/zzyyuse/mysql录下的conf/my.cnf 挂载到容器的 /etc/mysql/conf.d</span><br><span class="line">-v /zzyyuse/mysql/logs:/logs：将主机/zzyyuse/mysql目录下的 logs 目录挂载到容器的 /logs</span><br><span class="line">-v /zzyyuse/mysql/data:/var/lib/mysql ：将主机/zzyyuse/mysql目录下的data目录挂载到容器的 /var/lib/mysql </span><br><span class="line">-e MYSQL_ROOT_PASSWORD=root：初始化 root 用户的密码</span><br><span class="line">-d mysql:5.6 : 后台程序运行mysql5.6</span><br></pre></td></tr></table></figure>
+<h3 id="6、使用mysql"><a href="#6、使用mysql" class="headerlink" title="6、使用mysql"></a>6、使用mysql</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> #查看MySQL运行容器ID</span><br><span class="line"> docker ps </span><br><span class="line"> #以cmd进入MySQL容器</span><br><span class="line"> docker exec -it MySQL运行成功后的容器ID /bin/bash</span><br><span class="line"> #连接MySQL</span><br><span class="line"> mysql -uroot -proot</span><br></pre></td></tr></table></figure>
+<h3 id="7、执行SQL脚本"><a href="#7、执行SQL脚本" class="headerlink" title="7、执行SQL脚本"></a>7、执行SQL脚本</h3><ul>
+<li>将web项目用的SQL脚本在cmd下执行</li>
+<li>为项目创建需要的数据库、数据表、数据</li>
+</ul>
+<h3 id="8、退出MySQL"><a href="#8、退出MySQL" class="headerlink" title="8、退出MySQL"></a>8、退出MySQL</h3><ul>
+<li>exit</li>
+<li>CTRL+P+Q</li>
+</ul>
+<h3 id="9、生成镜像"><a href="#9、生成镜像" class="headerlink" title="9、生成镜像"></a>9、生成镜像</h3><ul>
+<li>在之前Dockerfile文件同级目录下，执行</li>
+</ul>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t docker_demo .</span><br></pre></td></tr></table></figure>
+<ul>
+<li>docker images查看镜像是否成功生成</li>
+</ul>
+<h3 id="10、运行docker容器"><a href="#10、运行docker容器" class="headerlink" title="10、运行docker容器"></a>10、运行docker容器</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span> -d -p 8080:8080 docker_demo</span><br></pre></td></tr></table></figure>
+<h3 id="11、浏览器访问"><a href="#11、浏览器访问" class="headerlink" title="11、浏览器访问"></a>11、浏览器访问</h3><ul>
+<li>浏览器输入</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#xxxx代表centos7的IP地址</span><br><span class="line">#yyyy代表项目访问路径</span><br><span class="line"><span class="attribute">http://xxxx:8080/yyyy</span></span><br><span class="line">如 ：http://192.168.116.128:8080/hello</span><br></pre></td></tr></table></figure>
+<h2 id="五、发布镜像到阿里云"><a href="#五、发布镜像到阿里云" class="headerlink" title="五、发布镜像到阿里云"></a>五、发布镜像到阿里云</h2><h3 id="1、镜像生成"><a href="#1、镜像生成" class="headerlink" title="1、镜像生成"></a>1、镜像生成</h3><ul>
+<li>通过DockerFile生成</li>
+<li>从容器创建一个新的镜像docker commit [OPTIONS] 容器ID [REPOSITORY[:TAG]]</li>
+</ul>
+<h3 id="2、创建阿里云镜像仓库"><a href="#2、创建阿里云镜像仓库" class="headerlink" title="2、创建阿里云镜像仓库"></a>2、创建阿里云镜像仓库</h3><ul>
+<li>登陆阿里云平台，在左侧边栏产品服务中找到容器镜像服务</li>
+<li>创建命名空间、镜像仓库</li>
+</ul>
+<p><img src="/2019/05/03/一次docker部署的最佳实践/2.png" alt="2"></p>
+<ul>
+<li>选择本地仓库</li>
+</ul>
+<p><img src="/2019/05/03/一次docker部署的最佳实践/3.png" alt="3"></p>
+<h3 id="3、推送镜像到阿里云"><a href="#3、推送镜像到阿里云" class="headerlink" title="3、推送镜像到阿里云"></a>3、推送镜像到阿里云</h3><ul>
+<li>点击本地仓库名称进入详细页面，参考指令操作即可</li>
+<li>镜像版本号格式：1.2.1</li>
+</ul>
+<p><img src="/2019/05/03/一次docker部署的最佳实践/4.png" alt></p>
+<h3 id="4、公有云搜索"><a href="#4、公有云搜索" class="headerlink" title="4、公有云搜索"></a>4、公有云搜索</h3><p><img src="/2019/05/03/一次docker部署的最佳实践/5.png" alt></p>
+<h3 id="5、下载到本地"><a href="#5、下载到本地" class="headerlink" title="5、下载到本地"></a>5、下载到本地</h3><ul>
+<li>docker pull 公网地址：版本号</li>
+</ul>
+<p><img src="/2019/05/03/一次docker部署的最佳实践/6.png" alt></p>
+<h3 id="6、运行测试"><a href="#6、运行测试" class="headerlink" title="6、运行测试"></a>6、运行测试</h3><ul>
+<li>docker run执行，查看具体运行情况</li>
+</ul>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
+<li><a href="https://juejin.im/post/5c6e02a76fb9a04a0e2dc8cd" target="_blank" rel="noopener">Docker 入门及部署springboot 项目</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/03/一次docker部署的最佳实践/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -861,86 +1061,6 @@
 
 
   
-    <article id="post-InnoDB存储引擎" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/07/InnoDB存储引擎/">InnoDB存储引擎</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/07/InnoDB存储引擎/" class="archive-article-date">
-  	<time datetime="2019-04-07T12:53:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、InnoDB体系结构"><a href="#一、InnoDB体系结构" class="headerlink" title="一、InnoDB体系结构"></a>一、InnoDB体系结构</h2><p><img src="/2019/04/07/InnoDB存储引擎/1.png" alt></p>
-<ul>
-<li><p>内存池由多个内存块组成，缓存磁盘上的数据，重做日志缓冲</p>
-</li>
-<li><p>后台线程负责刷新内存池中的数据，同步到磁盘文件</p>
-</li>
-</ul>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/07/InnoDB存储引擎/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1047,15 +1167,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color1">java8</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1071,11 +1187,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">udp</a>
+                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1087,23 +1203,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
+                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transient</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
+                <a href="javascript:void(0)" class="js-tag color4">udp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1115,7 +1223,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">transient</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1123,7 +1239,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">swap</a>
+                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1135,11 +1255,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">swap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">string</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
+                <a href="javascript:void(0)" class="js-tag color3">hashmap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1152,10 +1280,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">proxy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hashmap</a>
               </li>
              
               <li class="article-tag-list-item">
