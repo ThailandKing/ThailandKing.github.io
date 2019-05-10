@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://thailandking.github.io">
   <title>drop、truncate、delete区别详解 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、作用范围 drop为DDL语言，作用于database、table、trigger、index、procedure、function truncate为DDL语言，作用于table delete为DML语言，作用于table、view 一般而言，drop &amp;gt; truncate &amp;gt; delete">
+  <meta name="description" content="一、作用范围 drop为DDL语言，作用于database、table、trigger、index、procedure、function、view truncate为DDL语言，作用于table delete为DML语言，作用于table 一般而言，drop &amp;gt; truncate &amp;gt; delete">
 <meta name="keywords" content="sql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="drop、truncate、delete区别详解">
 <meta property="og:url" content="https://thailandking.github.io/2019/04/20/drop、truncate、delete区别详解/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="一、作用范围 drop为DDL语言，作用于database、table、trigger、index、procedure、function truncate为DDL语言，作用于table delete为DML语言，作用于table、view 一般而言，drop &amp;gt; truncate &amp;gt; delete">
+<meta property="og:description" content="一、作用范围 drop为DDL语言，作用于database、table、trigger、index、procedure、function、view truncate为DDL语言，作用于table delete为DML语言，作用于table 一般而言，drop &amp;gt; truncate &amp;gt; delete">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-20T12:27:09.598Z">
+<meta property="og:updated_time" content="2019-05-08T13:30:00.705Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="drop、truncate、delete区别详解">
-<meta name="twitter:description" content="一、作用范围 drop为DDL语言，作用于database、table、trigger、index、procedure、function truncate为DDL语言，作用于table delete为DML语言，作用于table、view 一般而言，drop &amp;gt; truncate &amp;gt; delete">
+<meta name="twitter:description" content="一、作用范围 drop为DDL语言，作用于database、table、trigger、index、procedure、function、view truncate为DDL语言，作用于table delete为DML语言，作用于table 一般而言，drop &amp;gt; truncate &amp;gt; delete">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -172,9 +172,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="一、作用范围"><a href="#一、作用范围" class="headerlink" title="一、作用范围"></a>一、作用范围</h2><ul>
-<li>drop为DDL语言，作用于database、table、trigger、index、procedure、function</li>
+<li>drop为DDL语言，作用于database、table、trigger、index、procedure、function、view</li>
 <li>truncate为DDL语言，作用于table</li>
-<li>delete为DML语言，作用于table、view</li>
+<li>delete为DML语言，作用于table</li>
 <li>一般而言，drop &gt; truncate &gt; delete</li>
 </ul>
 <a id="more"></a>
@@ -456,15 +456,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">java8</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -476,19 +476,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,7 +496,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -516,27 +512,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">swap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -548,11 +532,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">login</a>
+                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -560,11 +544,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
+                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">login</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">swap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">string</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -584,11 +584,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LinkedHashMap</a>
+                <a href="javascript:void(0)" class="js-tag color4">nio</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nio</a>
+                <a href="javascript:void(0)" class="js-tag color4">LinkedHashMap</a>
               </li>
             
             <div class="clearfix"></div>

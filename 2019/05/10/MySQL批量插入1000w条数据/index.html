@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>Archives: 2019/5 | thailandking</title>
+  <title>MySQL批量插入1000w条数据 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="personal blog">
-<meta name="keywords" content="computer，programming">
-<meta property="og:type" content="website">
-<meta property="og:title" content="thailandking">
-<meta property="og:url" content="https://thailandking.github.io/archives/2019/05/index.html">
+  <meta name="description" content="一、概述 在一些实际的测试、运维过程中，往往需要向数据库插入大量数据，利用存储过程是一个不错的选择 本次采用MySQL5.7，模拟实际批量插入1000w条随机数据  二、创建库123mysql -uroot -p密码create database bigdata;use bigdata; 三、创建表123456drop table if exists user;create table user(">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL批量插入1000w条数据">
+<meta property="og:url" content="https://thailandking.github.io/2019/05/10/MySQL批量插入1000w条数据/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="personal blog">
+<meta property="og:description" content="一、概述 在一些实际的测试、运维过程中，往往需要向数据库插入大量数据，利用存储过程是一个不错的选择 本次采用MySQL5.7，模拟实际批量插入1000w条随机数据  二、创建库123mysql -uroot -p密码create database bigdata;use bigdata; 三、创建表123456drop table if exists user;create table user(">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-10T03:32:45.906Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="thailandking">
-<meta name="twitter:description" content="personal blog">
+<meta name="twitter:title" content="MySQL批量插入1000w条数据">
+<meta name="twitter:description" content="一、概述 在一些实际的测试、运维过程中，往往需要向数据库插入大量数据，利用存储过程是一个不错的选择 本次采用MySQL5.7，模拟实际批量插入1000w条随机数据  二、创建库123mysql -uroot -p密码create database bigdata;use bigdata; 三、创建表123456drop table if exists user;create table user(">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -150,36 +151,82 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-MySQL批量插入1000w条数据" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      MySQL批量插入1000w条数据
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/10/MySQL批量插入1000w条数据/" class="archive-article-date">
+
+        
+        <a href="/2019/05/10/MySQL批量插入1000w条数据/" class="archive-article-date">
   	<time datetime="2019-05-10T02:54:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-10</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/10/MySQL批量插入1000w条数据/">MySQL批量插入1000w条数据</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><ul>
+<li>在一些实际的测试、运维过程中，往往需要向数据库插入大量数据，利用存储过程是一个不错的选择</li>
+<li>本次采用MySQL5.7，模拟实际批量插入1000w条随机数据</li>
+</ul>
+<h2 id="二、创建库"><a href="#二、创建库" class="headerlink" title="二、创建库"></a>二、创建库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p密码</span><br><span class="line">create database bigdata;</span><br><span class="line">use bigdata;</span><br></pre></td></tr></table></figure>
+<h2 id="三、创建表"><a href="#三、创建表" class="headerlink" title="三、创建表"></a>三、创建表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">drop table if exists user;</span><br><span class="line">create table user(</span><br><span class="line">	id int not null primary key auto_increment,</span><br><span class="line">    number int not null,</span><br><span class="line">    name varchar(20) not null</span><br><span class="line">)engine=innodb default charset=utf8;</span><br></pre></td></tr></table></figure>
+<h2 id="四、创建函数"><a href="#四、创建函数" class="headerlink" title="四、创建函数"></a>四、创建函数</h2><ul>
+<li>生成随机学号</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#用于随机产生学号</span><br><span class="line">DELIMITER $</span><br><span class="line">CREATE FUNCTION rand_number() RETURNS INT</span><br><span class="line">BEGIN</span><br><span class="line">    DECLARE i INT DEFAULT 0;</span><br><span class="line">    SET i= FLOOR(1+RAND()*100);</span><br><span class="line">    RETURN i;</span><br><span class="line">END $</span><br><span class="line">DELIMITER ;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>生成随机姓名（字符串）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">DELIMITER $</span><br><span class="line">CREATE FUNCTION rand_name(n INT) RETURNS VARCHAR(255)</span><br><span class="line">BEGIN</span><br><span class="line">     DECLARE chars_str VARCHAR(100) DEFAULT 				  &apos;abcdefghijklmnopqrstuvwxyzABCDEFJHIJKLMNOPQRSTUVWXYZ&apos;;</span><br><span class="line">     DECLARE return_str VARCHAR(255) DEFAULT &apos;&apos;;</span><br><span class="line">     DECLARE i INT DEFAULT 0;</span><br><span class="line">     WHILE i&lt;n DO</span><br><span class="line">     SET return_str =CONCAT(return_str,SUBSTRING(chars_str,FLOOR(1+RAND()*52),1)); </span><br><span class="line">     SET i=i+1;</span><br><span class="line">     END WHILE;</span><br><span class="line">     RETURN return_str;</span><br><span class="line">END $</span><br><span class="line">DELIMITER ;</span><br></pre></td></tr></table></figure>
+<h2 id="五、创建存储过程"><a href="#五、创建存储过程" class="headerlink" title="五、创建存储过程"></a>五、创建存储过程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">DELIMITER $</span><br><span class="line">CREATE PROCEDURE insert_user(IN max_num INT(10))</span><br><span class="line">BEGIN</span><br><span class="line">  DECLARE i INT DEFAULT 0;</span><br><span class="line">  DECLARE EXIT HANDLER FOR SQLEXCEPTION ROLLBACK; </span><br><span class="line">  START TRANSACTION;</span><br><span class="line">  while i &lt; max_num do</span><br><span class="line">  insert into user(id,number,name) values(null,rand_number(),rand_name(5));</span><br><span class="line">  set i = i + 1;</span><br><span class="line">END WHILE;</span><br><span class="line">COMMIT;</span><br><span class="line">END $</span><br><span class="line">DELIMITER ;</span><br></pre></td></tr></table></figure>
+<h2 id="六、调用"><a href="#六、调用" class="headerlink" title="六、调用"></a>六、调用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">call insert_user(1000*10000);</span><br></pre></td></tr></table></figure>
+<h2 id="七、查看"><a href="#七、查看" class="headerlink" title="七、查看"></a>七、查看</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select count(*) from user;</span><br><span class="line">select * from user;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixinpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,171 +238,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/05/10/MySQL批量插入1000w条数据/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/07/MySQL核心技术/" class="archive-article-date">
-  	<time datetime="2019-05-07T06:28:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-07</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/05/07/MySQL核心技术/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySQL核心技术</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/07/MySQL核心技术/">MySQL核心技术</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、概述"><span class="toc-number">1.</span> <span class="toc-text">一、概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、创建库"><span class="toc-number">2.</span> <span class="toc-text">二、创建库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、创建表"><span class="toc-number">3.</span> <span class="toc-text">三、创建表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、创建函数"><span class="toc-number">4.</span> <span class="toc-text">四、创建函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、创建存储过程"><span class="toc-number">5.</span> <span class="toc-text">五、创建存储过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、调用"><span class="toc-number">6.</span> <span class="toc-text">六、调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、查看"><span class="toc-number">7.</span> <span class="toc-text">七、查看</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/05/SSO最佳实践/" class="archive-article-date">
-  	<time datetime="2019-05-05T12:54:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-05</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/05/SSO最佳实践/">SSO最佳实践</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sso</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/03/一次docker部署的最佳实践/" class="archive-article-date">
-  	<time datetime="2019-05-03T14:44:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/03/一次docker部署的最佳实践/">一次docker部署的最佳实践</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/01/表/" class="archive-article-date">
-  	<time datetime="2019-05-01T05:19:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/01/表/">表</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -374,8 +369,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
