@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://thailandking.github.io">
   <title>MySQL核心技术 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、概述1、为什么需要数据库 存储数据的容器：内存、文件、数据库 内存，易丢失，文件，不易查询 数据库，易持久化、方便查询  2、相关概念 DB：数据库 DBMS：数据库管理系统 DBA：数据库管理员 SQL：结构化查询语言  3、配置文件12#默认是隐藏项目C:\ProgramData\MySQL\MySQL Server 5.7\my.ini 4、服务启动与关闭12345#可视页面下win+r">
+  <meta name="description" content="一、概述1、为什么需要数据库 存储数据的容器：内存、文件、数据库 内存，易丢失，文件，不易查询 数据库，易持久化、方便查询  2、相关概念 DB：数据库 DBMS：数据库管理系统 DBA：数据库管理员 SQL：结构化查询语言">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL核心技术">
 <meta property="og:url" content="https://thailandking.github.io/2019/05/07/MySQL核心技术/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="一、概述1、为什么需要数据库 存储数据的容器：内存、文件、数据库 内存，易丢失，文件，不易查询 数据库，易持久化、方便查询  2、相关概念 DB：数据库 DBMS：数据库管理系统 DBA：数据库管理员 SQL：结构化查询语言  3、配置文件12#默认是隐藏项目C:\ProgramData\MySQL\MySQL Server 5.7\my.ini 4、服务启动与关闭12345#可视页面下win+r">
+<meta property="og:description" content="一、概述1、为什么需要数据库 存储数据的容器：内存、文件、数据库 内存，易丢失，文件，不易查询 数据库，易持久化、方便查询  2、相关概念 DB：数据库 DBMS：数据库管理系统 DBA：数据库管理员 SQL：结构化查询语言">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-10T03:44:53.706Z">
+<meta property="og:updated_time" content="2019-05-10T03:49:19.424Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL核心技术">
-<meta name="twitter:description" content="一、概述1、为什么需要数据库 存储数据的容器：内存、文件、数据库 内存，易丢失，文件，不易查询 数据库，易持久化、方便查询  2、相关概念 DB：数据库 DBMS：数据库管理系统 DBA：数据库管理员 SQL：结构化查询语言  3、配置文件12#默认是隐藏项目C:\ProgramData\MySQL\MySQL Server 5.7\my.ini 4、服务启动与关闭12345#可视页面下win+r">
+<meta name="twitter:description" content="一、概述1、为什么需要数据库 存储数据的容器：内存、文件、数据库 内存，易丢失，文件，不易查询 数据库，易持久化、方便查询  2、相关概念 DB：数据库 DBMS：数据库管理系统 DBA：数据库管理员 SQL：结构化查询语言">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -182,6 +182,7 @@
 <li>DBA：数据库管理员</li>
 <li>SQL：结构化查询语言</li>
 </ul>
+<a id="more"></a>
 <h3 id="3、配置文件"><a href="#3、配置文件" class="headerlink" title="3、配置文件"></a>3、配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#默认是隐藏项目</span><br><span class="line">C:\ProgramData\MySQL\MySQL Server 5.7\my.ini</span><br></pre></td></tr></table></figure>
 <h3 id="4、服务启动与关闭"><a href="#4、服务启动与关闭" class="headerlink" title="4、服务启动与关闭"></a>4、服务启动与关闭</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#可视页面下</span><br><span class="line">win+r，输入services.msc，进入服务管理页面操作</span><br><span class="line">#cmd窗口下，需要管理员权限打开</span><br><span class="line">net start mysql57</span><br><span class="line">net stop mysql57</span><br></pre></td></tr></table></figure>
 <h3 id="5、服务端的登录与退出"><a href="#5、服务端的登录与退出" class="headerlink" title="5、服务端的登录与退出"></a>5、服务端的登录与退出</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#登录</span><br><span class="line">mysql -h127.0.0.1 -P3306 -uroot -p密码</span><br><span class="line">#退出</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
@@ -468,7 +469,7 @@
 <h4 id="3-2-loop"><a href="#3-2-loop" class="headerlink" title="3.2 loop"></a>3.2 loop</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#可以用来模拟简单的死循环</span><br><span class="line">【标签：】loop</span><br><span class="line">	循环体;</span><br><span class="line">END loop 【标签】;</span><br></pre></td></tr></table></figure>
 <h4 id="3-3-repeat"><a href="#3-3-repeat" class="headerlink" title="3.3 repeat"></a>3.3 repeat</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#do-while至少执行一次</span><br><span class="line">【标签：】repeat</span><br><span class="line">	循环体;</span><br><span class="line">until 结束循环的条件	</span><br><span class="line">END repeat 【标签】;</span><br></pre></td></tr></table></figure>
 <h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><ul>
-<li>Mysql批量插入1000w条数据</li>
+<li><a href="https://thailandking.github.io/2019/05/10/MySQL%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A51000w%E6%9D%A1%E6%95%B0%E6%8D%AE/">MySQL批量插入1000w条数据</a></li>
 </ul>
 <h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
 <li><a href="https://blog.csdn.net/qq_15071263/article/details/77985485" target="_blank" rel="noopener">MySQL5.7的保留字与关键字</a></li>
@@ -734,11 +735,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color5">time</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -746,11 +747,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
+                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -758,11 +759,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">java8</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -774,6 +771,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
@@ -782,11 +791,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color4">sso</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -798,15 +807,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -818,7 +827,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
+                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -830,7 +839,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -842,19 +851,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">string</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
+                <a href="javascript:void(0)" class="js-tag color5">copy</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">copy</a>
+                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -870,11 +875,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nio</a>
+                <a href="javascript:void(0)" class="js-tag color4">LinkedHashMap</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LinkedHashMap</a>
+                <a href="javascript:void(0)" class="js-tag color4">nio</a>
               </li>
             
             <div class="clearfix"></div>

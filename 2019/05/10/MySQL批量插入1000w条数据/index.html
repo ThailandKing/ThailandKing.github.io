@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://thailandking.github.io">
   <title>MySQL批量插入1000w条数据 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、概述 在一些实际的测试、运维过程中，往往需要向数据库插入大量数据，利用存储过程是一个不错的选择 本次采用MySQL5.7，模拟实际批量插入1000w条随机数据  二、创建库123mysql -uroot -p密码create database bigdata;use bigdata; 三、创建表123456drop table if exists user;create table user(">
+  <meta name="description" content="一、概述 在一些实际的测试、运维过程中，往往需要向数据库插入大量数据，利用存储过程是一个不错的选择 本次采用MySQL5.7，模拟实际批量插入1000w条随机数据  二、创建库123mysql -uroot -p密码create database bigdata;use bigdata;">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL批量插入1000w条数据">
 <meta property="og:url" content="https://thailandking.github.io/2019/05/10/MySQL批量插入1000w条数据/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="一、概述 在一些实际的测试、运维过程中，往往需要向数据库插入大量数据，利用存储过程是一个不错的选择 本次采用MySQL5.7，模拟实际批量插入1000w条随机数据  二、创建库123mysql -uroot -p密码create database bigdata;use bigdata; 三、创建表123456drop table if exists user;create table user(">
+<meta property="og:description" content="一、概述 在一些实际的测试、运维过程中，往往需要向数据库插入大量数据，利用存储过程是一个不错的选择 本次采用MySQL5.7，模拟实际批量插入1000w条随机数据  二、创建库123mysql -uroot -p密码create database bigdata;use bigdata;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-10T03:32:45.906Z">
+<meta property="og:updated_time" content="2019-05-10T03:49:50.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL批量插入1000w条数据">
-<meta name="twitter:description" content="一、概述 在一些实际的测试、运维过程中，往往需要向数据库插入大量数据，利用存储过程是一个不错的选择 本次采用MySQL5.7，模拟实际批量插入1000w条随机数据  二、创建库123mysql -uroot -p密码create database bigdata;use bigdata; 三、创建表123456drop table if exists user;create table user(">
+<meta name="twitter:description" content="一、概述 在一些实际的测试、运维过程中，往往需要向数据库插入大量数据，利用存储过程是一个不错的选择 本次采用MySQL5.7，模拟实际批量插入1000w条随机数据  二、创建库123mysql -uroot -p密码create database bigdata;use bigdata;">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -176,6 +176,7 @@
 <li>本次采用MySQL5.7，模拟实际批量插入1000w条随机数据</li>
 </ul>
 <h2 id="二、创建库"><a href="#二、创建库" class="headerlink" title="二、创建库"></a>二、创建库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p密码</span><br><span class="line">create database bigdata;</span><br><span class="line">use bigdata;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="三、创建表"><a href="#三、创建表" class="headerlink" title="三、创建表"></a>三、创建表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">drop table if exists user;</span><br><span class="line">create table user(</span><br><span class="line">	id int not null primary key auto_increment,</span><br><span class="line">    number int not null,</span><br><span class="line">    name varchar(20) not null</span><br><span class="line">)engine=innodb default charset=utf8;</span><br></pre></td></tr></table></figure>
 <h2 id="四、创建函数"><a href="#四、创建函数" class="headerlink" title="四、创建函数"></a>四、创建函数</h2><ul>
 <li>生成随机学号</li>
@@ -301,6 +302,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/05/11/Java关于时间转换的那点事儿/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java关于时间转换的那点事儿
+        
+      </div>
+    </a>
   
   
     <a href="/2019/05/07/MySQL核心技术/" id="article-nav-older" class="article-nav-link-wrap">
@@ -436,11 +446,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color5">time</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -448,11 +458,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
+                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -460,11 +470,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">java8</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -476,6 +482,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
@@ -484,11 +502,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color4">sso</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,15 +518,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,7 +538,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
+                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,7 +550,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -544,19 +562,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">string</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
+                <a href="javascript:void(0)" class="js-tag color5">copy</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">copy</a>
+                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -572,11 +586,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nio</a>
+                <a href="javascript:void(0)" class="js-tag color4">LinkedHashMap</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LinkedHashMap</a>
+                <a href="javascript:void(0)" class="js-tag color4">nio</a>
               </li>
             
             <div class="clearfix"></div>
