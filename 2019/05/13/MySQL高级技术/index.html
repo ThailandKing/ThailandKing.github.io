@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>Archives: 2019 | thailandking</title>
+  <title>MySQL高级技术 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="personal blog">
-<meta name="keywords" content="computer，programming">
-<meta property="og:type" content="website">
-<meta property="og:title" content="thailandking">
-<meta property="og:url" content="https://thailandking.github.io/archives/2019/page/3/index.html">
+  <meta name="description" content="一、架构介绍1、Linux版安装 CentOS7下安装MySQL 5.7  1.1 查看MySQL安装版本 mysqladmin –version  1.2 服务启停 systemctl status mysql systemctl start mysql systemctl stop mysql">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL高级技术">
+<meta property="og:url" content="https://thailandking.github.io/2019/05/13/MySQL高级技术/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="personal blog">
+<meta property="og:description" content="一、架构介绍1、Linux版安装 CentOS7下安装MySQL 5.7  1.1 查看MySQL安装版本 mysqladmin –version  1.2 服务启停 systemctl status mysql systemctl start mysql systemctl stop mysql">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://thailandking.github.io/2019/05/13/MySQL高级技术/1.png">
+<meta property="og:updated_time" content="2019-05-14T09:59:32.530Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="thailandking">
-<meta name="twitter:description" content="personal blog">
+<meta name="twitter:title" content="MySQL高级技术">
+<meta name="twitter:description" content="一、架构介绍1、Linux版安装 CentOS7下安装MySQL 5.7  1.1 查看MySQL安装版本 mysqladmin –version  1.2 服务启停 systemctl status mysql systemctl start mysql systemctl stop mysql">
+<meta name="twitter:image" content="https://thailandking.github.io/2019/05/13/MySQL高级技术/1.png">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -150,36 +153,249 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-MySQL高级技术" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/31/MySQL主从复制原理解析与最佳实践/" class="archive-article-date">
-  	<time datetime="2019-03-31T07:24:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-31</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/31/MySQL主从复制原理解析与最佳实践/">MySQL主从复制原理解析与最佳实践</a>
+    <h1 class="article-title" itemprop="name">
+      MySQL高级技术
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/05/13/MySQL高级技术/" class="archive-article-date">
+  	<time datetime="2019-05-13T07:58:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、架构介绍"><a href="#一、架构介绍" class="headerlink" title="一、架构介绍"></a>一、架构介绍</h2><h3 id="1、Linux版安装"><a href="#1、Linux版安装" class="headerlink" title="1、Linux版安装"></a>1、Linux版安装</h3><ul>
+<li><a href="https://blog.csdn.net/u011886447/article/details/79796802" target="_blank" rel="noopener">CentOS7下安装MySQL 5.7</a></li>
+</ul>
+<h4 id="1-1-查看MySQL安装版本"><a href="#1-1-查看MySQL安装版本" class="headerlink" title="1.1 查看MySQL安装版本"></a>1.1 查看MySQL安装版本</h4><ul>
+<li>mysqladmin –version</li>
+</ul>
+<h4 id="1-2-服务启停"><a href="#1-2-服务启停" class="headerlink" title="1.2 服务启停"></a>1.2 服务启停</h4><ul>
+<li>systemctl status mysql</li>
+<li>systemctl start mysql</li>
+<li>systemctl stop mysql</li>
+</ul>
+<a id="more"></a>
+<h4 id="1-3-开机自启动"><a href="#1-3-开机自启动" class="headerlink" title="1.3 开机自启动"></a>1.3 开机自启动</h4><ul>
+<li>systemctl enable mysql</li>
+</ul>
+<h4 id="1-4-编码"><a href="#1-4-编码" class="headerlink" title="1.4  编码"></a>1.4  编码</h4><ul>
+<li>show variables like ‘%char%’;</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#修改my.cnf</span><br><span class="line">[client]</span><br><span class="line">default-character-set=utf8</span><br><span class="line">[mysqld]</span><br><span class="line">character_set_server=utf8</span><br><span class="line">character_set_client=utf8</span><br><span class="line">collation-server=utf8_general_ci</span><br><span class="line">[mysql]</span><br><span class="line">default-character-set=utf8</span><br></pre></td></tr></table></figure>
+<h3 id="2、主要文件"><a href="#2、主要文件" class="headerlink" title="2、主要文件"></a>2、主要文件</h3><h4 id="2-1-log-bin"><a href="#2-1-log-bin" class="headerlink" title="2.1 log-bin"></a>2.1 log-bin</h4><ul>
+<li>二进制日志</li>
+<li>用于主从赋值</li>
+</ul>
+<h4 id="2-2-log-error"><a href="#2-2-log-error" class="headerlink" title="2.2 log-error"></a>2.2 log-error</h4><ul>
+<li>错误日志</li>
+<li>默认是关闭的,记录严重的警告和错误信息，每次启动和关闭的详细信息等</li>
+</ul>
+<h4 id="2-3-log-slow"><a href="#2-3-log-slow" class="headerlink" title="2.3 log-slow"></a>2.3 log-slow</h4><ul>
+<li>慢查询日志</li>
+<li>默认关闭，记录查询的sql语句，如果开启会减低mysql的整体性能，因为记录日志也是需要消耗系统资源的</li>
+</ul>
+<h4 id="2-4-数据文件"><a href="#2-4-数据文件" class="headerlink" title="2.4 数据文件"></a>2.4 数据文件</h4><ul>
+<li>默认路径：/var/lib/mysql</li>
+<li>每个目录代表一个同名的库</li>
+<li>frm存放表结构</li>
+<li>ibd存放表数据、索引</li>
+</ul>
+<h4 id="2-5-配置文件"><a href="#2-5-配置文件" class="headerlink" title="2.5 配置文件"></a>2.5 配置文件</h4><ul>
+<li>my.ini</li>
+<li>my.cnf</li>
+</ul>
+<h3 id="3、用户管理"><a href="#3、用户管理" class="headerlink" title="3、用户管理"></a>3、用户管理</h3><ul>
+<li>创建用户</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create user zhang3 identified by &apos;123123&apos;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改密码：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set password =password(&apos;123456&apos;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>删除用户</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop user li4;</span><br></pre></td></tr></table></figure>
+<h3 id="4、权限管理"><a href="#4、权限管理" class="headerlink" title="4、权限管理"></a>4、权限管理</h3><ul>
+<li>授予权限</li>
+<li>grant 权限1,权限2,…权限n on 数据库名称.表名称 to 用户名@用户地址 identified by ‘连接口令’;<br>该权限如果发现没有该用户，则会直接新建一个用户</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;你的密码&apos; WITH GRANT OPTION;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>收回权限</li>
+<li>revoke  权限1,权限2,…权限n on 数据库名称.表名称  from  用户名@用户地址 ;</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REVOKE ALL PRIVILEGES ON mysql.* FROM joe@localhost;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>刷新权限</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看权限</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show grants;</span><br></pre></td></tr></table></figure>
+<h2 id="二、索引优化分析"><a href="#二、索引优化分析" class="headerlink" title="二、索引优化分析"></a>二、索引优化分析</h2><h3 id="1、SQL性能下降原因"><a href="#1、SQL性能下降原因" class="headerlink" title="1、SQL性能下降原因"></a>1、SQL性能下降原因</h3><ul>
+<li>查询数据过多</li>
+<li>join关联太多表</li>
+<li>没有利用索引或索引失效</li>
+<li>服务器调优和参数设置</li>
+</ul>
+<h3 id="2、索引简介"><a href="#2、索引简介" class="headerlink" title="2、索引简介"></a>2、索引简介</h3><h4 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义"></a>2.1 定义</h4><ul>
+<li>索引是高效获取数据的一种数据结构</li>
+<li>类似于一本书的目录</li>
+</ul>
+<h4 id="2-2-优势"><a href="#2-2-优势" class="headerlink" title="2.2 优势"></a>2.2 优势</h4><ul>
+<li>提高数据<strong>查找</strong>的效率，降低数据库的<strong>IO</strong>成本</li>
+<li>降低数据<strong>排序</strong>的成本，降低了<strong>CPU</strong>的消耗</li>
+</ul>
+<h4 id="2-3-劣势"><a href="#2-3-劣势" class="headerlink" title="2.3 劣势"></a>2.3 劣势</h4><ul>
+<li>实际上索引也是一张表，该表保存了主键与索引字段，并指向实体表的记录，所以索引列也是要<strong>占用空间</strong>的</li>
+<li>虽然索引大大提高了查询速度，同时却会<strong>降低更新表的速度</strong>，如对表进行INSERT、UPDATE和DELETE时，可能调整索引</li>
+</ul>
+<h4 id="2-4-分类"><a href="#2-4-分类" class="headerlink" title="2.4 分类"></a>2.4 分类</h4><ul>
+<li>主键索引：设定为主键后数据库会自动建立索引，innodb为聚簇索引</li>
+<li>单值索引：即一个索引只包含单个列，一个表可以有多个单列索引</li>
+<li>唯一索引：索引列的值必须唯一，但允许有空值</li>
+<li>复合索引：即一个索引包含多个列</li>
+<li>聚簇索引与非聚簇索引：按照主键存储，innodb支持</li>
+<li>全文索引：是目前搜索引擎使用的一种关键技术，利用分词技术等多种算法智能分析出文本文字中关键词的频率和重要性，然后按照一定的算法规则智能地筛选出我们想要的搜索结果</li>
+<li>随着大数据时代的到来，关系型数据库应对全文索引的需求已力不从心，逐渐被 solr,elasticSearch等专门的搜索引擎所替代</li>
+<li>哈希索引：NoSql采用的索引结构</li>
+<li>R-Tree索引：用于范围查找</li>
+</ul>
+<h4 id="2-5-语法"><a href="#2-5-语法" class="headerlink" title="2.5 语法"></a>2.5 语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#创建</span><br><span class="line">ALTER table_name ADD [UNIQUE] INDEX [index_name] ON (column_list);</span><br><span class="line">CREATE [UNIQUE] INDEX index_name ON table_name(column_list);</span><br><span class="line">#删除</span><br><span class="line">DROP INDEX [index_name] ON table_name; </span><br><span class="line">#查看</span><br><span class="line">SHOW INDEX FROM table_name\G;</span><br></pre></td></tr></table></figure>
+<h4 id="2-6-结构"><a href="#2-6-结构" class="headerlink" title="2.6 结构"></a>2.6 结构</h4><ul>
+<li>B Tree：用于Myisam普通索引</li>
+<li>B+ Tree：用于Innodb普通索引</li>
+<li>二者对比</li>
+</ul>
+<h4 id="2-6-需要创建索引"><a href="#2-6-需要创建索引" class="headerlink" title="2.6 需要创建索引"></a>2.6 需要创建索引</h4><ul>
+<li>主键自动建立唯一索引</li>
+<li>频繁作为查询条件的字段应该创建索引(where 后面的语句)</li>
+<li>查询中与其它表关联的字段，外键关系建立索引</li>
+<li>单键/组合索引的选择问题(在高并发下倾向创建组合索引)</li>
+<li>查询中排序的字段，排序字段若通过索引去访问将大大提高排序速度</li>
+<li>查询中统计或者分组字段</li>
+</ul>
+<h4 id="2-7-不需要创建索引"><a href="#2-7-不需要创建索引" class="headerlink" title="2.7 不需要创建索引"></a>2.7 不需要创建索引</h4><ul>
+<li>表记录太少</li>
+<li>经常增删改的表</li>
+<li>where条件里用不到的字段</li>
+<li>数据重复且分布平均的表字段</li>
+</ul>
+<h3 id="3、性能分析"><a href="#3、性能分析" class="headerlink" title="3、性能分析"></a>3、性能分析</h3><h4 id="3-1-explain"><a href="#3-1-explain" class="headerlink" title="3.1 explain"></a>3.1 explain</h4><ul>
+<li>表的读取顺序</li>
+<li>哪些索引可以使用</li>
+<li>数据读取操作类型</li>
+<li>哪些索引被实际使用</li>
+<li>表之间的引用</li>
+<li>每张表有多行被查询</li>
+</ul>
+<p><img src="/2019/05/13/MySQL高级技术/1.png" alt></p>
+<h4 id="3-2-id"><a href="#3-2-id" class="headerlink" title="3.2 id"></a>3.2 id</h4><ul>
+<li>查询的序列号,包含一组数字，表示查询中执行select子句或操作表的顺序</li>
+<li>id相同，按由上至下顺序执行</li>
+<li>id不同，id越大越先执行</li>
+<li>id相同不同，先不同，再相同</li>
+</ul>
+<h4 id="3-3-select-type"><a href="#3-3-select-type" class="headerlink" title="3.3 select_type"></a>3.3 select_type</h4><ul>
+<li>复杂查询的类型，主要是用于区别普通查询、联合查询、子查询</li>
+<li>SIMPLE：简单查询,查询中不包含子查询或者UNION</li>
+<li>PRIMARY：查询中若包含任何复杂的子部分，最外层查询则被标记为Primary</li>
+<li>DERIVED：在FROM列表中包含的子查询被标记为DERIVED(衍生)，MySQL会递归执行这些子查询, 把结果放在临时表里</li>
+<li>SUBQUERY：在SELECT或WHERE列表中包含了子查询</li>
+<li>DEPENDENT SUBQUERY：在SELECT或WHERE列表中包含了子查询,子查询基于外层</li>
+<li>UNCACHEABLE SUBQUREY：无法被缓存的子查询</li>
+<li>UNION：若第二个SELECT出现在UNION之后，则被标记为UNION；若UNION包含在FROM子句的子查询中,外层SELECT将被标记为：DERIVED</li>
+<li>UNION RESULT：从UNION表获取结果的SELECT</li>
+</ul>
+<h4 id="3-4-table"><a href="#3-4-table" class="headerlink" title="3.4 table"></a>3.4 table</h4><ul>
+<li>显示的是关于哪张表</li>
+</ul>
+<h4 id="3-5-type"><a href="#3-5-type" class="headerlink" title="3.5 type"></a>3.5 type</h4><ul>
+<li>显示查询使用了何种类型，从最好到最差依次是：system&gt;const&gt;eq_ref&gt;ref&gt;range&gt;index&gt;ALL</li>
+<li>system：表只有一行记录（等于系统表），这是const类型的特列，平时不会出现，这个也可以忽略不计</li>
+<li>const：表示通过索引一次就找到了,const用于比较primary key或者unique索引。因为只匹配一行数据，所以很快，如将主键置于where列表中，MySQL就能将该查询转换为一个常量</li>
+<li>eq_ref：唯一性索引扫描，对于每个索引键，表中只有一条记录与之匹配。常见于主键或唯一索引扫描</li>
+<li>ref：非唯一性索引扫描，返回匹配某个单独值的所有行.本质上也是一种索引访问，它返回所有匹配某个单独值的行，然而，它可能会找到多个符合条件的行，所以他应该属于查找和扫描的混合体</li>
+<li>range：只检索给定范围的行,使用一个索引来选择行。key 列显示使用了哪个索引，一般就是在你的where语句中出现了between、&lt;、&gt;、in等的查询，这种范围扫描索引扫描比全表扫描要好，因为它只需要开始于索引的某一点，而结束语另一点，不用扫描全部索引。</li>
+<li>index：Full Index Scan，index与ALL区别为index类型只遍历索引树。这通常比ALL快，因为索引文件通常比数据文件小。（也就是说虽然all和Index都是读全表，但index是从索引中读取的，而all是从硬盘中读的）</li>
+<li>all：Full Table Scan，将遍历全表以找到匹配的行</li>
+</ul>
+<h4 id="3-6-possible-keys"><a href="#3-6-possible-keys" class="headerlink" title="3.6 possible_keys"></a>3.6 possible_keys</h4><ul>
+<li>显示可能应用在这张表中的索引，一个或多个。查询涉及到的字段上若存在索引，则该索引将被列出，但不一定被查询实际使用</li>
+</ul>
+<h4 id="3-7-key"><a href="#3-7-key" class="headerlink" title="3.7 key"></a>3.7 key</h4><ul>
+<li>实际使用的索引。如果为NULL，则没有使用索引</li>
+</ul>
+<h4 id="3-8-key-len"><a href="#3-8-key-len" class="headerlink" title="3.8 key_len"></a>3.8 key_len</h4><ul>
+<li>表示索引中使用的字节数，可通过该列计算查询中使用的索引的长度</li>
+</ul>
+<h4 id="3-9-ref"><a href="#3-9-ref" class="headerlink" title="3.9 ref"></a>3.9 ref</h4><ul>
+<li>哪些列或常量被用于查找索引列上的值</li>
+</ul>
+<h4 id="3-10-rows"><a href="#3-10-rows" class="headerlink" title="3.10 rows"></a>3.10 rows</h4><ul>
+<li>执行查询时扫描的行数</li>
+</ul>
+<h4 id="3-11-extra"><a href="#3-11-extra" class="headerlink" title="3.11 extra"></a>3.11 extra</h4><ul>
+<li>额外信息</li>
+<li>using filesort：说明mysql会对数据使用一个外部的索引排序，而不是按照表内的索引顺序进行读取。<br>MySQL中无法利用索引完成的排序操作称为“文件排序”</li>
+<li>using temporary：使了用临时表保存中间结果,MySQL在对查询结果排序时使用临时表。常见于排序 order by 和分组查询 group by</li>
+<li>using index：表示相应的select操作中使用了覆盖索引(Covering Index)，避免访问了表的数据行，效率不错！<br>如果同时出现using where，表明索引被用来执行索引键值的查找;<br>如果没有同时出现using where，表明索引只是用来读取数据而非利用索引执行查找。</li>
+<li>using where：表明使用了where过滤</li>
+<li>using join buffer：使用了连接缓存</li>
+<li>impossible where：where子句的值总是false，不能用来获取任何元组</li>
+<li>select tables optimized away：在没有GROUPBY子句的情况下，基于索引优化MIN/MAX操作或者<br>对于MyISAM存储引擎优化COUNT(*)操作，不必等到执行阶段再进行计算，<br>查询执行计划生成的阶段即完成优化。</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixinpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,368 +407,118 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/05/13/MySQL高级技术/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/26/线程安全与锁优化/" class="archive-article-date">
-  	<time datetime="2019-03-26T12:52:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/05/12/分布式ID生成算法之SnowFlake/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">分布式ID生成算法之SnowFlake</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/26/线程安全与锁优化/">线程安全与锁优化</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、架构介绍"><span class="toc-number">1.</span> <span class="toc-text">一、架构介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、Linux版安装"><span class="toc-number">1.1.</span> <span class="toc-text">1、Linux版安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-查看MySQL安装版本"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 查看MySQL安装版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-服务启停"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 服务启停</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-开机自启动"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.3 开机自启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-编码"><span class="toc-number">1.1.4.</span> <span class="toc-text">1.4  编码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、主要文件"><span class="toc-number">1.2.</span> <span class="toc-text">2、主要文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-log-bin"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 log-bin</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-log-error"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 log-error</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-log-slow"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 log-slow</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-数据文件"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4 数据文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-配置文件"><span class="toc-number">1.2.5.</span> <span class="toc-text">2.5 配置文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、用户管理"><span class="toc-number">1.3.</span> <span class="toc-text">3、用户管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、权限管理"><span class="toc-number">1.4.</span> <span class="toc-text">4、权限管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、索引优化分析"><span class="toc-number">2.</span> <span class="toc-text">二、索引优化分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、SQL性能下降原因"><span class="toc-number">2.1.</span> <span class="toc-text">1、SQL性能下降原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、索引简介"><span class="toc-number">2.2.</span> <span class="toc-text">2、索引简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-定义"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.1 定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-优势"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2 优势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-劣势"><span class="toc-number">2.2.3.</span> <span class="toc-text">2.3 劣势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-分类"><span class="toc-number">2.2.4.</span> <span class="toc-text">2.4 分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-语法"><span class="toc-number">2.2.5.</span> <span class="toc-text">2.5 语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-结构"><span class="toc-number">2.2.6.</span> <span class="toc-text">2.6 结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-需要创建索引"><span class="toc-number">2.2.7.</span> <span class="toc-text">2.6 需要创建索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-7-不需要创建索引"><span class="toc-number">2.2.8.</span> <span class="toc-text">2.7 不需要创建索引</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、性能分析"><span class="toc-number">2.3.</span> <span class="toc-text">3、性能分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-explain"><span class="toc-number">2.3.1.</span> <span class="toc-text">3.1 explain</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-id"><span class="toc-number">2.3.2.</span> <span class="toc-text">3.2 id</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-select-type"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.3 select_type</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-table"><span class="toc-number">2.3.4.</span> <span class="toc-text">3.4 table</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-5-type"><span class="toc-number">2.3.5.</span> <span class="toc-text">3.5 type</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-6-possible-keys"><span class="toc-number">2.3.6.</span> <span class="toc-text">3.6 possible_keys</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-7-key"><span class="toc-number">2.3.7.</span> <span class="toc-text">3.7 key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-8-key-len"><span class="toc-number">2.3.8.</span> <span class="toc-text">3.8 key_len</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-9-ref"><span class="toc-number">2.3.9.</span> <span class="toc-text">3.9 ref</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-10-rows"><span class="toc-number">2.3.10.</span> <span class="toc-text">3.10 rows</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-11-extra"><span class="toc-number">2.3.11.</span> <span class="toc-text">3.11 extra</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/26/Java内存模型与线程/" class="archive-article-date">
-  	<time datetime="2019-03-26T02:35:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/26/Java内存模型与线程/">Java内存模型与线程</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/虚拟机字节码执行引擎/" class="archive-article-date">
-  	<time datetime="2019-03-23T04:54:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/虚拟机字节码执行引擎/">虚拟机字节码执行引擎</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/21/虚拟机类加载机制/" class="archive-article-date">
-  	<time datetime="2019-03-21T02:07:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/21/虚拟机类加载机制/">虚拟机类加载机制</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/20/类文件结构/" class="archive-article-date">
-  	<time datetime="2019-03-20T00:51:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/20/类文件结构/">类文件结构</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/19/虚拟机性能监控与故障处理工具/" class="archive-article-date">
-  	<time datetime="2019-03-19T01:26:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/19/虚拟机性能监控与故障处理工具/">虚拟机性能监控与故障处理工具</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/17/垃圾收集器与内存分配策略/" class="archive-article-date">
-  	<time datetime="2019-03-17T03:12:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/17/垃圾收集器与内存分配策略/">垃圾收集器与内存分配策略</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/16/Java内存区域与溢出异常/" class="archive-article-date">
-  	<time datetime="2019-03-16T12:22:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/16/Java内存区域与溢出异常/">Java内存区域与溢出异常</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/14/Redis基础知识/" class="archive-article-date">
-  	<time datetime="2019-03-14T02:09:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/14/Redis基础知识/">Redis基础知识</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">database</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2019/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2019/">1</a><a class="page-number" href="/archives/2019/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/2019/page/4/">4</a><a class="page-number" href="/archives/2019/page/5/">5</a><a class="page-number" href="/archives/2019/page/6/">6</a><a class="extend next" rel="next" href="/archives/2019/page/4/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -572,8 +538,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
