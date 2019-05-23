@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://thailandking.github.io/2019/03/09/Linux基础知识/1.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/03/09/Linux基础知识/2.png">
-<meta property="og:updated_time" content="2019-05-06T15:15:05.647Z">
+<meta property="og:updated_time" content="2019-05-23T09:19:03.019Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux基础知识">
 <meta name="twitter:description" content="一、Linux简介1.1 发行版本1234常见三种Ubuntu （最流行的桌面Linux发行版）Redhat（使用最广，性能稳定）Centos （免费，Redhat克隆版） 1.2 优缺点 优点：性能稳定、适合嵌入式应用、做服务器、费用低  缺点：专业软件太少（ps、ae）、标准化不足">
@@ -216,7 +216,7 @@
 <h3 id="1-6-防火墙"><a href="#1-6-防火墙" class="headerlink" title="1.6 防火墙"></a>1.6 防火墙</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CentOs6</span><br><span class="line">//临时关闭</span><br><span class="line">service iptables stop</span><br><span class="line">//禁止开机启动</span><br><span class="line">chkconfig iptables off</span><br><span class="line">CentOs7</span><br><span class="line">//临时关闭</span><br><span class="line">systemctl stop firewalld</span><br><span class="line">//禁止开机启动</span><br><span class="line">systemctl disable firewalld</span><br></pre></td></tr></table></figure>
 <h3 id="1-7-网络"><a href="#1-7-网络" class="headerlink" title="1.7 网络"></a>1.7 网络</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#版本命令变更</span><br><span class="line">ifconfig改用ip addr</span><br><span class="line">netstat改用ss</span><br><span class="line">#安装网络工具</span><br><span class="line">yum install net-tools</span><br><span class="line">#重启网络服务</span><br><span class="line">sudo service network restart / systemctl restart network</span><br><span class="line">#查看IP</span><br><span class="line">ip addr</span><br><span class="line">#判断网络连接</span><br><span class="line">ping www.baidu.com</span><br><span class="line">#查看端口使用</span><br><span class="line">netstat -an</span><br></pre></td></tr></table></figure>
 <h3 id="1-8-关机重启"><a href="#1-8-关机重启" class="headerlink" title="1.8 关机重启"></a>1.8 关机重启</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">关机：shutdown -h now</span><br><span class="line">重启：reboot</span><br></pre></td></tr></table></figure>
-<h3 id="1-9-其他"><a href="#1-9-其他" class="headerlink" title="1.9 其他"></a>1.9 其他</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">1》显示当前位置</span><br><span class="line">pwd</span><br><span class="line">2》搜索命令</span><br><span class="line">grep 要搜索的字符串 要搜索的文件</span><br><span class="line">grep to sudo.conf --color		高亮显示</span><br><span class="line">3》管道命令</span><br><span class="line">ps -ef|grep system</span><br><span class="line">4》查看进程</span><br><span class="line">ps -ef</span><br><span class="line">5》杀死进程</span><br><span class="line">kill -进程pid</span><br><span class="line">6》修改权限命令</span><br><span class="line">chmod 764 aaa.txt</span><br><span class="line">7》查看命令简介</span><br><span class="line">man</span><br><span class="line">8》查看内核版本</span><br><span class="line">uname -a</span><br><span class="line">9》查看系统版本</span><br><span class="line">cat /etc/issue</span><br><span class="line">10》显示当前系统执行情况</span><br><span class="line">top</span><br></pre></td></tr></table></figure>
+<h3 id="1-9-其他"><a href="#1-9-其他" class="headerlink" title="1.9 其他"></a>1.9 其他</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">1》显示当前位置</span><br><span class="line">pwd</span><br><span class="line">2》搜索命令</span><br><span class="line">grep 要搜索的字符串 要搜索的文件</span><br><span class="line">grep to sudo.conf --color		高亮显示</span><br><span class="line">3》管道命令</span><br><span class="line">ps -ef|grep system</span><br><span class="line">4》查看进程</span><br><span class="line">ps -ef</span><br><span class="line">5》杀死进程</span><br><span class="line">kill -进程pid</span><br><span class="line">6》修改权限命令</span><br><span class="line">chmod 764 aaa.txt</span><br><span class="line">7》查看命令简介</span><br><span class="line">man</span><br><span class="line">8》查看内核版本</span><br><span class="line">uname -a</span><br><span class="line">9》查看系统版本</span><br><span class="line">cat /etc/issue</span><br><span class="line">cat /etc/redhat-release</span><br><span class="line">10》显示当前系统执行情况</span><br><span class="line">top</span><br><span class="line">11》查看磁盘空间</span><br><span class="line">df -h</span><br><span class="line">12》查看文件夹空间</span><br><span class="line">du -h</span><br></pre></td></tr></table></figure>
 <h2 id="三、软件安装"><a href="#三、软件安装" class="headerlink" title="三、软件安装"></a>三、软件安装</h2><ul>
 <li><p>JDK安装</p>
 </li>
@@ -495,7 +495,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
+                <a href="javascript:void(0)" class="js-tag color5">time</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -503,7 +503,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">time</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -511,23 +511,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">string pool</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,15 +523,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">udp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -559,11 +551,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
+                <a href="javascript:void(0)" class="js-tag color4">udp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -575,23 +571,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">id</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hashmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -603,7 +583,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">id</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">swap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -612,10 +612,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">serializable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">swap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -636,6 +632,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">hashmap</a>
               </li>
              
               <li class="article-tag-list-item">
