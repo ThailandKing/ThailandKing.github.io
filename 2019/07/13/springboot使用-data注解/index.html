@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://thailandking.github.io/2019/07/13/springboot使用-data注解/2.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/07/13/springboot使用-data注解/3.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/07/13/springboot使用-data注解/4.png">
-<meta property="og:updated_time" content="2019-07-13T11:08:12.897Z">
+<meta property="og:updated_time" content="2019-07-14T15:05:46.682Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springboot使用@data注解">
 <meta name="twitter:description" content="一、idea安装lombok插件">
@@ -185,8 +185,10 @@
 <h2 id="五、测试代码"><a href="#五、测试代码" class="headerlink" title="五、测试代码"></a>五、测试代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class TestMyBean &#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        MyTestBean m=new MyTestBean();</span><br><span class="line">        m.setId(1);</span><br><span class="line">        m.setName(&quot;zhangsan&quot;);</span><br><span class="line">        m.setPassword(&quot;123456&quot;);</span><br><span class="line">        System.out.println(m);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="六、结果"><a href="#六、结果" class="headerlink" title="六、结果"></a>六、结果</h2><p><img src="/2019/07/13/springboot使用-data注解/4.png" alt="运行结果"></p>
 <h2 id="七、扩展"><a href="#七、扩展" class="headerlink" title="七、扩展"></a>七、扩展</h2><ul>
-<li>@Getter<ul>
-<li>@Setter</li>
+<li><p>@Getter</p>
+</li>
+<li><p>@Setter</p>
+</li>
 <li>@ToString</li>
 <li>@EqualsAndHashCode</li>
 <li>@NoArgsConstructor</li>
@@ -194,8 +196,6 @@
 <li><code>@Data</code>是一个集合体，包含<code>Getter</code>,<code>Setter</code>,<code>RequiredArgsConstructor</code>,<code>ToString</code>,<code>EqualsAndHashCode</code></li>
 <li><code>@Value</code>是一个集合体，包含<code>Getter</code>,<code>AllArgsConstructor</code>,<code>ToString</code>,<code>EqualsAndHashCode</code>，生成一个不可变对象，所有字段都被final修饰</li>
 <li><a href="https://projectlombok.org/features/all" target="_blank" rel="noopener">更多注解使用</a></li>
-</ul>
-</li>
 </ul>
 
       
@@ -458,6 +458,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
               </li>
              
@@ -470,7 +474,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
+                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -478,11 +482,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -490,11 +494,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">sso</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">hashmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">data</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,7 +518,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+                <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,11 +534,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">id</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -542,31 +566,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">id</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cap</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
+                <a href="javascript:void(0)" class="js-tag color1">login</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -574,11 +578,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">swap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">login</a>
+                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,15 +590,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">swap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">copy</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hashmap</a>
               </li>
              
               <li class="article-tag-list-item">
