@@ -6,26 +6,43 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>Redis基础知识 | thailandking</title>
+  <title>设计模式 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="简介 Redis 是速度非常快的非关系型（NoSQL）内存键值数据库  键的类型只能为字符串  默认端口为6379">
-<meta name="keywords" content="redis,database">
+  <meta name="description" content="零、入门1.1 定义 设计模式就是解决某类问题总结的经验和实行的方案，不是代码  经典书籍：四人帮的《设计模式》   1.2 分析方法 分析项目变化与不变的部分，提取变化部分，抽象成接口+实现  多用组合，少用继承">
+<meta name="keywords" content="desgin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis基础知识">
-<meta property="og:url" content="https://thailandking.github.io/2019/03/14/Redis基础知识/index.html">
+<meta property="og:title" content="设计模式">
+<meta property="og:url" content="https://thailandking.github.io/2019/07/14/设计模式/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="简介 Redis 是速度非常快的非关系型（NoSQL）内存键值数据库  键的类型只能为字符串  默认端口为6379">
+<meta property="og:description" content="零、入门1.1 定义 设计模式就是解决某类问题总结的经验和实行的方案，不是代码  经典书籍：四人帮的《设计模式》   1.2 分析方法 分析项目变化与不变的部分，提取变化部分，抽象成接口+实现  多用组合，少用继承">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/14/Redis基础知识/1.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/14/Redis基础知识/2.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/14/Redis基础知识/3.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/14/Redis基础知识/4.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/14/Redis基础知识/5.png">
-<meta property="og:updated_time" content="2019-03-14T03:21:57.107Z">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/14/设计模式/sort-stragety.jpg">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/14/设计模式/stragety.jpg">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/14/设计模式/observer.jpg">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/14/设计模式/decorator.jpg">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/14/设计模式/singleton.jpg">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/14/设计模式/factory.jpg">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/14/设计模式/command.jpg">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/14/设计模式/control-command.jpg">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/14/设计模式/adaptor.jpg">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/14/设计模式/duck-turkey.jpg">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/14/设计模式/outview.jpg">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/14/设计模式/template.jpg">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/14/设计模式/old-pattern.jpg">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/14/设计模式/iterator-pattern.jpg">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/14/设计模式/java-iterator.jpg">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/14/设计模式/compose.jpg">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/14/设计模式/airforce-compose.jpg">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/14/设计模式/state.jpg">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/14/设计模式/state-traffic.jpg">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/14/设计模式/briage.jpg">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/14/设计模式/mediator-homework.jpg">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/14/设计模式/visitor.jpg">
+<meta property="og:updated_time" content="2019-07-14T03:08:29.159Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redis基础知识">
-<meta name="twitter:description" content="简介 Redis 是速度非常快的非关系型（NoSQL）内存键值数据库  键的类型只能为字符串  默认端口为6379">
-<meta name="twitter:image" content="https://thailandking.github.io/2019/03/14/Redis基础知识/1.png">
+<meta name="twitter:title" content="设计模式">
+<meta name="twitter:description" content="零、入门1.1 定义 设计模式就是解决某类问题总结的经验和实行的方案，不是代码  经典书籍：四人帮的《设计模式》   1.2 分析方法 分析项目变化与不变的部分，提取变化部分，抽象成接口+实现  多用组合，少用继承">
+<meta name="twitter:image" content="https://thailandking.github.io/2019/07/14/设计模式/sort-stragety.jpg">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -157,166 +174,190 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Redis基础知识" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-设计模式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Redis基础知识
+      设计模式
     </h1>
   
 
         
-        <a href="/2019/03/14/Redis基础知识/" class="archive-article-date">
-  	<time datetime="2019-03-14T02:09:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-14</time>
+        <a href="/2019/07/14/设计模式/" class="archive-article-date">
+  	<time datetime="2019-07-14T02:31:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
-<li>Redis 是速度非常快的非关系型（NoSQL）内存键值数据库 </li>
-<li>键的类型只能为字符串 </li>
-<li>默认端口为6379</li>
+        <h2 id="零、入门"><a href="#零、入门" class="headerlink" title="零、入门"></a>零、入门</h2><h3 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1.1 定义"></a>1.1 定义</h3><ul>
+<li><p>设计模式就是解决某类问题总结的经验和实行的方案，不是代码</p>
+</li>
+<li><p>经典书籍：四人帮的《设计模式》</p>
+</li>
+</ul>
+<h3 id="1-2-分析方法"><a href="#1-2-分析方法" class="headerlink" title="1.2 分析方法"></a>1.2 分析方法</h3><ul>
+<li><p>分析项目变化与不变的部分，提取变化部分，抽象成接口+实现</p>
+</li>
+<li><p>多用组合，少用继承</p>
+</li>
 </ul>
 <a id="more"></a>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="STRING"><a href="#STRING" class="headerlink" title="STRING"></a>STRING</h3><ul>
-<li>存储字符串、整数、浮点数、序列化的对象</li>
+<h2 id="一、策略模式"><a href="#一、策略模式" class="headerlink" title="一、策略模式"></a>一、策略模式</h2><h3 id="1-1-原理"><a href="#1-1-原理" class="headerlink" title="1.1 原理"></a>1.1 原理</h3><ul>
+<li><p>继承的问题：对类的局部改动，尤其超类的局部改动，会影响其他部分，溢出效应</p>
+</li>
+<li><p>原则：分离变化部分，封装接口，基于接口编程各种实现功能</p>
+</li>
 </ul>
-<p><img src="/2019/03/14/Redis基础知识/1.png" alt></p>
-<table>
-<thead>
-<tr>
-<th>GET</th>
-<th>Fetches the data stored at the given key</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SET</td>
-<td>Sets the value stored at the given key</td>
-</tr>
-<tr>
-<td>DEL</td>
-<td>Deletes the value stored at the given key (works for all types)</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; set hello world</span><br><span class="line">OK</span><br><span class="line">&gt; get hello</span><br><span class="line"><span class="string">"world"</span></span><br><span class="line">&gt; del hello</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; get hello</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
-<h3 id="LIST"><a href="#LIST" class="headerlink" title="LIST"></a>LIST</h3><ul>
-<li>存储链表（有序）</li>
-<li>左右都可以进行操作（左出右进）</li>
+<p><img src="/2019/07/14/设计模式/sort-stragety.jpg" alt="策略模式排序"></p>
+<p><img src="/2019/07/14/设计模式/stragety.jpg" alt="策略模式"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将接口作为抽象类的属性</span></span><br><span class="line"><span class="comment">//父类对象引用指向子类对象</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Duck</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    FlyBehavior mFlyBehavior;</span><br><span class="line">    QuackBehavior mQuackBehavior;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Duck</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Fly</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        mFlyBehavior.fly();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Quack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        mQuackBehavior.quack();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetQuackBehavoir</span><span class="params">(QuackBehavior qb)</span> </span>&#123;</span><br><span class="line">        mQuackBehavior = qb;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SetFlyBehavoir</span><span class="params">(FlyBehavior fb)</span> </span>&#123;</span><br><span class="line">        mFlyBehavior = fb;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swim</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"~~im swim~~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GreenHeadDuck</span> <span class="keyword">extends</span> <span class="title">Duck</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">GreenHeadDuck</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        mFlyBehavior = <span class="keyword">new</span> GoodFlyBehavior();</span><br><span class="line">        mQuackBehavior = <span class="keyword">new</span> GaGaQuackBehavior();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        System.out.println(<span class="string">"**GreenHead**"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二、观察者模式"><a href="#二、观察者模式" class="headerlink" title="二、观察者模式"></a>二、观察者模式</h2><h3 id="1-1-原理-1"><a href="#1-1-原理-1" class="headerlink" title="1.1 原理"></a>1.1 原理</h3><ul>
+<li>观察者模式：对象之间一种多对一依赖的设计方案，一个subject，多个observer</li>
 </ul>
-<p><img src="/2019/03/14/Redis基础知识/2.png" alt></p>
-<table>
-<thead>
-<tr>
-<th>RPUSH</th>
-<th>Pushes the value onto the right end of the list</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LRANGE</td>
-<td>Fetches a range of values from the list</td>
-</tr>
-<tr>
-<td>LINDEX</td>
-<td>Fetches an item at a given position in the list</td>
-</tr>
-<tr>
-<td>LPOP</td>
-<td>Pops the value from the left end of the list and returns it</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&gt; rpush list-key item</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; rpush list-key item2</span><br><span class="line">(integer) <span class="number">2</span></span><br><span class="line">&gt; rpush list-key item</span><br><span class="line">(integer) <span class="number">3</span></span><br><span class="line"></span><br><span class="line">&gt; lrange list-key <span class="number">0</span> -<span class="number">1</span>（-<span class="number">1</span>表示全部）</span><br><span class="line"><span class="number">1</span>) <span class="string">"item"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"item2"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"item"</span></span><br><span class="line"></span><br><span class="line">&gt; lrange list-key <span class="number">0</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"item"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"item2"</span></span><br><span class="line">    </span><br><span class="line">&gt; lindex list-key <span class="number">1</span></span><br><span class="line"><span class="string">"item2"</span></span><br><span class="line"></span><br><span class="line">&gt; lpop list-key</span><br><span class="line"><span class="string">"item"</span></span><br><span class="line"></span><br><span class="line">&gt; lrange list-key <span class="number">0</span> -<span class="number">1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"item2"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"item"</span></span><br></pre></td></tr></table></figure>
-<h3 id="SET"><a href="#SET" class="headerlink" title="SET"></a>SET</h3><ul>
-<li>存储集合（无序、不重复）</li>
-<li>用于求交集、并集、差集</li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">    <span class="comment">//注册observer</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer o)</span></span>;</span><br><span class="line">    <span class="comment">//移除observer</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer o)</span></span>;</span><br><span class="line">    <span class="comment">//通知observer</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">    <span class="comment">//根据subject通知做响应</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">float</span> mTemperatrue)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/07/14/设计模式/observer.jpg" alt="观察者模式"></p>
+<h3 id="1-2-Java内置观察者"><a href="#1-2-Java内置观察者" class="headerlink" title="1.2 Java内置观察者"></a>1.2 Java内置观察者</h3><ul>
+<li><p>subject：Observerable（类）</p>
+</li>
+<li><p>observer：Observer（接口）</p>
+</li>
 </ul>
-<p><img src="/2019/03/14/Redis基础知识/3.png" alt></p>
-<table>
-<thead>
-<tr>
-<th>SADD</th>
-<th>Adds the item to the set</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SMEMBERS</td>
-<td>Returns the entire set of items</td>
-</tr>
-<tr>
-<td>SISMEMBER</td>
-<td>Checks if an item is in the set</td>
-</tr>
-<tr>
-<td>SREM</td>
-<td>Removes the item from the set, if it exists</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&gt; sadd set-key item</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; sadd set-key item2</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; sadd set-key item3</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; sadd set-key item</span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"></span><br><span class="line">&gt; smembers set-key</span><br><span class="line"><span class="number">1</span>) <span class="string">"item"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"item2"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"item3"</span></span><br><span class="line"></span><br><span class="line">&gt; sismember set-key item4</span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line">&gt; sismember set-key item</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"></span><br><span class="line">&gt; srem set-key item2</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; srem set-key item2</span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"></span><br><span class="line">&gt; smembers set-key</span><br><span class="line"><span class="number">1</span>) <span class="string">"item"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"item3"</span></span><br></pre></td></tr></table></figure>
-<h3 id="HASH"><a href="#HASH" class="headerlink" title="HASH"></a>HASH</h3><ul>
-<li>存储包含键值对的散列表（map）</li>
+<h2 id="三、装饰者模式"><a href="#三、装饰者模式" class="headerlink" title="三、装饰者模式"></a>三、装饰者模式</h2><h3 id="1-1-原理-2"><a href="#1-1-原理-2" class="headerlink" title="1.1 原理"></a>1.1 原理</h3><ul>
+<li><p>定义：动态将新功能附加到对象上，在对象功能扩展方面，比继承更有弹性</p>
+</li>
+<li><p>Component：抽象主体</p>
+</li>
+<li><p>ConcreteComponent：实体</p>
+</li>
+<li><p>Decorator：装饰者</p>
+</li>
 </ul>
-<p><img src="/2019/03/14/Redis基础知识/4.png" alt></p>
-<table>
-<thead>
-<tr>
-<th>HSET</th>
-<th>Stores the value at the key in the hash</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>HGET</td>
-<td>Fetches the value at the given hash key</td>
-</tr>
-<tr>
-<td>HGETALL</td>
-<td>Fetches the entire hash</td>
-</tr>
-<tr>
-<td>HDEL</td>
-<td>Removes a key from the hash, if it exists</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&gt; hset hash-key sub-key1 value1</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; hset hash-key sub-key2 value2</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; hset hash-key sub-key1 value1</span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"></span><br><span class="line">&gt; hgetall hash-key</span><br><span class="line"><span class="number">1</span>) <span class="string">"sub-key1"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"value1"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"sub-key2"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"value2"</span></span><br><span class="line"></span><br><span class="line">&gt; hdel hash-key sub-key2</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; hdel hash-key sub-key2</span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"></span><br><span class="line">&gt; hget hash-key sub-key1</span><br><span class="line"><span class="string">"value1"</span></span><br><span class="line"></span><br><span class="line">&gt; hgetall hash-key</span><br><span class="line"><span class="number">1</span>) <span class="string">"sub-key1"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"value1"</span></span><br></pre></td></tr></table></figure>
-<h3 id="ZSET"><a href="#ZSET" class="headerlink" title="ZSET"></a>ZSET</h3><ul>
-<li>存储集合（有序、无重复）</li>
-<li>用于排行榜</li>
+<p><img src="/2019/07/14/设计模式/decorator.jpg" alt="装饰者模式"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//抽象主体</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Drink</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String description=<span class="string">""</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> price=<span class="number">0f</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDescription</span><span class="params">(String description)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.description=description;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDescription</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> description+<span class="string">"-"</span>+<span class="keyword">this</span>.getPrice();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">getPrice</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> price;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPrice</span><span class="params">(<span class="keyword">float</span> price)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.price=price;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">float</span> <span class="title">cost</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一级实体</span></span><br><span class="line"><span class="keyword">public</span>  <span class="class"><span class="keyword">class</span> <span class="title">Coffee</span> <span class="keyword">extends</span> <span class="title">Drink</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">cost</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.getPrice();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二级实体</span></span><br><span class="line"><span class="comment">//根据需求，一级实体和二级实体可以合并</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Decaf</span> <span class="keyword">extends</span> <span class="title">Coffee</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Decaf</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.setDescription(<span class="string">"Decaf"</span>);</span><br><span class="line">        <span class="keyword">super</span>.setPrice(<span class="number">3.0f</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//装饰者</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Decorator</span> <span class="keyword">extends</span> <span class="title">Drink</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Drink Obj;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Decorator</span><span class="params">(Drink Obj)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.Obj = Obj;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">cost</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.getPrice() + Obj.cost();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDescription</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.description + <span class="string">"-"</span> + <span class="keyword">super</span>.getPrice() + <span class="string">"&amp;&amp;"</span> + Obj.getDescription();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//装饰实体</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Chocolate</span> <span class="keyword">extends</span> <span class="title">Decorator</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Chocolate</span><span class="params">(Drink Obj)</span> </span>&#123;		</span><br><span class="line">        <span class="keyword">super</span>(Obj);</span><br><span class="line">        <span class="comment">// TODO Auto-generated constructor stub</span></span><br><span class="line">        <span class="keyword">super</span>.setDescription(<span class="string">"Chocolate"</span>);</span><br><span class="line">        <span class="keyword">super</span>.setPrice(<span class="number">3.0f</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-Java内置装饰者"><a href="#1-2-Java内置装饰者" class="headerlink" title="1.2 Java内置装饰者"></a>1.2 Java内置装饰者</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UpperCaseInputStream</span> <span class="keyword">extends</span> <span class="title">FilterInputStream</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="title">UpperCaseInputStream</span><span class="params">(InputStream in)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(in);</span><br><span class="line">        <span class="comment">// TODO Auto-generated constructor stub</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> <span class="keyword">throws</span> IOException</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> c=<span class="keyword">super</span>.read();</span><br><span class="line">        <span class="keyword">return</span> c==-<span class="number">1</span>?c:Character.toUpperCase((<span class="keyword">char</span>)(c));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">(<span class="keyword">byte</span>[] b,<span class="keyword">int</span> offset,<span class="keyword">int</span> len)</span> <span class="keyword">throws</span> IOException</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result=<span class="keyword">super</span>.read(b,offset,len);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;result;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            b[i]=(<span class="keyword">byte</span>)Character.toUpperCase((<span class="keyword">char</span>)(b[i]));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="四、单例模式"><a href="#四、单例模式" class="headerlink" title="四、单例模式"></a>四、单例模式</h2><h3 id="1-1-原理-3"><a href="#1-1-原理-3" class="headerlink" title="1.1 原理"></a>1.1 原理</h3><ul>
+<li>定义：确保一个类最多只有一个实例，并提供一个全局访问点</li>
 </ul>
-<p><img src="/2019/03/14/Redis基础知识/5.png" alt></p>
-<table>
-<thead>
-<tr>
-<th>ZADD</th>
-<th>Adds member with the given score to the ZSET</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ZRANGE</td>
-<td>Fetches the items in the ZSET from their positions in sorted order</td>
-</tr>
-<tr>
-<td>ZRANGEBYSCORE</td>
-<td>Fetches items in the ZSET based on a range of scores</td>
-</tr>
-<tr>
-<td>ZREM</td>
-<td>Removes the item from the ZSET, if it exists</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&gt; zadd zset-key <span class="number">728</span> member1</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; zadd zset-key <span class="number">982</span> member0</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; zadd zset-key <span class="number">982</span> member0</span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"></span><br><span class="line">&gt; zrange zset-key <span class="number">0</span> -<span class="number">1</span> withscores</span><br><span class="line"><span class="number">1</span>) <span class="string">"member1"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"728"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"member0"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"982"</span></span><br><span class="line"></span><br><span class="line">&gt; zrangebyscore zset-key <span class="number">0</span> <span class="number">800</span> withscores</span><br><span class="line"><span class="number">1</span>) <span class="string">"member1"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"728"</span></span><br><span class="line"></span><br><span class="line">&gt; zrem zset-key member1</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">&gt; zrem zset-key member1</span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"></span><br><span class="line">&gt; zrange zset-key <span class="number">0</span> -<span class="number">1</span> withscores</span><br><span class="line"><span class="number">1</span>) <span class="string">"member0"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"982"</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2019/07/14/设计模式/singleton.jpg" alt="单例模式"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton uniqeInstance=<span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(uniqeInstance==<span class="keyword">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            uniqeInstance=<span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> uniqeInstance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-多线程优化"><a href="#1-2-多线程优化" class="headerlink" title="1.2 多线程优化"></a>1.2 多线程优化</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//同步（synchronized）getInstance方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(uniqeInstance==<span class="keyword">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        uniqeInstance=<span class="keyword">new</span> Singleton();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> uniqeInstance;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//饿汉模式创建实例</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton uniqeInstance=<span class="keyword">new</span> Singleton();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> uniqeInstance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//双重加锁检查</span></span><br><span class="line"><span class="comment">//用volatile修饰的变量，线程在每次使用变量的时候，都会读取变量修改后的值。volatile很容易被误用，用来进行原子性操作。</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> Singleton uniqeInstance=<span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(uniqeInstance==<span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (Singleton.class) &#123;</span><br><span class="line">                <span class="keyword">if</span>(uniqeInstance==<span class="keyword">null</span>) &#123;</span><br><span class="line">                    uniqeInstance=<span class="keyword">new</span> Singleton();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> uniqeInstance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="五、工厂模式"><a href="#五、工厂模式" class="headerlink" title="五、工厂模式"></a>五、工厂模式</h2><h3 id="1-1-原理-4"><a href="#1-1-原理-4" class="headerlink" title="1.1 原理"></a>1.1 原理</h3><ul>
+<li>定义：定义一个创建对象的方法，由子类决定要实例化的类</li>
+</ul>
+<p><img src="/2019/07/14/设计模式/factory.jpg" alt="工厂模式"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//父类引用指向子类对象</span></span><br><span class="line">BuildingFactory bf=<span class="keyword">new</span> SuperFactory();</span><br><span class="line">bf.getHouse();<span class="comment">//SupHouse</span></span><br><span class="line">bf.getCondo();<span class="comment">//SupCondo</span></span><br><span class="line">bf.getSemiDetacher();<span class="comment">//SupSemiDe</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-2-依赖抽象原则"><a href="#1-2-依赖抽象原则" class="headerlink" title="1.2 依赖抽象原则"></a>1.2 依赖抽象原则</h3><ul>
+<li><p>变量不要持有具体类的引用</p>
+</li>
+<li><p>不要让类继承具体类，要继承抽象类或接口</p>
+</li>
+<li><p>不要覆盖基类中已实现的方法</p>
+</li>
+</ul>
+<h2 id="六、命令模式"><a href="#六、命令模式" class="headerlink" title="六、命令模式"></a>六、命令模式</h2><h3 id="1-1-原理-5"><a href="#1-1-原理-5" class="headerlink" title="1.1 原理"></a>1.1 原理</h3><ul>
+<li>定义：将请求、命令、动作等封装成对象，这样可以让项目使用这些对象来参数化其他对象。使得命令的请求者和执行者解耦</li>
+</ul>
+<p><img src="/2019/07/14/设计模式/command.jpg" alt="命令模式"></p>
+<h3 id="1-2-电器控制"><a href="#1-2-电器控制" class="headerlink" title="1.2 电器控制"></a>1.2 电器控制</h3><p><img src="/2019/07/14/设计模式/control-command.jpg" alt="电器控制"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    <span class="comment">//声明一个设备</span></span><br><span class="line">    Light light=<span class="keyword">new</span> Light(<span class="string">"wgt"</span>);</span><br><span class="line">    <span class="comment">//为设备绑定命令</span></span><br><span class="line">    LightOnCommand lightOnCommand=<span class="keyword">new</span> LightOnCommand(light);</span><br><span class="line">    LightOffCommand lightOffCommand=<span class="keyword">new</span> LightOffCommand(light);</span><br><span class="line">    <span class="comment">//声明命令控制</span></span><br><span class="line">    CommandControl control=<span class="keyword">new</span> CommandControl();</span><br><span class="line">    <span class="comment">//为控制添加命令</span></span><br><span class="line">    control.setCommand(<span class="number">0</span>,lightOnCommand,lightOffCommand);</span><br><span class="line">    control.setCommand(<span class="number">2</span>,lightOnCommand,lightOffCommand);</span><br><span class="line">    <span class="comment">//执行命令</span></span><br><span class="line">    control.onButton(<span class="number">0</span>);</span><br><span class="line">    control.onButton(<span class="number">2</span>);</span><br><span class="line">    control.offButton(<span class="number">0</span>);</span><br><span class="line">    control.offButton(<span class="number">2</span>);</span><br><span class="line">    control.undoButton();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="七、适配器模式"><a href="#七、适配器模式" class="headerlink" title="七、适配器模式"></a>七、适配器模式</h2><h3 id="1-1-原理-6"><a href="#1-1-原理-6" class="headerlink" title="1.1 原理"></a>1.1 原理</h3><ul>
+<li><p>定义：将一个类的接口转换成另一种接口，让原本接口不兼容的类可以兼容</p>
+</li>
+<li><p>被适配者——–&gt;适配器———-&gt;目标</p>
+</li>
+<li><p>原则：用被适配者的功能实现目标的方法</p>
+</li>
+</ul>
+<p><img src="/2019/07/14/设计模式/adaptor.jpg" alt="适配器"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EnumerationIterator</span> <span class="keyword">implements</span> <span class="title">Iterator</span>&lt;<span class="title">Object</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Enumeration enumeration;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">EnumerationIterator</span><span class="params">(Enumeration enumeration)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.enumeration= enumeration;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        <span class="keyword">return</span> enumeration.hasMoreElements();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        <span class="keyword">return</span> enumeration.nextElement();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-对象适配器与类适配器"><a href="#1-2-对象适配器与类适配器" class="headerlink" title="1.2 对象适配器与类适配器"></a>1.2 对象适配器与类适配器</h3><p><img src="/2019/07/14/设计模式/duck-turkey.jpg" alt="对象与类适配器"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对象适配器</span></span><br><span class="line"><span class="comment">//组合，将对象作为属性</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TurkeyAdapter</span> <span class="keyword">implements</span> <span class="title">Duck</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Turkey turkey;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TurkeyAdapter</span><span class="params">(Turkey turkey)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.turkey=turkey;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        turkey.gobble();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">6</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            turkey.fly();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//类适配器</span></span><br><span class="line"><span class="comment">//继承，扩展性不强，代码简单</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TurkeyAdapter2</span> <span class="keyword">extends</span> <span class="title">WildTurkey</span> <span class="keyword">implements</span> <span class="title">Duck</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        <span class="keyword">super</span>.gobble();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        <span class="keyword">super</span>.fly();</span><br><span class="line">        <span class="keyword">super</span>.fly();</span><br><span class="line">        <span class="keyword">super</span>.fly();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-装饰者模式与适配器模式"><a href="#1-3-装饰者模式与适配器模式" class="headerlink" title="1.3 装饰者模式与适配器模式"></a>1.3 装饰者模式与适配器模式</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">装饰者模式：动态增加功能，随意扩展</span><br><span class="line">适配器模式：动态适配功能，受目标方法限制</span><br></pre></td></tr></table></figure>
+<h2 id="八、外观模式"><a href="#八、外观模式" class="headerlink" title="八、外观模式"></a>八、外观模式</h2><h3 id="1-1-原理-7"><a href="#1-1-原理-7" class="headerlink" title="1.1 原理"></a>1.1 原理</h3><ul>
+<li><p>定义：提供一个统一的接口，来访问子系统中一群功能相关接口</p>
+</li>
+<li><p>外观模式定义了一个高层接口，将多个子系统操作封装起来，供外界访问，让子系统更容易使用</p>
+</li>
+</ul>
+<p><img src="/2019/07/14/设计模式/outview.jpg" alt="外观模式"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将设备作为属性，利用单例模式初始化</span></span><br><span class="line"><span class="comment">//组合调用方法，封装一个新方法供外界访问，不暴露子系统</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HomeTheater</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Screen mScreen;</span><br><span class="line">    <span class="keyword">private</span> DVDPlayer mDVDPlayer;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HomeTheaterFacade</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        mScreen = Screen.getInstance();</span><br><span class="line">        mDVDPlayer = DVDPlayer.getInstance();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ready</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        mScreen.down();</span><br><span class="line">        mDVDPlayer.on();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-外观模式与命令模式"><a href="#1-2-外观模式与命令模式" class="headerlink" title="1.2 外观模式与命令模式"></a>1.2 外观模式与命令模式</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">外观模式：将多个子系统操作封装一个外部接口方法，供外界调用</span><br><span class="line">命令模式：将每个子系统操作封装一个接口，实现解耦</span><br><span class="line">一定程度上，二者可以实现相同的作用</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-最少知识原则"><a href="#1-3-最少知识原则" class="headerlink" title="1.3 最少知识原则"></a>1.3 最少知识原则</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">定义：尽量减少对象之间的交互，不要让太多的类耦合在一起</span><br><span class="line">对象调用方法的范围：</span><br><span class="line">1》该类对象本身</span><br><span class="line">2》对象的组件（属性）</span><br><span class="line">3》作为参数传进来的对象</span><br><span class="line">4》创建和实例化的对象</span><br><span class="line">尽量少使用方法返回值获得的对象</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对象本身</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span></span>&#123;</span><br><span class="line">    <span class="comment">//对象的组件</span></span><br><span class="line">    Engine engine;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Car</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//初始化发动机</span></span><br><span class="line">        engine=<span class="keyword">new</span> Engine();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//参数传递对象</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(Key mKey)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//创建/实例化对象</span></span><br><span class="line">        Doors doors=<span class="keyword">new</span> Doors();</span><br><span class="line">        <span class="comment">//方法返回值对象</span></span><br><span class="line">        <span class="keyword">boolean</span> authorized=mKey.turns();</span><br><span class="line">        <span class="keyword">if</span>(authorized)</span><br><span class="line">        &#123;</span><br><span class="line">            engine.start();</span><br><span class="line">            doors.lock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="九、模板模式"><a href="#九、模板模式" class="headerlink" title="九、模板模式"></a>九、模板模式</h2><h3 id="1-1-原理-8"><a href="#1-1-原理-8" class="headerlink" title="1.1 原理"></a>1.1 原理</h3><ul>
+<li><p>定义：封装了一个算法步骤，并允许子类为一个或多个步骤方法提供实现</p>
+</li>
+<li><p>将方法的调用顺序/步骤固定，实现仍由子类编写</p>
+</li>
+</ul>
+<p><img src="/2019/07/14/设计模式/template.jpg" alt="模板模式"></p>
+<h3 id="1-2-好莱坞原则"><a href="#1-2-好莱坞原则" class="headerlink" title="1.2 好莱坞原则"></a>1.2 好莱坞原则</h3><ul>
+<li>高层无需知道调用底层的细节，解耦</li>
+</ul>
+<h3 id="1-3-模板模式与外观模式"><a href="#1-3-模板模式与外观模式" class="headerlink" title="1.3 模板模式与外观模式"></a>1.3 模板模式与外观模式</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">外观模式：封装多个操作供外界使用</span><br><span class="line">模板模式：封装多个有顺序的操作供外界使用</span><br><span class="line">二者都封装一系列操作，但模板模式的操作有序</span><br></pre></td></tr></table></figure>
+<h2 id="十、迭代器模式"><a href="#十、迭代器模式" class="headerlink" title="十、迭代器模式"></a>十、迭代器模式</h2><h3 id="1-1-原理-9"><a href="#1-1-原理-9" class="headerlink" title="1.1 原理"></a>1.1 原理</h3><ul>
+<li>定义：提供一种方法顺序访问一个聚合对象中的各个对象</li>
+</ul>
+<p>原有模式：</p>
+<p><img src="/2019/07/14/设计模式/old-pattern.jpg" alt="老模式"></p>
+<p>迭代器模式改进：</p>
+<p><img src="/2019/07/14/设计模式/iterator-pattern.jpg" alt="迭代器模式"></p>
+<h3 id="1-2-Java内置迭代器"><a href="#1-2-Java内置迭代器" class="headerlink" title="1.2 Java内置迭代器"></a>1.2 Java内置迭代器</h3><p><img src="/2019/07/14/设计模式/java-iterator.jpg" alt="Java内置迭代器"></p>
+<h3 id="1-3-单一责任原则"><a href="#1-3-单一责任原则" class="headerlink" title="1.3 单一责任原则"></a>1.3 单一责任原则</h3><ul>
+<li>一个类应该只有一个引起变化的原因</li>
+</ul>
+<h2 id="十一、组合模式"><a href="#十一、组合模式" class="headerlink" title="十一、组合模式"></a>十一、组合模式</h2><h3 id="1-1-原理-10"><a href="#1-1-原理-10" class="headerlink" title="1.1 原理"></a>1.1 原理</h3><ul>
+<li><p>定义：将对象聚合成树形结构来表现整体/部分的层次结构</p>
+</li>
+<li><p>可以忽略对象组合与个体对象之间差别，以一致方式来处理个别对象以及对象组合</p>
+</li>
+</ul>
+<p><img src="/2019/07/14/设计模式/compose.jpg" alt="组合模式"></p>
+<p>空军指挥系统的设计与实现：</p>
+<p><img src="/2019/07/14/设计模式/airforce-compose.jpg" alt="空军指挥系统"></p>
+<h2 id="十二、状态模式"><a href="#十二、状态模式" class="headerlink" title="十二、状态模式"></a>十二、状态模式</h2><h3 id="1-1-原理-11"><a href="#1-1-原理-11" class="headerlink" title="1.1 原理"></a>1.1 原理</h3><ul>
+<li><p>定义：能根据内部状态的变化，改变对象的行为</p>
+</li>
+<li><p>原则：将不同状态下的操作封装成一个类供调用和改变</p>
+</li>
+</ul>
+<p>自动糖果机售货系统：</p>
+<p><img src="/2019/07/14/设计模式/state.jpg" alt="状态模式"></p>
+<p>红绿灯控制系统:</p>
+<p><img src="/2019/07/14/设计模式/state-traffic.jpg" alt="红绿灯控制系统"></p>
+<h2 id="十三、桥接模式"><a href="#十三、桥接模式" class="headerlink" title="十三、桥接模式"></a>十三、桥接模式</h2><h3 id="1-1-原理-12"><a href="#1-1-原理-12" class="headerlink" title="1.1 原理"></a>1.1 原理</h3><ul>
+<li><p>定义：将实现和抽象放在两个不同的类层次中，使两个层次可以独立改变</p>
+</li>
+<li><p>原则：抽象类聚合接口对象</p>
+</li>
+</ul>
+<p><img src="/2019/07/14/设计模式/briage.jpg" alt="桥接模式"></p>
+<h2 id="十四、中介者模式"><a href="#十四、中介者模式" class="headerlink" title="十四、中介者模式"></a>十四、中介者模式</h2><h3 id="1-1-原理-13"><a href="#1-1-原理-13" class="headerlink" title="1.1 原理"></a>1.1 原理</h3><ul>
+<li><p>定义：定义了一个对象，用来封装一系列对象的交互</p>
+</li>
+<li><p>原则：中介者包含其他用户接口的集合，减少用户之间的直接交互</p>
+</li>
+</ul>
+<p><img src="/2019/07/14/设计模式/mediator-homework.jpg" alt="中介者模式"></p>
+<h2 id="十五、访问者模式"><a href="#十五、访问者模式" class="headerlink" title="十五、访问者模式"></a>十五、访问者模式</h2><h3 id="1-1-原理-14"><a href="#1-1-原理-14" class="headerlink" title="1.1 原理"></a>1.1 原理</h3><ul>
+<li><p>定义：对于一组对象，在不改变数据结构的前提下，增加作用于这些结构元素新的功能</p>
+</li>
+<li><p>适用场合：一个系统有比较稳定的数据结构，又有经常变化的功能需求</p>
+</li>
+</ul>
+<p><img src="/2019/07/14/设计模式/visitor.jpg" alt="访问者模式"></p>
 
       
 
@@ -361,11 +402,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">database</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">desgin</a>
         		</li>
       		
 		</ul>
@@ -421,7 +458,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/14/Redis基础知识/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/07/14/设计模式/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -435,18 +472,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/16/Java内存区域与溢出异常/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/07/14/工具类/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Java内存区域与溢出异常
+          工具类
         
       </div>
     </a>
   
   
-    <a href="/2019/03/12/Mysql事务总结/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Mysql事务总结</div>
+    <a href="/2019/07/13/springboot使用-data注解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">springboot使用@data注解</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -473,7 +510,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型"><span class="toc-number">2.</span> <span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#STRING"><span class="toc-number">2.1.</span> <span class="toc-text">STRING</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LIST"><span class="toc-number">2.2.</span> <span class="toc-text">LIST</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SET"><span class="toc-number">2.3.</span> <span class="toc-text">SET</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HASH"><span class="toc-number">2.4.</span> <span class="toc-text">HASH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ZSET"><span class="toc-number">2.5.</span> <span class="toc-text">ZSET</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#零、入门"><span class="toc-number">1.</span> <span class="toc-text">零、入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-定义"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-分析方法"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 分析方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、策略模式"><span class="toc-number">2.</span> <span class="toc-text">一、策略模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-原理"><span class="toc-number">2.1.</span> <span class="toc-text">1.1 原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、观察者模式"><span class="toc-number">3.</span> <span class="toc-text">二、观察者模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-原理-1"><span class="toc-number">3.1.</span> <span class="toc-text">1.1 原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Java内置观察者"><span class="toc-number">3.2.</span> <span class="toc-text">1.2 Java内置观察者</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、装饰者模式"><span class="toc-number">4.</span> <span class="toc-text">三、装饰者模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-原理-2"><span class="toc-number">4.1.</span> <span class="toc-text">1.1 原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Java内置装饰者"><span class="toc-number">4.2.</span> <span class="toc-text">1.2 Java内置装饰者</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、单例模式"><span class="toc-number">5.</span> <span class="toc-text">四、单例模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-原理-3"><span class="toc-number">5.1.</span> <span class="toc-text">1.1 原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-多线程优化"><span class="toc-number">5.2.</span> <span class="toc-text">1.2 多线程优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、工厂模式"><span class="toc-number">6.</span> <span class="toc-text">五、工厂模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-原理-4"><span class="toc-number">6.1.</span> <span class="toc-text">1.1 原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-依赖抽象原则"><span class="toc-number">6.2.</span> <span class="toc-text">1.2 依赖抽象原则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、命令模式"><span class="toc-number">7.</span> <span class="toc-text">六、命令模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-原理-5"><span class="toc-number">7.1.</span> <span class="toc-text">1.1 原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-电器控制"><span class="toc-number">7.2.</span> <span class="toc-text">1.2 电器控制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、适配器模式"><span class="toc-number">8.</span> <span class="toc-text">七、适配器模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-原理-6"><span class="toc-number">8.1.</span> <span class="toc-text">1.1 原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-对象适配器与类适配器"><span class="toc-number">8.2.</span> <span class="toc-text">1.2 对象适配器与类适配器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-装饰者模式与适配器模式"><span class="toc-number">8.3.</span> <span class="toc-text">1.3 装饰者模式与适配器模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、外观模式"><span class="toc-number">9.</span> <span class="toc-text">八、外观模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-原理-7"><span class="toc-number">9.1.</span> <span class="toc-text">1.1 原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-外观模式与命令模式"><span class="toc-number">9.2.</span> <span class="toc-text">1.2 外观模式与命令模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-最少知识原则"><span class="toc-number">9.3.</span> <span class="toc-text">1.3 最少知识原则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九、模板模式"><span class="toc-number">10.</span> <span class="toc-text">九、模板模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-原理-8"><span class="toc-number">10.1.</span> <span class="toc-text">1.1 原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-好莱坞原则"><span class="toc-number">10.2.</span> <span class="toc-text">1.2 好莱坞原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-模板模式与外观模式"><span class="toc-number">10.3.</span> <span class="toc-text">1.3 模板模式与外观模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十、迭代器模式"><span class="toc-number">11.</span> <span class="toc-text">十、迭代器模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-原理-9"><span class="toc-number">11.1.</span> <span class="toc-text">1.1 原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Java内置迭代器"><span class="toc-number">11.2.</span> <span class="toc-text">1.2 Java内置迭代器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-单一责任原则"><span class="toc-number">11.3.</span> <span class="toc-text">1.3 单一责任原则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十一、组合模式"><span class="toc-number">12.</span> <span class="toc-text">十一、组合模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-原理-10"><span class="toc-number">12.1.</span> <span class="toc-text">1.1 原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十二、状态模式"><span class="toc-number">13.</span> <span class="toc-text">十二、状态模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-原理-11"><span class="toc-number">13.1.</span> <span class="toc-text">1.1 原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十三、桥接模式"><span class="toc-number">14.</span> <span class="toc-text">十三、桥接模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-原理-12"><span class="toc-number">14.1.</span> <span class="toc-text">1.1 原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十四、中介者模式"><span class="toc-number">15.</span> <span class="toc-text">十四、中介者模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-原理-13"><span class="toc-number">15.1.</span> <span class="toc-text">1.1 原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十五、访问者模式"><span class="toc-number">16.</span> <span class="toc-text">十五、访问者模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-原理-14"><span class="toc-number">16.1.</span> <span class="toc-text">1.1 原理</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -582,10 +619,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
               </li>
              
@@ -598,15 +631,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -614,23 +639,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">database</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -642,11 +667,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+                <a href="javascript:void(0)" class="js-tag color4">sso</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -662,19 +687,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">transient</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">volatile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">data</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -690,6 +719,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cap</a>
               </li>
              
@@ -702,19 +735,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">login</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">swap</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
+                <a href="javascript:void(0)" class="js-tag color1">login</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">string</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -726,11 +759,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+                <a href="javascript:void(0)" class="js-tag color3">hashmap</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hashmap</a>
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -738,11 +771,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nio</a>
+                <a href="javascript:void(0)" class="js-tag color2">desgin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">utils</a>
               </li>
             
             <div class="clearfix"></div>

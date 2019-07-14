@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>Java常见名词总结 | thailandking</title>
+  <title>Tag: utils | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="同步/异步同步:发送一个请求,等待返回,然后再发送下一个请求   异步:发送一个请求,不等待返回,随时可以再发送下一个请求    同步可以避免出现死锁，读脏数据的发生，一般共享某一资源的时候用，如果每个人都有修改权限，同时修改一个文件，有可能使一个人读取另一个人已经删除的内容，就会出错，同步就会按顺序来修改。  异步则是可以提高效率了，现在cpu都是双核，四核，异步处理的话可以同时做多项工作，当然">
-<meta name="keywords" content="java,word">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Java常见名词总结">
-<meta property="og:url" content="https://thailandking.github.io/2019/03/06/Java常见名词总结/index.html">
+  <meta name="description" content="personal blog">
+<meta name="keywords" content="computer，programming">
+<meta property="og:type" content="website">
+<meta property="og:title" content="thailandking">
+<meta property="og:url" content="https://thailandking.github.io/tags/utils/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="同步/异步同步:发送一个请求,等待返回,然后再发送下一个请求   异步:发送一个请求,不等待返回,随时可以再发送下一个请求    同步可以避免出现死锁，读脏数据的发生，一般共享某一资源的时候用，如果每个人都有修改权限，同时修改一个文件，有可能使一个人读取另一个人已经删除的内容，就会出错，同步就会按顺序来修改。  异步则是可以提高效率了，现在cpu都是双核，四核，异步处理的话可以同时做多项工作，当然">
+<meta property="og:description" content="personal blog">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-16T14:40:30.702Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java常见名词总结">
-<meta name="twitter:description" content="同步/异步同步:发送一个请求,等待返回,然后再发送下一个请求   异步:发送一个请求,不等待返回,随时可以再发送下一个请求    同步可以避免出现死锁，读脏数据的发生，一般共享某一资源的时候用，如果每个人都有修改权限，同时修改一个文件，有可能使一个人读取另一个人已经删除的内容，就会出错，同步就会按顺序来修改。  异步则是可以提高效率了，现在cpu都是双核，四核，异步处理的话可以同时做多项工作，当然">
+<meta name="twitter:title" content="thailandking">
+<meta name="twitter:description" content="personal blog">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -151,321 +150,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java常见名词总结" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Java常见名词总结
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/07/14/工具类/" class="archive-article-date">
+  	<time datetime="2019-07-14T03:13:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-14</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/07/14/工具类/">工具类</a>
     </h1>
   
 
-        
-        <a href="/2019/03/06/Java常见名词总结/" class="archive-article-date">
-  	<time datetime="2019-03-06T15:49:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="同步-异步"><a href="#同步-异步" class="headerlink" title="同步/异步"></a>同步/异步</h2><p>同步:发送一个请求,等待返回,然后再发送下一个请求  </p>
-<p>异步:发送一个请求,不等待返回,随时可以再发送下一个请求  </p>
-<ul>
-<li>同步可以避免出现死锁，读脏数据的发生，一般共享某一资源的时候用，如果每个人都有修改权限，同时修改一个文件，有可能使一个人读取另一个人已经删除的内容，就会出错，同步就会按顺序来修改。 </li>
-<li>异步则是可以提高效率了，现在cpu都是双核，四核，异步处理的话可以同时做多项工作，当然必须保证是可以并发处理的。 </li>
-<li>同步和异步最大的区别就在于。一个需要等待，一个不需要等待。 </li>
-<li>比如广播，就是一个异步例子。发起者不关心接收者的状态。不需要等待接收者的返回信息</li>
-<li>电话，就是一个同步例子。发起者需要等待接收者，接通电话后，通信才开始。需要等待接收者的返回信息 </li>
-</ul>
-<a id="more"></a>
-<h2 id="阻塞-非阻塞"><a href="#阻塞-非阻塞" class="headerlink" title="阻塞/非阻塞"></a>阻塞/非阻塞</h2><p>阻塞：是指调用结果返回之前，当前线程会被挂起。函数只有在得到结果之后才会返回。 </p>
-<p>非阻塞：指在不能立刻得到结果之前，该函数不会阻塞当前线程，而会立刻返回 </p>
-<ul>
-<li>传统的 IO 流都是阻塞式的。也就是说，当一个线程调用 read() 或 write()时，该线程被阻塞，直到有一些数据被读取或写入，该线程在此期间不能执行其他任务。因此，在完成网络通信进行 IO 操作时，由于线程会阻塞，所以服务器端必须为每个客户端都提供一个独立的线程进行处理，当服务器端需要处理大量客户端时，性能急剧下降。</li>
-<li>Java NIO 是非阻塞模式的。当线程从某通道进行读写数据时，若没有数据可用时，该线程可以进行其他任务。线程通常将非阻塞 IO 的空闲时间用于在其他通道上执行 IO 操作，所以单独的线程可以管理多个输入和输出通道。因此，NIO 可以让服务器端使用一个或有限几个线程来同时处理连接到服务器端的所有客户端。</li>
-</ul>
-<h2 id="并发-并行"><a href="#并发-并行" class="headerlink" title="并发/并行"></a>并发/并行</h2><p>并行：是两个任务同时运行(需要多核CPU)  </p>
-<p>并发：指两个任务都请求运行，而处理器只能按受一个任务，就把这两个任务安排轮流进行，由于时间间隔较短，使人感觉两个任务都在运行。（表面看是CPU在同时执行多个任务，其实实际上是因为CPU瞬间切换到其他任务的速度特别快，在不同的任务之间一直在不停的切换，给不同的任务分配了不同的时间。）</p>
-<ul>
-<li>比如我跟两个网友聊天，左手操作一个电脑跟甲聊，同时右手用另一台电脑跟乙聊天，这就叫并行。</li>
-<li>如果用一台电脑我先给甲发个消息，然后立刻再给乙发消息，然后再跟甲聊，再跟乙聊。这就叫并发。  </li>
-</ul>
-<p>版权声明：本文为博主原创文章，转载请附上博文链接！</p>
-<h2 id="单核-多核"><a href="#单核-多核" class="headerlink" title="单核/多核"></a>单核/多核</h2><p>单核可以并发（通过上下文切换）</p>
-<p>多核可以并行</p>
-<h2 id="DDL-DML-DCL"><a href="#DDL-DML-DCL" class="headerlink" title="DDL/DML/DCL"></a>DDL/DML/DCL</h2><ul>
-<li>DML（data manipulation language）数据操纵语言：SELECT、UPDATE、INSERT、DELETE</li>
-<li>DDL（data definition language）数据库定义语言：CREATE、ALTER、DROP</li>
-<li>DCL（Data Control Language）数据库控制语言：GRANT、DENY、REVOKE</li>
-</ul>
-<h2 id="OLTP-OLAP"><a href="#OLTP-OLAP" class="headerlink" title="OLTP/OLAP"></a>OLTP/OLAP</h2><ul>
-<li>OLTP（On-Line Transaction Processing）联机事务处理：高可用事务型系统</li>
-<li>OLAP（On-Line Analytical Processing）联机分析处理：数据仓库</li>
-</ul>
-<p>OLTP适用于事务并发，OLAP适用于数据清洗分析</p>
-<h2 id="缓冲-缓存"><a href="#缓冲-缓存" class="headerlink" title="缓冲/缓存"></a>缓冲/缓存</h2><ul>
-<li>缓冲（buffer）缓解冲击：比如你每秒要写100次硬盘，对系统冲击很大，用个buffer暂存起来，变成每秒写10次硬盘，对系统的冲击就很小</li>
-<li>缓存（cache）缓和存储：比如一个很复杂的计算做完了，把结果存起来，下次不用再算了，加快了数据取用的速度</li>
-</ul>
-<p>缓冲侧重于写，缓存侧重于读</p>
-<h2 id="BLOB-TEXT"><a href="#BLOB-TEXT" class="headerlink" title="BLOB/TEXT"></a>BLOB/TEXT</h2><ul>
-<li>BLOB被视为二进制字符串(字节字符串)，无字符集</li>
-<li>TEXT被视为非二进制字符串(字符字符串)，有字符集</li>
-</ul>
-<p>BLOB倾向于存储图片、视频、音频数据，TEXT倾向于存储文章、长文本</p>
-<h2 id="UNION-UNION-ALL"><a href="#UNION-UNION-ALL" class="headerlink" title="UNION/UNION ALL"></a>UNION/UNION ALL</h2><ul>
-<li>union返回去重后的结果集</li>
-<li>union all返回所有结果集</li>
-</ul>
-<h2 id="URI-URL"><a href="#URI-URL" class="headerlink" title="URI/URL"></a>URI/URL</h2><ul>
-<li><strong>URI：</strong>Uniform Resource Identifier，统一资源标识符（唯一的字符串文本）</li>
-<li><strong>URL：</strong>Uniform Resource Location，统一资源定位符（唯一的解析路径）</li>
-<li>URL和URN是URI的子集，URI属于URL更高层次的抽象</li>
-<li>URI只是一种抽象设计理念，目前浏览器使用为URL解析</li>
-</ul>
-<h2 id="进程通信-线程通信"><a href="#进程通信-线程通信" class="headerlink" title="进程通信/线程通信"></a>进程通信/线程通信</h2><ul>
-<li>一个进程可包含多个线程</li>
-<li>进程通信：1、管道 2、共享内存 3、信号量 4、消息队列 5、套接字</li>
-<li>线程通信：1、锁机制 2、信号量</li>
-</ul>
-<h2 id="RAM-ROM-FLASH"><a href="#RAM-ROM-FLASH" class="headerlink" title="RAM/ROM/FLASH"></a>RAM/ROM/FLASH</h2><ul>
-<li>RAM (Random Access Memory)随机访问存储器：可读可写、断电丢失</li>
-<li>ROM (Read Only Memory)程序存储器：固定写入，只读，断电不丢失</li>
-<li>FLASH (FLASH EEPROM)闪存：电子可擦除可编辑，断电不丢失</li>
-<li><a href="https://zhuanlan.zhihu.com/p/38339306" target="_blank" rel="noopener">RAM/ROM/FLASH区别</a></li>
-</ul>
-<h2 id="Nginx功能"><a href="#Nginx功能" class="headerlink" title="Nginx功能"></a>Nginx功能</h2><ul>
-<li>静态HTTP服务器</li>
-<li>反向代理</li>
-<li>负载均衡</li>
-<li>虚拟主机</li>
-<li><a href="https://blog.csdn.net/qq_25843323/article/details/81902015" target="_blank" rel="noopener">Nginx简单功能介绍</a></li>
-</ul>
-<h2 id="原码-反码-补码"><a href="#原码-反码-补码" class="headerlink" title="原码/反码/补码"></a>原码/反码/补码</h2><ul>
-<li>正数<strong>1</strong>举例，如0000 0001，0000 0001，0000 0001</li>
-<li>负数<strong>-1</strong>举例，如1000 0001，1111 1110，1111 1111</li>
-<li>计算机用<strong>补码</strong>做运算，全部转换为<strong>加法</strong>操作，减少了线路的复杂设计</li>
-<li><a href="https://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html" target="_blank" rel="noopener">原码、反码、补码详解</a></li>
-</ul>
-<h2 id="Executor-ExecutorService-Executors-ThreadPoolExecutor"><a href="#Executor-ExecutorService-Executors-ThreadPoolExecutor" class="headerlink" title="Executor/ExecutorService/Executors/ThreadPoolExecutor"></a>Executor/ExecutorService/Executors/ThreadPoolExecutor</h2><ul>
-<li>前三者都是JDK操作线程池的对象，ThreadPoolExecutor是真正线程池对象</li>
-<li>Executor是个接口，包含execute方法</li>
-<li>ExecutorService接口实现了Executor接口，增加了异步执行Future对象，终止、关闭线程池方法</li>
-<li>Executors是个线程池工具类，提供newSingleThreadExecutor、newFixedThreadPool、newCachedThreadPool等工厂方法创建线程池</li>
-<li><a href="http://www.importnew.com/24923.html" target="_blank" rel="noopener">Executor, ExecutorService 和 Executors 间的不同</a></li>
-<li><a href="https://cyc2018.github.io/CS-Notes/#/notes/Java%20%E5%B9%B6%E5%8F%91?id=executor" target="_blank" rel="noopener">Executors用法</a></li>
-</ul>
-<h2 id="数据库三范式"><a href="#数据库三范式" class="headerlink" title="数据库三范式"></a>数据库三范式</h2><ul>
-<li>第一范式：<strong>列不可再分性</strong>，强调的是列的原子性</li>
-<li>第二范式：<strong>主键唯一性</strong>，表必须有一个主键，非主键列必须完全依赖于主键，而不能只依赖于主键的一部分</li>
-<li>第三范式：<strong>外键相关性</strong>，非主键列必须直接依赖于主键，不能存在传递依赖</li>
-</ul>
-<h2 id="主键-唯一索引"><a href="#主键-唯一索引" class="headerlink" title="主键/唯一索引"></a>主键/唯一索引</h2><ul>
-<li>主键一定会创建一个唯一索引，但是有唯一索引的列不一定是主键</li>
-<li>主键不允许为空值，唯一索引列允许空值</li>
-<li>一个表只能有一个主键，但是可以有多个唯一索引</li>
-<li>主键可以被其他表引用为外键，唯一索引列不可以</li>
-<li>主键是一种约束，而唯一索引是一种索引，是表的冗余数据结构，两者有本质的差别</li>
-</ul>
-<h2 id="CSV-EXCEL"><a href="#CSV-EXCEL" class="headerlink" title="CSV/EXCEL"></a>CSV/EXCEL</h2><ul>
-<li>CSV是一个纯文本格式，用逗号分隔一系列值，容易生成、解析</li>
-<li>EXCEL是一个电子表格，以行、列划分数据，直观</li>
-<li>开发中将数据导出CSV格式比较方便，通用</li>
-<li><a href="https://blog.csdn.net/u012843873/article/details/79196676" target="_blank" rel="noopener">二者详细区别</a></li>
-</ul>
-<h2 id="DEV-TEST-PROD"><a href="#DEV-TEST-PROD" class="headerlink" title="DEV/TEST/PROD"></a>DEV/TEST/PROD</h2><ul>
-<li>DEV：develop，开发环境，该环境下的配置项只影响开发人员本地代码配置</li>
-<li>TEST：test，测试环境，该环境配置影响整个团队的测试环境</li>
-<li>PROD：production，生产环境，程序最终发布后所需要的参数配置信息</li>
-</ul>
-<h2 id="RequestParam-RequestBody"><a href="#RequestParam-RequestBody" class="headerlink" title="@RequestParam/@RequestBody"></a>@RequestParam/@RequestBody</h2><ul>
-<li>@RequestParam适用于get请求url上的参数值，post请求body中的form data值</li>
-<li>用来处理Content-Type: 为 <code>application/x-www-form-urlencoded</code>编码的内容</li>
-<li>@RequestBody适用于post请求body中的json值</li>
-<li>用来处理Content-Type: 不是<code>application/x-www-form-urlencoded</code>编码的内容，例如application/json, application/xml等；</li>
-<li>综上所述，一般情况下，推荐使用@RequestParam注解来接受Http请求参数</li>
-<li><a href="https://cloud.tencent.com/developer/article/1332866" target="_blank" rel="noopener">@RequestBody和@RequestParam区别</a></li>
-<li><a href="https://blog.csdn.net/walkerJong/article/details/7946109" target="_blank" rel="noopener">@RequestParam @RequestBody @PathVariable 等参数绑定注解详解</a></li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/weixinpay.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">word</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">utils</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/06/Java常见名词总结/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/03/07/TCP与UDP/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          TCP与UDP
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/03/06/Java三大体系整合/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java三大体系整合</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#同步-异步"><span class="toc-number">1.</span> <span class="toc-text">同步/异步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#阻塞-非阻塞"><span class="toc-number">2.</span> <span class="toc-text">阻塞/非阻塞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并发-并行"><span class="toc-number">3.</span> <span class="toc-text">并发/并行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单核-多核"><span class="toc-number">4.</span> <span class="toc-text">单核/多核</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DDL-DML-DCL"><span class="toc-number">5.</span> <span class="toc-text">DDL/DML/DCL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OLTP-OLAP"><span class="toc-number">6.</span> <span class="toc-text">OLTP/OLAP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缓冲-缓存"><span class="toc-number">7.</span> <span class="toc-text">缓冲/缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BLOB-TEXT"><span class="toc-number">8.</span> <span class="toc-text">BLOB/TEXT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UNION-UNION-ALL"><span class="toc-number">9.</span> <span class="toc-text">UNION/UNION ALL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#URI-URL"><span class="toc-number">10.</span> <span class="toc-text">URI/URL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进程通信-线程通信"><span class="toc-number">11.</span> <span class="toc-text">进程通信/线程通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RAM-ROM-FLASH"><span class="toc-number">12.</span> <span class="toc-text">RAM/ROM/FLASH</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx功能"><span class="toc-number">13.</span> <span class="toc-text">Nginx功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原码-反码-补码"><span class="toc-number">14.</span> <span class="toc-text">原码/反码/补码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Executor-ExecutorService-Executors-ThreadPoolExecutor"><span class="toc-number">15.</span> <span class="toc-text">Executor/ExecutorService/Executors/ThreadPoolExecutor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库三范式"><span class="toc-number">16.</span> <span class="toc-text">数据库三范式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主键-唯一索引"><span class="toc-number">17.</span> <span class="toc-text">主键/唯一索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSV-EXCEL"><span class="toc-number">18.</span> <span class="toc-text">CSV/EXCEL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DEV-TEST-PROD"><span class="toc-number">19.</span> <span class="toc-text">DEV/TEST/PROD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RequestParam-RequestBody"><span class="toc-number">20.</span> <span class="toc-text">@RequestParam/@RequestBody</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -484,9 +222,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -555,10 +293,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
               </li>
              
@@ -571,15 +305,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -587,23 +313,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">database</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,11 +341,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+                <a href="javascript:void(0)" class="js-tag color4">sso</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -635,19 +361,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">transient</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">volatile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">data</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -663,6 +393,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cap</a>
               </li>
              
@@ -675,19 +409,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">login</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">swap</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
+                <a href="javascript:void(0)" class="js-tag color1">login</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">string</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -699,11 +433,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+                <a href="javascript:void(0)" class="js-tag color3">hashmap</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hashmap</a>
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -711,11 +445,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nio</a>
+                <a href="javascript:void(0)" class="js-tag color2">desgin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">utils</a>
               </li>
             
             <div class="clearfix"></div>
