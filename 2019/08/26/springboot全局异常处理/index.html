@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>Tag: dfcloud | thailandking</title>
+  <title>springboot全局异常处理 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="personal blog">
-<meta name="keywords" content="computer，programming">
-<meta property="og:type" content="website">
-<meta property="og:title" content="thailandking">
-<meta property="og:url" content="https://thailandking.github.io/tags/dfcloud/index.html">
+  <meta name="description" content="一、自定义异常123456789101112/** *@Author thailandking *@Date 2019/8/26 16:51 *@LastEditors thailandking *@LastEditTime 2019/8/26 16:51 *@Description 系统未登录异常 */public class LoginException extends RuntimeExce">
+<meta name="keywords" content="springboot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="springboot全局异常处理">
+<meta property="og:url" content="https://thailandking.github.io/2019/08/26/springboot全局异常处理/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="personal blog">
+<meta property="og:description" content="一、自定义异常123456789101112/** *@Author thailandking *@Date 2019/8/26 16:51 *@LastEditors thailandking *@LastEditTime 2019/8/26 16:51 *@Description 系统未登录异常 */public class LoginException extends RuntimeExce">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-26T09:48:01.773Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="thailandking">
-<meta name="twitter:description" content="personal blog">
+<meta name="twitter:title" content="springboot全局异常处理">
+<meta name="twitter:description" content="一、自定义异常123456789101112/** *@Author thailandking *@Date 2019/8/26 16:51 *@LastEditors thailandking *@LastEditTime 2019/8/26 16:51 *@Description 系统未登录异常 */public class LoginException extends RuntimeExce">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -150,60 +151,194 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-springboot全局异常处理" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/22/得云平台/" class="archive-article-date">
-  	<time datetime="2019-08-22T02:48:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-22</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/22/得云平台/">得云平台</a>
+    <h1 class="article-title" itemprop="name">
+      springboot全局异常处理
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/08/26/springboot全局异常处理/" class="archive-article-date">
+  	<time datetime="2019-08-26T09:39:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、自定义异常"><a href="#一、自定义异常" class="headerlink" title="一、自定义异常"></a>一、自定义异常</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Date</span> 2019/8/26 16:51</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@LastEditTime</span> 2019/8/26 16:51</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Description</span> 系统未登录异常</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginException</span> <span class="keyword">extends</span> <span class="title">RuntimeException</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LoginException</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Date</span> 2019/8/26 16:52</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@LastEditTime</span> 2019/8/26 16:52</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Description</span> 系统传入参数异常</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ParamException</span> <span class="keyword">extends</span> <span class="title">RuntimeException</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ParamException</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二、统一异常处理器"><a href="#二、统一异常处理器" class="headerlink" title="二、统一异常处理器"></a>二、统一异常处理器</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Date</span> 2019/8/26 16:56</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@LastEditTime</span> 2019/8/26 16:56</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Description</span> 统一异常处理器</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@ControllerAdvice</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebExceptionHandler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger log = LoggerFactory.getLogger(WebExceptionHandler.class);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ExceptionHandler</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">notLogin</span><span class="params">(LoginException e)</span> </span>&#123;</span><br><span class="line">        log.error(<span class="string">"系统未登录异常"</span>, e);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"系统未登录异常"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ExceptionHandler</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">paramError</span><span class="params">(ParamException e)</span> </span>&#123;</span><br><span class="line">        log.error(<span class="string">"系统传入参数异常"</span>, e);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"系统传入参数异常"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ExceptionHandler</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">unknownException</span><span class="params">(Exception e)</span> </span>&#123;</span><br><span class="line">        log.error(<span class="string">"未知异常"</span>, e);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"系统出现未知异常"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三、测试代码"><a href="#三、测试代码" class="headerlink" title="三、测试代码"></a>三、测试代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Date</span> 2019/8/26 17:24</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@LastEditTime</span> 2019/8/26 17:24</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Description</span> 示例   用于测试学习</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/hello"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@Date</span> 2019/8/26 16:59</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@LastEditTime</span> 2019/8/26 16:59</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@Description</span> 测试异常处理</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/exception"</span>,method = RequestMethod.GET)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">testException</span><span class="params">(@RequestParam(value = <span class="string">"name"</span>)</span> String name)</span>&#123;</span><br><span class="line">        <span class="comment">// LoginException</span></span><br><span class="line">        <span class="keyword">if</span>(name.equals(<span class="string">"login"</span>))&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> LoginException(<span class="string">"123"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// ParamException</span></span><br><span class="line">        <span class="keyword">if</span>(name.equals(<span class="string">"param"</span>))&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ParamException(<span class="string">"456"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Exception</span></span><br><span class="line">        <span class="keyword">if</span>(name.equals(<span class="string">"error"</span>))&#123;</span><br><span class="line">            System.out.println(<span class="number">1</span>/<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixinpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">dfcloud</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/08/26/springboot全局异常处理/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/08/22/SpringBoot使用JWT实现登录验证/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SpringBoot使用JWT实现登录验证</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、自定义异常"><span class="toc-number">1.</span> <span class="toc-text">一、自定义异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、统一异常处理器"><span class="toc-number">2.</span> <span class="toc-text">二、统一异常处理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、测试代码"><span class="toc-number">3.</span> <span class="toc-text">三、测试代码</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -222,9 +357,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
