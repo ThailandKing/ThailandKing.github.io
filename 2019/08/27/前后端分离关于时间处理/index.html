@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>Archives: 2019/7 | thailandking</title>
+  <title>前后端分离关于时间处理 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="personal blog">
-<meta name="keywords" content="computer，programming">
-<meta property="og:type" content="website">
-<meta property="og:title" content="thailandking">
-<meta property="og:url" content="https://thailandking.github.io/archives/2019/07/index.html">
+  <meta name="description" content="一、数据库 字段类型为Date  二、实体类1234567891011121314151617@Table(value = &quot;TB_USER&quot;)@Datapublic class User extends MpaasBasePojo &amp;#123;    @RowID(sequence = &quot;USER_S&quot;, type = RowIDType.SEQUENCE)    @Style(displayN">
+<meta name="keywords" content="time">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前后端分离关于时间处理">
+<meta property="og:url" content="https://thailandking.github.io/2019/08/27/前后端分离关于时间处理/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="personal blog">
+<meta property="og:description" content="一、数据库 字段类型为Date  二、实体类1234567891011121314151617@Table(value = &quot;TB_USER&quot;)@Datapublic class User extends MpaasBasePojo &amp;#123;    @RowID(sequence = &quot;USER_S&quot;, type = RowIDType.SEQUENCE)    @Style(displayN">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-27T06:38:34.881Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="thailandking">
-<meta name="twitter:description" content="personal blog">
+<meta name="twitter:title" content="前后端分离关于时间处理">
+<meta name="twitter:description" content="一、数据库 字段类型为Date  二、实体类1234567891011121314151617@Table(value = &quot;TB_USER&quot;)@Datapublic class User extends MpaasBasePojo &amp;#123;    @RowID(sequence = &quot;USER_S&quot;, type = RowIDType.SEQUENCE)    @Style(displayN">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -150,212 +151,196 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-前后端分离关于时间处理" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      前后端分离关于时间处理
+    </h1>
+  
+
+        
+        <a href="/2019/08/27/前后端分离关于时间处理/" class="archive-article-date">
+  	<time datetime="2019-08-27T06:23:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-27</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、数据库"><a href="#一、数据库" class="headerlink" title="一、数据库"></a>一、数据库</h2><ul>
+<li>字段类型为Date</li>
+</ul>
+<h2 id="二、实体类"><a href="#二、实体类" class="headerlink" title="二、实体类"></a>二、实体类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Table</span>(value = <span class="string">"TB_USER"</span>)</span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">MpaasBasePojo</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RowID</span>(sequence = <span class="string">"USER_S"</span>, type = RowIDType.SEQUENCE)</span><br><span class="line">    <span class="meta">@Style</span>(displayName = <span class="string">"工号"</span>, width = <span class="string">"10"</span>)</span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Style</span>(displayName = <span class="string">"姓名"</span>, width = <span class="string">"20"</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@Style</span>(displayName = <span class="string">"密码"</span>, width = <span class="string">"15"</span>)</span><br><span class="line">    <span class="keyword">private</span> String pass;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Date time;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Column</span>(type = ColumnType.JAVA)</span><br><span class="line">    <span class="keyword">private</span> String today;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="三、后端处理"><a href="#三、后端处理" class="headerlink" title="三、后端处理"></a>三、后端处理</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@Date</span> 2019/8/27 9:42</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@LastEditTime</span> 2019/8/27 9:42</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@Description</span> 前端时间存储问题</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/time"</span>,method = RequestMethod.POST)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Response <span class="title">testTime</span><span class="params">(@RequestBody User user)</span> <span class="keyword">throws</span> ParseException </span>&#123;</span><br><span class="line">    SimpleDateFormat sdf=<span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy/MM/dd hh:mm:ss"</span>);</span><br><span class="line">    Date date = sdf.parse(user.getToday());</span><br><span class="line">    user.setPass(<span class="string">"123"</span>);</span><br><span class="line">    user.setName(<span class="string">"sss"</span>);</span><br><span class="line">    user.setTime(date);</span><br><span class="line">    sw.buildQuery()</span><br><span class="line">        .doInsert(user);</span><br><span class="line">    <span class="keyword">return</span> Response.ok();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="四、前端调用"><a href="#四、前端调用" class="headerlink" title="四、前端调用"></a>四、前端调用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">$(function()&#123;</span><br><span class="line">    <span class="comment">//请求参数</span></span><br><span class="line">    <span class="keyword">var</span> today = <span class="string">"2019/8/27 10:38:17"</span>;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        <span class="comment">//请求方式</span></span><br><span class="line">        type : <span class="string">"POST"</span>,</span><br><span class="line">        <span class="comment">//请求的媒体类型</span></span><br><span class="line">        contentType: <span class="string">"application/json;charset=UTF-8"</span>,</span><br><span class="line">        <span class="comment">//请求地址</span></span><br><span class="line">        url : <span class="string">"http://127.0.0.1/test/time/"</span>,</span><br><span class="line">        <span class="comment">//数据，json字符串</span></span><br><span class="line">        data : JSON.stringify(today),</span><br><span class="line">        <span class="comment">//请求成功</span></span><br><span class="line">        success : function(result) &#123;</span><br><span class="line">            console.log(result);</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">//请求失败，包含具体的错误信息</span></span><br><span class="line">        error : function(e)&#123;</span><br><span class="line">            console.log(e.status);</span><br><span class="line">            console.log(e.responseText);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixinpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/23/Oracle基础知识/" class="archive-article-date">
-  	<time datetime="2019-07-23T02:00:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/23/Oracle基础知识/">Oracle基础知识</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">oracle</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">time</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/08/27/前后端分离关于时间处理/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/14/工具类/" class="archive-article-date">
-  	<time datetime="2019-07-14T03:13:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-14</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/08/26/springboot全局异常处理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">springboot全局异常处理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/14/工具类/">工具类</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">utils</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、数据库"><span class="toc-number">1.</span> <span class="toc-text">一、数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、实体类"><span class="toc-number">2.</span> <span class="toc-text">二、实体类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、后端处理"><span class="toc-number">3.</span> <span class="toc-text">三、后端处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、前端调用"><span class="toc-number">4.</span> <span class="toc-text">四、前端调用</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/14/设计模式/" class="archive-article-date">
-  	<time datetime="2019-07-14T02:31:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-14</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/14/设计模式/">设计模式</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">desgin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/13/springboot使用-data注解/" class="archive-article-date">
-  	<time datetime="2019-07-13T10:46:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/13/springboot使用-data注解/">springboot使用@data注解</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/08/Redis核心技术/" class="archive-article-date">
-  	<time datetime="2019-07-08T02:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/08/Redis核心技术/">Redis核心技术</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -374,8 +359,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
