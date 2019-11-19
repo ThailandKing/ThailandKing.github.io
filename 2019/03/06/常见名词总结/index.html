@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://thailandking.github.io">
   <title>Java常见名词总结 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="同步/异步同步:发送一个请求,等待返回,然后再发送下一个请求   异步:发送一个请求,不等待返回,随时可以再发送下一个请求    同步可以避免出现死锁，读脏数据的发生，一般共享某一资源的时候用，如果每个人都有修改权限，同时修改一个文件，有可能使一个人读取另一个人已经删除的内容，就会出错，同步就会按顺序来修改。  异步则是可以提高效率了，现在cpu都是双核，四核，异步处理的话可以同时做多项工作，当然">
+  <meta name="description" content="同步/异步 同步:发送一个请求,等待返回,然后再发送下一个请求    异步:发送一个请求,不等待返回,随时可以再发送下一个请求    同步可以避免出现死锁，读脏数据的发生，一般共享某一资源的时候用，如果每个人都有修改权限，同时修改一个文件，有可能使一个人读取另一个人已经删除的内容，就会出错，同步就会按顺序来修改。   异步则是可以提高效率了，现在cpu都是双核，四核，异步处理的话可以同时做多项工作">
 <meta name="keywords" content="word">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java常见名词总结">
 <meta property="og:url" content="https://thailandking.github.io/2019/03/06/常见名词总结/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="同步/异步同步:发送一个请求,等待返回,然后再发送下一个请求   异步:发送一个请求,不等待返回,随时可以再发送下一个请求    同步可以避免出现死锁，读脏数据的发生，一般共享某一资源的时候用，如果每个人都有修改权限，同时修改一个文件，有可能使一个人读取另一个人已经删除的内容，就会出错，同步就会按顺序来修改。  异步则是可以提高效率了，现在cpu都是双核，四核，异步处理的话可以同时做多项工作，当然">
+<meta property="og:description" content="同步/异步 同步:发送一个请求,等待返回,然后再发送下一个请求    异步:发送一个请求,不等待返回,随时可以再发送下一个请求    同步可以避免出现死锁，读脏数据的发生，一般共享某一资源的时候用，如果每个人都有修改权限，同时修改一个文件，有可能使一个人读取另一个人已经删除的内容，就会出错，同步就会按顺序来修改。   异步则是可以提高效率了，现在cpu都是双核，四核，异步处理的话可以同时做多项工作">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-23T08:31:00.762Z">
+<meta property="og:updated_time" content="2019-11-19T03:28:03.726Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java常见名词总结">
-<meta name="twitter:description" content="同步/异步同步:发送一个请求,等待返回,然后再发送下一个请求   异步:发送一个请求,不等待返回,随时可以再发送下一个请求    同步可以避免出现死锁，读脏数据的发生，一般共享某一资源的时候用，如果每个人都有修改权限，同时修改一个文件，有可能使一个人读取另一个人已经删除的内容，就会出错，同步就会按顺序来修改。  异步则是可以提高效率了，现在cpu都是双核，四核，异步处理的话可以同时做多项工作，当然">
+<meta name="twitter:description" content="同步/异步 同步:发送一个请求,等待返回,然后再发送下一个请求    异步:发送一个请求,不等待返回,随时可以再发送下一个请求    同步可以避免出现死锁，读脏数据的发生，一般共享某一资源的时候用，如果每个人都有修改权限，同时修改一个文件，有可能使一个人读取另一个人已经删除的内容，就会出错，同步就会按顺序来修改。   异步则是可以提高效率了，现在cpu都是双核，四核，异步处理的话可以同时做多项工作">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -171,31 +171,43 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="同步-异步"><a href="#同步-异步" class="headerlink" title="同步/异步"></a>同步/异步</h2><p>同步:发送一个请求,等待返回,然后再发送下一个请求  </p>
-<p>异步:发送一个请求,不等待返回,随时可以再发送下一个请求  </p>
-<ul>
-<li>同步可以避免出现死锁，读脏数据的发生，一般共享某一资源的时候用，如果每个人都有修改权限，同时修改一个文件，有可能使一个人读取另一个人已经删除的内容，就会出错，同步就会按顺序来修改。 </li>
+        <h2 id="同步-异步"><a href="#同步-异步" class="headerlink" title="同步/异步"></a>同步/异步</h2><ul>
+<li><p>同步:发送一个请求,等待返回,然后再发送下一个请求  </p>
+</li>
+<li><p>异步:发送一个请求,不等待返回,随时可以再发送下一个请求  </p>
+</li>
+<li><p>同步可以避免出现死锁，读脏数据的发生，一般共享某一资源的时候用，如果每个人都有修改权限，同时修改一个文件，有可能使一个人读取另一个人已经删除的内容，就会出错，同步就会按顺序来修改。 </p>
+</li>
 <li>异步则是可以提高效率了，现在cpu都是双核，四核，异步处理的话可以同时做多项工作，当然必须保证是可以并发处理的。 </li>
 <li>同步和异步最大的区别就在于。一个需要等待，一个不需要等待。 </li>
 <li>比如广播，就是一个异步例子。发起者不关心接收者的状态。不需要等待接收者的返回信息</li>
 <li>电话，就是一个同步例子。发起者需要等待接收者，接通电话后，通信才开始。需要等待接收者的返回信息 </li>
 </ul>
 <a id="more"></a>
-<h2 id="阻塞-非阻塞"><a href="#阻塞-非阻塞" class="headerlink" title="阻塞/非阻塞"></a>阻塞/非阻塞</h2><p>阻塞：是指调用结果返回之前，当前线程会被挂起。函数只有在得到结果之后才会返回。 </p>
-<p>非阻塞：指在不能立刻得到结果之前，该函数不会阻塞当前线程，而会立刻返回 </p>
-<ul>
-<li>传统的 IO 流都是阻塞式的。也就是说，当一个线程调用 read() 或 write()时，该线程被阻塞，直到有一些数据被读取或写入，该线程在此期间不能执行其他任务。因此，在完成网络通信进行 IO 操作时，由于线程会阻塞，所以服务器端必须为每个客户端都提供一个独立的线程进行处理，当服务器端需要处理大量客户端时，性能急剧下降。</li>
+<h2 id="阻塞-非阻塞"><a href="#阻塞-非阻塞" class="headerlink" title="阻塞/非阻塞"></a>阻塞/非阻塞</h2><ul>
+<li><p>阻塞：是指调用结果返回之前，当前线程会被挂起。函数只有在得到结果之后才会返回。 </p>
+</li>
+<li><p>非阻塞：指在不能立刻得到结果之前，该函数不会阻塞当前线程，而会立刻返回 </p>
+</li>
+<li><p>传统的 IO 流都是阻塞式的。也就是说，当一个线程调用 read() 或 write()时，该线程被阻塞，直到有一些数据被读取或写入，该线程在此期间不能执行其他任务。因此，在完成网络通信进行 IO 操作时，由于线程会阻塞，所以服务器端必须为每个客户端都提供一个独立的线程进行处理，当服务器端需要处理大量客户端时，性能急剧下降。</p>
+</li>
 <li>Java NIO 是非阻塞模式的。当线程从某通道进行读写数据时，若没有数据可用时，该线程可以进行其他任务。线程通常将非阻塞 IO 的空闲时间用于在其他通道上执行 IO 操作，所以单独的线程可以管理多个输入和输出通道。因此，NIO 可以让服务器端使用一个或有限几个线程来同时处理连接到服务器端的所有客户端。</li>
 </ul>
-<h2 id="并发-并行"><a href="#并发-并行" class="headerlink" title="并发/并行"></a>并发/并行</h2><p>并行：是两个任务同时运行(需要多核CPU)  </p>
-<p>并发：指两个任务都请求运行，而处理器只能按受一个任务，就把这两个任务安排轮流进行，由于时间间隔较短，使人感觉两个任务都在运行。（表面看是CPU在同时执行多个任务，其实实际上是因为CPU瞬间切换到其他任务的速度特别快，在不同的任务之间一直在不停的切换，给不同的任务分配了不同的时间。）</p>
-<ul>
-<li>比如我跟两个网友聊天，左手操作一个电脑跟甲聊，同时右手用另一台电脑跟乙聊天，这就叫并行。</li>
+<h2 id="并发-并行"><a href="#并发-并行" class="headerlink" title="并发/并行"></a>并发/并行</h2><ul>
+<li><p>并行：是两个任务同时运行(需要多核CPU)  </p>
+</li>
+<li><p>并发：指两个任务都请求运行，而处理器只能按受一个任务，就把这两个任务安排轮流进行，由于时间间隔较短，使人感觉两个任务都在运行。（表面看是CPU在同时执行多个任务，其实实际上是因为CPU瞬间切换到其他任务的速度特别快，在不同的任务之间一直在不停的切换，给不同的任务分配了不同的时间。）</p>
+</li>
+<li><p>比如我跟两个网友聊天，左手操作一个电脑跟甲聊，同时右手用另一台电脑跟乙聊天，这就叫并行。</p>
+</li>
 <li>如果用一台电脑我先给甲发个消息，然后立刻再给乙发消息，然后再跟甲聊，再跟乙聊。这就叫并发。  </li>
 </ul>
-<p>版权声明：本文为博主原创文章，转载请附上博文链接！</p>
-<h2 id="单核-多核"><a href="#单核-多核" class="headerlink" title="单核/多核"></a>单核/多核</h2><p>单核可以并发（通过上下文切换）</p>
-<p>多核可以并行</p>
+<h2 id="单核-多核"><a href="#单核-多核" class="headerlink" title="单核/多核"></a>单核/多核</h2><ul>
+<li><p>单核可以并发（通过上下文切换）</p>
+</li>
+<li><p>多核可以并行</p>
+</li>
+</ul>
 <h2 id="DDL-DML-DCL"><a href="#DDL-DML-DCL" class="headerlink" title="DDL/DML/DCL"></a>DDL/DML/DCL</h2><ul>
 <li>DML（data manipulation language）数据操纵语言：SELECT、UPDATE、INSERT、DELETE</li>
 <li>DDL（data definition language）数据库定义语言：CREATE、ALTER、DROP</li>
@@ -208,14 +220,18 @@
 <p>OLTP适用于事务并发，OLAP适用于数据清洗分析</p>
 <h2 id="缓冲-缓存"><a href="#缓冲-缓存" class="headerlink" title="缓冲/缓存"></a>缓冲/缓存</h2><ul>
 <li>缓冲（buffer）缓解冲击：比如你每秒要写100次硬盘，对系统冲击很大，用个buffer暂存起来，变成每秒写10次硬盘，对系统的冲击就很小</li>
-<li>缓存（cache）缓和存储：比如一个很复杂的计算做完了，把结果存起来，下次不用再算了，加快了数据取用的速度</li>
+<li><p>缓存（cache）缓和存储：比如一个很复杂的计算做完了，把结果存起来，下次不用再算了，加快了数据取用的速度</p>
+</li>
+<li><p>缓冲侧重于写，缓存侧重于读</p>
+</li>
 </ul>
-<p>缓冲侧重于写，缓存侧重于读</p>
 <h2 id="BLOB-TEXT"><a href="#BLOB-TEXT" class="headerlink" title="BLOB/TEXT"></a>BLOB/TEXT</h2><ul>
 <li>BLOB被视为二进制字符串(字节字符串)，无字符集</li>
-<li>TEXT被视为非二进制字符串(字符字符串)，有字符集</li>
+<li><p>TEXT被视为非二进制字符串(字符字符串)，有字符集</p>
+</li>
+<li><p>BLOB倾向于存储图片、视频、音频数据，TEXT倾向于存储文章、长文本</p>
+</li>
 </ul>
-<p>BLOB倾向于存储图片、视频、音频数据，TEXT倾向于存储文章、长文本</p>
 <h2 id="UNION-UNION-ALL"><a href="#UNION-UNION-ALL" class="headerlink" title="UNION/UNION ALL"></a>UNION/UNION ALL</h2><ul>
 <li>union返回去重后的结果集</li>
 <li>union all返回所有结果集</li>
@@ -327,6 +343,29 @@
 <li>OPTIONS：预检</li>
 <li>规范要求，对那些可能对服务器数据产生副作用的 HTTP 请求方法（特别是 GET 以外的 HTTP 请求，或者搭配某些 MIME 类型的 POST 请求），浏览器必须首先使用 OPTIONS 方法发起一个预检请求（preflight request），从而获知服务端是否允许该跨域请求和支持的请求方法</li>
 <li><a href="https://juejin.im/post/5cb3eedcf265da038f7734c4" target="_blank" rel="noopener">什么时候会发送options请求</a></li>
+</ul>
+<h2 id="XSS攻击"><a href="#XSS攻击" class="headerlink" title="XSS攻击"></a>XSS攻击</h2><ul>
+<li>Cross-Site Scripting（跨站脚本攻击） </li>
+<li>攻击者通过在目标网站上注入恶意脚本，使之在用户的浏览器上运行。利用这些恶意脚本，攻击者可获取用户的敏感信息如 Cookie、SessionID 等，进而危害数据安全</li>
+<li>输入过滤；限制输入长度</li>
+<li><a href="https://segmentfault.com/a/1190000016551188" target="_blank" rel="noopener">XSS攻击详解</a></li>
+</ul>
+<h2 id="CSRF攻击"><a href="#CSRF攻击" class="headerlink" title="CSRF攻击"></a>CSRF攻击</h2><ul>
+<li>Cross-Site Request Forgery（跨站请求伪造）</li>
+<li>攻击者盗用了你的身份，以你的名义发送恶意请求，对服务器来说这个请求是完全合法的，但是却完成了攻击者所期望的一个操作</li>
+<li>验证HTTP Referer字段（记录来源地址）；Token验证</li>
+<li><a href="https://blog.csdn.net/stpeace/article/details/53512283" target="_blank" rel="noopener">CSRF攻击详解</a></li>
+</ul>
+<h2 id="TCP粘包"><a href="#TCP粘包" class="headerlink" title="TCP粘包"></a>TCP粘包</h2><ul>
+<li>发送方发送的若干包数据到接收方接收时粘成一包，从接收缓冲区看，后一包数据的头紧接着前一包数据的尾 </li>
+<li>应用层处理：格式化数据；发送数据长度</li>
+<li><a href="https://www.cnblogs.com/qiaoconglovelife/p/5733247.html" target="_blank" rel="noopener">TCP粘包现象</a></li>
+</ul>
+<h2 id="OA-BPM-ERP"><a href="#OA-BPM-ERP" class="headerlink" title="OA/BPM/ERP"></a>OA/BPM/ERP</h2><ul>
+<li>OA(Office Automation)办公自动化，是指通过计算机网络来实现现代化的办公 </li>
+<li>BPM(Business Process Management)业务流程管理，是指通过规范化的业务流程，来高效的提升企业业务管理能力和自动化 </li>
+<li>ERP(Enterprise Resource Planning)企业资源管理</li>
+<li>OA主要管人，BPM主要管业务  </li>
 </ul>
 
       
@@ -480,7 +519,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#同步-异步"><span class="toc-number">1.</span> <span class="toc-text">同步/异步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#阻塞-非阻塞"><span class="toc-number">2.</span> <span class="toc-text">阻塞/非阻塞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并发-并行"><span class="toc-number">3.</span> <span class="toc-text">并发/并行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单核-多核"><span class="toc-number">4.</span> <span class="toc-text">单核/多核</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DDL-DML-DCL"><span class="toc-number">5.</span> <span class="toc-text">DDL/DML/DCL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OLTP-OLAP"><span class="toc-number">6.</span> <span class="toc-text">OLTP/OLAP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缓冲-缓存"><span class="toc-number">7.</span> <span class="toc-text">缓冲/缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BLOB-TEXT"><span class="toc-number">8.</span> <span class="toc-text">BLOB/TEXT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UNION-UNION-ALL"><span class="toc-number">9.</span> <span class="toc-text">UNION/UNION ALL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#URI-URL"><span class="toc-number">10.</span> <span class="toc-text">URI/URL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进程通信-线程通信"><span class="toc-number">11.</span> <span class="toc-text">进程通信/线程通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RAM-ROM-FLASH"><span class="toc-number">12.</span> <span class="toc-text">RAM/ROM/FLASH</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx功能"><span class="toc-number">13.</span> <span class="toc-text">Nginx功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原码-反码-补码"><span class="toc-number">14.</span> <span class="toc-text">原码/反码/补码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Executor-ExecutorService-Executors-ThreadPoolExecutor"><span class="toc-number">15.</span> <span class="toc-text">Executor/ExecutorService/Executors/ThreadPoolExecutor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库三范式"><span class="toc-number">16.</span> <span class="toc-text">数据库三范式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主键-唯一索引"><span class="toc-number">17.</span> <span class="toc-text">主键/唯一索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSV-EXCEL"><span class="toc-number">18.</span> <span class="toc-text">CSV/EXCEL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DEV-TEST-PROD"><span class="toc-number">19.</span> <span class="toc-text">DEV/TEST/PROD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RequestParam-RequestBody"><span class="toc-number">20.</span> <span class="toc-text">@RequestParam/@RequestBody</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BPM-SOA-IDM-ADF-ESB-WebCenter"><span class="toc-number">21.</span> <span class="toc-text">BPM/SOA/IDM/ADF/ESB/WebCenter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3V-3高"><span class="toc-number">22.</span> <span class="toc-text">3V/3高</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#lt-le-eq-ne-ge-gt"><span class="toc-number"></span> <span class="toc-text">lt / le / eq / ne / ge / gt</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#堡垒机"><span class="toc-number">1.</span> <span class="toc-text">堡垒机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#POST-DELETE-PUT-GET-OPTIONS"><span class="toc-number">2.</span> <span class="toc-text">POST/DELETE/PUT/GET/OPTIONS</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#同步-异步"><span class="toc-number">1.</span> <span class="toc-text">同步/异步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#阻塞-非阻塞"><span class="toc-number">2.</span> <span class="toc-text">阻塞/非阻塞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并发-并行"><span class="toc-number">3.</span> <span class="toc-text">并发/并行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单核-多核"><span class="toc-number">4.</span> <span class="toc-text">单核/多核</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DDL-DML-DCL"><span class="toc-number">5.</span> <span class="toc-text">DDL/DML/DCL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OLTP-OLAP"><span class="toc-number">6.</span> <span class="toc-text">OLTP/OLAP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缓冲-缓存"><span class="toc-number">7.</span> <span class="toc-text">缓冲/缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BLOB-TEXT"><span class="toc-number">8.</span> <span class="toc-text">BLOB/TEXT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UNION-UNION-ALL"><span class="toc-number">9.</span> <span class="toc-text">UNION/UNION ALL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#URI-URL"><span class="toc-number">10.</span> <span class="toc-text">URI/URL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进程通信-线程通信"><span class="toc-number">11.</span> <span class="toc-text">进程通信/线程通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RAM-ROM-FLASH"><span class="toc-number">12.</span> <span class="toc-text">RAM/ROM/FLASH</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx功能"><span class="toc-number">13.</span> <span class="toc-text">Nginx功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原码-反码-补码"><span class="toc-number">14.</span> <span class="toc-text">原码/反码/补码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Executor-ExecutorService-Executors-ThreadPoolExecutor"><span class="toc-number">15.</span> <span class="toc-text">Executor/ExecutorService/Executors/ThreadPoolExecutor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库三范式"><span class="toc-number">16.</span> <span class="toc-text">数据库三范式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主键-唯一索引"><span class="toc-number">17.</span> <span class="toc-text">主键/唯一索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSV-EXCEL"><span class="toc-number">18.</span> <span class="toc-text">CSV/EXCEL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DEV-TEST-PROD"><span class="toc-number">19.</span> <span class="toc-text">DEV/TEST/PROD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RequestParam-RequestBody"><span class="toc-number">20.</span> <span class="toc-text">@RequestParam/@RequestBody</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BPM-SOA-IDM-ADF-ESB-WebCenter"><span class="toc-number">21.</span> <span class="toc-text">BPM/SOA/IDM/ADF/ESB/WebCenter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3V-3高"><span class="toc-number">22.</span> <span class="toc-text">3V/3高</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#lt-le-eq-ne-ge-gt"><span class="toc-number"></span> <span class="toc-text">lt / le / eq / ne / ge / gt</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#堡垒机"><span class="toc-number">1.</span> <span class="toc-text">堡垒机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#POST-DELETE-PUT-GET-OPTIONS"><span class="toc-number">2.</span> <span class="toc-text">POST/DELETE/PUT/GET/OPTIONS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XSS攻击"><span class="toc-number">3.</span> <span class="toc-text">XSS攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSRF攻击"><span class="toc-number">4.</span> <span class="toc-text">CSRF攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP粘包"><span class="toc-number">5.</span> <span class="toc-text">TCP粘包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OA-BPM-ERP"><span class="toc-number">6.</span> <span class="toc-text">OA/BPM/ERP</span></a></li></ol>
                     </li></div>
                 </span>
             </div>
@@ -585,11 +624,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -601,11 +640,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
+                <a href="javascript:void(0)" class="js-tag color5">time</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">time</a>
+                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -613,11 +652,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
+                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -625,11 +660,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">java8</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -641,11 +672,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sso</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -661,10 +700,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
               </li>
              
@@ -673,7 +708,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -685,6 +720,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">data</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">transient</a>
               </li>
              
@@ -693,11 +736,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+                <a href="javascript:void(0)" class="js-tag color4">cap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -709,11 +752,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -721,7 +764,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
+                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -729,15 +772,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
+                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">serializable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -786,6 +825,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">utils</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">thread</a>
               </li>
             
             <div class="clearfix"></div>

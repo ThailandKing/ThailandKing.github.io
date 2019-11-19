@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://thailandking.github.io">
   <title>巧用Arrays工具类 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="toString将数组中的数据转换为字符串形式输出 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;System.out.println(Arrays.toString(arr)); sort将数组中的元素进行排序 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;Arrays.sort(arr);">
+  <meta name="description" content="一、toString将数组中的数据转换为字符串形式输出 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;System.out.println(Arrays.toString(arr)); 二、sort将数组中的元素进行排序 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;Arrays.sort(arr);">
 <meta name="keywords" content="java,Arrays">
 <meta property="og:type" content="article">
 <meta property="og:title" content="巧用Arrays工具类">
 <meta property="og:url" content="https://thailandking.github.io/2019/03/03/巧用Arrays工具类/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="toString将数组中的数据转换为字符串形式输出 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;System.out.println(Arrays.toString(arr)); sort将数组中的元素进行排序 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;Arrays.sort(arr);">
+<meta property="og:description" content="一、toString将数组中的数据转换为字符串形式输出 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;System.out.println(Arrays.toString(arr)); 二、sort将数组中的元素进行排序 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;Arrays.sort(arr);">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-03T14:15:15.560Z">
+<meta property="og:updated_time" content="2019-11-13T01:43:29.716Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="巧用Arrays工具类">
-<meta name="twitter:description" content="toString将数组中的数据转换为字符串形式输出 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;System.out.println(Arrays.toString(arr)); sort将数组中的元素进行排序 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;Arrays.sort(arr);">
+<meta name="twitter:description" content="一、toString将数组中的数据转换为字符串形式输出 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;System.out.println(Arrays.toString(arr)); 二、sort将数组中的元素进行排序 12Integer[] arr=&amp;#123;1,2,3&amp;#125;;Arrays.sort(arr);">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -171,19 +171,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString"></a>toString</h2><p>将数组中的数据转换为字符串形式输出</p>
+        <h2 id="一、toString"><a href="#一、toString" class="headerlink" title="一、toString"></a>一、toString</h2><p>将数组中的数据转换为字符串形式输出</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer[] arr=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">System.out.println(Arrays.toString(arr));</span><br></pre></td></tr></table></figure>
-<h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><p>将数组中的元素进行排序</p>
+<h2 id="二、sort"><a href="#二、sort" class="headerlink" title="二、sort"></a>二、sort</h2><p>将数组中的元素进行排序</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer[] arr=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">Arrays.sort(arr);</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="binarySearch"><a href="#binarySearch" class="headerlink" title="binarySearch"></a>binarySearch</h2><p>二分查找数组中指定元素</p>
+<h2 id="三、binarySearch"><a href="#三、binarySearch" class="headerlink" title="三、binarySearch"></a>三、binarySearch</h2><p>二分查找数组中指定元素</p>
 <p>传入数组必须有序</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer[] arr=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> index=Arrays.binarySearch(arr,<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="asList"><a href="#asList" class="headerlink" title="asList"></a>asList</h2><p>将数组转换为集合，集合不能进行操作（添加、移除等）</p>
+<h2 id="四、asList"><a href="#四、asList" class="headerlink" title="四、asList"></a>四、asList</h2><p>将数组转换为集合，集合不能进行操作（添加、移除等）</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread <span class="string">"main"</span> java.lang.UnsupportedOperationException</span><br></pre></td></tr></table></figure>
 <p>数组必须为引用类型（Integer/int）</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//int[] arr=&#123;1,2,3&#125;;</span></span><br><span class="line">Integer[] arr=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">List&lt;Integer&gt; list = Arrays.asList(arr);</span><br><span class="line"><span class="comment">//list.add(4);</span></span><br><span class="line"><span class="keyword">for</span>(Integer a:list)&#123;</span><br><span class="line">    System.out.println(a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="copyOf"><a href="#copyOf" class="headerlink" title="copyOf"></a>copyOf</h2><p>数组拷贝</p>
+<h2 id="五、copyOf"><a href="#五、copyOf" class="headerlink" title="五、copyOf"></a>五、copyOf</h2><p>数组拷贝</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] arr=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">int</span>[] copy = Arrays.copyOf(arr, arr.length + <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
 
       
@@ -341,7 +341,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#toString-NaN"><span class="toc-number">1.</span> <span class="toc-text">toString</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sort"><span class="toc-number">2.</span> <span class="toc-text">sort</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#binarySearch"><span class="toc-number">3.</span> <span class="toc-text">binarySearch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#asList"><span class="toc-number">4.</span> <span class="toc-text">asList</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#copyOf"><span class="toc-number">5.</span> <span class="toc-text">copyOf</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、toString"><span class="toc-number">1.</span> <span class="toc-text">一、toString</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、sort"><span class="toc-number">2.</span> <span class="toc-text">二、sort</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、binarySearch"><span class="toc-number">3.</span> <span class="toc-text">三、binarySearch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、asList"><span class="toc-number">4.</span> <span class="toc-text">四、asList</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、copyOf"><span class="toc-number">5.</span> <span class="toc-text">五、copyOf</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -446,11 +446,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -462,11 +462,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
+                <a href="javascript:void(0)" class="js-tag color5">time</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">time</a>
+                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -474,11 +474,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
+                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -486,11 +482,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">java8</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,11 +494,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sso</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,10 +522,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
               </li>
              
@@ -534,7 +530,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -546,6 +542,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">data</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">transient</a>
               </li>
              
@@ -554,11 +558,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+                <a href="javascript:void(0)" class="js-tag color4">cap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -570,11 +574,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -582,7 +586,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
+                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,15 +594,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
+                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">serializable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -647,6 +647,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">utils</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">thread</a>
               </li>
             
             <div class="clearfix"></div>
