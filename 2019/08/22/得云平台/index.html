@@ -41,7 +41,12 @@
 <meta property="og:image" content="https://thailandking.github.io/2019/08/22/得云平台/34.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/08/22/得云平台/35.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/08/22/得云平台/36.png">
-<meta property="og:updated_time" content="2019-09-27T02:51:26.450Z">
+<meta property="og:image" content="https://thailandking.github.io/2019/08/22/得云平台/41.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/08/22/得云平台/42.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/08/22/得云平台/43.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/08/22/得云平台/44.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/08/22/得云平台/45.png">
+<meta property="og:updated_time" content="2019-11-22T06:52:04.008Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="得云平台">
 <meta name="twitter:description" content="一、BPM项目部署1、导出Jar包">
@@ -223,6 +228,15 @@
 <p><img src="/2019/08/22/得云平台/34.png" alt></p>
 <p><img src="/2019/08/22/得云平台/35.png" alt></p>
 <p><img src="/2019/08/22/得云平台/36.png" alt></p>
+<h2 id="四、workspace流程变更"><a href="#四、workspace流程变更" class="headerlink" title="四、workspace流程变更"></a>四、workspace流程变更</h2><h3 id="1、获取documentId"><a href="#1、获取documentId" class="headerlink" title="1、获取documentId"></a>1、获取documentId</h3><p><img src="/2019/08/22/得云平台/41.png" alt></p>
+<ul>
+<li>控制台打开调试模式，找到响应报文，获取documentId字段</li>
+</ul>
+<p><img src="/2019/08/22/得云平台/42.png" alt></p>
+<h3 id="2、获取InstanceId"><a href="#2、获取InstanceId" class="headerlink" title="2、获取InstanceId"></a>2、获取InstanceId</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> dbpm_documents <span class="keyword">where</span> document_id = <span class="string">'20126'</span>;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/08/22/得云平台/43.png" alt></p>
+<h3 id="3、获取流程实例"><a href="#3、获取流程实例" class="headerlink" title="3、获取流程实例"></a>3、获取流程实例</h3><p><img src="/2019/08/22/得云平台/44.png" alt></p>
+<h3 id="4、变更流程"><a href="#4、变更流程" class="headerlink" title="4、变更流程"></a>4、变更流程</h3><p><img src="/2019/08/22/得云平台/45.png" alt></p>
 
       
 
@@ -375,7 +389,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、BPM项目部署"><span class="toc-number">1.</span> <span class="toc-text">一、BPM项目部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、导出Jar包"><span class="toc-number">1.1.</span> <span class="toc-text">1、导出Jar包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、部署到-SOA-的-em-管理平台"><span class="toc-number">1.2.</span> <span class="toc-text">2、部署到 SOA 的 em 管理平台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、测试"><span class="toc-number">1.3.</span> <span class="toc-text">3、测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Service-Bus查看接口调用"><span class="toc-number">2.</span> <span class="toc-text">二、Service Bus查看接口调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、EM平台流程抓取"><span class="toc-number">3.</span> <span class="toc-text">三、EM平台流程抓取</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、BPM项目部署"><span class="toc-number">1.</span> <span class="toc-text">一、BPM项目部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、导出Jar包"><span class="toc-number">1.1.</span> <span class="toc-text">1、导出Jar包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、部署到-SOA-的-em-管理平台"><span class="toc-number">1.2.</span> <span class="toc-text">2、部署到 SOA 的 em 管理平台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、测试"><span class="toc-number">1.3.</span> <span class="toc-text">3、测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Service-Bus查看接口调用"><span class="toc-number">2.</span> <span class="toc-text">二、Service Bus查看接口调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、EM平台流程抓取"><span class="toc-number">3.</span> <span class="toc-text">三、EM平台流程抓取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、workspace流程变更"><span class="toc-number">4.</span> <span class="toc-text">四、workspace流程变更</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、获取documentId"><span class="toc-number">4.1.</span> <span class="toc-text">1、获取documentId</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、获取InstanceId"><span class="toc-number">4.2.</span> <span class="toc-text">2、获取InstanceId</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、获取流程实例"><span class="toc-number">4.3.</span> <span class="toc-text">3、获取流程实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、变更流程"><span class="toc-number">4.4.</span> <span class="toc-text">4、变更流程</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -496,11 +510,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">time</a>
+                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
+                <a href="javascript:void(0)" class="js-tag color5">time</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -512,6 +526,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
@@ -520,15 +538,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -536,7 +546,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -548,11 +558,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tcp</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">udp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -564,23 +590,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -589,6 +599,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">volatile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">data</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -612,15 +630,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">swap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -628,11 +638,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
+                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
               </li>
              
               <li class="article-tag-list-item">
