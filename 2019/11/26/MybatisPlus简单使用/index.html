@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>Archives: 2019 | thailandking</title>
+  <title>MybatisPlus简单使用 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="personal blog">
-<meta name="keywords" content="computer，programming">
-<meta property="og:type" content="website">
-<meta property="og:title" content="thailandking">
-<meta property="og:url" content="https://thailandking.github.io/archives/2019/page/7/index.html">
+  <meta name="description" content="一、简介 MybatisPlus简称MP，是Mybatis的增强工具，只做增强，不做改变，为简化开发而生  二、特性 强大的CRUD操作 支持主键自动生成 内置代码生成器 内置分页插件、性能分析插件、全局拦截插件">
+<meta name="keywords" content="mybatis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MybatisPlus简单使用">
+<meta property="og:url" content="https://thailandking.github.io/2019/11/26/MybatisPlus简单使用/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="personal blog">
+<meta property="og:description" content="一、简介 MybatisPlus简称MP，是Mybatis的增强工具，只做增强，不做改变，为简化开发而生  二、特性 强大的CRUD操作 支持主键自动生成 内置代码生成器 内置分页插件、性能分析插件、全局拦截插件">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-27T08:24:33.394Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="thailandking">
-<meta name="twitter:description" content="personal blog">
+<meta name="twitter:title" content="MybatisPlus简单使用">
+<meta name="twitter:description" content="一、简介 MybatisPlus简称MP，是Mybatis的增强工具，只做增强，不做改变，为简化开发而生  二、特性 强大的CRUD操作 支持主键自动生成 内置代码生成器 内置分页插件、性能分析插件、全局拦截插件">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -150,453 +151,272 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-MybatisPlus简单使用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MybatisPlus简单使用
+    </h1>
+  
+
+        
+        <a href="/2019/11/26/MybatisPlus简单使用/" class="archive-article-date">
+  	<time datetime="2019-11-26T08:56:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><ul>
+<li>MybatisPlus简称MP，是Mybatis的增强工具，只做增强，不做改变，为简化开发而生</li>
+</ul>
+<h2 id="二、特性"><a href="#二、特性" class="headerlink" title="二、特性"></a>二、特性</h2><ul>
+<li>强大的CRUD操作</li>
+<li>支持主键自动生成</li>
+<li>内置代码生成器</li>
+<li>内置分页插件、性能分析插件、全局拦截插件</li>
+</ul>
+<a id="more"></a>
+<h2 id="三、创建并初始化数据库"><a href="#三、创建并初始化数据库" class="headerlink" title="三、创建并初始化数据库"></a>三、创建并初始化数据库</h2><ul>
+<li>采用MySQL数据库</li>
+<li>数据库名为mybatis_plus</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE IF EXISTS user;</span><br><span class="line"></span><br><span class="line">CREATE TABLE user</span><br><span class="line">(</span><br><span class="line">    id BIGINT(20) NOT NULL COMMENT &apos;主键ID&apos;,</span><br><span class="line">    name VARCHAR(30) NULL DEFAULT NULL COMMENT &apos;姓名&apos;,</span><br><span class="line">    age INT(11) NULL DEFAULT NULL COMMENT &apos;年龄&apos;,</span><br><span class="line">    email VARCHAR(50) NULL DEFAULT NULL COMMENT &apos;邮箱&apos;,</span><br><span class="line">    PRIMARY KEY (id)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM user;</span><br><span class="line"></span><br><span class="line">INSERT INTO user (id, name, age, email) VALUES</span><br><span class="line">(1, &apos;Jone&apos;, 18, &apos;test1@baomidou.com&apos;),</span><br><span class="line">(2, &apos;Jack&apos;, 20, &apos;test2@baomidou.com&apos;),</span><br><span class="line">(3, &apos;Tom&apos;, 28, &apos;test3@baomidou.com&apos;),</span><br><span class="line">(4, &apos;Sandy&apos;, 21, &apos;test4@baomidou.com&apos;),</span><br><span class="line">(5, &apos;Billie&apos;, 24, &apos;test5@baomidou.com&apos;);</span><br></pre></td></tr></table></figure>
+<h2 id="四、创建工程"><a href="#四、创建工程" class="headerlink" title="四、创建工程"></a>四、创建工程</h2><ul>
+<li>集成springboot使用，2.0.7稳定版本</li>
+<li>引入 <code>MyBatis-Plus</code> 之后请不要再次引入 <code>MyBatis</code> 以及 <code>MyBatis-Spring</code>，以避免因版本差异导致的问题</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.7.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;</span><br><span class="line">&lt;/parent&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</span><br><span class="line">    &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--mybatis-plus--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.baomidou&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.0.7&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--mysql--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--lombok用来简化实体类--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;lombok&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="五、配置"><a href="#五、配置" class="headerlink" title="五、配置"></a>五、配置</h2><ul>
+<li>配置application.properties</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#mysql数据库连接</span><br><span class="line">spring.datasource.driver-class-name=com.mysql.jdbc.Driver</span><br><span class="line">spring.datasource.url=jdbc:mysql://localhost:3306/mybatis_plus</span><br><span class="line">spring.datasource.username=root</span><br><span class="line">spring.datasource.password=root</span><br><span class="line"></span><br><span class="line">#mybatis日志</span><br><span class="line">mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl</span><br><span class="line"></span><br><span class="line">#逻辑删除</span><br><span class="line">mybatis-plus.global-config.db-config.logic-delete-value=1</span><br><span class="line">mybatis-plus.global-config.db-config.logic-not-delete-value=0</span><br></pre></td></tr></table></figure>
+<h2 id="六、代码编写"><a href="#六、代码编写" class="headerlink" title="六、代码编写"></a>六、代码编写</h2><h3 id="1、配置扫描包"><a href="#1、配置扫描包" class="headerlink" title="1、配置扫描包"></a>1、配置扫描包</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@MapperScan</span>(<span class="string">"com.it.shw.mapper"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="2、创建实体类"><a href="#2、创建实体类" class="headerlink" title="2、创建实体类"></a>2、创建实体类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="meta">@TableId</span>(type = IdType.ID_WORKER)</span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> String email;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3、创建Mapper"><a href="#3、创建Mapper" class="headerlink" title="3、创建Mapper"></a>3、创建Mapper</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserMapper</span> <span class="keyword">extends</span> <span class="title">BaseMapper</span>&lt;<span class="title">User</span>&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4、Insert"><a href="#4、Insert" class="headerlink" title="4、Insert"></a>4、Insert</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testInsert</span><span class="params">()</span></span>&#123;</span><br><span class="line">    User user = <span class="keyword">new</span> User();</span><br><span class="line">    user.setName(<span class="string">"yhb"</span>);</span><br><span class="line">    user.setAge(<span class="number">21</span>);</span><br><span class="line">    user.setEmail(<span class="string">"yhb@qq.com"</span>);</span><br><span class="line">    <span class="keyword">int</span> insert = userMapper.insert(user);</span><br><span class="line">    System.out.println(insert);</span><br><span class="line">    System.out.println(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5、Delete"><a href="#5、Delete" class="headerlink" title="5、Delete"></a>5、Delete</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDeleted</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> delete = userMapper.deleteById(<span class="number">1198476065534668801L</span>);</span><br><span class="line">    System.out.println(delete);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="6、Update"><a href="#6、Update" class="headerlink" title="6、Update"></a>6、Update</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdate</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//查询</span></span><br><span class="line">    User user = <span class="keyword">new</span> User();</span><br><span class="line">    user.setId(<span class="number">1L</span>);</span><br><span class="line">    <span class="comment">//修改数据</span></span><br><span class="line">    user.setName(<span class="string">"Helen Yao"</span>);</span><br><span class="line">    user.setEmail(<span class="string">"helen@qq.com"</span>);</span><br><span class="line">    <span class="comment">//执行更新</span></span><br><span class="line">    userMapper.updateById(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="7、Select"><a href="#7、Select" class="headerlink" title="7、Select"></a>7、Select</h3><ul>
+<li>高级多条件查询可利用条件构造器wrapper</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;User&gt; userList = userMapper.selectList(<span class="keyword">null</span>);</span><br><span class="line">    userList.forEach(System.out::println);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="七、主键生成策略"><a href="#七、主键生成策略" class="headerlink" title="七、主键生成策略"></a>七、主键生成策略</h2><ul>
+<li>默认ID_WORKER</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> IdType &#123;</span><br><span class="line">    AUTO(<span class="number">0</span>),</span><br><span class="line">    NONE(<span class="number">1</span>),</span><br><span class="line">    INPUT(<span class="number">2</span>),</span><br><span class="line">    ID_WORKER(<span class="number">3</span>),</span><br><span class="line">    UUID(<span class="number">4</span>),</span><br><span class="line">    ID_WORKER_STR(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> key;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">IdType</span><span class="params">(<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.key = key;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getKey</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.key;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>AUTO：自动递增，数据库字段为自动递增</li>
+<li>NONE：无操作</li>
+<li>INPUT：需要手动赋值</li>
+<li>ID_WORKER：雪花算法生成（Integer/Long）</li>
+<li>ID_WORKER_STR：雪花算法生成（String）</li>
+<li>UUID：随机字符串</li>
+</ul>
+<h2 id="八、自动填充"><a href="#八、自动填充" class="headerlink" title="八、自动填充"></a>八、自动填充</h2><ul>
+<li>项目中经常会遇到一些数据，每次都使用相同的方式填充，例如记录的创建时间，更新时间等</li>
+</ul>
+<h3 id="1、添加注解"><a href="#1、添加注解" class="headerlink" title="1、添加注解"></a>1、添加注解</h3><ul>
+<li>数据库添加对应字段</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TableField</span>(fill = FieldFill.INSERT)</span><br><span class="line"><span class="keyword">private</span> Date createTime;</span><br><span class="line"></span><br><span class="line"><span class="meta">@TableField</span>(fill = FieldFill.INSERT_UPDATE)</span><br><span class="line"><span class="keyword">private</span> Date updateTime;</span><br></pre></td></tr></table></figure>
+<h3 id="2、配置拦截器"><a href="#2、配置拦截器" class="headerlink" title="2、配置拦截器"></a>2、配置拦截器</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyMetaObjectHandler</span> <span class="keyword">implements</span> <span class="title">MetaObjectHandler</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertFill</span><span class="params">(MetaObject metaObject)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.setFieldValByName(<span class="string">"createTime"</span>, <span class="keyword">new</span> Date(), metaObject);</span><br><span class="line">        <span class="keyword">this</span>.setFieldValByName(<span class="string">"updateTime"</span>, <span class="keyword">new</span> Date(), metaObject);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateFill</span><span class="params">(MetaObject metaObject)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.setFieldValByName(<span class="string">"updateTime"</span>, <span class="keyword">new</span> Date(), metaObject);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="九、乐观锁"><a href="#九、乐观锁" class="headerlink" title="九、乐观锁"></a>九、乐观锁</h2><ul>
+<li>实现线程安全的数据更新</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">乐观锁实现方式：</span><br><span class="line">	<span class="number">1</span>、取出记录时，获取当前version</span><br><span class="line">	<span class="number">2</span>、执行更新时， set version = newVersion where version = oldVersion</span><br><span class="line">	<span class="number">3</span>、如果version不对，就更新失败</span><br></pre></td></tr></table></figure>
+<h3 id="1、添加注解-1"><a href="#1、添加注解-1" class="headerlink" title="1、添加注解"></a>1、添加注解</h3><ul>
+<li>数据库添加对应字段</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TableField</span>(fill = FieldFill.INSERT)</span><br><span class="line"><span class="meta">@Version</span></span><br><span class="line"><span class="keyword">private</span> Integer version;</span><br></pre></td></tr></table></figure>
+<h3 id="2、字段填充"><a href="#2、字段填充" class="headerlink" title="2、字段填充"></a>2、字段填充</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.setFieldValByName(<span class="string">"version"</span>,<span class="number">1</span>,metaObject);</span><br></pre></td></tr></table></figure>
+<h3 id="3、注入插件"><a href="#3、注入插件" class="headerlink" title="3、注入插件"></a>3、注入插件</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableTransactionManagement</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MybatisPlusConfig</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 乐观锁插件</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> OptimisticLockerInterceptor <span class="title">optimisticLockerInterceptor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> OptimisticLockerInterceptor();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4、测试更新失败"><a href="#4、测试更新失败" class="headerlink" title="4、测试更新失败"></a>4、测试更新失败</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testOptimisticLockerFail</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//查询</span></span><br><span class="line">    User user = userMapper.selectById(<span class="number">1L</span>);</span><br><span class="line">    <span class="comment">//修改数据</span></span><br><span class="line">    user.setName(<span class="string">"hhh"</span>);</span><br><span class="line">    user.setEmail(<span class="string">"hhh@qq.com"</span>);</span><br><span class="line">    <span class="comment">//假设数据库记录版本变化</span></span><br><span class="line">    user.setVersion(user.getVersion()+<span class="number">1</span>);</span><br><span class="line">    <span class="comment">//执行更新</span></span><br><span class="line">    userMapper.updateById(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="十、分页"><a href="#十、分页" class="headerlink" title="十、分页"></a>十、分页</h2><h3 id="1、注入插件"><a href="#1、注入插件" class="headerlink" title="1、注入插件"></a>1、注入插件</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//分页插件</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> PaginationInterceptor <span class="title">paginationInterceptor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> PaginationInterceptor();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2、测试分页"><a href="#2、测试分页" class="headerlink" title="2、测试分页"></a>2、测试分页</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectPage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Page&lt;User&gt; page = <span class="keyword">new</span> Page&lt;&gt;(<span class="number">1</span>,<span class="number">5</span>);</span><br><span class="line">    userMapper.selectPage(page, <span class="keyword">null</span>);</span><br><span class="line">    page.getRecords().forEach(System.out::println);</span><br><span class="line">    System.out.println(page.getCurrent());</span><br><span class="line">    System.out.println(page.getPages());</span><br><span class="line">    System.out.println(page.getSize());</span><br><span class="line">    System.out.println(page.getTotal());</span><br><span class="line">    System.out.println(page.hasNext());</span><br><span class="line">    System.out.println(page.hasPrevious());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="十一、逻辑删除"><a href="#十一、逻辑删除" class="headerlink" title="十一、逻辑删除"></a>十一、逻辑删除</h2><ul>
+<li>基于本身内置的查询方法都是支持逻辑删除的查询，自定义SQL需要注意</li>
+</ul>
+<h3 id="1、添加注解-2"><a href="#1、添加注解-2" class="headerlink" title="1、添加注解"></a>1、添加注解</h3><ul>
+<li>数据库添加对应字段</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TableLogic</span></span><br><span class="line"><span class="meta">@TableField</span>(fill = FieldFill.INSERT)</span><br><span class="line"><span class="keyword">private</span> Integer deleted;</span><br></pre></td></tr></table></figure>
+<h3 id="2、自动填充"><a href="#2、自动填充" class="headerlink" title="2、自动填充"></a>2、自动填充</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.setFieldValByName(<span class="string">"deleted"</span>,<span class="number">0</span>,metaObject);</span><br></pre></td></tr></table></figure>
+<h3 id="3、注入插件-1"><a href="#3、注入插件-1" class="headerlink" title="3、注入插件"></a>3、注入插件</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 逻辑删除插件</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ISqlInjector <span class="title">sqlInjector</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> LogicSqlInjector();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="十二、性能分析"><a href="#十二、性能分析" class="headerlink" title="十二、性能分析"></a>十二、性能分析</h2><h3 id="1、注入插件-1"><a href="#1、注入插件-1" class="headerlink" title="1、注入插件"></a>1、注入插件</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//SQL执行性能分析插件</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="meta">@Profile</span>(&#123;<span class="string">"dev"</span>,<span class="string">"test"</span>&#125;)<span class="comment">// 设置 dev test 环境开启</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> PerformanceInterceptor <span class="title">performanceInterceptor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    PerformanceInterceptor performanceInterceptor = <span class="keyword">new</span> PerformanceInterceptor();</span><br><span class="line">    performanceInterceptor.setMaxTime(<span class="number">100</span>);<span class="comment">//ms，超过此处设置的ms则sql不执行</span></span><br><span class="line">    performanceInterceptor.setFormat(<span class="keyword">true</span>);</span><br><span class="line">    <span class="keyword">return</span> performanceInterceptor;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2、测试性能分析"><a href="#2、测试性能分析" class="headerlink" title="2、测试性能分析"></a>2、测试性能分析</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试 性能分析插件</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testPerformance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    User user = <span class="keyword">new</span> User();</span><br><span class="line">    user.setName(<span class="string">"我是Helen"</span>);</span><br><span class="line">    user.setEmail(<span class="string">"helen@sina.com"</span>);</span><br><span class="line">    user.setAge(<span class="number">18</span>);</span><br><span class="line">    userMapper.insert(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3、拦截报错"><a href="#3、拦截报错" class="headerlink" title="3、拦截报错"></a>3、拦截报错</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">### Error updating database.  </span><br><span class="line">    Cause: com.baomidou.mybatisplus.core.exceptions.MybatisPlusException:  </span><br><span class="line">The SQL execution time is too large, please optimize !</span><br></pre></td></tr></table></figure>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://mp.baomidou.com/" target="_blank" rel="noopener">MybatisPlus官网</a></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixinpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/03/线程安全的ArrayList/" class="archive-article-date">
-  	<time datetime="2019-03-03T14:31:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/03/线程安全的ArrayList/">线程安全的ArrayList</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ArrayList</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/11/26/MybatisPlus简单使用/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/03/List集合的遍历/" class="archive-article-date">
-  	<time datetime="2019-03-03T14:22:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/14/集合遍历性能问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">集合遍历性能问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/03/List集合的遍历/">List集合的遍历</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">List</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、简介"><span class="toc-number">1.</span> <span class="toc-text">一、简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、特性"><span class="toc-number">2.</span> <span class="toc-text">二、特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、创建并初始化数据库"><span class="toc-number">3.</span> <span class="toc-text">三、创建并初始化数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、创建工程"><span class="toc-number">4.</span> <span class="toc-text">四、创建工程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、配置"><span class="toc-number">5.</span> <span class="toc-text">五、配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、代码编写"><span class="toc-number">6.</span> <span class="toc-text">六、代码编写</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、配置扫描包"><span class="toc-number">6.1.</span> <span class="toc-text">1、配置扫描包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、创建实体类"><span class="toc-number">6.2.</span> <span class="toc-text">2、创建实体类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、创建Mapper"><span class="toc-number">6.3.</span> <span class="toc-text">3、创建Mapper</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、Insert"><span class="toc-number">6.4.</span> <span class="toc-text">4、Insert</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、Delete"><span class="toc-number">6.5.</span> <span class="toc-text">5、Delete</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、Update"><span class="toc-number">6.6.</span> <span class="toc-text">6、Update</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、Select"><span class="toc-number">6.7.</span> <span class="toc-text">7、Select</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、主键生成策略"><span class="toc-number">7.</span> <span class="toc-text">七、主键生成策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、自动填充"><span class="toc-number">8.</span> <span class="toc-text">八、自动填充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、添加注解"><span class="toc-number">8.1.</span> <span class="toc-text">1、添加注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、配置拦截器"><span class="toc-number">8.2.</span> <span class="toc-text">2、配置拦截器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九、乐观锁"><span class="toc-number">9.</span> <span class="toc-text">九、乐观锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、添加注解-1"><span class="toc-number">9.1.</span> <span class="toc-text">1、添加注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、字段填充"><span class="toc-number">9.2.</span> <span class="toc-text">2、字段填充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、注入插件"><span class="toc-number">9.3.</span> <span class="toc-text">3、注入插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、测试更新失败"><span class="toc-number">9.4.</span> <span class="toc-text">4、测试更新失败</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十、分页"><span class="toc-number">10.</span> <span class="toc-text">十、分页</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、注入插件"><span class="toc-number">10.1.</span> <span class="toc-text">1、注入插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、测试分页"><span class="toc-number">10.2.</span> <span class="toc-text">2、测试分页</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十一、逻辑删除"><span class="toc-number">11.</span> <span class="toc-text">十一、逻辑删除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、添加注解-2"><span class="toc-number">11.1.</span> <span class="toc-text">1、添加注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、自动填充"><span class="toc-number">11.2.</span> <span class="toc-text">2、自动填充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、注入插件-1"><span class="toc-number">11.3.</span> <span class="toc-text">3、注入插件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十二、性能分析"><span class="toc-number">12.</span> <span class="toc-text">十二、性能分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、注入插件-1"><span class="toc-number">12.1.</span> <span class="toc-text">1、注入插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、测试性能分析"><span class="toc-number">12.2.</span> <span class="toc-text">2、测试性能分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、拦截报错"><span class="toc-number">12.3.</span> <span class="toc-text">3、拦截报错</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">13.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/03/巧用Arrays工具类/" class="archive-article-date">
-  	<time datetime="2019-03-03T13:53:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/03/巧用Arrays工具类/">巧用Arrays工具类</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Arrays</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/03/Java位掩码在程序设计中的使用/" class="archive-article-date">
-  	<time datetime="2019-03-03T13:23:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/03/Java位掩码在程序设计中的使用/">Java位掩码在程序设计中的使用</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">BitMask</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/03/fail-fast和fail-safe迭代器/" class="archive-article-date">
-  	<time datetime="2019-03-03T08:51:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/03/fail-fast和fail-safe迭代器/">fail-fast和fail-safe迭代器</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">fail-fast</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">fail-safe</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/03/无锁执行者CAS/" class="archive-article-date">
-  	<time datetime="2019-03-03T03:41:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/03/无锁执行者CAS/">无锁执行者CAS</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CAS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/03/transient与volatile关键字/" class="archive-article-date">
-  	<time datetime="2019-03-03T03:18:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/03/transient与volatile关键字/">transient与volatile关键字</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">transient</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">volatile</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/02/hashCode为何使用数字31/" class="archive-article-date">
-  	<time datetime="2019-03-02T15:33:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/02/hashCode为何使用数字31/">hashCode为何使用数字31</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hashcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/02/深入理解Java中的String、StringBuilder与StringBuffer/" class="archive-article-date">
-  	<time datetime="2019-03-02T14:07:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/02/深入理解Java中的String、StringBuilder与StringBuffer/">深入理解Java中的String、StringBuilder与StringBuffer</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">string</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/02/Java字符串池深度解析/" class="archive-article-date">
-  	<time datetime="2019-03-02T13:01:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/02/Java字符串池深度解析/">Java字符串池深度解析</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">string pool</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2019/page/6/">&laquo; Prev</a><a class="page-number" href="/archives/2019/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2019/page/5/">5</a><a class="page-number" href="/archives/2019/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/archives/2019/page/8/">8</a><a class="extend next" rel="next" href="/archives/2019/page/8/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -616,8 +436,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
