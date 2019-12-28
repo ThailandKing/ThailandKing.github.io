@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="thailandking">
 <meta property="og:description" content="一、问题回顾 之前在介绍RandomAccess空架子有什么作用一篇文章中说道，随机访问列表使用循环遍历，顺序访问列表使用迭代器遍历  换言之，ArrayList使用for循环遍历效率高，LinkedList使用迭代器遍历效率高，为什么会这样？今天带领大家剖析一下原理 RandomAccess空架子有什么作用传送门">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-14T03:34:43.962Z">
+<meta property="og:updated_time" content="2019-12-28T13:35:54.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="集合遍历性能问题">
 <meta name="twitter:description" content="一、问题回顾 之前在介绍RandomAccess空架子有什么作用一篇文章中说道，随机访问列表使用循环遍历，顺序访问列表使用迭代器遍历  换言之，ArrayList使用for循环遍历效率高，LinkedList使用迭代器遍历效率高，为什么会这样？今天带领大家剖析一下原理 RandomAccess空架子有什么作用传送门">
@@ -174,7 +174,7 @@
         <h2 id="一、问题回顾"><a href="#一、问题回顾" class="headerlink" title="一、问题回顾"></a>一、问题回顾</h2><ul>
 <li>之前在介绍RandomAccess空架子有什么作用一篇文章中说道，随机访问列表使用循环遍历，顺序访问列表使用迭代器遍历 </li>
 <li>换言之，ArrayList使用for循环遍历效率高，LinkedList使用迭代器遍历效率高，为什么会这样？今天带领大家剖析一下原理</li>
-<li>RandomAccess空架子有什么作用传送门</li>
+<li><a href="https://thailandking.github.io/2019/11/14/RandomAccess%E7%A9%BA%E6%9E%B6%E5%AD%90%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8/">RandomAccess空架子有什么作用传送门</a></li>
 </ul>
 <a id="more"></a>
 <h2 id="二、ArrayList遍历"><a href="#二、ArrayList遍历" class="headerlink" title="二、ArrayList遍历"></a>二、ArrayList遍历</h2><h3 id="1、基于for循环遍历"><a href="#1、基于for循环遍历" class="headerlink" title="1、基于for循环遍历"></a>1、基于for循环遍历</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">randomTraverse</span><span class="params">(List list)</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"采用for循环遍历"</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;list.size();i++)&#123;</span><br><span class="line">        System.out.println(list.get(i));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -459,11 +459,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -479,11 +479,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">time</a>
+                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
+                <a href="javascript:void(0)" class="js-tag color5">time</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,7 +491,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
+                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -499,7 +499,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
+                <a href="javascript:void(0)" class="js-tag color1">java8</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -511,11 +511,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -523,11 +523,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color4">sso</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,31 +535,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,11 +551,39 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">data</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">transient</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">volatile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -595,15 +603,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">swap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,10 +623,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">string</a>
               </li>
              
@@ -627,11 +631,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
+                <a href="javascript:void(0)" class="js-tag color5">copy</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">copy</a>
+                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
               </li>
              
               <li class="article-tag-list-item">
