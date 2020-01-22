@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>springboot全局异常处理 | thailandking</title>
+  <title>SpringBoot全局异常处理 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、自定义异常123456789101112/** *@Author thailandking *@Date 2019/8/26 16:51 *@LastEditors thailandking *@LastEditTime 2019/8/26 16:51 *@Description 系统未登录异常 */public class LoginException extends RuntimeExce">
+  <meta name="description" content="一、自定义数据统一返回对象12345678910111213141516171819202122232425262728293031323334/** *@Author thailandking *@Date 2019/12/1 11:58 *@LastEditors thailandking *@LastEditTime 2019/12/1 11:58 *@Description 统一返回对象">
 <meta name="keywords" content="springboot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="springboot全局异常处理">
-<meta property="og:url" content="https://thailandking.github.io/2019/08/26/springboot全局异常处理/index.html">
+<meta property="og:title" content="SpringBoot全局异常处理">
+<meta property="og:url" content="https://thailandking.github.io/2019/08/26/SpringBoot全局异常处理/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="一、自定义异常123456789101112/** *@Author thailandking *@Date 2019/8/26 16:51 *@LastEditors thailandking *@LastEditTime 2019/8/26 16:51 *@Description 系统未登录异常 */public class LoginException extends RuntimeExce">
+<meta property="og:description" content="一、自定义数据统一返回对象12345678910111213141516171819202122232425262728293031323334/** *@Author thailandking *@Date 2019/12/1 11:58 *@LastEditors thailandking *@LastEditTime 2019/12/1 11:58 *@Description 统一返回对象">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-01T04:18:39.277Z">
+<meta property="og:updated_time" content="2020-01-13T08:37:25.287Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="springboot全局异常处理">
-<meta name="twitter:description" content="一、自定义异常123456789101112/** *@Author thailandking *@Date 2019/8/26 16:51 *@LastEditors thailandking *@LastEditTime 2019/8/26 16:51 *@Description 系统未登录异常 */public class LoginException extends RuntimeExce">
+<meta name="twitter:title" content="SpringBoot全局异常处理">
+<meta name="twitter:description" content="一、自定义数据统一返回对象12345678910111213141516171819202122232425262728293031323334/** *@Author thailandking *@Date 2019/12/1 11:58 *@LastEditors thailandking *@LastEditTime 2019/12/1 11:58 *@Description 统一返回对象">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -54,7 +54,7 @@
 		  <h1 class="header-author"><a href="/">ThailandKing</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">奋斗者最美</p>
+		<p class="header-subtitle">莫问前程，一路向前</p>
 		
 
 		<nav class="header-menu">
@@ -108,7 +108,7 @@
 			  <h1 class="header-author js-header-author">ThailandKing</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>奋斗者最美<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>莫问前程，一路向前<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -151,19 +151,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-springboot全局异常处理" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-SpringBoot全局异常处理" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      springboot全局异常处理
+      SpringBoot全局异常处理
     </h1>
   
 
         
-        <a href="/2019/08/26/springboot全局异常处理/" class="archive-article-date">
+        <a href="/2019/08/26/SpringBoot全局异常处理/" class="archive-article-date">
   	<time datetime="2019-08-26T09:39:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-26</time>
 </a>
         
@@ -171,10 +171,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、自定义异常"><a href="#一、自定义异常" class="headerlink" title="一、自定义异常"></a>一、自定义异常</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Date</span> 2019/8/26 16:51</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@LastEditTime</span> 2019/8/26 16:51</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Description</span> 系统未登录异常</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginException</span> <span class="keyword">extends</span> <span class="title">RuntimeException</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LoginException</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="一、自定义数据统一返回对象"><a href="#一、自定义数据统一返回对象" class="headerlink" title="一、自定义数据统一返回对象"></a>一、自定义数据统一返回对象</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Date</span> 2019/12/1 11:58</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@LastEditTime</span> 2019/12/1 11:58</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Description</span> 统一返回对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Response</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String code;</span><br><span class="line">    <span class="keyword">private</span> String message;</span><br><span class="line">    <span class="keyword">private</span> Object data;</span><br><span class="line">    <span class="keyword">private</span> String requestId;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Response</span><span class="params">(String code, String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.code = <span class="string">"ok"</span>;</span><br><span class="line">        <span class="keyword">this</span>.code = code;</span><br><span class="line">        <span class="keyword">this</span>.message = message;</span><br><span class="line">        <span class="keyword">this</span>.requestId = UUID.randomUUID().toString().replaceAll(<span class="string">"-"</span>, <span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Response <span class="title">error</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Response(<span class="string">"error"</span>, message);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Response <span class="title">ok</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Response(<span class="string">"ok"</span>,<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Response <span class="title">data</span><span class="params">(Object data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.data = data;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二、自定义异常"><a href="#二、自定义异常" class="headerlink" title="二、自定义异常"></a>二、自定义异常</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Date</span> 2019/8/26 16:51</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@LastEditTime</span> 2019/8/26 16:51</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Description</span> 系统未登录异常</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginException</span> <span class="keyword">extends</span> <span class="title">RuntimeException</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LoginException</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="二、统一异常处理器"><a href="#二、统一异常处理器" class="headerlink" title="二、统一异常处理器"></a>二、统一异常处理器</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2019/8/26 16:56</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@LastEditTime</span> 2019/8/26 16:56</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> 统一异常处理器</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@ControllerAdvice</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebExceptionHandler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger log = LoggerFactory.getLogger(WebExceptionHandler.class);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ExceptionHandler</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Map&lt;String,Object&gt; <span class="title">notLogin</span><span class="params">(LoginException e)</span> </span>&#123;</span><br><span class="line">        log.error(<span class="string">"系统未登录异常"</span>, e);</span><br><span class="line">        Map&lt;String,Object&gt; result = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        result.put(<span class="string">"code"</span>,<span class="string">"error"</span>);</span><br><span class="line">        result.put(<span class="string">"message"</span>,e.getMessage());</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ExceptionHandler</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">unknownException</span><span class="params">(Exception e)</span> </span>&#123;</span><br><span class="line">        log.error(<span class="string">"未知异常"</span>, e);</span><br><span class="line">        Map&lt;String,Object&gt; result = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        result.put(<span class="string">"code"</span>,<span class="string">"error"</span>);</span><br><span class="line">        result.put(<span class="string">"message"</span>,e.getMessage());</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="三、测试代码"><a href="#三、测试代码" class="headerlink" title="三、测试代码"></a>三、测试代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Date</span> 2019/8/26 17:24</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@LastEditTime</span> 2019/8/26 17:24</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Description</span> 示例   用于测试学习</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/hello"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@Date</span> 2019/8/26 16:59</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@LastEditTime</span> 2019/8/26 16:59</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@Description</span> 测试异常处理</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/exception"</span>,method = RequestMethod.GET)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">testException</span><span class="params">(@RequestParam(value = <span class="string">"name"</span>)</span> String name)</span>&#123;</span><br><span class="line">        <span class="comment">// LoginException</span></span><br><span class="line">        <span class="keyword">if</span>(name.equals(<span class="string">"login"</span>))&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> LoginException(<span class="string">"非法登录异常"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Exception</span></span><br><span class="line">        <span class="keyword">if</span>(name.equals(<span class="string">"error"</span>))&#123;</span><br><span class="line">            System.out.println(<span class="number">1</span>/<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三、统一异常处理器"><a href="#三、统一异常处理器" class="headerlink" title="三、统一异常处理器"></a>三、统一异常处理器</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2019/8/26 16:56</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@LastEditTime</span> 2019/8/26 16:56</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> 统一异常处理器</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RestControllerAdvice</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebExceptionHandler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger log = LoggerFactory.getLogger(WebExceptionHandler.class);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ExceptionHandler</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Response <span class="title">notLogin</span><span class="params">(LoginException e)</span> </span>&#123;</span><br><span class="line">        log.error(<span class="string">"系统未登录异常"</span>, e);</span><br><span class="line">        <span class="keyword">return</span> Response.error(e.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ExceptionHandler</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Response <span class="title">unknownException</span><span class="params">(Exception e)</span> </span>&#123;</span><br><span class="line">        log.error(<span class="string">"未知异常"</span>, e);</span><br><span class="line">        <span class="keyword">return</span> Response.error(e.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="四、测试代码"><a href="#四、测试代码" class="headerlink" title="四、测试代码"></a>四、测试代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Date</span> 2019/8/26 17:24</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@LastEditTime</span> 2019/8/26 17:24</span></span><br><span class="line"><span class="comment"> *<span class="doctag">@Description</span> 示例   用于测试学习</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/hello"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@Date</span> 2019/8/26 16:59</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@LastEditTime</span> 2019/8/26 16:59</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@Description</span> 测试异常处理</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/exception"</span>,method = RequestMethod.GET)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">testException</span><span class="params">(@RequestParam(value = <span class="string">"name"</span>)</span> String name)</span>&#123;</span><br><span class="line">        <span class="comment">// LoginException</span></span><br><span class="line">        <span class="keyword">if</span>(name.equals(<span class="string">"login"</span>))&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> LoginException(<span class="string">"非法登录异常"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Exception</span></span><br><span class="line">        <span class="keyword">if</span>(name.equals(<span class="string">"error"</span>))&#123;</span><br><span class="line">            System.out.println(<span class="number">1</span>/<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -275,7 +276,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/08/26/springboot全局异常处理/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/08/26/SpringBoot全局异常处理/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -327,7 +328,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、自定义异常"><span class="toc-number">1.</span> <span class="toc-text">一、自定义异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、统一异常处理器"><span class="toc-number">2.</span> <span class="toc-text">二、统一异常处理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、测试代码"><span class="toc-number">3.</span> <span class="toc-text">三、测试代码</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、自定义数据统一返回对象"><span class="toc-number">1.</span> <span class="toc-text">一、自定义数据统一返回对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、自定义异常"><span class="toc-number">2.</span> <span class="toc-text">二、自定义异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、统一异常处理器"><span class="toc-number">3.</span> <span class="toc-text">三、统一异常处理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、测试代码"><span class="toc-number">4.</span> <span class="toc-text">四、测试代码</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -428,23 +429,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -456,10 +453,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">time</a>
               </li>
              
@@ -468,7 +461,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">string pool</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -480,10 +481,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
@@ -492,7 +489,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,15 +497,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sso</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -524,7 +517,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,6 +526,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">udp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -548,10 +545,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">transient</a>
               </li>
              
@@ -560,11 +553,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color5">data</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">excel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -576,15 +573,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -593,6 +586,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">swap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -608,11 +605,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string</a>
+                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
+                <a href="javascript:void(0)" class="js-tag color2">string</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -636,19 +633,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nio</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mail</a>
+                <a href="javascript:void(0)" class="js-tag color4">nio</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">oracle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">mail</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -657,6 +654,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">desgin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
