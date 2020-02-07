@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="thailandking">
 <meta property="og:description" content="一、简介 MybatisPlus简称MP，是Mybatis的增强工具，只做增强，不做改变，为简化开发而生  二、特性 强大的CRUD操作 支持主键自动生成 内置代码生成器 内置分页插件、性能分析插件、全局拦截插件">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-27T08:24:33.394Z">
+<meta property="og:updated_time" content="2020-02-06T03:12:13.185Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MybatisPlus简单使用">
 <meta name="twitter:description" content="一、简介 MybatisPlus简称MP，是Mybatis的增强工具，只做增强，不做改变，为简化开发而生  二、特性 强大的CRUD操作 支持主键自动生成 内置代码生成器 内置分页插件、性能分析插件、全局拦截插件">
@@ -252,7 +252,10 @@
 <h2 id="十二、性能分析"><a href="#十二、性能分析" class="headerlink" title="十二、性能分析"></a>十二、性能分析</h2><h3 id="1、注入插件-1"><a href="#1、注入插件-1" class="headerlink" title="1、注入插件"></a>1、注入插件</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//SQL执行性能分析插件</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="meta">@Profile</span>(&#123;<span class="string">"dev"</span>,<span class="string">"test"</span>&#125;)<span class="comment">// 设置 dev test 环境开启</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> PerformanceInterceptor <span class="title">performanceInterceptor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    PerformanceInterceptor performanceInterceptor = <span class="keyword">new</span> PerformanceInterceptor();</span><br><span class="line">    performanceInterceptor.setMaxTime(<span class="number">100</span>);<span class="comment">//ms，超过此处设置的ms则sql不执行</span></span><br><span class="line">    performanceInterceptor.setFormat(<span class="keyword">true</span>);</span><br><span class="line">    <span class="keyword">return</span> performanceInterceptor;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="2、测试性能分析"><a href="#2、测试性能分析" class="headerlink" title="2、测试性能分析"></a>2、测试性能分析</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试 性能分析插件</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testPerformance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    User user = <span class="keyword">new</span> User();</span><br><span class="line">    user.setName(<span class="string">"我是Helen"</span>);</span><br><span class="line">    user.setEmail(<span class="string">"helen@sina.com"</span>);</span><br><span class="line">    user.setAge(<span class="number">18</span>);</span><br><span class="line">    userMapper.insert(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="3、拦截报错"><a href="#3、拦截报错" class="headerlink" title="3、拦截报错"></a>3、拦截报错</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">### Error updating database.  </span><br><span class="line">    Cause: com.baomidou.mybatisplus.core.exceptions.MybatisPlusException:  </span><br><span class="line">The SQL execution time is too large, please optimize !</span><br></pre></td></tr></table></figure>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<h2 id="项目源码"><a href="#项目源码" class="headerlink" title="项目源码"></a>项目源码</h2><ul>
+<li><a href="https://github.com/ThailandKing/mybatisplus_demo.git" target="_blank" rel="noopener">https://github.com/ThailandKing/mybatisplus_demo.git</a></li>
+</ul>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
 <li><a href="https://mp.baomidou.com/" target="_blank" rel="noopener">MybatisPlus官网</a></li>
 </ul>
 
@@ -407,7 +410,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、简介"><span class="toc-number">1.</span> <span class="toc-text">一、简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、特性"><span class="toc-number">2.</span> <span class="toc-text">二、特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、创建并初始化数据库"><span class="toc-number">3.</span> <span class="toc-text">三、创建并初始化数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、创建工程"><span class="toc-number">4.</span> <span class="toc-text">四、创建工程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、配置"><span class="toc-number">5.</span> <span class="toc-text">五、配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、代码编写"><span class="toc-number">6.</span> <span class="toc-text">六、代码编写</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、配置扫描包"><span class="toc-number">6.1.</span> <span class="toc-text">1、配置扫描包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、创建实体类"><span class="toc-number">6.2.</span> <span class="toc-text">2、创建实体类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、创建Mapper"><span class="toc-number">6.3.</span> <span class="toc-text">3、创建Mapper</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、Insert"><span class="toc-number">6.4.</span> <span class="toc-text">4、Insert</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、Delete"><span class="toc-number">6.5.</span> <span class="toc-text">5、Delete</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、Update"><span class="toc-number">6.6.</span> <span class="toc-text">6、Update</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、Select"><span class="toc-number">6.7.</span> <span class="toc-text">7、Select</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、主键生成策略"><span class="toc-number">7.</span> <span class="toc-text">七、主键生成策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、自动填充"><span class="toc-number">8.</span> <span class="toc-text">八、自动填充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、添加注解"><span class="toc-number">8.1.</span> <span class="toc-text">1、添加注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、配置拦截器"><span class="toc-number">8.2.</span> <span class="toc-text">2、配置拦截器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九、乐观锁"><span class="toc-number">9.</span> <span class="toc-text">九、乐观锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、添加注解-1"><span class="toc-number">9.1.</span> <span class="toc-text">1、添加注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、字段填充"><span class="toc-number">9.2.</span> <span class="toc-text">2、字段填充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、注入插件"><span class="toc-number">9.3.</span> <span class="toc-text">3、注入插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、测试更新失败"><span class="toc-number">9.4.</span> <span class="toc-text">4、测试更新失败</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十、分页"><span class="toc-number">10.</span> <span class="toc-text">十、分页</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、注入插件"><span class="toc-number">10.1.</span> <span class="toc-text">1、注入插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、测试分页"><span class="toc-number">10.2.</span> <span class="toc-text">2、测试分页</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十一、逻辑删除"><span class="toc-number">11.</span> <span class="toc-text">十一、逻辑删除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、添加注解-2"><span class="toc-number">11.1.</span> <span class="toc-text">1、添加注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、自动填充"><span class="toc-number">11.2.</span> <span class="toc-text">2、自动填充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、注入插件-1"><span class="toc-number">11.3.</span> <span class="toc-text">3、注入插件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十二、性能分析"><span class="toc-number">12.</span> <span class="toc-text">十二、性能分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、注入插件-1"><span class="toc-number">12.1.</span> <span class="toc-text">1、注入插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、测试性能分析"><span class="toc-number">12.2.</span> <span class="toc-text">2、测试性能分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、拦截报错"><span class="toc-number">12.3.</span> <span class="toc-text">3、拦截报错</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">13.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、简介"><span class="toc-number">1.</span> <span class="toc-text">一、简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、特性"><span class="toc-number">2.</span> <span class="toc-text">二、特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、创建并初始化数据库"><span class="toc-number">3.</span> <span class="toc-text">三、创建并初始化数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、创建工程"><span class="toc-number">4.</span> <span class="toc-text">四、创建工程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、配置"><span class="toc-number">5.</span> <span class="toc-text">五、配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、代码编写"><span class="toc-number">6.</span> <span class="toc-text">六、代码编写</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、配置扫描包"><span class="toc-number">6.1.</span> <span class="toc-text">1、配置扫描包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、创建实体类"><span class="toc-number">6.2.</span> <span class="toc-text">2、创建实体类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、创建Mapper"><span class="toc-number">6.3.</span> <span class="toc-text">3、创建Mapper</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、Insert"><span class="toc-number">6.4.</span> <span class="toc-text">4、Insert</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、Delete"><span class="toc-number">6.5.</span> <span class="toc-text">5、Delete</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、Update"><span class="toc-number">6.6.</span> <span class="toc-text">6、Update</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、Select"><span class="toc-number">6.7.</span> <span class="toc-text">7、Select</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、主键生成策略"><span class="toc-number">7.</span> <span class="toc-text">七、主键生成策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、自动填充"><span class="toc-number">8.</span> <span class="toc-text">八、自动填充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、添加注解"><span class="toc-number">8.1.</span> <span class="toc-text">1、添加注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、配置拦截器"><span class="toc-number">8.2.</span> <span class="toc-text">2、配置拦截器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九、乐观锁"><span class="toc-number">9.</span> <span class="toc-text">九、乐观锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、添加注解-1"><span class="toc-number">9.1.</span> <span class="toc-text">1、添加注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、字段填充"><span class="toc-number">9.2.</span> <span class="toc-text">2、字段填充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、注入插件"><span class="toc-number">9.3.</span> <span class="toc-text">3、注入插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、测试更新失败"><span class="toc-number">9.4.</span> <span class="toc-text">4、测试更新失败</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十、分页"><span class="toc-number">10.</span> <span class="toc-text">十、分页</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、注入插件"><span class="toc-number">10.1.</span> <span class="toc-text">1、注入插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、测试分页"><span class="toc-number">10.2.</span> <span class="toc-text">2、测试分页</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十一、逻辑删除"><span class="toc-number">11.</span> <span class="toc-text">十一、逻辑删除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、添加注解-2"><span class="toc-number">11.1.</span> <span class="toc-text">1、添加注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、自动填充"><span class="toc-number">11.2.</span> <span class="toc-text">2、自动填充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、注入插件-1"><span class="toc-number">11.3.</span> <span class="toc-text">3、注入插件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十二、性能分析"><span class="toc-number">12.</span> <span class="toc-text">十二、性能分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、注入插件-1"><span class="toc-number">12.1.</span> <span class="toc-text">1、注入插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、测试性能分析"><span class="toc-number">12.2.</span> <span class="toc-text">2、测试性能分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、拦截报错"><span class="toc-number">12.3.</span> <span class="toc-text">3、拦截报错</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目源码"><span class="toc-number">13.</span> <span class="toc-text">项目源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">14.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -508,15 +511,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">http</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,10 +536,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">time</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -560,6 +559,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
@@ -568,7 +571,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -576,15 +579,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sso</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -592,11 +595,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -608,11 +607,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -632,11 +635,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">data</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -652,11 +671,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -665,10 +680,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">swap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -684,11 +695,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
+                <a href="javascript:void(0)" class="js-tag color2">string</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string</a>
+                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -712,11 +723,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color4">nio</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nio</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -740,11 +751,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">thread</a>
+                <a href="javascript:void(0)" class="js-tag color1">utils</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">utils</a>
+                <a href="javascript:void(0)" class="js-tag color2">thread</a>
               </li>
             
             <div class="clearfix"></div>
