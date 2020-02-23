@@ -20,7 +20,9 @@
 <meta property="og:image" content="https://thailandking.github.io/2020/02/12/前端实战小练习/2.gif">
 <meta property="og:image" content="https://thailandking.github.io/2020/02/12/前端实战小练习/3.gif">
 <meta property="og:image" content="https://thailandking.github.io/2020/02/12/前端实战小练习/4.gif">
-<meta property="og:updated_time" content="2020-02-15T06:34:18.682Z">
+<meta property="og:image" content="https://thailandking.github.io/2020/02/12/前端实战小练习/5.gif">
+<meta property="og:image" content="https://thailandking.github.io/2020/02/12/前端实战小练习/6.gif">
+<meta property="og:updated_time" content="2020-02-22T10:04:23.395Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端实战小练习">
 <meta name="twitter:description" content="前言 为了更好学习前端知识，进行了前端实战小练习，在此做个记录 实战步骤： 1、照着视频教学写代码实现功能 2、为代码添加注释，适当修改规范代码 3、GIF动态效果录制 4、利用博客记录收获">
@@ -278,6 +280,83 @@
 <li>弹窗效果通过给元素增删class实现</li>
 </ul>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">function</span> <span class="selector-tag">showTip</span>(<span class="selector-tag">type</span>)&#123;</span><br><span class="line">    var tipId = document.getElementById('tipId');</span><br><span class="line">    tipId.classList.remove('close');</span><br><span class="line">    tipId.classList.add('show');</span><br><span class="line">    var message = document.getElementById('message');</span><br><span class="line">    if(type == 'free')&#123;</span><br><span class="line">        message.innerHTML = 'free good';</span><br><span class="line">    &#125;</span><br><span class="line">    if(type == 'basic')&#123;</span><br><span class="line">        message.innerHTML = 'basic good';</span><br><span class="line">    &#125;</span><br><span class="line">    if(type == 'perinum')&#123;</span><br><span class="line">        message.innerHTML = 'perinum good';</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">function</span> <span class="selector-tag">closeTip</span>()&#123;</span><br><span class="line">    var tipId = document.getElementById('tipId');</span><br><span class="line">    tipId.classList.remove('show');</span><br><span class="line">    tipId.classList.add('close');</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="五、CSS制作波浪主页"><a href="#五、CSS制作波浪主页" class="headerlink" title="五、CSS制作波浪主页"></a>五、CSS制作波浪主页</h2><h3 id="1、效果展示-4"><a href="#1、效果展示-4" class="headerlink" title="1、效果展示"></a>1、效果展示</h3><p><img src="/2020/02/12/前端实战小练习/5.gif" alt></p>
+<h3 id="2、收获-4"><a href="#2、收获-4" class="headerlink" title="2、收获"></a>2、收获</h3><ul>
+<li>基于伪类实现外边框和滤镜效果</li>
+<li>vh就是当前屏幕可见高度的1%，也就是说height:100vh == height:100%，但是有个好处是当元素没有内容时候，设置height:100%该元素不会被撑开，但是设置height:100vh，该元素会被撑开与屏幕高度一致</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 容器布局 */</span></span><br><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">justify-content</span>: center;</span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">    <span class="attribute">min-height</span>: <span class="number">100vh</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>filter滤镜</li>
+<li>CSS属性将模糊或颜色偏移等图形效果应用于元素，滤镜通常用于调整图像，背景和边框的渲染</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/filter" target="_blank" rel="noopener">filter详解</a></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 滤镜用于边框的渲染 */</span></span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.box</span><span class="selector-pseudo">::before</span>&#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: -<span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">left</span>: -<span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">4px</span> solid <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#000</span>;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">url</span>(#wavy);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>SVG可缩放矢量图形</li>
+<li><a href="https://www.runoob.com/svg/svg-tutorial.html" target="_blank" rel="noopener">SVG教程</a></li>
+<li><a href="https://cloud.tencent.com/developer/chapter/17313" target="_blank" rel="noopener">SVG分类</a></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 波纹效果视图 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter</span> <span class="attr">id</span>=<span class="string">"wavy"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">feTurbulence</span> <span class="attr">x</span>=<span class="string">"0"</span> <span class="attr">y</span>=<span class="string">"0"</span> <span class="attr">baseFrequency</span>=<span class="string">"0.02"</span> <span class="attr">numOctaves</span>=<span class="string">"5"</span> <span class="attr">seed</span>=<span class="string">"2"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">animate</span> <span class="attr">attributeName</span>=<span class="string">"baseFrequency"</span> <span class="attr">dur</span>=<span class="string">"60s"</span> <span class="attr">values</span>=<span class="string">"0.02;0.05;0.02"</span> <span class="attr">repeatCount</span>=<span class="string">"indefinite"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">animate</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">feTurbulence</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">feDisplacementMap</span> <span class="attr">in</span>=<span class="string">"SourceGraphic"</span> <span class="attr">scale</span>=<span class="string">"30"</span>&gt;</span><span class="tag">&lt;/<span class="name">feDisplacementMap</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="六、企业官网"><a href="#六、企业官网" class="headerlink" title="六、企业官网"></a>六、企业官网</h2><h3 id="1、效果展示-5"><a href="#1、效果展示-5" class="headerlink" title="1、效果展示"></a>1、效果展示</h3><p><img src="/2020/02/12/前端实战小练习/6.gif" alt></p>
+<h3 id="2、收获-5"><a href="#2、收获-5" class="headerlink" title="2、收获"></a>2、收获</h3><ul>
+<li>CSS全局变量定义</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 定义颜色变量 */</span></span><br><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">    <span class="attribute">--primary-color</span>: <span class="number">#ff434f</span>;</span><br><span class="line">    <span class="attribute">--secondary-color</span>: <span class="number">#e3e3e3</span>;</span><br><span class="line">    <span class="attribute">--text-color-lightest</span>: <span class="number">#e7e9ec</span>;</span><br><span class="line">    <span class="attribute">--text-color-darker</span>: <span class="number">#2e2e2e</span>;</span><br><span class="line">    <span class="attribute">--text-color-dark</span>: <span class="number">#494949</span>;</span><br><span class="line">    <span class="attribute">--text-color-gray</span>: <span class="number">#8b8b8b</span>;</span><br><span class="line">    <span class="attribute">--text-color-dark-gray</span>: <span class="number">#727272</span>;</span><br><span class="line">    <span class="attribute">--text-color-light-gray</span>: <span class="number">#c6c6c6</span>;</span><br><span class="line">    <span class="attribute">--backdrop-color</span>: <span class="built_in">rgba</span>(42, 42, 42, 0.69);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">color</span>: <span class="selector-tag">var</span>(<span class="selector-tag">--text-color-lightest</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>grid布局</li>
+<li><a href="http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html" target="_blank" rel="noopener">grif-layout</a></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 基于网格布局内容展示 */</span></span><br><span class="line"><span class="selector-class">.features</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="comment">/* 单位fr用于表示轨道尺寸配额，表示按配额比例分配可用空间 */</span></span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="number">1</span>fr <span class="number">1</span>fr <span class="number">1</span>fr;</span><br><span class="line">    <span class="attribute">grid-template-rows</span>: <span class="number">126px</span> <span class="number">126px</span>;</span><br><span class="line">    <span class="comment">/* 列之间距离 */</span></span><br><span class="line">    <span class="attribute">column-gap</span>: <span class="number">5vw</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>grid布局占满整行居中</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.rights</span>&#123;</span><br><span class="line">    <span class="attribute">grid-column</span>: <span class="number">1</span>/-<span class="number">1</span>;</span><br><span class="line">    <span class="attribute">justify-self</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>边框阴影</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">box-shadow</span>: 0<span class="selector-tag">px</span> 0<span class="selector-tag">px</span> 18<span class="selector-tag">px</span> <span class="selector-tag">rgba</span>(0, 0, 0, 0<span class="selector-class">.2</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>轮播图填充导航栏</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 设置轮播图div */</span></span><br><span class="line"><span class="selector-class">.glide</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="comment">/* 向上移动header高度，覆盖header */</span></span><br><span class="line">    <span class="comment">/*  height: 80px; */</span></span><br><span class="line">    <span class="attribute">top</span>: -<span class="number">80px</span>;</span><br><span class="line">    <span class="comment">/* 次优先级，做背景，便于其他内容展示 */</span></span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">50</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>vh与vw</li>
+<li>vh表示浏览器当前<strong>高度</strong>、vw表示浏览器当前<strong>宽度</strong></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.glide__slide</span> <span class="selector-tag">video</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100vw</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100vh</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>图片过大显示问题</li>
+<li>尽量减少代码控制图片显示大小，图片会做全加载，浪费浏览器资源性能</li>
+<li>将img标签嵌套在div标签内，设置div宽高，img填充比例</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> <span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">object-fit</span>: over;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>边框移入时放大平移</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.team-member</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="comment">/* 平移、缩放 */</span></span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-20px) <span class="built_in">scale</span>(1.05);</span><br><span class="line">    <span class="comment">/* 阴影 */</span></span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">36px</span> <span class="built_in">rgba</span>(0, 0, 0, 0.1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>背景遮罩</li>
+<li>基于伪类和z-index</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.data-section</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">var</span>(--backdrop-color);</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>字体常用设置</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.title</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">18px</span>;</span><br><span class="line">    <span class="attribute">font-weight</span>: <span class="number">500</span>;</span><br><span class="line">    <span class="attribute">color</span>: white;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>轮播图</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 轮播图js --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"libs/anime/anime.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"libs/glide/glide.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>数据分类过滤显示</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 分类过滤排序js --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"libs/isotope/isotope.pkgd.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>滑动滚动效果</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 滑动滚动js --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"libs/smooth-scroll/smooth-scroll.polyfills.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
       
 
@@ -430,7 +509,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、基于HTML和CSS的动画登录表单"><span class="toc-number">2.</span> <span class="toc-text">一、基于HTML和CSS的动画登录表单</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、效果展示"><span class="toc-number">2.1.</span> <span class="toc-text">1、效果展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、收获"><span class="toc-number">2.2.</span> <span class="toc-text">2、收获</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、基于CSS-JS的快视弹窗"><span class="toc-number">3.</span> <span class="toc-text">二、基于CSS+JS的快视弹窗</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、效果展示-1"><span class="toc-number">3.1.</span> <span class="toc-text">1、效果展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、收获-1"><span class="toc-number">3.2.</span> <span class="toc-text">2、收获</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、滑动选择器美化"><span class="toc-number">4.</span> <span class="toc-text">三、滑动选择器美化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、效果展示-2"><span class="toc-number">4.1.</span> <span class="toc-text">1、效果展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、收获-2"><span class="toc-number">4.2.</span> <span class="toc-text">2、收获</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、CSS3制作价格展开卡"><span class="toc-number">5.</span> <span class="toc-text">四、CSS3制作价格展开卡</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、效果展示-3"><span class="toc-number">5.1.</span> <span class="toc-text">1、效果展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、收获-3"><span class="toc-number">5.2.</span> <span class="toc-text">2、收获</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、基于HTML和CSS的动画登录表单"><span class="toc-number">2.</span> <span class="toc-text">一、基于HTML和CSS的动画登录表单</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、效果展示"><span class="toc-number">2.1.</span> <span class="toc-text">1、效果展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、收获"><span class="toc-number">2.2.</span> <span class="toc-text">2、收获</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、基于CSS-JS的快视弹窗"><span class="toc-number">3.</span> <span class="toc-text">二、基于CSS+JS的快视弹窗</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、效果展示-1"><span class="toc-number">3.1.</span> <span class="toc-text">1、效果展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、收获-1"><span class="toc-number">3.2.</span> <span class="toc-text">2、收获</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、滑动选择器美化"><span class="toc-number">4.</span> <span class="toc-text">三、滑动选择器美化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、效果展示-2"><span class="toc-number">4.1.</span> <span class="toc-text">1、效果展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、收获-2"><span class="toc-number">4.2.</span> <span class="toc-text">2、收获</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、CSS3制作价格展开卡"><span class="toc-number">5.</span> <span class="toc-text">四、CSS3制作价格展开卡</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、效果展示-3"><span class="toc-number">5.1.</span> <span class="toc-text">1、效果展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、收获-3"><span class="toc-number">5.2.</span> <span class="toc-text">2、收获</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、CSS制作波浪主页"><span class="toc-number">6.</span> <span class="toc-text">五、CSS制作波浪主页</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、效果展示-4"><span class="toc-number">6.1.</span> <span class="toc-text">1、效果展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、收获-4"><span class="toc-number">6.2.</span> <span class="toc-text">2、收获</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、企业官网"><span class="toc-number">7.</span> <span class="toc-text">六、企业官网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、效果展示-5"><span class="toc-number">7.1.</span> <span class="toc-text">1、效果展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、收获-5"><span class="toc-number">7.2.</span> <span class="toc-text">2、收获</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -539,11 +618,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,11 +634,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
+                <a href="javascript:void(0)" class="js-tag color5">time</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">time</a>
+                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -595,6 +674,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
               </li>
              
@@ -603,11 +686,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,7 +694,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sso</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -667,7 +750,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -679,19 +770,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cap</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -703,11 +786,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
+                <a href="javascript:void(0)" class="js-tag color4">pom</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
+                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -719,19 +802,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">string</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">copy</a>
+                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">copy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -747,10 +830,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nio</a>
               </li>
              
@@ -760,6 +839,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">mail</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -18,7 +18,10 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://thailandking.github.io/2019/05/13/MySQL高级技术/1.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/05/13/MySQL高级技术/2.png">
-<meta property="og:updated_time" content="2019-05-23T09:29:25.602Z">
+<meta property="og:image" content="https://thailandking.github.io/2019/05/13/MySQL高级技术/4.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/05/13/MySQL高级技术/3.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/05/13/MySQL高级技术/5.png">
+<meta property="og:updated_time" content="2020-02-22T10:13:56.853Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL高级技术">
 <meta name="twitter:description" content="一、架构介绍1、Linux版安装 yum -y install wget  CentOS7下安装MySQL 5.7   1.1 查看MySQL安装版本 mysqladmin –version  1.2 服务启停 systemctl status mysql systemctl start mysql systemctl stop mysql">
@@ -500,6 +503,49 @@
 <h2 id="五、主从复制"><a href="#五、主从复制" class="headerlink" title="五、主从复制"></a>五、主从复制</h2><ul>
 <li><a href="https://thailandking.github.io/2019/03/31/MySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90%E4%B8%8E%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">MySQL主从复制最佳实践</a></li>
 </ul>
+<h2 id="六、备份与还原"><a href="#六、备份与还原" class="headerlink" title="六、备份与还原"></a>六、备份与还原</h2><h3 id="1、冷备份"><a href="#1、冷备份" class="headerlink" title="1、冷备份"></a>1、冷备份</h3><ul>
+<li>将数据库文件夹拷贝到磁盘目录下，MySQL重新加载即可还原（<strong>frm表结构，ibd表数据，myi表索引</strong>）</li>
+<li>通过<strong>my.ini/my.cnf</strong>配置文件找到data目录，将data目录下要备份的数据库文件夹拷贝到指定磁盘目录</li>
+<li>Windows中默认data目录为<strong>C:\ProgramData\MySQL\MySQL Server 5.7\Data</strong></li>
+</ul>
+<p><img src="/2019/05/13/MySQL高级技术/4.png" alt></p>
+<p><img src="/2019/05/13/MySQL高级技术/3.png" alt></p>
+<p><img src="/2019/05/13/MySQL高级技术/5.png" alt></p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><ul>
+<li>不适用于InnoDB存储引擎的表，而对于MyISAM存储引擎的表很方便</li>
+<li>还原时MySQL的版本最好相同</li>
+<li>还原时要先将服务器停止，避免数据不一致</li>
+</ul>
+<h3 id="2、热备份"><a href="#2、热备份" class="headerlink" title="2、热备份"></a>2、热备份</h3><ul>
+<li>命令格式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u 用户名 -p 密码 库名/库名+表名 [参数] &gt; 备份输出位置</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-A	表示全部</span><br><span class="line">-d	表示表结构</span><br><span class="line">-t	表示表数据</span><br></pre></td></tr></table></figure>
+<ul>
+<li>备份单个数据库（所有表）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u username -p dbname &gt; D:\\BackupName.sql</span><br></pre></td></tr></table></figure>
+<ul>
+<li>备份单个数据库（指定表）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u username -p dbname table1 table2 &gt; D:\\BackupName.sql</span><br></pre></td></tr></table></figure>
+<ul>
+<li>备份多个数据库</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u username -p --databases dbname2 dbname2 &gt; D:\\Backup.sql</span><br></pre></td></tr></table></figure>
+<ul>
+<li>备份所有数据库</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u username -p -all-databases &gt; D:\\BackupName.sql</span><br></pre></td></tr></table></figure>
+<ul>
+<li>还原数据库</li>
+<li>推荐使用source命令，会显示详细执行信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p [dbname] &lt; D:\\backup.sql</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source D:\\backup.sql</span><br></pre></td></tr></table></figure>
+<h3 id="3、增量备份"><a href="#3、增量备份" class="headerlink" title="3、增量备份"></a>3、增量备份</h3><ul>
+<li><a href="https://www.cnblogs.com/waynechou/p/xtrabackup_backup.html" target="_blank" rel="noopener">xtrabackup详解</a></li>
+</ul>
 <h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
 <li><a href="https://segmentfault.com/a/1190000008131735" target="_blank" rel="noopener">MySQL性能优化神器Explain使用分析</a></li>
 <li><a href="https://segmentfault.com/a/1190000016566788#articleHeader0" target="_blank" rel="noopener">MySQL幻读的详解、实例及解决办法</a></li>
@@ -656,7 +702,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、架构介绍"><span class="toc-number">1.</span> <span class="toc-text">一、架构介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、Linux版安装"><span class="toc-number">1.1.</span> <span class="toc-text">1、Linux版安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-查看MySQL安装版本"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 查看MySQL安装版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-服务启停"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 服务启停</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-开机自启动"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.3 开机自启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-编码"><span class="toc-number">1.1.4.</span> <span class="toc-text">1.4  编码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、主要文件"><span class="toc-number">1.2.</span> <span class="toc-text">2、主要文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-log-bin"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 log-bin</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-log-error"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 log-error</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-log-slow"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 log-slow</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-数据文件"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4 数据文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-配置文件"><span class="toc-number">1.2.5.</span> <span class="toc-text">2.5 配置文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、用户管理"><span class="toc-number">1.3.</span> <span class="toc-text">3、用户管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、权限管理"><span class="toc-number">1.4.</span> <span class="toc-text">4、权限管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、索引优化分析"><span class="toc-number">2.</span> <span class="toc-text">二、索引优化分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、SQL性能下降原因"><span class="toc-number">2.1.</span> <span class="toc-text">1、SQL性能下降原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、索引简介"><span class="toc-number">2.2.</span> <span class="toc-text">2、索引简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-定义"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.1 定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-优势"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2 优势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-劣势"><span class="toc-number">2.2.3.</span> <span class="toc-text">2.3 劣势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-分类"><span class="toc-number">2.2.4.</span> <span class="toc-text">2.4 分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-语法"><span class="toc-number">2.2.5.</span> <span class="toc-text">2.5 语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-结构"><span class="toc-number">2.2.6.</span> <span class="toc-text">2.6 结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-需要创建索引"><span class="toc-number">2.2.7.</span> <span class="toc-text">2.6 需要创建索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-7-不需要创建索引"><span class="toc-number">2.2.8.</span> <span class="toc-text">2.7 不需要创建索引</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、性能分析"><span class="toc-number">2.3.</span> <span class="toc-text">3、性能分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-explain"><span class="toc-number">2.3.1.</span> <span class="toc-text">3.1 explain</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-id"><span class="toc-number">2.3.2.</span> <span class="toc-text">3.2 id</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-select-type"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.3 select_type</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-table"><span class="toc-number">2.3.4.</span> <span class="toc-text">3.4 table</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-5-type"><span class="toc-number">2.3.5.</span> <span class="toc-text">3.5 type</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-6-possible-keys"><span class="toc-number">2.3.6.</span> <span class="toc-text">3.6 possible_keys</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-7-key"><span class="toc-number">2.3.7.</span> <span class="toc-text">3.7 key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-8-key-len"><span class="toc-number">2.3.8.</span> <span class="toc-text">3.8 key_len</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-9-ref"><span class="toc-number">2.3.9.</span> <span class="toc-text">3.9 ref</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-10-rows"><span class="toc-number">2.3.10.</span> <span class="toc-text">3.10 rows</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-11-extra"><span class="toc-number">2.3.11.</span> <span class="toc-text">3.11 extra</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、查询优化"><span class="toc-number">2.4.</span> <span class="toc-text">4、查询优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-索引失效"><span class="toc-number">2.4.1.</span> <span class="toc-text">4.1 索引失效</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-常见优化"><span class="toc-number">2.4.2.</span> <span class="toc-text">4.2 常见优化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、查询截取分析"><span class="toc-number">3.</span> <span class="toc-text">三、查询截取分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、慢查询日志"><span class="toc-number">3.1.</span> <span class="toc-text">1、慢查询日志</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-定义"><span class="toc-number">3.1.1.</span> <span class="toc-text">1.1 定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-查看"><span class="toc-number">3.1.2.</span> <span class="toc-text">1.2 查看</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-开启"><span class="toc-number">3.1.3.</span> <span class="toc-text">1.3 开启</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-查看阈值"><span class="toc-number">3.1.4.</span> <span class="toc-text">1.4 查看阈值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-设置阈值"><span class="toc-number">3.1.5.</span> <span class="toc-text">1.5 设置阈值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-慢查询记录数"><span class="toc-number">3.1.6.</span> <span class="toc-text">1.6 慢查询记录数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-日志分析工具mysqldumpslow"><span class="toc-number">3.1.7.</span> <span class="toc-text">1.7 日志分析工具mysqldumpslow</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、批量数据插入"><span class="toc-number">3.2.</span> <span class="toc-text">2、批量数据插入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、show-profile"><span class="toc-number">3.3.</span> <span class="toc-text">3、show profile</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-定义"><span class="toc-number">3.3.1.</span> <span class="toc-text">3.1 定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-开启"><span class="toc-number">3.3.2.</span> <span class="toc-text">3.2 开启</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-查看结果"><span class="toc-number">3.3.3.</span> <span class="toc-text">3.3 查看结果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-常见结论"><span class="toc-number">3.3.4.</span> <span class="toc-text">3.4 常见结论</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、全局查询日志"><span class="toc-number">3.4.</span> <span class="toc-text">4、全局查询日志</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、锁机制"><span class="toc-number">4.</span> <span class="toc-text">四、锁机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、定义"><span class="toc-number">4.1.</span> <span class="toc-text">1、定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、分类"><span class="toc-number">4.2.</span> <span class="toc-text">2、分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-按操作类型划分"><span class="toc-number">4.2.1.</span> <span class="toc-text">2.1 按操作类型划分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-按操作粒度划分"><span class="toc-number">4.2.2.</span> <span class="toc-text">2.2 按操作粒度划分</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、表锁"><span class="toc-number">4.3.</span> <span class="toc-text">3、表锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、行锁"><span class="toc-number">4.4.</span> <span class="toc-text">4、行锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、页锁"><span class="toc-number">4.5.</span> <span class="toc-text">5、页锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、间隙锁"><span class="toc-number">4.6.</span> <span class="toc-text">6、间隙锁</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、主从复制"><span class="toc-number">5.</span> <span class="toc-text">五、主从复制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">6.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、架构介绍"><span class="toc-number">1.</span> <span class="toc-text">一、架构介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、Linux版安装"><span class="toc-number">1.1.</span> <span class="toc-text">1、Linux版安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-查看MySQL安装版本"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 查看MySQL安装版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-服务启停"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 服务启停</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-开机自启动"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.3 开机自启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-编码"><span class="toc-number">1.1.4.</span> <span class="toc-text">1.4  编码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、主要文件"><span class="toc-number">1.2.</span> <span class="toc-text">2、主要文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-log-bin"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 log-bin</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-log-error"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 log-error</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-log-slow"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 log-slow</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-数据文件"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4 数据文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-配置文件"><span class="toc-number">1.2.5.</span> <span class="toc-text">2.5 配置文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、用户管理"><span class="toc-number">1.3.</span> <span class="toc-text">3、用户管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、权限管理"><span class="toc-number">1.4.</span> <span class="toc-text">4、权限管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、索引优化分析"><span class="toc-number">2.</span> <span class="toc-text">二、索引优化分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、SQL性能下降原因"><span class="toc-number">2.1.</span> <span class="toc-text">1、SQL性能下降原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、索引简介"><span class="toc-number">2.2.</span> <span class="toc-text">2、索引简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-定义"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.1 定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-优势"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2 优势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-劣势"><span class="toc-number">2.2.3.</span> <span class="toc-text">2.3 劣势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-分类"><span class="toc-number">2.2.4.</span> <span class="toc-text">2.4 分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-语法"><span class="toc-number">2.2.5.</span> <span class="toc-text">2.5 语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-结构"><span class="toc-number">2.2.6.</span> <span class="toc-text">2.6 结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-需要创建索引"><span class="toc-number">2.2.7.</span> <span class="toc-text">2.6 需要创建索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-7-不需要创建索引"><span class="toc-number">2.2.8.</span> <span class="toc-text">2.7 不需要创建索引</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、性能分析"><span class="toc-number">2.3.</span> <span class="toc-text">3、性能分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-explain"><span class="toc-number">2.3.1.</span> <span class="toc-text">3.1 explain</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-id"><span class="toc-number">2.3.2.</span> <span class="toc-text">3.2 id</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-select-type"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.3 select_type</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-table"><span class="toc-number">2.3.4.</span> <span class="toc-text">3.4 table</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-5-type"><span class="toc-number">2.3.5.</span> <span class="toc-text">3.5 type</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-6-possible-keys"><span class="toc-number">2.3.6.</span> <span class="toc-text">3.6 possible_keys</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-7-key"><span class="toc-number">2.3.7.</span> <span class="toc-text">3.7 key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-8-key-len"><span class="toc-number">2.3.8.</span> <span class="toc-text">3.8 key_len</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-9-ref"><span class="toc-number">2.3.9.</span> <span class="toc-text">3.9 ref</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-10-rows"><span class="toc-number">2.3.10.</span> <span class="toc-text">3.10 rows</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-11-extra"><span class="toc-number">2.3.11.</span> <span class="toc-text">3.11 extra</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、查询优化"><span class="toc-number">2.4.</span> <span class="toc-text">4、查询优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-索引失效"><span class="toc-number">2.4.1.</span> <span class="toc-text">4.1 索引失效</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-常见优化"><span class="toc-number">2.4.2.</span> <span class="toc-text">4.2 常见优化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、查询截取分析"><span class="toc-number">3.</span> <span class="toc-text">三、查询截取分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、慢查询日志"><span class="toc-number">3.1.</span> <span class="toc-text">1、慢查询日志</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-定义"><span class="toc-number">3.1.1.</span> <span class="toc-text">1.1 定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-查看"><span class="toc-number">3.1.2.</span> <span class="toc-text">1.2 查看</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-开启"><span class="toc-number">3.1.3.</span> <span class="toc-text">1.3 开启</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-查看阈值"><span class="toc-number">3.1.4.</span> <span class="toc-text">1.4 查看阈值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-设置阈值"><span class="toc-number">3.1.5.</span> <span class="toc-text">1.5 设置阈值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-慢查询记录数"><span class="toc-number">3.1.6.</span> <span class="toc-text">1.6 慢查询记录数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-日志分析工具mysqldumpslow"><span class="toc-number">3.1.7.</span> <span class="toc-text">1.7 日志分析工具mysqldumpslow</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、批量数据插入"><span class="toc-number">3.2.</span> <span class="toc-text">2、批量数据插入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、show-profile"><span class="toc-number">3.3.</span> <span class="toc-text">3、show profile</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-定义"><span class="toc-number">3.3.1.</span> <span class="toc-text">3.1 定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-开启"><span class="toc-number">3.3.2.</span> <span class="toc-text">3.2 开启</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-查看结果"><span class="toc-number">3.3.3.</span> <span class="toc-text">3.3 查看结果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-常见结论"><span class="toc-number">3.3.4.</span> <span class="toc-text">3.4 常见结论</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、全局查询日志"><span class="toc-number">3.4.</span> <span class="toc-text">4、全局查询日志</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、锁机制"><span class="toc-number">4.</span> <span class="toc-text">四、锁机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、定义"><span class="toc-number">4.1.</span> <span class="toc-text">1、定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、分类"><span class="toc-number">4.2.</span> <span class="toc-text">2、分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-按操作类型划分"><span class="toc-number">4.2.1.</span> <span class="toc-text">2.1 按操作类型划分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-按操作粒度划分"><span class="toc-number">4.2.2.</span> <span class="toc-text">2.2 按操作粒度划分</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、表锁"><span class="toc-number">4.3.</span> <span class="toc-text">3、表锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、行锁"><span class="toc-number">4.4.</span> <span class="toc-text">4、行锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、页锁"><span class="toc-number">4.5.</span> <span class="toc-text">5、页锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、间隙锁"><span class="toc-number">4.6.</span> <span class="toc-text">6、间隙锁</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、主从复制"><span class="toc-number">5.</span> <span class="toc-text">五、主从复制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、备份与还原"><span class="toc-number">6.</span> <span class="toc-text">六、备份与还原</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、冷备份"><span class="toc-number">6.1.</span> <span class="toc-text">1、冷备份</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#注意"><span class="toc-number">6.1.1.</span> <span class="toc-text">注意</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、热备份"><span class="toc-number">6.2.</span> <span class="toc-text">2、热备份</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、增量备份"><span class="toc-number">6.3.</span> <span class="toc-text">3、增量备份</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">7.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -765,11 +811,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -781,11 +827,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
+                <a href="javascript:void(0)" class="js-tag color5">time</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">time</a>
+                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -821,6 +867,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
               </li>
              
@@ -829,11 +879,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -841,7 +887,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sso</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -893,7 +943,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -905,19 +963,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cap</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -929,11 +979,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
+                <a href="javascript:void(0)" class="js-tag color4">pom</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
+                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -945,19 +995,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">string</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">copy</a>
+                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">copy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -973,10 +1023,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nio</a>
               </li>
              
@@ -986,6 +1032,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">mail</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
