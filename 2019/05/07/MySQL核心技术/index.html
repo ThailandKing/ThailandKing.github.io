@@ -16,10 +16,12 @@
 <meta property="og:site_name" content="thailandking">
 <meta property="og:description" content="一、概述1、为什么需要数据库 存储数据的容器：内存、文件、数据库 内存，易丢失，文件，不易查询 数据库，易持久化、方便查询  2、相关概念 DB：数据库 DBMS：数据库管理系统 DBA：数据库管理员 SQL：结构化查询语言">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-23T03:35:00.189Z">
+<meta property="og:image" content="https://thailandking.github.io/2019/05/07/MySQL核心技术/1.png">
+<meta property="og:updated_time" content="2020-02-24T07:17:11.386Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL核心技术">
 <meta name="twitter:description" content="一、概述1、为什么需要数据库 存储数据的容器：内存、文件、数据库 内存，易丢失，文件，不易查询 数据库，易持久化、方便查询  2、相关概念 DB：数据库 DBMS：数据库管理系统 DBA：数据库管理员 SQL：结构化查询语言">
+<meta name="twitter:image" content="https://thailandking.github.io/2019/05/07/MySQL核心技术/1.png">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -466,6 +468,17 @@
 <h4 id="3-2-while"><a href="#3-2-while" class="headerlink" title="3.2 while"></a>3.2 while</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#最为常用</span><br><span class="line">【标签：】WHILE 循环条件  DO</span><br><span class="line">	循环体;</span><br><span class="line">END WHILE 【标签】;</span><br></pre></td></tr></table></figure>
 <h4 id="3-2-loop"><a href="#3-2-loop" class="headerlink" title="3.2 loop"></a>3.2 loop</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#可以用来模拟简单的死循环</span><br><span class="line">【标签：】loop</span><br><span class="line">	循环体;</span><br><span class="line">END loop 【标签】;</span><br></pre></td></tr></table></figure>
 <h4 id="3-3-repeat"><a href="#3-3-repeat" class="headerlink" title="3.3 repeat"></a>3.3 repeat</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#do-while至少执行一次</span><br><span class="line">【标签：】repeat</span><br><span class="line">	循环体;</span><br><span class="line">until 结束循环的条件	</span><br><span class="line">END repeat 【标签】;</span><br></pre></td></tr></table></figure>
+<h2 id="Windows便捷启停"><a href="#Windows便捷启停" class="headerlink" title="Windows便捷启停"></a>Windows便捷启停</h2><ul>
+<li>win+R输入services.msc查看MySQL服务名称</li>
+</ul>
+<p><img src="/2019/05/07/MySQL核心技术/1.png" alt></p>
+<ul>
+<li>书写脚本文件MySQL57.bat</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@ECHO OFF          </span><br><span class="line"><span class="keyword">for</span> /f <span class="string">"skip=3 tokens=4"</span> %%i <span class="keyword">in</span> (<span class="string">'sc query MySQL57'</span>) <span class="keyword">do</span> <span class="built_in">set</span> <span class="string">"zt=%%i"</span> &amp;goto :next         </span><br><span class="line">:next        </span><br><span class="line"><span class="keyword">if</span> /i <span class="string">"%zt%"</span>==<span class="string">"RUNNING"</span> (        </span><br><span class="line">ECHO Stoping  MySQL57, please <span class="built_in">wait</span> ...          </span><br><span class="line">net stop MySQL57     </span><br><span class="line">)<span class="keyword">else</span> (         </span><br><span class="line">ECHO Starting MySQL57, please <span class="built_in">wait</span> ...         </span><br><span class="line">net start MySQL57      </span><br><span class="line">)         </span><br><span class="line">pause        </span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>以管理员身份运行MySQL57.bat控制服务启停</li>
+</ul>
 <h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><ul>
 <li>开发中数据库日期存储处理？</li>
 <li>前端页面传来”2019-5-13 10:30:25”，后端转换为Timestamp，存入数据库datetime</li>
@@ -642,7 +655,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、概述"><span class="toc-number">1.</span> <span class="toc-text">一、概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、为什么需要数据库"><span class="toc-number">1.1.</span> <span class="toc-text">1、为什么需要数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、相关概念"><span class="toc-number">1.2.</span> <span class="toc-text">2、相关概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、配置文件"><span class="toc-number">1.3.</span> <span class="toc-text">3、配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、服务启动与关闭"><span class="toc-number">1.4.</span> <span class="toc-text">4、服务启动与关闭</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、服务端的登录与退出"><span class="toc-number">1.5.</span> <span class="toc-text">5、服务端的登录与退出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、SQL语言分类"><span class="toc-number">1.6.</span> <span class="toc-text">6、SQL语言分类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、语法命令规范"><span class="toc-number">2.</span> <span class="toc-text">二、语法命令规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、常见命令"><span class="toc-number">3.</span> <span class="toc-text">三、常见命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、DQL语言学习"><span class="toc-number">4.</span> <span class="toc-text">四、DQL语言学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、基础查询"><span class="toc-number">4.1.</span> <span class="toc-text">1、基础查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、条件查询"><span class="toc-number">4.2.</span> <span class="toc-text">2、条件查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、排序查询"><span class="toc-number">4.3.</span> <span class="toc-text">3、排序查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、常见函数"><span class="toc-number">4.4.</span> <span class="toc-text">4、常见函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、分组函数"><span class="toc-number">4.5.</span> <span class="toc-text">5、分组函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、分组查询"><span class="toc-number">4.6.</span> <span class="toc-text">6、分组查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、多表连接查询"><span class="toc-number">4.7.</span> <span class="toc-text">7、多表连接查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-1-sql92传统模式下的连接"><span class="toc-number">4.7.1.</span> <span class="toc-text">7.1 sql92传统模式下的连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-2-sql99推荐的join连接"><span class="toc-number">4.7.2.</span> <span class="toc-text">7.2 sql99推荐的join连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-3-自连接"><span class="toc-number">4.7.3.</span> <span class="toc-text">7.3 自连接</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8、子查询"><span class="toc-number">4.8.</span> <span class="toc-text">8、子查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9、分页查询"><span class="toc-number">4.9.</span> <span class="toc-text">9、分页查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10、联合查询"><span class="toc-number">4.10.</span> <span class="toc-text">10、联合查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、DML语言学习"><span class="toc-number">5.</span> <span class="toc-text">五、DML语言学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、insert"><span class="toc-number">5.1.</span> <span class="toc-text">1、insert</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、update"><span class="toc-number">5.2.</span> <span class="toc-text">2、update</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、delete"><span class="toc-number">5.3.</span> <span class="toc-text">3、delete</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、truncate"><span class="toc-number">5.4.</span> <span class="toc-text">4、truncate</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、DDL语言学习"><span class="toc-number">6.</span> <span class="toc-text">六、DDL语言学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、库的管理"><span class="toc-number">6.1.</span> <span class="toc-text">1、库的管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、表的管理"><span class="toc-number">6.2.</span> <span class="toc-text">2、表的管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、表的复制"><span class="toc-number">6.3.</span> <span class="toc-text">3、表的复制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、常见类型"><span class="toc-number">7.</span> <span class="toc-text">七、常见类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、数字类型"><span class="toc-number">7.1.</span> <span class="toc-text">1、数字类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、字符串类型"><span class="toc-number">7.2.</span> <span class="toc-text">2、字符串类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、时间类型"><span class="toc-number">7.3.</span> <span class="toc-text">3、时间类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、二进制类型"><span class="toc-number">7.4.</span> <span class="toc-text">4、二进制类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、其他类型"><span class="toc-number">7.5.</span> <span class="toc-text">5、其他类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、常见约束"><span class="toc-number">8.</span> <span class="toc-text">八、常见约束</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九、事务"><span class="toc-number">9.</span> <span class="toc-text">九、事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、定义"><span class="toc-number">9.1.</span> <span class="toc-text">1、定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、特点"><span class="toc-number">9.2.</span> <span class="toc-text">2、特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、步骤"><span class="toc-number">9.3.</span> <span class="toc-text">3、步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、分类"><span class="toc-number">9.4.</span> <span class="toc-text">4、分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、关键字"><span class="toc-number">9.5.</span> <span class="toc-text">5、关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、隔离级别"><span class="toc-number">9.6.</span> <span class="toc-text">6、隔离级别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、并发下的问题"><span class="toc-number">9.7.</span> <span class="toc-text">7、并发下的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十、视图"><span class="toc-number">10.</span> <span class="toc-text">十、视图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、定义-1"><span class="toc-number">10.1.</span> <span class="toc-text">1、定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、创建"><span class="toc-number">10.2.</span> <span class="toc-text">2、创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、更新"><span class="toc-number">10.3.</span> <span class="toc-text">3、更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、删除"><span class="toc-number">10.4.</span> <span class="toc-text">4、删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、查看"><span class="toc-number">10.5.</span> <span class="toc-text">5、查看</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十一、变量"><span class="toc-number">11.</span> <span class="toc-text">十一、变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、分类"><span class="toc-number">11.1.</span> <span class="toc-text">1、分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、全局变量"><span class="toc-number">11.2.</span> <span class="toc-text">2、全局变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、会话变量"><span class="toc-number">11.3.</span> <span class="toc-text">3、会话变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、用户变量"><span class="toc-number">11.4.</span> <span class="toc-text">4、用户变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、局部变量"><span class="toc-number">11.5.</span> <span class="toc-text">5、局部变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、对比"><span class="toc-number">11.6.</span> <span class="toc-text">6、对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十二、存储过程"><span class="toc-number">12.</span> <span class="toc-text">十二、存储过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、定义-2"><span class="toc-number">12.1.</span> <span class="toc-text">1、定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、好处"><span class="toc-number">12.2.</span> <span class="toc-text">2、好处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、创建"><span class="toc-number">12.3.</span> <span class="toc-text">3、创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、调用"><span class="toc-number">12.4.</span> <span class="toc-text">4、调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、实例"><span class="toc-number">12.5.</span> <span class="toc-text">5、实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、删除"><span class="toc-number">12.6.</span> <span class="toc-text">6、删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、查看结构"><span class="toc-number">12.7.</span> <span class="toc-text">7、查看结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十三、函数"><span class="toc-number">13.</span> <span class="toc-text">十三、函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、定义-3"><span class="toc-number">13.1.</span> <span class="toc-text">1、定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、创建-1"><span class="toc-number">13.2.</span> <span class="toc-text">2、创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、调用"><span class="toc-number">13.3.</span> <span class="toc-text">3、调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、实例"><span class="toc-number">13.4.</span> <span class="toc-text">4、实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、删除"><span class="toc-number">13.5.</span> <span class="toc-text">5、删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、查看"><span class="toc-number">13.6.</span> <span class="toc-text">6、查看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、函数与存储过程的区别"><span class="toc-number">13.7.</span> <span class="toc-text">7、函数与存储过程的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十四、触发器"><span class="toc-number">14.</span> <span class="toc-text">十四、触发器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、定义-4"><span class="toc-number">14.1.</span> <span class="toc-text">1、定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、创建-2"><span class="toc-number">14.2.</span> <span class="toc-text">2、创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、NEW与OLD关键字"><span class="toc-number">14.3.</span> <span class="toc-text">3、NEW与OLD关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、查看"><span class="toc-number">14.4.</span> <span class="toc-text">4、查看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、删除-1"><span class="toc-number">14.5.</span> <span class="toc-text">5、删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、执行顺序"><span class="toc-number">14.6.</span> <span class="toc-text">6、执行顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、实例"><span class="toc-number">14.7.</span> <span class="toc-text">7、实例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十五、流程控制结构"><span class="toc-number">15.</span> <span class="toc-text">十五、流程控制结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、顺序结构"><span class="toc-number">15.1.</span> <span class="toc-text">1、顺序结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、分支结构"><span class="toc-number">15.2.</span> <span class="toc-text">2、分支结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-if函数"><span class="toc-number">15.2.1.</span> <span class="toc-text">2.1 if函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-case语句"><span class="toc-number">15.2.2.</span> <span class="toc-text">2.2 case语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-if结构"><span class="toc-number">15.2.3.</span> <span class="toc-text">2.3 if结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-三者比较"><span class="toc-number">15.2.4.</span> <span class="toc-text">2.4 三者比较</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、循环结构"><span class="toc-number">15.3.</span> <span class="toc-text">3、循环结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-循环控制"><span class="toc-number">15.3.1.</span> <span class="toc-text">3.1 循环控制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-while"><span class="toc-number">15.3.2.</span> <span class="toc-text">3.2 while</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-loop"><span class="toc-number">15.3.3.</span> <span class="toc-text">3.2 loop</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-repeat"><span class="toc-number">15.3.4.</span> <span class="toc-text">3.3 repeat</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思考"><span class="toc-number">16.</span> <span class="toc-text">思考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验"><span class="toc-number">17.</span> <span class="toc-text">实验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">18.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、概述"><span class="toc-number">1.</span> <span class="toc-text">一、概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、为什么需要数据库"><span class="toc-number">1.1.</span> <span class="toc-text">1、为什么需要数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、相关概念"><span class="toc-number">1.2.</span> <span class="toc-text">2、相关概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、配置文件"><span class="toc-number">1.3.</span> <span class="toc-text">3、配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、服务启动与关闭"><span class="toc-number">1.4.</span> <span class="toc-text">4、服务启动与关闭</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、服务端的登录与退出"><span class="toc-number">1.5.</span> <span class="toc-text">5、服务端的登录与退出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、SQL语言分类"><span class="toc-number">1.6.</span> <span class="toc-text">6、SQL语言分类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、语法命令规范"><span class="toc-number">2.</span> <span class="toc-text">二、语法命令规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、常见命令"><span class="toc-number">3.</span> <span class="toc-text">三、常见命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、DQL语言学习"><span class="toc-number">4.</span> <span class="toc-text">四、DQL语言学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、基础查询"><span class="toc-number">4.1.</span> <span class="toc-text">1、基础查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、条件查询"><span class="toc-number">4.2.</span> <span class="toc-text">2、条件查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、排序查询"><span class="toc-number">4.3.</span> <span class="toc-text">3、排序查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、常见函数"><span class="toc-number">4.4.</span> <span class="toc-text">4、常见函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、分组函数"><span class="toc-number">4.5.</span> <span class="toc-text">5、分组函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、分组查询"><span class="toc-number">4.6.</span> <span class="toc-text">6、分组查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、多表连接查询"><span class="toc-number">4.7.</span> <span class="toc-text">7、多表连接查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-1-sql92传统模式下的连接"><span class="toc-number">4.7.1.</span> <span class="toc-text">7.1 sql92传统模式下的连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-2-sql99推荐的join连接"><span class="toc-number">4.7.2.</span> <span class="toc-text">7.2 sql99推荐的join连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-3-自连接"><span class="toc-number">4.7.3.</span> <span class="toc-text">7.3 自连接</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8、子查询"><span class="toc-number">4.8.</span> <span class="toc-text">8、子查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9、分页查询"><span class="toc-number">4.9.</span> <span class="toc-text">9、分页查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10、联合查询"><span class="toc-number">4.10.</span> <span class="toc-text">10、联合查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、DML语言学习"><span class="toc-number">5.</span> <span class="toc-text">五、DML语言学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、insert"><span class="toc-number">5.1.</span> <span class="toc-text">1、insert</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、update"><span class="toc-number">5.2.</span> <span class="toc-text">2、update</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、delete"><span class="toc-number">5.3.</span> <span class="toc-text">3、delete</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、truncate"><span class="toc-number">5.4.</span> <span class="toc-text">4、truncate</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、DDL语言学习"><span class="toc-number">6.</span> <span class="toc-text">六、DDL语言学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、库的管理"><span class="toc-number">6.1.</span> <span class="toc-text">1、库的管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、表的管理"><span class="toc-number">6.2.</span> <span class="toc-text">2、表的管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、表的复制"><span class="toc-number">6.3.</span> <span class="toc-text">3、表的复制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、常见类型"><span class="toc-number">7.</span> <span class="toc-text">七、常见类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、数字类型"><span class="toc-number">7.1.</span> <span class="toc-text">1、数字类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、字符串类型"><span class="toc-number">7.2.</span> <span class="toc-text">2、字符串类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、时间类型"><span class="toc-number">7.3.</span> <span class="toc-text">3、时间类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、二进制类型"><span class="toc-number">7.4.</span> <span class="toc-text">4、二进制类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、其他类型"><span class="toc-number">7.5.</span> <span class="toc-text">5、其他类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、常见约束"><span class="toc-number">8.</span> <span class="toc-text">八、常见约束</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九、事务"><span class="toc-number">9.</span> <span class="toc-text">九、事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、定义"><span class="toc-number">9.1.</span> <span class="toc-text">1、定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、特点"><span class="toc-number">9.2.</span> <span class="toc-text">2、特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、步骤"><span class="toc-number">9.3.</span> <span class="toc-text">3、步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、分类"><span class="toc-number">9.4.</span> <span class="toc-text">4、分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、关键字"><span class="toc-number">9.5.</span> <span class="toc-text">5、关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、隔离级别"><span class="toc-number">9.6.</span> <span class="toc-text">6、隔离级别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、并发下的问题"><span class="toc-number">9.7.</span> <span class="toc-text">7、并发下的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十、视图"><span class="toc-number">10.</span> <span class="toc-text">十、视图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、定义-1"><span class="toc-number">10.1.</span> <span class="toc-text">1、定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、创建"><span class="toc-number">10.2.</span> <span class="toc-text">2、创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、更新"><span class="toc-number">10.3.</span> <span class="toc-text">3、更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、删除"><span class="toc-number">10.4.</span> <span class="toc-text">4、删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、查看"><span class="toc-number">10.5.</span> <span class="toc-text">5、查看</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十一、变量"><span class="toc-number">11.</span> <span class="toc-text">十一、变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、分类"><span class="toc-number">11.1.</span> <span class="toc-text">1、分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、全局变量"><span class="toc-number">11.2.</span> <span class="toc-text">2、全局变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、会话变量"><span class="toc-number">11.3.</span> <span class="toc-text">3、会话变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、用户变量"><span class="toc-number">11.4.</span> <span class="toc-text">4、用户变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、局部变量"><span class="toc-number">11.5.</span> <span class="toc-text">5、局部变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、对比"><span class="toc-number">11.6.</span> <span class="toc-text">6、对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十二、存储过程"><span class="toc-number">12.</span> <span class="toc-text">十二、存储过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、定义-2"><span class="toc-number">12.1.</span> <span class="toc-text">1、定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、好处"><span class="toc-number">12.2.</span> <span class="toc-text">2、好处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、创建"><span class="toc-number">12.3.</span> <span class="toc-text">3、创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、调用"><span class="toc-number">12.4.</span> <span class="toc-text">4、调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、实例"><span class="toc-number">12.5.</span> <span class="toc-text">5、实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、删除"><span class="toc-number">12.6.</span> <span class="toc-text">6、删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、查看结构"><span class="toc-number">12.7.</span> <span class="toc-text">7、查看结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十三、函数"><span class="toc-number">13.</span> <span class="toc-text">十三、函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、定义-3"><span class="toc-number">13.1.</span> <span class="toc-text">1、定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、创建-1"><span class="toc-number">13.2.</span> <span class="toc-text">2、创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、调用"><span class="toc-number">13.3.</span> <span class="toc-text">3、调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、实例"><span class="toc-number">13.4.</span> <span class="toc-text">4、实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、删除"><span class="toc-number">13.5.</span> <span class="toc-text">5、删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、查看"><span class="toc-number">13.6.</span> <span class="toc-text">6、查看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、函数与存储过程的区别"><span class="toc-number">13.7.</span> <span class="toc-text">7、函数与存储过程的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十四、触发器"><span class="toc-number">14.</span> <span class="toc-text">十四、触发器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、定义-4"><span class="toc-number">14.1.</span> <span class="toc-text">1、定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、创建-2"><span class="toc-number">14.2.</span> <span class="toc-text">2、创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、NEW与OLD关键字"><span class="toc-number">14.3.</span> <span class="toc-text">3、NEW与OLD关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、查看"><span class="toc-number">14.4.</span> <span class="toc-text">4、查看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、删除-1"><span class="toc-number">14.5.</span> <span class="toc-text">5、删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、执行顺序"><span class="toc-number">14.6.</span> <span class="toc-text">6、执行顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、实例"><span class="toc-number">14.7.</span> <span class="toc-text">7、实例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十五、流程控制结构"><span class="toc-number">15.</span> <span class="toc-text">十五、流程控制结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、顺序结构"><span class="toc-number">15.1.</span> <span class="toc-text">1、顺序结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、分支结构"><span class="toc-number">15.2.</span> <span class="toc-text">2、分支结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-if函数"><span class="toc-number">15.2.1.</span> <span class="toc-text">2.1 if函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-case语句"><span class="toc-number">15.2.2.</span> <span class="toc-text">2.2 case语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-if结构"><span class="toc-number">15.2.3.</span> <span class="toc-text">2.3 if结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-三者比较"><span class="toc-number">15.2.4.</span> <span class="toc-text">2.4 三者比较</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、循环结构"><span class="toc-number">15.3.</span> <span class="toc-text">3、循环结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-循环控制"><span class="toc-number">15.3.1.</span> <span class="toc-text">3.1 循环控制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-while"><span class="toc-number">15.3.2.</span> <span class="toc-text">3.2 while</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-loop"><span class="toc-number">15.3.3.</span> <span class="toc-text">3.2 loop</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-repeat"><span class="toc-number">15.3.4.</span> <span class="toc-text">3.3 repeat</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows便捷启停"><span class="toc-number">16.</span> <span class="toc-text">Windows便捷启停</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思考"><span class="toc-number">17.</span> <span class="toc-text">思考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验"><span class="toc-number">18.</span> <span class="toc-text">实验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">19.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -751,11 +764,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -767,7 +780,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">time</a>
+                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -775,15 +788,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
+                <a href="javascript:void(0)" class="js-tag color5">time</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -791,11 +796,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -811,15 +820,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -839,10 +852,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tcp</a>
               </li>
              
@@ -851,7 +860,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">data</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -867,27 +888,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">transient</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">volatile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -903,6 +912,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cap</a>
               </li>
              
@@ -915,11 +928,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">swap</a>
+                <a href="javascript:void(0)" class="js-tag color4">pom</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pom</a>
+                <a href="javascript:void(0)" class="js-tag color5">swap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -927,15 +940,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">login</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -943,11 +948,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">string</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">copy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">cross</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -984,6 +1001,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">desgin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
