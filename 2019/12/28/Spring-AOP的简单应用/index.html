@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="thailandking">
 <meta property="og:description" content="一、SpringAOP介绍 SpringAOP是Spring包含的一大特性，俗称面向切面编程，实现定制化功能和开发 切入点：在哪些类、哪些方法上切入 通知：在方法执行的什么时机做什么 切面：切入点+通知 织入：把切面加入到对象，并创建出代理对象的过程  本篇文章记录一下，AOP思想在实际项目开发过程中的简单实践">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-16T05:36:56.961Z">
+<meta property="og:updated_time" content="2020-03-06T09:00:06.805Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring AOP的简单应用">
 <meta name="twitter:description" content="一、SpringAOP介绍 SpringAOP是Spring包含的一大特性，俗称面向切面编程，实现定制化功能和开发 切入点：在哪些类、哪些方法上切入 通知：在方法执行的什么时机做什么 切面：切入点+通知 织入：把切面加入到对象，并创建出代理对象的过程  本篇文章记录一下，AOP思想在实际项目开发过程中的简单实践">
@@ -196,11 +196,20 @@
 <h3 id="2、声明注解"><a href="#2、声明注解" class="headerlink" title="2、声明注解"></a>2、声明注解</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.METHOD)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyLog &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="3、添加注解"><a href="#3、添加注解" class="headerlink" title="3、添加注解"></a>3、添加注解</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@MyLog</span>(value = <span class="string">"测试get方法日志记录"</span>)</span><br><span class="line"><span class="meta">@GetMapping</span>(value = <span class="string">"/get"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Response <span class="title">myLogGet</span><span class="params">(User user, HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Response.ok().data(<span class="string">"测试get方法日志记录"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@MyLog</span>(value = <span class="string">"测试post方法日志记录"</span>)</span><br><span class="line"><span class="meta">@PostMapping</span>(value = <span class="string">"/post"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Response <span class="title">myLogPost</span><span class="params">(@RequestBody User user, HttpServletResponse response)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Response.ok().data(<span class="string">"测试post方法日志记录"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="4、切面配置"><a href="#4、切面配置" class="headerlink" title="4、切面配置"></a>4、切面配置</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LogInsertAspect</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Pointcut</span>(<span class="string">"@annotation(MyLog)"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">logInsert</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AfterReturning</span>(<span class="string">"logInsert()"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doAfter</span><span class="params">(JoinPoint joinPoint)</span> </span>&#123;</span><br><span class="line">        SystemCallLog callLog = <span class="keyword">new</span> SystemCallLog();</span><br><span class="line">        <span class="comment">// 从切面织入点处通过反射机制获取织入点处的方法</span></span><br><span class="line">        MethodSignature signature = (MethodSignature) joinPoint.getSignature();</span><br><span class="line">        Method method = signature.getMethod();</span><br><span class="line">        <span class="comment">// 1、获取注解内容</span></span><br><span class="line">        MyLog myLog = method.getAnnotation(MyLog.class);</span><br><span class="line">        <span class="keyword">if</span> (myLog != <span class="keyword">null</span>) &#123;</span><br><span class="line">            callLog.setValue(myLog.value());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 2、获取方法名</span></span><br><span class="line">        callLog.setMethodName(method.getName());</span><br><span class="line">        <span class="comment">// 3、获取参数列表</span></span><br><span class="line">        Object[] args = joinPoint.getArgs();</span><br><span class="line">        <span class="comment">// 过滤HttpServletRequest和HttpServletResponse类型的参数</span></span><br><span class="line">        <span class="keyword">if</span> (args != <span class="keyword">null</span> &amp;&amp; args.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            List&lt;Object&gt; argList = Arrays.asList(args).stream()</span><br><span class="line">                .filter(arg -&gt; (!(arg <span class="keyword">instanceof</span> HttpServletRequest) &amp;&amp; !(arg <span class="keyword">instanceof</span> HttpServletResponse)))</span><br><span class="line">                .collect(Collectors.toList());</span><br><span class="line">            String params = JSON.toJSONString(argList);</span><br><span class="line">            callLog.setParams(params);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 4、获取用户名</span></span><br><span class="line">        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();</span><br><span class="line">        HttpServletRequest request = requestAttributes.getRequest();</span><br><span class="line">        String userName= (String) request.getSession().getAttribute(<span class="string">"userName"</span>);</span><br><span class="line">        <span class="keyword">if</span>(userName != <span class="keyword">null</span> &amp;&amp; !userName.isEmpty())&#123;</span><br><span class="line">            callLog.setUserName(userName);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            callLog.setUserName(<span class="string">"admin"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 5、获取时间</span></span><br><span class="line">        SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd hh:mm:ss"</span>);</span><br><span class="line">        String callTime = sdf.format(<span class="keyword">new</span> Date());</span><br><span class="line">        callLog.setCallTime(callTime);</span><br><span class="line">        <span class="comment">// 插入到数据库</span></span><br><span class="line">        System.out.println(callLog);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="项目源码"><a href="#项目源码" class="headerlink" title="项目源码"></a>项目源码</h2><ul>
+<h2 id="源码链接"><a href="#源码链接" class="headerlink" title="源码链接"></a>源码链接</h2><ul>
 <li><a href="https://github.com/ThailandKing/spring_aop_demo.git" target="_blank" rel="noopener">https://github.com/ThailandKing/spring_aop_demo.git</a></li>
 </ul>
-<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
-<li><a href="https://www.jianshu.com/p/994027425b44" target="_blank" rel="noopener">Spring面向切面编程</a></li>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><blockquote>
+<p>拦截器和过滤器的区别？</p>
+</blockquote>
+<ul>
+<li>使用范围不同：Filter是基于Servlet规范规定的，只能用于web程序中；Interceptor是基于Spring框架实现的</li>
+<li>使用资源不同：Interceptor能使用Spring IOC里的任何资源、对象；Filter不能</li>
+<li>深度不同：Filter只在Servlet前后起作用；Interceptor可在方法前后、异常前后弹性使用</li>
+<li><p>所以在Spring框架程序中，优先使用Interceptor</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/994027425b44" target="_blank" rel="noopener">Spring面向切面编程</a></p>
+</li>
 </ul>
 
       
@@ -354,7 +363,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、SpringAOP介绍"><span class="toc-number">1.</span> <span class="toc-text">一、SpringAOP介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、注解式参数校验"><span class="toc-number">2.</span> <span class="toc-text">二、注解式参数校验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、实体类注解"><span class="toc-number">2.1.</span> <span class="toc-text">1、实体类注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、参数注解"><span class="toc-number">2.2.</span> <span class="toc-text">2、参数注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、切面配置"><span class="toc-number">2.3.</span> <span class="toc-text">3、切面配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、接口调用日志记录"><span class="toc-number">3.</span> <span class="toc-text">三、接口调用日志记录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、声明日志实体类"><span class="toc-number">3.1.</span> <span class="toc-text">1、声明日志实体类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、声明注解"><span class="toc-number">3.2.</span> <span class="toc-text">2、声明注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、添加注解"><span class="toc-number">3.3.</span> <span class="toc-text">3、添加注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、切面配置"><span class="toc-number">3.4.</span> <span class="toc-text">4、切面配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目源码"><span class="toc-number">4.</span> <span class="toc-text">项目源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">5.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、SpringAOP介绍"><span class="toc-number">1.</span> <span class="toc-text">一、SpringAOP介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、注解式参数校验"><span class="toc-number">2.</span> <span class="toc-text">二、注解式参数校验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、实体类注解"><span class="toc-number">2.1.</span> <span class="toc-text">1、实体类注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、参数注解"><span class="toc-number">2.2.</span> <span class="toc-text">2、参数注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、切面配置"><span class="toc-number">2.3.</span> <span class="toc-text">3、切面配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、接口调用日志记录"><span class="toc-number">3.</span> <span class="toc-text">三、接口调用日志记录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、声明日志实体类"><span class="toc-number">3.1.</span> <span class="toc-text">1、声明日志实体类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、声明注解"><span class="toc-number">3.2.</span> <span class="toc-text">2、声明注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、添加注解"><span class="toc-number">3.3.</span> <span class="toc-text">3、添加注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、切面配置"><span class="toc-number">3.4.</span> <span class="toc-text">4、切面配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码链接"><span class="toc-number">4.</span> <span class="toc-text">源码链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">5.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -467,6 +476,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
@@ -491,15 +504,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">java8</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,7 +516,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -515,7 +528,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -527,7 +540,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sso</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,11 +560,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -563,14 +580,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
               </li>
              
@@ -579,11 +588,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">data</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -595,11 +608,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excel</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">excel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,14 +632,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">zxing</a>
               </li>
              
@@ -627,11 +640,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pom</a>
+                <a href="javascript:void(0)" class="js-tag color5">swap</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">swap</a>
+                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pom</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -643,11 +660,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
+                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -700,6 +717,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">desgin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
