@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="thailandking">
 <meta property="og:description" content="一、POI 最流行的一个(Apache POI)包含许多特性，但当涉及到大型工作表时，它很快就会占用大量内存，爆发OOM问题 滑动窗口机制阻止访问当前写入位置之上的单元格 会将内容写入临时文件 默认情况下禁用了共享字符串，在文件大小上带来了开销；如果启用共享字符串可能会消耗更多堆内存">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-09T09:19:11.418Z">
+<meta property="og:updated_time" content="2020-03-19T01:43:36.759Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="为Excel穿上美丽的嫁妆">
 <meta name="twitter:description" content="一、POI 最流行的一个(Apache POI)包含许多特性，但当涉及到大型工作表时，它很快就会占用大量内存，爆发OOM问题 滑动窗口机制阻止访问当前写入位置之上的单元格 会将内容写入临时文件 默认情况下禁用了共享字符串，在文件大小上带来了开销；如果启用共享字符串可能会消耗更多堆内存">
@@ -212,7 +212,7 @@
 <li>isIncludeTitle：是否解析表头</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Date</span> 2020/1/8 15:11</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditTime</span> 2020/1/8 15:11</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Description</span> 3、Excel导入解析</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">List&lt;T&gt; <span class="title">importDataBrowser</span><span class="params">(InputStream is, </span></span></span><br><span class="line"><span class="function"><span class="params">                                            Class&lt;T&gt; clazz,</span></span></span><br><span class="line"><span class="function"><span class="params">                                            <span class="keyword">boolean</span> isIncludeTitle)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="四、导出的简单使用"><a href="#四、导出的简单使用" class="headerlink" title="四、导出的简单使用"></a>四、导出的简单使用</h2><h3 id="1、添加依赖"><a href="#1、添加依赖" class="headerlink" title="1、添加依赖"></a>1、添加依赖</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--fastexcel-writer--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.dhatim&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;fastexcel&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;0.10.10&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="四、导出的简单使用"><a href="#四、导出的简单使用" class="headerlink" title="四、导出的简单使用"></a>四、导出的简单使用</h2><h3 id="1、添加依赖"><a href="#1、添加依赖" class="headerlink" title="1、添加依赖"></a>1、添加依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--fastexcel-writer--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.dhatim<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastexcel<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.10.10<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="2、导入代码"><a href="#2、导入代码" class="headerlink" title="2、导入代码"></a>2、导入代码</h3><ul>
 <li>ShowStyle.java</li>
 <li>ExcelUtil.java</li>
@@ -229,7 +229,7 @@
 <li>多Sheet页</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// http://localhost:9022/test/export/multiply</span></span><br><span class="line"><span class="meta">@GetMapping</span>(value = <span class="string">"/export/multiply"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">exportMultiply</span><span class="params">(HttpServletResponse response)</span> </span>&#123;</span><br><span class="line">    Map&lt;String, List&lt;Object&gt;&gt; dataMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    Class[] classes = <span class="keyword">new</span> Class[<span class="number">3</span>];</span><br><span class="line">    List&lt;Object&gt; data1 = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    List&lt;Object&gt; data2 = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    List&lt;Object&gt; data3 = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    User user1 = <span class="keyword">new</span> User(<span class="number">1L</span>, <span class="string">"wgt"</span>, <span class="string">"wgt"</span>, <span class="string">"普通用户"</span>, <span class="string">"激活"</span>, <span class="keyword">new</span> Date());</span><br><span class="line">    User user2 = <span class="keyword">new</span> User(<span class="number">2L</span>, <span class="string">"shw"</span>, <span class="string">"shw"</span>, <span class="string">"未激活用户"</span>, <span class="string">"未激活"</span>, <span class="keyword">new</span> Date());</span><br><span class="line">    data1.add(user1);</span><br><span class="line">    data2.add(user2);</span><br><span class="line">    data3.add(user1);</span><br><span class="line">    data3.add(user2);</span><br><span class="line">    dataMap.put(<span class="string">"Sheet 1"</span>, data1);</span><br><span class="line">    dataMap.put(<span class="string">"Sheet 2"</span>, data2);</span><br><span class="line">    dataMap.put(<span class="string">"Sheet 3"</span>, data3);</span><br><span class="line">    classes[<span class="number">0</span>] = User.class;</span><br><span class="line">    classes[<span class="number">1</span>] = User.class;</span><br><span class="line">    classes[<span class="number">2</span>] = User.class;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        ExcelUtil.exportDataBrowserMultiple(dataMap, classes, <span class="keyword">true</span>, response, <span class="string">"多人员.xlsx"</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="五、导入的简单使用"><a href="#五、导入的简单使用" class="headerlink" title="五、导入的简单使用"></a>五、导入的简单使用</h2><h3 id="1、添加依赖-1"><a href="#1、添加依赖-1" class="headerlink" title="1、添加依赖"></a>1、添加依赖</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--fastexcel-reader--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.dhatim&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;fastexcel-reader&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;0.10.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="五、导入的简单使用"><a href="#五、导入的简单使用" class="headerlink" title="五、导入的简单使用"></a>五、导入的简单使用</h2><h3 id="1、添加依赖-1"><a href="#1、添加依赖-1" class="headerlink" title="1、添加依赖"></a>1、添加依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--fastexcel-writer--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.dhatim<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastexcel<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.10.10<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--fastexcel-reader--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.dhatim<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastexcel-reader<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.10.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="2、导入代码-1"><a href="#2、导入代码-1" class="headerlink" title="2、导入代码"></a>2、导入代码</h3><ul>
 <li>ShowStyle.java</li>
 <li>ExcelUtil.java</li>
@@ -505,11 +505,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,6 +529,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jvm</a>
               </li>
              
@@ -537,15 +541,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -553,11 +549,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">List</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -565,15 +561,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -617,10 +617,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
               </li>
              
@@ -629,11 +625,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
+                <a href="javascript:void(0)" class="js-tag color5">data</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
+                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -645,11 +641,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color1">excel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excel</a>
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -661,7 +661,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -701,11 +701,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">string</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -717,11 +717,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+                <a href="javascript:void(0)" class="js-tag color1">cross</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cross</a>
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">
