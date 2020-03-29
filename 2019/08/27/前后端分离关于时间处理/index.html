@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://thailandking.github.io">
   <title>前后端分离关于时间处理 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、数据库 字段类型为Date  二、实体类1234567891011121314151617@Table(value = &quot;TB_USER&quot;)@Datapublic class User extends MpaasBasePojo &amp;#123;    @RowID(sequence = &quot;USER_S&quot;, type = RowIDType.SEQUENCE)    @Style(displayN">
+  <meta name="description" content="一、数据库 字段类型为Date或者Datetime  二、实体类12345678@Datapublic class User &amp;#123;    private Long id;    private String name;    private String pass;	@JsonFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;, timezone = &quot;GMT+8">
 <meta name="keywords" content="time">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前后端分离关于时间处理">
 <meta property="og:url" content="https://thailandking.github.io/2019/08/27/前后端分离关于时间处理/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="一、数据库 字段类型为Date  二、实体类1234567891011121314151617@Table(value = &quot;TB_USER&quot;)@Datapublic class User extends MpaasBasePojo &amp;#123;    @RowID(sequence = &quot;USER_S&quot;, type = RowIDType.SEQUENCE)    @Style(displayN">
+<meta property="og:description" content="一、数据库 字段类型为Date或者Datetime  二、实体类12345678@Datapublic class User &amp;#123;    private Long id;    private String name;    private String pass;	@JsonFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;, timezone = &quot;GMT+8">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-27T06:38:34.881Z">
+<meta property="og:updated_time" content="2020-03-25T08:38:11.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前后端分离关于时间处理">
-<meta name="twitter:description" content="一、数据库 字段类型为Date  二、实体类1234567891011121314151617@Table(value = &quot;TB_USER&quot;)@Datapublic class User extends MpaasBasePojo &amp;#123;    @RowID(sequence = &quot;USER_S&quot;, type = RowIDType.SEQUENCE)    @Style(displayN">
+<meta name="twitter:description" content="一、数据库 字段类型为Date或者Datetime  二、实体类12345678@Datapublic class User &amp;#123;    private Long id;    private String name;    private String pass;	@JsonFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;, timezone = &quot;GMT+8">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -172,12 +172,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="一、数据库"><a href="#一、数据库" class="headerlink" title="一、数据库"></a>一、数据库</h2><ul>
-<li>字段类型为Date</li>
+<li>字段类型为Date或者Datetime</li>
 </ul>
-<h2 id="二、实体类"><a href="#二、实体类" class="headerlink" title="二、实体类"></a>二、实体类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Table</span>(value = <span class="string">"TB_USER"</span>)</span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">MpaasBasePojo</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RowID</span>(sequence = <span class="string">"USER_S"</span>, type = RowIDType.SEQUENCE)</span><br><span class="line">    <span class="meta">@Style</span>(displayName = <span class="string">"工号"</span>, width = <span class="string">"10"</span>)</span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Style</span>(displayName = <span class="string">"姓名"</span>, width = <span class="string">"20"</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@Style</span>(displayName = <span class="string">"密码"</span>, width = <span class="string">"15"</span>)</span><br><span class="line">    <span class="keyword">private</span> String pass;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Date time;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Column</span>(type = ColumnType.JAVA)</span><br><span class="line">    <span class="keyword">private</span> String today;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二、实体类"><a href="#二、实体类" class="headerlink" title="二、实体类"></a>二、实体类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String pass;</span><br><span class="line">	<span class="meta">@JsonFormat</span>(pattern = <span class="string">"yyyy-MM-dd HH:mm:ss"</span>, timezone = <span class="string">"GMT+8"</span>)</span><br><span class="line">    <span class="keyword">private</span> Date time;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="三、后端处理"><a href="#三、后端处理" class="headerlink" title="三、后端处理"></a>三、后端处理</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@Date</span> 2019/8/27 9:42</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@LastEditTime</span> 2019/8/27 9:42</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@Description</span> 前端时间存储问题</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/time"</span>,method = RequestMethod.POST)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Response <span class="title">testTime</span><span class="params">(@RequestBody User user)</span> <span class="keyword">throws</span> ParseException </span>&#123;</span><br><span class="line">    SimpleDateFormat sdf=<span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy/MM/dd hh:mm:ss"</span>);</span><br><span class="line">    Date date = sdf.parse(user.getToday());</span><br><span class="line">    user.setPass(<span class="string">"123"</span>);</span><br><span class="line">    user.setName(<span class="string">"sss"</span>);</span><br><span class="line">    user.setTime(date);</span><br><span class="line">    sw.buildQuery()</span><br><span class="line">        .doInsert(user);</span><br><span class="line">    <span class="keyword">return</span> Response.ok();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="四、前端调用"><a href="#四、前端调用" class="headerlink" title="四、前端调用"></a>四、前端调用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">$(function()&#123;</span><br><span class="line">    <span class="comment">//请求参数</span></span><br><span class="line">    <span class="keyword">var</span> today = <span class="string">"2019/8/27 10:38:17"</span>;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        <span class="comment">//请求方式</span></span><br><span class="line">        type : <span class="string">"POST"</span>,</span><br><span class="line">        <span class="comment">//请求的媒体类型</span></span><br><span class="line">        contentType: <span class="string">"application/json;charset=UTF-8"</span>,</span><br><span class="line">        <span class="comment">//请求地址</span></span><br><span class="line">        url : <span class="string">"http://127.0.0.1/test/time/"</span>,</span><br><span class="line">        <span class="comment">//数据，json字符串</span></span><br><span class="line">        data : JSON.stringify(today),</span><br><span class="line">        <span class="comment">//请求成功</span></span><br><span class="line">        success : function(result) &#123;</span><br><span class="line">            console.log(result);</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">//请求失败，包含具体的错误信息</span></span><br><span class="line">        error : function(e)&#123;</span><br><span class="line">            console.log(e.status);</span><br><span class="line">            console.log(e.responseText);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="三、后端处理"><a href="#三、后端处理" class="headerlink" title="三、后端处理"></a>三、后端处理</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@Date</span> 2019/8/27 9:42</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@LastEditTime</span> 2019/8/27 9:42</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@Description</span> 前端时间存储问题</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/time"</span>,method = RequestMethod.POST)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Response <span class="title">testTime</span><span class="params">(@RequestBody User user)</span> <span class="keyword">throws</span> ParseException </span>&#123;</span><br><span class="line">    <span class="comment">//service insert</span></span><br><span class="line">    <span class="keyword">return</span> Response.ok();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="四、前端调用"><a href="#四、前端调用" class="headerlink" title="四、前端调用"></a>四、前端调用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">$(function()&#123;</span><br><span class="line">    <span class="comment">//请求参数</span></span><br><span class="line">    <span class="keyword">var</span> time = <span class="string">"2019-8-27 10:38:17"</span>;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        <span class="comment">//请求方式</span></span><br><span class="line">        type : <span class="string">"POST"</span>,</span><br><span class="line">        <span class="comment">//请求的媒体类型</span></span><br><span class="line">        contentType: <span class="string">"application/json;charset=UTF-8"</span>,</span><br><span class="line">        <span class="comment">//请求地址</span></span><br><span class="line">        url : <span class="string">"http://127.0.0.1/test/time/"</span>,</span><br><span class="line">        <span class="comment">//数据，json字符串</span></span><br><span class="line">        data : JSON.stringify(time),</span><br><span class="line">        <span class="comment">//请求成功</span></span><br><span class="line">        success : function(result) &#123;</span><br><span class="line">            console.log(result);</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">//请求失败，包含具体的错误信息</span></span><br><span class="line">        error : function(e)&#123;</span><br><span class="line">            console.log(e.status);</span><br><span class="line">            console.log(e.responseText);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
       
 
@@ -435,19 +435,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">idea</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -459,35 +459,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">time</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">java8</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -495,7 +467,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -511,11 +499,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -531,10 +523,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tcp</a>
               </li>
              
@@ -543,7 +531,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,11 +543,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">data</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -579,7 +575,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color4">oss</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,7 +591,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color5">time</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -603,15 +603,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pom</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">swap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -631,11 +631,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">string</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -663,11 +663,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">oracle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nio</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">oracle</a>
+                <a href="javascript:void(0)" class="js-tag color3">RestTemplate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -676,6 +680,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">utils</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -692,10 +700,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">utils</a>
               </li>
              
               <li class="article-tag-list-item">
