@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://thailandking.github.io">
   <title>Java位掩码在程序设计中的使用 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题情景例如，在一个系统中，用户一般有查询(Select)、新增(Insert)、修改(Update)、删除(Delete)四种权限，四种权限有多种组合方式，也就是有16中不同的权限状态（2的4次方）。  传统设计一般情况下会想到用四个boolean类型变量来保存：  12345678910111213141516public class Permission &amp;#123;    // 是否允许查">
-<meta name="keywords" content="java,BitMask">
+  <meta name="description" content="一、问题情景 例如，在一个系统中，用户一般有查询(Select)、新增(Insert)、修改(Update)、删除(Delete)四种权限，四种权限有多种组合方式，也就是有16中不同的权限状态（2的4次方）  二、传统设计一般情况下会想到用四个boolean类型变量来保存：  12345678910111213141516public class Permission &amp;#123;    // 是">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java位掩码在程序设计中的使用">
 <meta property="og:url" content="https://thailandking.github.io/2019/03/03/Java位掩码在程序设计中的使用/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="问题情景例如，在一个系统中，用户一般有查询(Select)、新增(Insert)、修改(Update)、删除(Delete)四种权限，四种权限有多种组合方式，也就是有16中不同的权限状态（2的4次方）。  传统设计一般情况下会想到用四个boolean类型变量来保存：  12345678910111213141516public class Permission &amp;#123;    // 是否允许查">
+<meta property="og:description" content="一、问题情景 例如，在一个系统中，用户一般有查询(Select)、新增(Insert)、修改(Update)、删除(Delete)四种权限，四种权限有多种组合方式，也就是有16中不同的权限状态（2的4次方）  二、传统设计一般情况下会想到用四个boolean类型变量来保存：  12345678910111213141516public class Permission &amp;#123;    // 是">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-03T13:37:36.956Z">
+<meta property="og:updated_time" content="2020-03-30T08:08:33.736Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java位掩码在程序设计中的使用">
-<meta name="twitter:description" content="问题情景例如，在一个系统中，用户一般有查询(Select)、新增(Insert)、修改(Update)、删除(Delete)四种权限，四种权限有多种组合方式，也就是有16中不同的权限状态（2的4次方）。  传统设计一般情况下会想到用四个boolean类型变量来保存：  12345678910111213141516public class Permission &amp;#123;    // 是否允许查">
+<meta name="twitter:description" content="一、问题情景 例如，在一个系统中，用户一般有查询(Select)、新增(Insert)、修改(Update)、删除(Delete)四种权限，四种权限有多种组合方式，也就是有16中不同的权限状态（2的4次方）  二、传统设计一般情况下会想到用四个boolean类型变量来保存：  12345678910111213141516public class Permission &amp;#123;    // 是">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -171,18 +171,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="问题情景"><a href="#问题情景" class="headerlink" title="问题情景"></a>问题情景</h2><p>例如，在一个系统中，用户一般有查询(Select)、新增(Insert)、修改(Update)、删除(Delete)四种权限，四种权限有多种组合方式，也就是有16中不同的权限状态（2的4次方）。 </p>
-<h2 id="传统设计"><a href="#传统设计" class="headerlink" title="传统设计"></a>传统设计</h2><p>一般情况下会想到用四个boolean类型变量来保存： </p>
+        <h2 id="一、问题情景"><a href="#一、问题情景" class="headerlink" title="一、问题情景"></a>一、问题情景</h2><ul>
+<li>例如，在一个系统中，用户一般有查询(Select)、新增(Insert)、修改(Update)、删除(Delete)四种权限，四种权限有多种组合方式，也就是有16中不同的权限状态（2的4次方）</li>
+</ul>
+<h2 id="二、传统设计"><a href="#二、传统设计" class="headerlink" title="二、传统设计"></a>二、传统设计</h2><p>一般情况下会想到用四个boolean类型变量来保存： </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Permission</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否允许查询</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> allowSelect;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否允许新增</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> allowInsert;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否允许删除</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> allowDelete;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否允许更新</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> allowUpdate;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 省略Getter和Setter</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="BitMask设计"><a href="#BitMask设计" class="headerlink" title="BitMask设计"></a>BitMask设计</h2><p>使用位掩码，用一个二进制数，每一位来表示一种权限，0表示无权限，1表示有权限。 </p>
+<h2 id="三、BitMask设计"><a href="#三、BitMask设计" class="headerlink" title="三、BitMask设计"></a>三、BitMask设计</h2><ul>
+<li>使用位掩码，用一个二进制数，每一位来表示一种权限，0表示无权限，1表示有权限</li>
+</ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NewPermission</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 是否允许查询，二进制第1位，0表示否，1表示是</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ALLOW_SELECT = <span class="number">1</span> &lt;&lt; <span class="number">0</span>; <span class="comment">// 0001</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否允许新增，二进制第2位，0表示否，1表示是</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ALLOW_INSERT = <span class="number">1</span> &lt;&lt; <span class="number">1</span>; <span class="comment">// 0010</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否允许修改，二进制第3位，0表示否，1表示是</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ALLOW_UPDATE = <span class="number">1</span> &lt;&lt; <span class="number">2</span>; <span class="comment">// 0100</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否允许删除，二进制第4位，0表示否，1表示是</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ALLOW_DELETE = <span class="number">1</span> &lt;&lt; <span class="number">3</span>; <span class="comment">// 1000</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 存储目前的权限状态</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> flag;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  重新设置权限</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPermission</span><span class="params">(<span class="keyword">int</span> permission)</span> </span>&#123;</span><br><span class="line">        flag = permission;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  添加一项或多项权限</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">enable</span><span class="params">(<span class="keyword">int</span> permission)</span> </span>&#123;</span><br><span class="line">        flag |= permission;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  删除一项或多项权限</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">disable</span><span class="params">(<span class="keyword">int</span> permission)</span> </span>&#123;</span><br><span class="line">        flag &amp;= ~permission;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  是否拥某些权限</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isAllow</span><span class="params">(<span class="keyword">int</span> permission)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (flag &amp; permission) == permission;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  是否禁用了某些权限</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isNotAllow</span><span class="params">(<span class="keyword">int</span> permission)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (flag &amp; permission) == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  是否仅仅拥有某些权限</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isOnlyAllow</span><span class="params">(<span class="keyword">int</span> permission)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> flag == permission;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="二者对比"><a href="#二者对比" class="headerlink" title="二者对比"></a>二者对比</h2><p>设置仅允许select和insert权限</p>
+<h2 id="四、二者对比"><a href="#四、二者对比" class="headerlink" title="四、二者对比"></a>四、二者对比</h2><ul>
+<li>设置仅允许select和insert权限</li>
+</ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">permission.setAllowSelect(<span class="keyword">true</span>);</span><br><span class="line">permission.setAllowInsert(<span class="keyword">true</span>);</span><br><span class="line">permission.setAllowUpdate(<span class="keyword">false</span>);</span><br><span class="line">permission.setAllowDelete(<span class="keyword">false</span>);</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">permission.setPermission(NewPermission.ALLOW_SELECT | NewPermission.ALLOW_INSERT);</span><br></pre></td></tr></table></figure>
-<p>二者对比可以感受到位掩码方式相对于传统的优势，可以节省很多代码量，同时位运算是底层运算，效率也非常高，而且理解起来也很简单。 </p>
-<p>参考链接：</p>
-<p><a href="https://www.cnblogs.com/hihtml5/p/6483783.html" target="_blank" rel="noopener">https://www.cnblogs.com/hihtml5/p/6483783.html</a> </p>
+<ul>
+<li>二者对比可以感受到位掩码方式相对于传统的优势，可以节省很多代码量，同时位运算是底层运算，效率也非常高，而且理解起来也很简单</li>
+</ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://www.cnblogs.com/hihtml5/p/6483783.html" target="_blank" rel="noopener">位掩码在程序设计中的使用</a></li>
+</ul>
 
       
 
@@ -228,10 +237,6 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">BitMask</a>
         		</li>
       		
 		</ul>
@@ -339,7 +344,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题情景"><span class="toc-number">1.</span> <span class="toc-text">问题情景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#传统设计"><span class="toc-number">2.</span> <span class="toc-text">传统设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BitMask设计"><span class="toc-number">3.</span> <span class="toc-text">BitMask设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二者对比"><span class="toc-number">4.</span> <span class="toc-text">二者对比</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、问题情景"><span class="toc-number">1.</span> <span class="toc-text">一、问题情景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、传统设计"><span class="toc-number">2.</span> <span class="toc-text">二、传统设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、BitMask设计"><span class="toc-number">3.</span> <span class="toc-text">三、BitMask设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、二者对比"><span class="toc-number">4.</span> <span class="toc-text">四、二者对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -452,11 +457,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -464,11 +469,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -476,23 +477,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,11 +493,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,11 +517,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -540,19 +533,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">lombok</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -560,27 +545,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transient</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+                <a href="javascript:void(0)" class="js-tag color4">iterator</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -592,7 +557,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">id</a>
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,11 +573,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">time</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -620,19 +589,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">login</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -688,15 +649,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">utils</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

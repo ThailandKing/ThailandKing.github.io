@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://thailandking.github.io">
   <title>深入理解Java装箱与拆箱 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基本数据类型与包装类型在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型： 123456789基本数据类型		包装类型byte			Byteshort			Shortint			Integerlong			Longfloat			Floatdouble			Doublechar			Characterboolean			Boolean">
+  <meta name="description" content="一、基本数据类型与包装类型 在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型：  123456789基本数据类型		包装类型byte			Byteshort			Shortint			Integerlong			Longfloat			Floatdouble			Doublechar			Characterboolean			Boolean">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解Java装箱与拆箱">
 <meta property="og:url" content="https://thailandking.github.io/2019/03/02/深入理解Java装箱与拆箱/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="基本数据类型与包装类型在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型： 123456789基本数据类型		包装类型byte			Byteshort			Shortint			Integerlong			Longfloat			Floatdouble			Doublechar			Characterboolean			Boolean">
+<meta property="og:description" content="一、基本数据类型与包装类型 在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型：  123456789基本数据类型		包装类型byte			Byteshort			Shortint			Integerlong			Longfloat			Floatdouble			Doublechar			Characterboolean			Boolean">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-02T13:50:25.767Z">
+<meta property="og:updated_time" content="2020-04-03T00:59:37.916Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解Java装箱与拆箱">
-<meta name="twitter:description" content="基本数据类型与包装类型在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型： 123456789基本数据类型		包装类型byte			Byteshort			Shortint			Integerlong			Longfloat			Floatdouble			Doublechar			Characterboolean			Boolean">
+<meta name="twitter:description" content="一、基本数据类型与包装类型 在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型：  123456789基本数据类型		包装类型byte			Byteshort			Shortint			Integerlong			Longfloat			Floatdouble			Doublechar			Characterboolean			Boolean">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -171,19 +171,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="基本数据类型与包装类型"><a href="#基本数据类型与包装类型" class="headerlink" title="基本数据类型与包装类型"></a>基本数据类型与包装类型</h2><p>在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型：</p>
+        <h2 id="一、基本数据类型与包装类型"><a href="#一、基本数据类型与包装类型" class="headerlink" title="一、基本数据类型与包装类型"></a>一、基本数据类型与包装类型</h2><blockquote>
+<p>在理解自动装箱和拆箱之前，我们先简单介绍一下Java的基本数据类型和包装类型：</p>
+</blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">基本数据类型		包装类型</span><br><span class="line"><span class="keyword">byte</span>			Byte</span><br><span class="line"><span class="keyword">short</span>			Short</span><br><span class="line"><span class="keyword">int</span>			Integer</span><br><span class="line"><span class="keyword">long</span>			Long</span><br><span class="line"><span class="keyword">float</span>			Float</span><br><span class="line"><span class="keyword">double</span>			Double</span><br><span class="line"><span class="keyword">char</span>			Character</span><br><span class="line"><span class="keyword">boolean</span>			Boolean</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="装箱与拆箱"><a href="#装箱与拆箱" class="headerlink" title="装箱与拆箱"></a>装箱与拆箱</h2><p>装箱：基本数据类型转换为包装类型</p>
-<p>拆箱：包装类型转换为基本数据类型</p>
-<h2 id="实现本质"><a href="#实现本质" class="headerlink" title="实现本质"></a>实现本质</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer i=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> j=i;</span><br></pre></td></tr></table></figure>
+<h2 id="二、装箱与拆箱"><a href="#二、装箱与拆箱" class="headerlink" title="二、装箱与拆箱"></a>二、装箱与拆箱</h2><ul>
+<li><p>装箱：基本数据类型转换为包装类型</p>
+</li>
+<li><p>拆箱：包装类型转换为基本数据类型</p>
+</li>
+</ul>
+<h2 id="三、实现本质"><a href="#三、实现本质" class="headerlink" title="三、实现本质"></a>三、实现本质</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">① Integer i=<span class="number">1</span>;</span><br><span class="line">② <span class="keyword">int</span> j=i;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在执行第一行代码时，Java会自动装箱，实质是调用了Integer的valueOf方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title">valueOf</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)</span><br><span class="line">        <span class="keyword">return</span> IntegerCache.cache[i + (-IntegerCache.low)];</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Integer(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在执行第二行代码时，Java会自动拆箱，实质是调用了Integer的intValue()方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">intValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>值比较</li>
+</ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Integer a=-<span class="number">128</span>;</span><br><span class="line">Integer b=-<span class="number">128</span>;</span><br><span class="line">System.out.println(a==b);<span class="comment">//true</span></span><br><span class="line">Integer c=<span class="number">127</span>;</span><br><span class="line">Integer d=<span class="number">127</span>;</span><br><span class="line">System.out.println(c==d);<span class="comment">//true</span></span><br><span class="line">Integer x=-<span class="number">129</span>;</span><br><span class="line">Integer y=-<span class="number">129</span>;</span><br><span class="line">System.out.println(x==y);<span class="comment">//false</span></span><br><span class="line">Integer z=<span class="number">128</span>;</span><br><span class="line">Integer w=<span class="number">128</span>;</span><br><span class="line">System.out.println(z==w);<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-<p>在执行第一行代码时，Java会自动装箱，实质是调用了Integer的valueOf方法</p>
-<p>通过上面的测试，证实了不是调用构造方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">装箱</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title">valueOf</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)</span><br><span class="line">        <span class="keyword">return</span> IntegerCache.cache[i + (-IntegerCache.low)];</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Integer(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在执行第二行代码时，Java会自动拆箱，实质是调用了Integer的intValue()方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">拆箱</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">intValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="为什么要有包装类型"><a href="#为什么要有包装类型" class="headerlink" title="为什么要有包装类型"></a>为什么要有包装类型</h2><p>Java是面向对象编程，包装类型本质是一个对象，有什么好处吗？既然包装类型是一个对象，就可以与NULL值进行直接比较，同时拥有toString()、equals()等方法，操作还是十分方便的。</p>
+<h2 id="四、为什么要有包装类型"><a href="#四、为什么要有包装类型" class="headerlink" title="四、为什么要有包装类型"></a>四、为什么要有包装类型</h2><ul>
+<li>包装类型是一个对象，就可以与NULL值进行直接比较，同时拥有toString()、equals()等方法，操作还是十分方便的</li>
+</ul>
 
       
 
@@ -336,7 +350,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本数据类型与包装类型"><span class="toc-number">1.</span> <span class="toc-text">基本数据类型与包装类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#装箱与拆箱"><span class="toc-number">2.</span> <span class="toc-text">装箱与拆箱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现本质"><span class="toc-number">3.</span> <span class="toc-text">实现本质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要有包装类型"><span class="toc-number">4.</span> <span class="toc-text">为什么要有包装类型</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、基本数据类型与包装类型"><span class="toc-number">1.</span> <span class="toc-text">一、基本数据类型与包装类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、装箱与拆箱"><span class="toc-number">2.</span> <span class="toc-text">二、装箱与拆箱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、实现本质"><span class="toc-number">3.</span> <span class="toc-text">三、实现本质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、为什么要有包装类型"><span class="toc-number">4.</span> <span class="toc-text">四、为什么要有包装类型</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -449,11 +463,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -461,11 +475,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -473,23 +483,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -501,11 +499,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,11 +523,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -537,19 +539,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">lombok</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -557,27 +551,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transient</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+                <a href="javascript:void(0)" class="js-tag color4">iterator</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -589,7 +563,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">id</a>
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -597,11 +579,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">time</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -617,19 +595,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">login</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -685,15 +655,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">utils</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

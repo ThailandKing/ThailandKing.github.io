@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="thailandking">
 <meta property="og:description" content="一、POI 最流行的一个(Apache POI)包含许多特性，但当涉及到大型工作表时，它很快就会占用大量内存，爆发OOM问题 滑动窗口机制阻止访问当前写入位置之上的单元格 会将内容写入临时文件 默认情况下禁用了共享字符串，在文件大小上带来了开销；如果启用共享字符串可能会消耗更多堆内存">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-19T01:43:36.759Z">
+<meta property="og:updated_time" content="2020-04-03T01:14:49.896Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="为Excel穿上美丽的嫁妆">
 <meta name="twitter:description" content="一、POI 最流行的一个(Apache POI)包含许多特性，但当涉及到大型工作表时，它很快就会占用大量内存，爆发OOM问题 滑动窗口机制阻止访问当前写入位置之上的单元格 会将内容写入临时文件 默认情况下禁用了共享字符串，在文件大小上带来了开销；如果启用共享字符串可能会消耗更多堆内存">
@@ -180,10 +180,10 @@
 <a id="more"></a>
 <h2 id="二、FastExcel"><a href="#二、FastExcel" class="headerlink" title="二、FastExcel"></a>二、FastExcel</h2><ul>
 <li>查询大量资料，发现<strong>FastExcel</strong>对上述问题有着很好的解决</li>
-<li>基于POI封装，对外提供了简单的API</li>
-<li>通过只积累必要的元素来减少内存占用和提高性能 </li>
-<li>XML内容在最后通过管道传输到输出流 </li>
-<li>多线程支持，多sheet页表格快速生成</li>
+<li>基于POI封装，对外提供了<strong>简单的API</strong></li>
+<li>通过<strong>只积累必要的元素</strong>来减少内存占用和提高性能 </li>
+<li>XML内容在最后通过<strong>管道传输</strong>到输出流 </li>
+<li><strong>多线程支持</strong>，多sheet页表格快速生成</li>
 <li><a href="https://github.com/dhatim/fastexcel" target="_blank" rel="noopener">FastExcel详解</a></li>
 </ul>
 <h2 id="三、封装操作过程"><a href="#三、封装操作过程" class="headerlink" title="三、封装操作过程"></a>三、封装操作过程</h2><h3 id="1、声明注解"><a href="#1、声明注解" class="headerlink" title="1、声明注解"></a>1、声明注解</h3><ul>
@@ -206,7 +206,7 @@
 <li>fileName：导出文件名称</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Date</span> 2020/1/8 10:41</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditTime</span> 2020/1/8 10:41</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Description</span> 2、List数据导出Excel（浏览器）（多sheet页）</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">exportDataBrowserMultiple</span><span class="params">(Map&lt;String, List&lt;Object&gt;&gt; dataMap, </span></span></span><br><span class="line"><span class="function"><span class="params">                                             Class[] classes, </span></span></span><br><span class="line"><span class="function"><span class="params">                                             <span class="keyword">boolean</span> isExportTitle, </span></span></span><br><span class="line"><span class="function"><span class="params">                                             HttpServletResponse response, </span></span></span><br><span class="line"><span class="function"><span class="params">                                             String fileName)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4、导入解析"><a href="#4、导入解析" class="headerlink" title="4、导入解析"></a>4、导入解析</h3><ul>
+<h3 id="4、导入解析API"><a href="#4、导入解析API" class="headerlink" title="4、导入解析API"></a>4、导入解析API</h3><ul>
 <li>is：输入流</li>
 <li>clazz：要解析成实体的字节码文件</li>
 <li>isIncludeTitle：是否解析表头</li>
@@ -400,7 +400,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、POI"><span class="toc-number">1.</span> <span class="toc-text">一、POI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、FastExcel"><span class="toc-number">2.</span> <span class="toc-text">二、FastExcel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、封装操作过程"><span class="toc-number">3.</span> <span class="toc-text">三、封装操作过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、声明注解"><span class="toc-number">3.1.</span> <span class="toc-text">1、声明注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、单Sheet页导出API"><span class="toc-number">3.2.</span> <span class="toc-text">2、单Sheet页导出API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、多Sheet页导出API"><span class="toc-number">3.3.</span> <span class="toc-text">3、多Sheet页导出API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、导入解析"><span class="toc-number">3.4.</span> <span class="toc-text">4、导入解析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、导出的简单使用"><span class="toc-number">4.</span> <span class="toc-text">四、导出的简单使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、添加依赖"><span class="toc-number">4.1.</span> <span class="toc-text">1、添加依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、导入代码"><span class="toc-number">4.2.</span> <span class="toc-text">2、导入代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、为实体类添加注解"><span class="toc-number">4.3.</span> <span class="toc-text">3、为实体类添加注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、调用"><span class="toc-number">4.4.</span> <span class="toc-text">4、调用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、导入的简单使用"><span class="toc-number">5.</span> <span class="toc-text">五、导入的简单使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、添加依赖-1"><span class="toc-number">5.1.</span> <span class="toc-text">1、添加依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、导入代码-1"><span class="toc-number">5.2.</span> <span class="toc-text">2、导入代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、为实体类添加注解-1"><span class="toc-number">5.3.</span> <span class="toc-text">3、为实体类添加注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、调用-1"><span class="toc-number">5.4.</span> <span class="toc-text">4、调用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特别提醒"><span class="toc-number">6.</span> <span class="toc-text">特别提醒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目源码"><span class="toc-number">7.</span> <span class="toc-text">项目源码</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、POI"><span class="toc-number">1.</span> <span class="toc-text">一、POI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、FastExcel"><span class="toc-number">2.</span> <span class="toc-text">二、FastExcel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、封装操作过程"><span class="toc-number">3.</span> <span class="toc-text">三、封装操作过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、声明注解"><span class="toc-number">3.1.</span> <span class="toc-text">1、声明注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、单Sheet页导出API"><span class="toc-number">3.2.</span> <span class="toc-text">2、单Sheet页导出API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、多Sheet页导出API"><span class="toc-number">3.3.</span> <span class="toc-text">3、多Sheet页导出API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、导入解析API"><span class="toc-number">3.4.</span> <span class="toc-text">4、导入解析API</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、导出的简单使用"><span class="toc-number">4.</span> <span class="toc-text">四、导出的简单使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、添加依赖"><span class="toc-number">4.1.</span> <span class="toc-text">1、添加依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、导入代码"><span class="toc-number">4.2.</span> <span class="toc-text">2、导入代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、为实体类添加注解"><span class="toc-number">4.3.</span> <span class="toc-text">3、为实体类添加注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、调用"><span class="toc-number">4.4.</span> <span class="toc-text">4、调用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、导入的简单使用"><span class="toc-number">5.</span> <span class="toc-text">五、导入的简单使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、添加依赖-1"><span class="toc-number">5.1.</span> <span class="toc-text">1、添加依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、导入代码-1"><span class="toc-number">5.2.</span> <span class="toc-text">2、导入代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、为实体类添加注解-1"><span class="toc-number">5.3.</span> <span class="toc-text">3、为实体类添加注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、调用-1"><span class="toc-number">5.4.</span> <span class="toc-text">4、调用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特别提醒"><span class="toc-number">6.</span> <span class="toc-text">特别提醒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目源码"><span class="toc-number">7.</span> <span class="toc-text">项目源码</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -513,11 +513,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -525,11 +525,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -537,23 +533,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -565,11 +549,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -581,11 +573,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -601,19 +589,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">lombok</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -621,27 +601,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transient</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+                <a href="javascript:void(0)" class="js-tag color4">iterator</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -653,7 +613,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">id</a>
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -661,11 +629,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">time</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -681,19 +645,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">login</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -749,15 +705,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">utils</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

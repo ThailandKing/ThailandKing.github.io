@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://thailandking.github.io/2020/01/03/SpringBoot邮件发送整合/1.png">
 <meta property="og:image" content="https://thailandking.github.io/2020/01/03/SpringBoot邮件发送整合/2.png">
-<meta property="og:updated_time" content="2020-02-06T03:18:52.729Z">
+<meta property="og:updated_time" content="2020-04-02T06:28:06.098Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot邮件发送整合">
 <meta name="twitter:description" content="一、准备工作1、邮箱授权 以网易邮箱举例">
@@ -180,18 +180,15 @@
 <p><img src="/2020/01/03/SpringBoot邮件发送整合/1.png" alt></p>
 <a id="more"></a>
 <p><img src="/2020/01/03/SpringBoot邮件发送整合/2.png" alt></p>
-<h3 id="2、添加依赖"><a href="#2、添加依赖" class="headerlink" title="2、添加依赖"></a>2、添加依赖</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--mail--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-mail&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="3、绑定配置"><a href="#3、绑定配置" class="headerlink" title="3、绑定配置"></a>3、绑定配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#邮件配置</span><br><span class="line">#邮箱服务器地址</span><br><span class="line">spring.mail.host=smtp.163.com</span><br><span class="line">#用户名</span><br><span class="line">spring.mail.username=SHW161110527@163.com</span><br><span class="line">#密码</span><br><span class="line">spring.mail.password=XXX</span><br><span class="line">#编码</span><br><span class="line">spring.mail.default-encoding=UTF-8</span><br><span class="line">#发件人</span><br><span class="line">mail.fromMail.sender=SHW161110527@163.com</span><br></pre></td></tr></table></figure>
-<h2 id="二、发送文本邮件"><a href="#二、发送文本邮件" class="headerlink" title="二、发送文本邮件"></a>二、发送文本邮件</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Value</span>(<span class="string">"$&#123;mail.fromMail.sender&#125;"</span>)</span><br><span class="line"><span class="keyword">private</span> String sender;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> JavaMailSender javaMailSender;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> TemplateEngine templateEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> Logger logger = LoggerFactory.getLogger(MailUtil.class);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Date</span> 2020/1/2 16:53</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditTime</span> 2020/1/2 16:53</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Description</span> 1、发送文本邮件</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendTextMail</span><span class="params">(String receiver, String subject, String textContent)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        SimpleMailMessage mailMessage = <span class="keyword">new</span> SimpleMailMessage();</span><br><span class="line">        mailMessage.setFrom(sender);</span><br><span class="line">        mailMessage.setTo(receiver);</span><br><span class="line">        mailMessage.setSubject(subject);</span><br><span class="line">        mailMessage.setText(textContent);</span><br><span class="line">        javaMailSender.send(mailMessage);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        logger.error(<span class="string">"发送text邮件时发生异常！"</span>, e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> MailUtil mailUtil;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> String receiver = <span class="string">"wgt161110527@163.com"</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testTextMail</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    String subject = <span class="string">"发送文本邮件"</span>;</span><br><span class="line">    String textContent = <span class="string">"发送文本邮件，简单测试"</span>;</span><br><span class="line">    mailUtil.sendTextMail(receiver, subject, textContent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2、添加依赖"><a href="#2、添加依赖" class="headerlink" title="2、添加依赖"></a>2、添加依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--mail--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-mail<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="3、绑定配置"><a href="#3、绑定配置" class="headerlink" title="3、绑定配置"></a>3、绑定配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#邮件配置</span><br><span class="line">#邮箱服务器地址</span><br><span class="line">spring.mail.host=smtp.163.com</span><br><span class="line">#用户名</span><br><span class="line">spring.mail.username=XXX@163.com</span><br><span class="line">#密码</span><br><span class="line">spring.mail.password=XXX</span><br><span class="line">#编码</span><br><span class="line">spring.mail.default-encoding=UTF-8</span><br><span class="line">#发件人</span><br><span class="line">mail.fromMail.sender=XXX@163.com</span><br></pre></td></tr></table></figure>
+<h2 id="二、发送文本邮件"><a href="#二、发送文本邮件" class="headerlink" title="二、发送文本邮件"></a>二、发送文本邮件</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Date</span> 2020/1/2 16:53</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditTime</span> 2020/1/2 16:53</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Description</span> 1、发送文本邮件</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendTextMail</span><span class="params">(String receiver, String subject, String textContent)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        SimpleMailMessage mailMessage = <span class="keyword">new</span> SimpleMailMessage();</span><br><span class="line">        mailMessage.setFrom(sender);</span><br><span class="line">        mailMessage.setTo(receiver);</span><br><span class="line">        mailMessage.setSubject(subject);</span><br><span class="line">        mailMessage.setText(textContent);</span><br><span class="line">        javaMailSender.send(mailMessage);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        logger.error(<span class="string">"发送text邮件时发生异常！"</span>, e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="三、发送HTML邮件"><a href="#三、发送HTML邮件" class="headerlink" title="三、发送HTML邮件"></a>三、发送HTML邮件</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Date</span> 2020/1/2 17:04</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditTime</span> 2020/1/2 17:04</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Description</span> 2、发送HTML邮件</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendHtmlMail</span><span class="params">(String receiver, String subject, String htmlContent)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        MimeMessage message = javaMailSender.createMimeMessage();</span><br><span class="line">        MimeMessageHelper helper = <span class="keyword">new</span> MimeMessageHelper(message, <span class="keyword">true</span>);</span><br><span class="line">        helper.setFrom(sender);</span><br><span class="line">        helper.setTo(receiver);</span><br><span class="line">        helper.setSubject(subject);</span><br><span class="line">        helper.setText(htmlContent, <span class="keyword">true</span>);</span><br><span class="line">        javaMailSender.send(message);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        logger.error(<span class="string">"发送html邮件时发生异常！"</span>, e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testHtmlMail</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    String subject = <span class="string">"发送HTML邮件"</span>;</span><br><span class="line">    String htmlContent = <span class="string">"&lt;html&gt;\n"</span> +</span><br><span class="line">        <span class="string">"&lt;body&gt;\n"</span> +</span><br><span class="line">        <span class="string">"    &lt;h3&gt;hello world ! 这是一封Html邮件!&lt;/h3&gt;\n"</span> +</span><br><span class="line">        <span class="string">"&lt;/body&gt;\n"</span> +</span><br><span class="line">        <span class="string">"&lt;/html&gt;"</span>;</span><br><span class="line">    mailUtil.sendHtmlMail(receiver, subject, htmlContent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="四、发送附件邮件-本地磁盘"><a href="#四、发送附件邮件-本地磁盘" class="headerlink" title="四、发送附件邮件-本地磁盘"></a>四、发送附件邮件-本地磁盘</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Date</span> 2020/1/2 17:13</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditTime</span> 2020/1/2 17:13</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Description</span> 3、发送附件邮件（本地磁盘）</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendAttachmentMail</span><span class="params">(String receiver, String subject, String attachmentContent, List&lt;String&gt; filePaths)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        MimeMessage message = javaMailSender.createMimeMessage();</span><br><span class="line">        MimeMessageHelper helper = <span class="keyword">new</span> MimeMessageHelper(message, <span class="keyword">true</span>);</span><br><span class="line">        helper.setFrom(sender);</span><br><span class="line">        helper.setTo(receiver);</span><br><span class="line">        helper.setSubject(subject);</span><br><span class="line">        helper.setText(attachmentContent, <span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">// 处理附件</span></span><br><span class="line">        <span class="keyword">if</span> (filePaths != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (String filePath : filePaths) &#123;</span><br><span class="line">                FileSystemResource file = <span class="keyword">new</span> FileSystemResource(<span class="keyword">new</span> File(filePath));</span><br><span class="line">                String fileName = filePath.substring(filePath.lastIndexOf(File.separator));</span><br><span class="line">                helper.addAttachment(fileName, file);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        javaMailSender.send(message);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        logger.error(<span class="string">"发送带附件的邮件时发生异常！"</span>, e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAttachmentMail</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    String subject = <span class="string">"发送附件邮件"</span>;</span><br><span class="line">    String attachmentContent = <span class="string">"发送附件邮件，简单测试"</span>;</span><br><span class="line">    List&lt;String&gt; filePaths = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    filePaths.add(<span class="string">"D:\\BATJ\\docker.png"</span>);</span><br><span class="line">    filePaths.add(<span class="string">"C:\\Users\\wgt\\Pictures\\卡车\\一汽卡车.png"</span>);</span><br><span class="line">    mailUtil.sendAttachmentMail(receiver, subject, attachmentContent, filePaths);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="五、发送附件邮件-前端上传"><a href="#五、发送附件邮件-前端上传" class="headerlink" title="五、发送附件邮件-前端上传"></a>五、发送附件邮件-前端上传</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Date</span> 2020/1/2 17:13</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditTime</span> 2020/1/2 17:13</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Description</span> 4、发送附件邮件（前端上传的文件）</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendAttachmentMail</span><span class="params">(String receiver, String subject, String attachmentContent, MultipartFile[] multipartFiles)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        MimeMessage message = javaMailSender.createMimeMessage();</span><br><span class="line">        MimeMessageHelper helper = <span class="keyword">new</span> MimeMessageHelper(message, <span class="keyword">true</span>);</span><br><span class="line">        helper.setFrom(sender);</span><br><span class="line">        helper.setTo(receiver);</span><br><span class="line">        helper.setSubject(subject);</span><br><span class="line">        helper.setText(attachmentContent, <span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">// 处理附件</span></span><br><span class="line">        <span class="keyword">if</span> (multipartFiles != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (MultipartFile multipartFile : multipartFiles) &#123;</span><br><span class="line">                helper.addAttachment(multipartFile.getOriginalFilename(), multipartFile);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        javaMailSender.send(message);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        logger.error(<span class="string">"发送带附件的邮件时发生异常！"</span>, e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="六、发送图片邮件"><a href="#六、发送图片邮件" class="headerlink" title="六、发送图片邮件"></a>六、发送图片邮件</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Date</span> 2020/1/2 18:01</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditTime</span> 2020/1/2 18:01</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Description</span> 5、发送图片邮件</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendPictureMail</span><span class="params">(String receiver, String subject, String pictureContent, Map&lt;String, String&gt; picMap)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        MimeMessage message = javaMailSender.createMimeMessage();</span><br><span class="line">        MimeMessageHelper helper = <span class="keyword">new</span> MimeMessageHelper(message, <span class="keyword">true</span>);</span><br><span class="line">        helper.setFrom(sender);</span><br><span class="line">        helper.setTo(receiver);</span><br><span class="line">        helper.setSubject(subject);</span><br><span class="line">        helper.setText(pictureContent, <span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">// 处理图片</span></span><br><span class="line">        <span class="keyword">if</span> (picMap != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (Map.Entry&lt;String, String&gt; entry : picMap.entrySet()) &#123;</span><br><span class="line">                FileSystemResource res = <span class="keyword">new</span> FileSystemResource(<span class="keyword">new</span> File(entry.getValue()));</span><br><span class="line">                helper.addInline(entry.getKey(), res);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        javaMailSender.send(message);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        logger.error(<span class="string">"发送嵌入静态资源的邮件时发生异常！"</span>, e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testPictureMail</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Map&lt;String, String&gt; picMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    picMap.put(<span class="string">"1"</span>, <span class="string">"C:\\Users\\wgt\\Pictures\\卡车\\一汽卡车.png"</span>);</span><br><span class="line">    picMap.put(<span class="string">"2"</span>, <span class="string">"D:\\BATJ\\docker.png"</span>);</span><br><span class="line">    String subject = <span class="string">"发送图片邮件"</span>;</span><br><span class="line">    <span class="comment">// &lt;img src=cid:1&gt;</span></span><br><span class="line">    String pictureContent = <span class="string">"&lt;html&gt;&lt;body&gt;"</span> + <span class="string">"这是有图片的邮件："</span> + <span class="string">"图片一：&lt;img src=\'cid:"</span> + <span class="number">1</span> + <span class="string">"\' &gt;"</span> + <span class="string">"图片二：&lt;img src=\'cid:"</span> + <span class="number">2</span> + <span class="string">"\' &gt;"</span> + <span class="string">"&lt;/body&gt;&lt;/html&gt;"</span>;</span><br><span class="line">    mailUtil.sendPictureMail(receiver, subject, pictureContent, picMap);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="七、发送模板邮件"><a href="#七、发送模板邮件" class="headerlink" title="七、发送模板邮件"></a>七、发送模板邮件</h2><h3 id="1、添加依赖"><a href="#1、添加依赖" class="headerlink" title="1、添加依赖"></a>1、添加依赖</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--thymeleaf--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="七、发送模板邮件"><a href="#七、发送模板邮件" class="headerlink" title="七、发送模板邮件"></a>七、发送模板邮件</h2><h3 id="1、添加依赖"><a href="#1、添加依赖" class="headerlink" title="1、添加依赖"></a>1、添加依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--thymeleaf--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="2、编写HTML模板"><a href="#2、编写HTML模板" class="headerlink" title="2、编写HTML模板"></a>2、编写HTML模板</h3><ul>
 <li>src\main\resources\templates下，名称为emailTemplate.html</li>
 </ul>
@@ -466,11 +463,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -478,11 +475,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -490,23 +483,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,11 +499,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -534,11 +523,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,19 +539,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">lombok</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -574,27 +551,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transient</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+                <a href="javascript:void(0)" class="js-tag color4">iterator</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -606,7 +563,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">id</a>
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -614,11 +579,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">time</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,19 +595,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">login</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -702,15 +655,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">utils</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

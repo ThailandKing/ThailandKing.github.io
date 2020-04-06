@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="thailandking">
 <meta property="og:description" content="一、添加依赖1234567891011&amp;lt;!--导入zxing依赖--&amp;gt;&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;com.google.zxing&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;core&amp;lt;/artifactId&amp;gt;    &amp;lt;version&amp;gt;3.2.1&amp;lt;/version&amp;gt;&amp;lt;/">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-06T07:23:04.367Z">
+<meta property="og:updated_time" content="2020-04-02T09:37:59.695Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Zxing的二维码生成和识别">
 <meta name="twitter:description" content="一、添加依赖1234567891011&amp;lt;!--导入zxing依赖--&amp;gt;&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;com.google.zxing&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;core&amp;lt;/artifactId&amp;gt;    &amp;lt;version&amp;gt;3.2.1&amp;lt;/version&amp;gt;&amp;lt;/">
@@ -175,9 +175,6 @@
 <a id="more"></a>
 <h2 id="二、书写工具类"><a href="#二、书写工具类" class="headerlink" title="二、书写工具类"></a>二、书写工具类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QRCodeUtil</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 指定图片生成文件格式</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> String format=<span class="string">"png"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//生成二维码</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">createQRCode</span><span class="params">(<span class="keyword">int</span> width,<span class="keyword">int</span> height,String content,String path)</span></span>&#123;</span><br><span class="line">        <span class="comment">//定义二维码参数</span></span><br><span class="line">        HashMap&lt;EncodeHintType,Object&gt; hints=<span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        hints.put(EncodeHintType.CHARACTER_SET,<span class="string">"utf-8"</span>);</span><br><span class="line">        hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.M);</span><br><span class="line">        hints.put(EncodeHintType.MARGIN,<span class="number">2</span>);</span><br><span class="line">        <span class="comment">//生成二维码</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            BitMatrix bitMatrix = <span class="keyword">new</span> MultiFormatWriter().encode(content, 				                                        BarcodeFormat.QR_CODE, width, height, hints);</span><br><span class="line">            MatrixToImageWriter.writeToStream(bitMatrix, format,</span><br><span class="line">                                              <span class="keyword">new</span> FileOutputStream(<span class="keyword">new</span> File(path)));</span><br><span class="line">            System.out.println(<span class="string">"二维码生成成功。。。。"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//二维码解析</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">decodeQRCode</span><span class="params">(String path)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//读取二维码</span></span><br><span class="line">            MultiFormatReader formatReader=<span class="keyword">new</span> MultiFormatReader();</span><br><span class="line">            File file=<span class="keyword">new</span> File(path);</span><br><span class="line">            BufferedImage image= ImageIO.read(file);</span><br><span class="line">            <span class="comment">//解析</span></span><br><span class="line">            BinaryBitmap binaryBitmap=<span class="keyword">new</span> BinaryBitmap(<span class="keyword">new</span> HybridBinarizer(<span class="keyword">new</span>                                                     BufferedImageLuminanceSource(image)));</span><br><span class="line">            HashMap&lt;DecodeHintType,Object&gt; hints=<span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">            hints.put(DecodeHintType.CHARACTER_SET,<span class="string">"utf-8"</span>);</span><br><span class="line">            Result result = formatReader.decode(binaryBitmap, hints);</span><br><span class="line">            <span class="comment">//获取结果</span></span><br><span class="line">            System.out.println(<span class="string">"解析结果："</span>+result.toString());</span><br><span class="line">            System.out.println(<span class="string">"格式："</span>+result.getBarcodeFormat());</span><br><span class="line">            System.out.println(<span class="string">"文本内容："</span>+result.getText());</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="三、测试使用"><a href="#三、测试使用" class="headerlink" title="三、测试使用"></a>三、测试使用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String path=<span class="string">"D:\\bd.png"</span>;</span><br><span class="line">        QRCodeUtil.createQRCode(<span class="number">400</span>,<span class="number">400</span>,<span class="string">"http://www.baidu.com"</span>,path);</span><br><span class="line">        QRCodeUtil.decodeQRCode(path);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="项目源码"><a href="#项目源码" class="headerlink" title="项目源码"></a>项目源码</h2><ul>
-<li><a href="https://github.com/ThailandKing/imooc_demo.git" target="_blank" rel="noopener">https://github.com/ThailandKing/imooc_demo.git</a></li>
-</ul>
 
       
 
@@ -330,7 +327,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、添加依赖"><span class="toc-number">1.</span> <span class="toc-text">一、添加依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、书写工具类"><span class="toc-number">2.</span> <span class="toc-text">二、书写工具类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、测试使用"><span class="toc-number">3.</span> <span class="toc-text">三、测试使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目源码"><span class="toc-number">4.</span> <span class="toc-text">项目源码</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、添加依赖"><span class="toc-number">1.</span> <span class="toc-text">一、添加依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、书写工具类"><span class="toc-number">2.</span> <span class="toc-text">二、书写工具类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、测试使用"><span class="toc-number">3.</span> <span class="toc-text">三、测试使用</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -443,11 +440,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -455,11 +452,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -467,23 +460,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -495,11 +476,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -511,11 +500,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -531,19 +516,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">lombok</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -551,27 +528,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transient</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+                <a href="javascript:void(0)" class="js-tag color4">iterator</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -583,7 +540,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">id</a>
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,11 +556,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">time</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,19 +572,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">login</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -679,15 +632,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">utils</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

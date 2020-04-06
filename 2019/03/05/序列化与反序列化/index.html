@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://thailandking.github.io">
   <title>序列化与反序列化 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="序列化与反序列化序列化就是将一个对象转换成字节序列，方便存储和传输。 序列化：ObjectOutputStream.writeObject() 反序列化：ObjectInputStream.readObject() 不会对静态变量进行序列化，因为序列化只是保存对象的状态，静态变量属于类的状态。">
-<meta name="keywords" content="java,serializable">
+  <meta name="description" content="一、序列化与反序列化 序列化就是将对象转换成字节序列，方便存储和传输，反序列化就是将字节序列转换成特定对象  序列化：ObjectOutputStream.writeObject()  反序列化：ObjectInputStream.readObject()    不会对静态变量进行序列化，因为序列化只是保存对象的状态，而静态变量属于类的状态">
+<meta name="keywords" content="serializable">
 <meta property="og:type" content="article">
 <meta property="og:title" content="序列化与反序列化">
 <meta property="og:url" content="https://thailandking.github.io/2019/03/05/序列化与反序列化/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="序列化与反序列化序列化就是将一个对象转换成字节序列，方便存储和传输。 序列化：ObjectOutputStream.writeObject() 反序列化：ObjectInputStream.readObject() 不会对静态变量进行序列化，因为序列化只是保存对象的状态，静态变量属于类的状态。">
+<meta property="og:description" content="一、序列化与反序列化 序列化就是将对象转换成字节序列，方便存储和传输，反序列化就是将字节序列转换成特定对象  序列化：ObjectOutputStream.writeObject()  反序列化：ObjectInputStream.readObject()    不会对静态变量进行序列化，因为序列化只是保存对象的状态，而静态变量属于类的状态">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-05T08:35:56.386Z">
+<meta property="og:updated_time" content="2020-04-05T01:46:45.911Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="序列化与反序列化">
-<meta name="twitter:description" content="序列化与反序列化序列化就是将一个对象转换成字节序列，方便存储和传输。 序列化：ObjectOutputStream.writeObject() 反序列化：ObjectInputStream.readObject() 不会对静态变量进行序列化，因为序列化只是保存对象的状态，静态变量属于类的状态。">
+<meta name="twitter:description" content="一、序列化与反序列化 序列化就是将对象转换成字节序列，方便存储和传输，反序列化就是将字节序列转换成特定对象  序列化：ObjectOutputStream.writeObject()  反序列化：ObjectInputStream.readObject()    不会对静态变量进行序列化，因为序列化只是保存对象的状态，而静态变量属于类的状态">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -171,56 +171,45 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="序列化与反序列化"><a href="#序列化与反序列化" class="headerlink" title="序列化与反序列化"></a>序列化与反序列化</h2><p>序列化就是将一个对象转换成字节序列，方便存储和传输。</p>
-<p>序列化：ObjectOutputStream.writeObject()</p>
-<p>反序列化：ObjectInputStream.readObject()</p>
-<p>不会对静态变量进行序列化，因为序列化只是保存<code>对象</code>的状态，静态变量属于类的状态。</p>
+        <h2 id="一、序列化与反序列化"><a href="#一、序列化与反序列化" class="headerlink" title="一、序列化与反序列化"></a>一、序列化与反序列化</h2><ul>
+<li><p>序列化就是将对象转换成字节序列，方便存储和传输，反序列化就是将字节序列转换成特定对象</p>
+</li>
+<li><p><strong>序列化</strong>：ObjectOutputStream.writeObject()</p>
+</li>
+<li><p><strong>反序列化</strong>：ObjectInputStream.readObject()</p>
+</li>
+</ul>
+<blockquote>
+<p>不会对静态变量进行序列化，因为序列化只是保存<strong>对象</strong>的状态，而静态变量属于类的状态</p>
+</blockquote>
 <a id="more"></a>
-<h2 id="serializable"><a href="#serializable" class="headerlink" title="serializable"></a>serializable</h2><p>序列化的类需要实现 Serializable 接口，它只是一个标准，没有任何方法需要实现，但是如果不去实现它的话而进行序列化，会抛出异常。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException </span>&#123;</span><br><span class="line"></span><br><span class="line">    A a1 = <span class="keyword">new</span> A(<span class="number">123</span>, <span class="string">"abc"</span>);</span><br><span class="line">    String objectFile = <span class="string">"file/a1"</span>;</span><br><span class="line"></span><br><span class="line">    ObjectOutputStream objectOutputStream = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(objectFile));</span><br><span class="line">    objectOutputStream.writeObject(a1);</span><br><span class="line">    objectOutputStream.close();</span><br><span class="line"></span><br><span class="line">    ObjectInputStream objectInputStream = <span class="keyword">new</span> ObjectInputStream(<span class="keyword">new</span> FileInputStream(objectFile));</span><br><span class="line">    A a2 = (A) objectInputStream.readObject();</span><br><span class="line">    objectInputStream.close();</span><br><span class="line">    System.out.println(a2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">private</span> String y;</span><br><span class="line"></span><br><span class="line">    A(<span class="keyword">int</span> x, String y) &#123;</span><br><span class="line">        <span class="keyword">this</span>.x = x;</span><br><span class="line">        <span class="keyword">this</span>.y = y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"x = "</span> + x + <span class="string">"  "</span> + <span class="string">"y = "</span> + y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="transient"><a href="#transient" class="headerlink" title="transient"></a>transient</h2><p>transient 关键字可以使一些属性不会被序列化</p>
+<h2 id="二、serializable"><a href="#二、serializable" class="headerlink" title="二、serializable"></a>二、serializable</h2><ul>
+<li>序列化的类需要实现 Serializable 接口，它只是一个标准，没有任何方法需要实现，但是如果不去实现它的话而进行序列化，会抛出异常</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException </span>&#123;</span><br><span class="line"></span><br><span class="line">    A a1 = <span class="keyword">new</span> A(<span class="number">123</span>, <span class="string">"abc"</span>);</span><br><span class="line">    String objectFile = <span class="string">"file/a1"</span>;</span><br><span class="line"></span><br><span class="line">    ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(objectFile));</span><br><span class="line">    oos.writeObject(a1);</span><br><span class="line">    oos.close();</span><br><span class="line"></span><br><span class="line">    ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(<span class="keyword">new</span> FileInputStream(objectFile));</span><br><span class="line">    A a2 = (A) ois.readObject();</span><br><span class="line">    ois.close();</span><br><span class="line">    System.out.println(a2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">private</span> String y;</span><br><span class="line"></span><br><span class="line">    A(<span class="keyword">int</span> x, String y) &#123;</span><br><span class="line">        <span class="keyword">this</span>.x = x;</span><br><span class="line">        <span class="keyword">this</span>.y = y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"x = "</span> + x + <span class="string">"  "</span> + <span class="string">"y = "</span> + y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三、transient"><a href="#三、transient" class="headerlink" title="三、transient"></a>三、transient</h2><ul>
+<li>transient 关键字可以使一些属性不会被序列化</li>
+</ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">transient</span> Object[] elementData;</span><br></pre></td></tr></table></figure>
-<p>ArrayList 中存储数据的数组 elementData 是用 transient 修饰的，因为这个数组是动态扩展的，并不是所有的空间都被使用，因此就不需要所有的内容都被序列化。通过重写序列化和反序列化方法，使得可以只序列化数组中有内容的那部分数据。</p>
-<h2 id="自定义序列化与反序列化"><a href="#自定义序列化与反序列化" class="headerlink" title="自定义序列化与反序列化"></a>自定义序列化与反序列化</h2><ul>
+<ul>
+<li>ArrayList 中存储数据的数组 elementData 是用 transient 修饰的</li>
+<li>因为这个数组是动态扩展的，并不是所有的空间都被使用，因此就不需要所有的内容都被序列化</li>
+<li>通过重写序列化和反序列化方法，使得可以只序列化数组中有内容的那部分数据</li>
+</ul>
+<h2 id="四、自定义序列化与反序列化"><a href="#四、自定义序列化与反序列化" class="headerlink" title="四、自定义序列化与反序列化"></a>四、自定义序列化与反序列化</h2><ul>
 <li>实现Serializable接口</li>
 <li>添加以下方法 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">writeObject</span><span class="params">(ObjectOutputStream out)</span> <span class="keyword">throws</span> IOException</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">readObject</span><span class="params">(ObjectInputStream in)</span> <span class="keyword">throws</span> ClassNotFoundException, IOException</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"><span class="keyword">import</span> java.nio.charset.Charset;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> String.format(<span class="string">"My name is %s, and I'm %d years old."</span>,</span><br><span class="line">                             name, age);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">writeObject</span><span class="params">(ObjectOutputStream out)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> strLen = (name == <span class="keyword">null</span>) ? -<span class="number">1</span> : name.length();</span><br><span class="line">        out.writeInt(strLen);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (strLen &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            out.write(name.getBytes(Charset.forName(<span class="string">"UTF-8"</span>)));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        out.writeInt(age);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">readObject</span><span class="params">(ObjectInputStream in)</span> <span class="keyword">throws</span></span></span><br><span class="line"><span class="function">        ClassNotFoundException, IOException </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> strLen = in.readInt();</span><br><span class="line">        <span class="keyword">if</span> (strLen &lt;= -<span class="number">1</span>) &#123;</span><br><span class="line">            name = <span class="keyword">null</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (strLen == <span class="number">0</span>) &#123;</span><br><span class="line">            name = <span class="string">""</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">byte</span>[] strBytes = <span class="keyword">new</span> <span class="keyword">byte</span>[strLen];</span><br><span class="line">            in.readFully(strBytes);</span><br><span class="line">            name = <span class="keyword">new</span> String(strBytes, Charset.forName(<span class="string">"UTF-8"</span>));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        age = in.readInt();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>实现Externalizable接口 </li>
-<li>重写两个方法</li>
+<h2 id="五、注意事项"><a href="#五、注意事项" class="headerlink" title="五、注意事项"></a>五、注意事项</h2><ul>
+<li>对象的类名、Field（包括基本类型、数组、对其它对象的引用）都会被序列化；方法、static Field、transient Field 都不会被序列化</li>
+<li>如果需要让某个Field不被序列化，则在该Field前加transient修饰符，而不是static关键字，虽然static关键字可以达到这个效果</li>
+<li>保证序列化对象的Field类型也是可序列化，否则需要使用transient关键字来修饰该Field，要不然该类是不可序列化的  </li>
+<li>反序列化对象时必须有序列化对象的class文件  </li>
+<li>当通过文件、网络来读取序列化的对象时，必须按实际写入顺序读取 </li>
+<li>最好在每个要序列化的类中加入<strong>private static final long serialVersionUID</strong>这个Field，具体数值自己定义。这样，即使对象被序列化之后，它所对应的类修改了，该对象也依然可以被正确反序列化</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">writeExternal</span><span class="params">(ObjectOutput out)</span> <span class="keyword">throws</span> IOException</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">readExternal</span><span class="params">(ObjectInput in)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.nio.charset.Charset;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Externalizable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> String.format(<span class="string">"My name is %s, and I'm %d years old."</span>,</span><br><span class="line">                             name, age);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">writeExternal</span><span class="params">(ObjectOutput out)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> strLen = (name == <span class="keyword">null</span>) ? -<span class="number">1</span> : name.length();</span><br><span class="line">        out.writeInt(strLen);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (strLen &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            out.write(name.getBytes(Charset.forName(<span class="string">"UTF-8"</span>)));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        out.writeInt(age);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">readExternal</span><span class="params">(ObjectInput in)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> strLen = in.readInt();</span><br><span class="line">        <span class="keyword">if</span> (strLen &lt;= -<span class="number">1</span>) &#123;</span><br><span class="line">            name = <span class="keyword">null</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (strLen == <span class="number">0</span>) &#123;</span><br><span class="line">            name = <span class="string">""</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">byte</span>[] strBytes = <span class="keyword">new</span> <span class="keyword">byte</span>[strLen];</span><br><span class="line">            in.readFully(strBytes);</span><br><span class="line">            name = <span class="keyword">new</span> String(strBytes, Charset.forName(<span class="string">"UTF-8"</span>));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        age = in.readInt();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里，我们发现除了添加了<code>Externalizable</code>接口的两个公有方法之外，还有一处发生了变化，<code>Person</code>添加了一个默认的构造函数。 当使用<code>Externalizable</code>进行反序列化构造对象时，会调用该类的默认构造函数进行构造。如果没有默认构造函数，那么将会在反序列化的时候抛出<code>java.io.InvalidClassException</code>。</p>
-<p>由于<code>Externalizable</code>使用的是接口的方式进行序列化，所以对于整个继承层次中的类，序列化时只会调用叶节点的类。如果想要在父类的基础上扩展子类的序列化，那么就需要在子类的方法中调用父类的方法。所以，相比使用<code>Serializable</code>的私有方法自定义序列化，<code>Externalizable</code>更加的可控。</p>
-<h2 id="序列化机制对比"><a href="#序列化机制对比" class="headerlink" title="序列化机制对比"></a>序列化机制对比</h2><p>实现Serializable接口 ：</p>
-<ul>
-<li>系统自动存储必要的信息（可重写进行自定义）；  </li>
-<li>Java内建支持，只需要实现该接口即可，无需任何代码支持； </li>
-<li>性能略差；   </li>
-</ul>
-<p>实现Externalizable接口：  </p>
-<ul>
-<li>程序员决定存储那些信息；  </li>
-<li>仅仅提供两个空方法，实现该接口必须为两个空方法提供实现； </li>
-<li>性能略好；  </li>
-</ul>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
-<li>对象的类名、Field（包括基本类型、数组、对其它对象的引用）都会被序列化；方法、static Field（即静态Field）、transient Field（也被称为瞬态Field）都不会被序列化；  </li>
-<li>实现Serializable接口如果需要让某个Field不被序列化，则在该Field前加transient修饰符，而不是static关键字，虽然static关键字可以达到这个效果；  </li>
-<li>保证序列化对象的Field类型也是可序列化，否则需要使用transient关键字来修饰该Field，要不然该类是不可序列化的；  </li>
-<li>反序列化对象时必须有序列化对象的class文件；  </li>
-<li>当通过文件、网络来读取序列化的对象时，必须按实际写入顺序读取；  </li>
-<li>最好在每个要序列化的类中加入private static final long serialVersionUID这个Field，具体数值自己定义。这样，即使对象被序列化之后，它所对应的类修改了，该对象也依然可以被正确反序列化；  </li>
-</ul>
-<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>Java序列化与反序列化：</p>
-<p><a href="https://www.cnblogs.com/xdp-gacl/p/3777987.html" target="_blank" rel="noopener">https://www.cnblogs.com/xdp-gacl/p/3777987.html</a> </p>
-<p>自定义序列化：</p>
-<p><a href="https://blog.csdn.net/mr__fang/article/details/53540320" target="_blank" rel="noopener">https://blog.csdn.net/mr__fang/article/details/53540320</a> </p>
-<p>序列化多个对象：</p>
-<p><a href="https://blog.csdn.net/PAcee1/article/details/79641700" target="_blank" rel="noopener">https://blog.csdn.net/PAcee1/article/details/79641700</a> </p>
 
       
 
@@ -264,10 +253,6 @@
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">serializable</a>
         		</li>
@@ -377,7 +362,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序列化与反序列化"><span class="toc-number">1.</span> <span class="toc-text">序列化与反序列化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#serializable"><span class="toc-number">2.</span> <span class="toc-text">serializable</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#transient"><span class="toc-number">3.</span> <span class="toc-text">transient</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义序列化与反序列化"><span class="toc-number">4.</span> <span class="toc-text">自定义序列化与反序列化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#序列化机制对比"><span class="toc-number">5.</span> <span class="toc-text">序列化机制对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意事项"><span class="toc-number">6.</span> <span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展"><span class="toc-number">7.</span> <span class="toc-text">扩展</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、序列化与反序列化"><span class="toc-number">1.</span> <span class="toc-text">一、序列化与反序列化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、serializable"><span class="toc-number">2.</span> <span class="toc-text">二、serializable</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、transient"><span class="toc-number">3.</span> <span class="toc-text">三、transient</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、自定义序列化与反序列化"><span class="toc-number">4.</span> <span class="toc-text">四、自定义序列化与反序列化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、注意事项"><span class="toc-number">5.</span> <span class="toc-text">五、注意事项</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -490,11 +475,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,11 +487,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,23 +495,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -542,11 +511,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -558,11 +535,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -578,19 +551,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">lombok</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -598,27 +563,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transient</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+                <a href="javascript:void(0)" class="js-tag color4">iterator</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -630,7 +575,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">id</a>
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -638,11 +591,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">time</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -658,19 +607,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">login</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -726,15 +667,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">utils</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

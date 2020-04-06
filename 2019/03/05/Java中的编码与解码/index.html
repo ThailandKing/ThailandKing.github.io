@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://thailandking.github.io">
   <title>Java中的编码与解码 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="编码与解码编码就是把字符转换为字节，而解码是把字节重新组合成字符。 如果编码和解码过程使用不同的编码方式那么就出现了乱码。  GBK 编码中，中文字符占 2 个字节，英文字符占 1 个字节； UTF-8 编码中，中文字符占 3 个字节，英文字符占 1 个字节； UTF-16be 编码中，中文字符和英文字符都占 2 个字节  UTF-16be 中的 be 指的是 Big Endian，也就是大端。相">
-<meta name="keywords" content="java,code">
+  <meta name="description" content="一、编码与解码 编码就是把字符转换为字节，而解码是把字节重新组合成字符，如果编码和解码过程使用不同的编码方式，那么就出现了乱码  GBK 编码中，中文字符占 2 个字节，英文字符占 1 个字节  UTF-8 编码中，中文字符占 3 个字节，英文字符占 1 个字节 UTF-16be 编码中，中文字符和英文字符都占 2 个字节  UTF-16be 中的 be 指的是 Big Endian，也就是大端。">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java中的编码与解码">
 <meta property="og:url" content="https://thailandking.github.io/2019/03/05/Java中的编码与解码/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="编码与解码编码就是把字符转换为字节，而解码是把字节重新组合成字符。 如果编码和解码过程使用不同的编码方式那么就出现了乱码。  GBK 编码中，中文字符占 2 个字节，英文字符占 1 个字节； UTF-8 编码中，中文字符占 3 个字节，英文字符占 1 个字节； UTF-16be 编码中，中文字符和英文字符都占 2 个字节  UTF-16be 中的 be 指的是 Big Endian，也就是大端。相">
+<meta property="og:description" content="一、编码与解码 编码就是把字符转换为字节，而解码是把字节重新组合成字符，如果编码和解码过程使用不同的编码方式，那么就出现了乱码  GBK 编码中，中文字符占 2 个字节，英文字符占 1 个字节  UTF-8 编码中，中文字符占 3 个字节，英文字符占 1 个字节 UTF-16be 编码中，中文字符和英文字符都占 2 个字节  UTF-16be 中的 be 指的是 Big Endian，也就是大端。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-05T03:17:02.929Z">
+<meta property="og:updated_time" content="2020-03-30T08:16:03.812Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java中的编码与解码">
-<meta name="twitter:description" content="编码与解码编码就是把字符转换为字节，而解码是把字节重新组合成字符。 如果编码和解码过程使用不同的编码方式那么就出现了乱码。  GBK 编码中，中文字符占 2 个字节，英文字符占 1 个字节； UTF-8 编码中，中文字符占 3 个字节，英文字符占 1 个字节； UTF-16be 编码中，中文字符和英文字符都占 2 个字节  UTF-16be 中的 be 指的是 Big Endian，也就是大端。相">
+<meta name="twitter:description" content="一、编码与解码 编码就是把字符转换为字节，而解码是把字节重新组合成字符，如果编码和解码过程使用不同的编码方式，那么就出现了乱码  GBK 编码中，中文字符占 2 个字节，英文字符占 1 个字节  UTF-8 编码中，中文字符占 3 个字节，英文字符占 1 个字节 UTF-16be 编码中，中文字符和英文字符都占 2 个字节  UTF-16be 中的 be 指的是 Big Endian，也就是大端。">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -171,22 +171,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="编码与解码"><a href="#编码与解码" class="headerlink" title="编码与解码"></a>编码与解码</h2><p>编码就是把字符转换为字节，而解码是把字节重新组合成字符。</p>
-<p>如果编码和解码过程使用不同的编码方式那么就出现了乱码。</p>
-<ul>
-<li>GBK 编码中，中文字符占 2 个字节，英文字符占 1 个字节；</li>
-<li>UTF-8 编码中，中文字符占 3 个字节，英文字符占 1 个字节；</li>
-<li>UTF-16be 编码中，中文字符和英文字符都占 2 个字节</li>
+        <h2 id="一、编码与解码"><a href="#一、编码与解码" class="headerlink" title="一、编码与解码"></a>一、编码与解码</h2><ul>
+<li><p>编码就是把字符转换为字节，而解码是把字节重新组合成字符，如果编码和解码过程使用不同的编码方式，那么就出现了乱码</p>
+</li>
+<li><p>GBK 编码中，中文字符占 2 个字节，英文字符占 1 个字节</p>
+</li>
+<li>UTF-8 编码中，中文字符占 3 个字节，英文字符占 1 个字节</li>
+<li><p>UTF-16be 编码中，中文字符和英文字符都占 2 个字节</p>
+</li>
+<li><p>UTF-16be 中的 be 指的是 Big Endian，也就是大端。相应地也有 UTF-16le，le 指的是 Little Endian，也就是小端</p>
+</li>
+<li><p>Java 的内存编码使用<strong>UTF-16be</strong>双字节编码，这不是指 Java 只支持这一种编码方式，而是说 char 这种类型使用 UTF-16be 进行编码</p>
+</li>
+<li>char 类型占 16 位，也就是两个字节，Java 使用这种双字节编码是为了让一个中文或者一个英文都能使用一个 char 来存储</li>
 </ul>
-<p>UTF-16be 中的 be 指的是 Big Endian，也就是大端。相应地也有 UTF-16le，le 指的是 Little Endian，也就是小端。</p>
-<p>Java 的内存编码使用双字节编码 UTF-16be，这不是指 Java 只支持这一种编码方式，而是说 char 这种类型使用 UTF-16be 进行编码。char 类型占 16 位，也就是两个字节，Java 使用这种双字节编码是为了让一个中文或者一个英文都能使用一个 char 来存储。</p>
 <a id="more"></a>
-<h2 id="编解码的常见使用"><a href="#编解码的常见使用" class="headerlink" title="编解码的常见使用"></a>编解码的常见使用</h2><p>1、流读取文件，具有转换编码功能的有：<strong>OutputStreamWriter</strong> 和 <strong>InputStreamReader</strong></p>
+<h2 id="二、编解码的常见使用"><a href="#二、编解码的常见使用" class="headerlink" title="二、编解码的常见使用"></a>二、编解码的常见使用</h2><ul>
+<li>1、流读取文件，具有转换编码功能的有：<strong>OutputStreamWriter</strong> 和 <strong>InputStreamReader</strong></li>
+</ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建指定字符集的 InputStreamReader</span></span><br><span class="line">InputStreamReader(InputStream in, String CharsetName)</span><br><span class="line"><span class="comment">// 创建使用指定字符集的 OutputStreamWriter</span></span><br><span class="line">OutputStreamWriter(OutputStream out, String CharsetName)</span><br></pre></td></tr></table></figure>
-<p>2、处理字符串编码问题 </p>
+<ul>
+<li>2、处理字符串编码问题 </li>
+</ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//a. 重新对获取的字符串进行编码</span></span><br><span class="line">Byte[] bytes = str.getBytes(String encodeCharName);</span><br><span class="line"></span><br><span class="line"><span class="comment">//b. 重新对bytes进行编码，创建新的字符串对象</span></span><br><span class="line">str = <span class="keyword">new</span> String(Byte[] bytes, String decodeCharsetName);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一般结合使用</span></span><br><span class="line">str = <span class="keyword">new</span> String(str.getBytes(String encodeName), String decodeCharsetName);</span><br></pre></td></tr></table></figure>
-<p>3、处理请求参数传递编码问题  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java中编码：URLEncoder.encode(strUri, “UTF-<span class="number">8</span>”); </span><br><span class="line">java中解码：URLDecoder.decode(strUri, “UTF-<span class="number">8</span>”);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3、处理请求参数传递编码问题  </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java中编码：URLEncoder.encode(strUri, <span class="string">"UTF-8"</span>); </span><br><span class="line">java中解码：URLDecoder.decode(strUri, <span class="string">"UTF-8"</span>);</span><br></pre></td></tr></table></figure>
 
       
 
@@ -232,10 +243,6 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
         		</li>
       		
 		</ul>
@@ -343,7 +350,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#编码与解码"><span class="toc-number">1.</span> <span class="toc-text">编码与解码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编解码的常见使用"><span class="toc-number">2.</span> <span class="toc-text">编解码的常见使用</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、编码与解码"><span class="toc-number">1.</span> <span class="toc-text">一、编码与解码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、编解码的常见使用"><span class="toc-number">2.</span> <span class="toc-text">二、编解码的常见使用</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -456,11 +463,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -468,11 +475,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -480,23 +483,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -508,11 +499,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -524,11 +523,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -544,19 +539,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">lombok</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -564,27 +551,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transient</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+                <a href="javascript:void(0)" class="js-tag color4">iterator</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -596,7 +563,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">id</a>
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -604,11 +579,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">time</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -624,19 +595,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">login</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -692,15 +655,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">utils</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

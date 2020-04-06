@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://thailandking.github.io">
   <title>SpringBoot自定义starter | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、Spring Boot Starter 一个完整的Spring Boot Starter可能包含以下组件 ： autoconfigure模块：包含自动配置的代码  starter模块：提供对autoconfigure模块的依赖，以及一些其它的依赖  简而言之，starter应该提供使用该库所需的一切">
+  <meta name="description" content="一、Spring Boot Starter 一个完整的Spring Boot Starter可能包含以下组件 ：   autoconfigure模块：包含自动配置的代码  starter模块：提供对autoconfigure模块的依赖，以及一些其它的依赖  简而言之，starter应该提供使用该库所需的一切">
 <meta name="keywords" content="springboot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot自定义starter">
 <meta property="og:url" content="https://thailandking.github.io/2020/03/06/SpringBoot自定义starter/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="一、Spring Boot Starter 一个完整的Spring Boot Starter可能包含以下组件 ： autoconfigure模块：包含自动配置的代码  starter模块：提供对autoconfigure模块的依赖，以及一些其它的依赖  简而言之，starter应该提供使用该库所需的一切">
+<meta property="og:description" content="一、Spring Boot Starter 一个完整的Spring Boot Starter可能包含以下组件 ：   autoconfigure模块：包含自动配置的代码  starter模块：提供对autoconfigure模块的依赖，以及一些其它的依赖  简而言之，starter应该提供使用该库所需的一切">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-06T08:25:59.554Z">
+<meta property="og:updated_time" content="2020-04-02T06:43:08.422Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot自定义starter">
-<meta name="twitter:description" content="一、Spring Boot Starter 一个完整的Spring Boot Starter可能包含以下组件 ： autoconfigure模块：包含自动配置的代码  starter模块：提供对autoconfigure模块的依赖，以及一些其它的依赖  简而言之，starter应该提供使用该库所需的一切">
+<meta name="twitter:description" content="一、Spring Boot Starter 一个完整的Spring Boot Starter可能包含以下组件 ：   autoconfigure模块：包含自动配置的代码  starter模块：提供对autoconfigure模块的依赖，以及一些其它的依赖  简而言之，starter应该提供使用该库所需的一切">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -171,14 +171,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、Spring-Boot-Starter"><a href="#一、Spring-Boot-Starter" class="headerlink" title="一、Spring Boot Starter"></a>一、Spring Boot Starter</h2><ul>
-<li>一个完整的Spring Boot Starter可能包含以下组件 ：</li>
+        <h2 id="一、Spring-Boot-Starter"><a href="#一、Spring-Boot-Starter" class="headerlink" title="一、Spring Boot Starter"></a>一、Spring Boot Starter</h2><blockquote>
+<p>一个完整的Spring Boot Starter可能包含以下组件 ：</p>
+</blockquote>
+<ul>
 <li><strong>autoconfigure</strong>模块：包含自动配置的代码 </li>
 <li><strong>starter</strong>模块：提供对<strong>autoconfigure</strong>模块的依赖，以及一些其它的依赖 </li>
 <li>简而言之，starter应该提供使用该库所需的一切 </li>
 </ul>
 <a id="more"></a>
-<h2 id="二、自定义Starter"><a href="#二、自定义Starter" class="headerlink" title="二、自定义Starter"></a>二、自定义Starter</h2><h3 id="1、创建Maven工程"><a href="#1、创建Maven工程" class="headerlink" title="1、创建Maven工程"></a>1、创建Maven工程</h3><ul>
+<h2 id="二、自定义AOP-Starter"><a href="#二、自定义AOP-Starter" class="headerlink" title="二、自定义AOP Starter"></a>二、自定义AOP Starter</h2><h3 id="1、创建Maven工程"><a href="#1、创建Maven工程" class="headerlink" title="1、创建Maven工程"></a>1、创建Maven工程</h3><ul>
 <li>导入依赖：starter autoconfigure模块的依赖、自定义实现功能所需的依赖</li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--starter autoconfigure模块的依赖--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--starter--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--自动配置--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-autoconfigure<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--配置解析--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-configuration-processor<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--提供对autoconfigure模块的依赖，以及一些其它的依赖--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--web--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--lombok--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--fastjson--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastjson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.28<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--aop--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-aop<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -368,7 +370,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Spring-Boot-Starter"><span class="toc-number">1.</span> <span class="toc-text">一、Spring Boot Starter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、自定义Starter"><span class="toc-number">2.</span> <span class="toc-text">二、自定义Starter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、创建Maven工程"><span class="toc-number">2.1.</span> <span class="toc-text">1、创建Maven工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、创建配置实体"><span class="toc-number">2.2.</span> <span class="toc-text">2、创建配置实体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、实现功能逻辑"><span class="toc-number">2.3.</span> <span class="toc-text">3、实现功能逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、创建配置类"><span class="toc-number">2.4.</span> <span class="toc-text">4、创建配置类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、配置启动扫描"><span class="toc-number">2.5.</span> <span class="toc-text">5、配置启动扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、安装到本地仓库"><span class="toc-number">2.6.</span> <span class="toc-text">6、安装到本地仓库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、使用"><span class="toc-number">3.</span> <span class="toc-text">三、使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、创建Maven工程-1"><span class="toc-number">3.1.</span> <span class="toc-text">1、创建Maven工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、添加配置"><span class="toc-number">3.2.</span> <span class="toc-text">2、添加配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、测试使用"><span class="toc-number">3.3.</span> <span class="toc-text">3、测试使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、效果展示"><span class="toc-number">3.4.</span> <span class="toc-text">4、效果展示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码链接"><span class="toc-number">4.</span> <span class="toc-text">源码链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Spring-Boot-Starter"><span class="toc-number">1.</span> <span class="toc-text">一、Spring Boot Starter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、自定义AOP-Starter"><span class="toc-number">2.</span> <span class="toc-text">二、自定义AOP Starter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、创建Maven工程"><span class="toc-number">2.1.</span> <span class="toc-text">1、创建Maven工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、创建配置实体"><span class="toc-number">2.2.</span> <span class="toc-text">2、创建配置实体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、实现功能逻辑"><span class="toc-number">2.3.</span> <span class="toc-text">3、实现功能逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、创建配置类"><span class="toc-number">2.4.</span> <span class="toc-text">4、创建配置类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、配置启动扫描"><span class="toc-number">2.5.</span> <span class="toc-text">5、配置启动扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、安装到本地仓库"><span class="toc-number">2.6.</span> <span class="toc-text">6、安装到本地仓库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、使用"><span class="toc-number">3.</span> <span class="toc-text">三、使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、创建Maven工程-1"><span class="toc-number">3.1.</span> <span class="toc-text">1、创建Maven工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、添加配置"><span class="toc-number">3.2.</span> <span class="toc-text">2、添加配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、测试使用"><span class="toc-number">3.3.</span> <span class="toc-text">3、测试使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、效果展示"><span class="toc-number">3.4.</span> <span class="toc-text">4、效果展示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码链接"><span class="toc-number">4.</span> <span class="toc-text">源码链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -481,11 +483,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,11 +495,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -505,23 +503,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,11 +519,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,11 +543,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -569,19 +559,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">lombok</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -589,27 +571,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transient</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+                <a href="javascript:void(0)" class="js-tag color4">iterator</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -621,7 +583,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">id</a>
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -629,11 +599,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">time</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -649,19 +615,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">login</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -717,15 +675,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">utils</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">

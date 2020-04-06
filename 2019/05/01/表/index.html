@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="https://thailandking.github.io">
   <title>表 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="零、概述 表是关于特定实体的数据集合，是关系型数据库模型的核心  一、索引组织表Innodb中，表都是根据主键顺序组织存放的，这种存储方式的表称为索引组织表 如果创建表时没有显式地定义主键：  如果表中有非空的唯一索引，则该列为主键（根据定义索引的顺序，不是列的顺序） 如果没有，自动创建一个6字节大小的指针，作为主键">
+  <meta name="description" content="零、概述 表是关于特定实体的数据集合，是关系型数据库模型的核心  一、索引组织表 Innodb中，表都是根据主键顺序组织存放的，这种存储方式的表称为索引组织表  如果创建表时没有显式地定义主键：  如果表中有非空的唯一索引，则该列为主键（根据定义索引的顺序，不是列的顺序）  如果没有，自动创建一个6字节大小的指针，作为主键">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="表">
 <meta property="og:url" content="https://thailandking.github.io/2019/05/01/表/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="零、概述 表是关于特定实体的数据集合，是关系型数据库模型的核心  一、索引组织表Innodb中，表都是根据主键顺序组织存放的，这种存储方式的表称为索引组织表 如果创建表时没有显式地定义主键：  如果表中有非空的唯一索引，则该列为主键（根据定义索引的顺序，不是列的顺序） 如果没有，自动创建一个6字节大小的指针，作为主键">
+<meta property="og:description" content="零、概述 表是关于特定实体的数据集合，是关系型数据库模型的核心  一、索引组织表 Innodb中，表都是根据主键顺序组织存放的，这种存储方式的表称为索引组织表  如果创建表时没有显式地定义主键：  如果表中有非空的唯一索引，则该列为主键（根据定义索引的顺序，不是列的顺序）  如果没有，自动创建一个6字节大小的指针，作为主键">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://thailandking.github.io/2019/05/01/表/4-1.jpg">
 <meta property="og:image" content="https://thailandking.github.io/2019/05/01/表/4-2.png">
@@ -26,10 +26,10 @@
 <meta property="og:image" content="https://thailandking.github.io/2019/05/01/表/4-8.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/05/01/表/4-9.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/05/01/表/4-10.jpg">
-<meta property="og:updated_time" content="2019-05-01T13:38:20.894Z">
+<meta property="og:updated_time" content="2020-04-02T09:05:21.016Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="表">
-<meta name="twitter:description" content="零、概述 表是关于特定实体的数据集合，是关系型数据库模型的核心  一、索引组织表Innodb中，表都是根据主键顺序组织存放的，这种存储方式的表称为索引组织表 如果创建表时没有显式地定义主键：  如果表中有非空的唯一索引，则该列为主键（根据定义索引的顺序，不是列的顺序） 如果没有，自动创建一个6字节大小的指针，作为主键">
+<meta name="twitter:description" content="零、概述 表是关于特定实体的数据集合，是关系型数据库模型的核心  一、索引组织表 Innodb中，表都是根据主键顺序组织存放的，这种存储方式的表称为索引组织表  如果创建表时没有显式地定义主键：  如果表中有非空的唯一索引，则该列为主键（根据定义索引的顺序，不是列的顺序）  如果没有，自动创建一个6字节大小的指针，作为主键">
 <meta name="twitter:image" content="https://thailandking.github.io/2019/05/01/表/4-1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
@@ -185,10 +185,13 @@
         <h2 id="零、概述"><a href="#零、概述" class="headerlink" title="零、概述"></a>零、概述</h2><ul>
 <li>表是关于特定实体的数据集合，是关系型数据库模型的核心</li>
 </ul>
-<h2 id="一、索引组织表"><a href="#一、索引组织表" class="headerlink" title="一、索引组织表"></a>一、索引组织表</h2><p>Innodb中，表都是根据<strong>主键</strong>顺序组织存放的，这种存储方式的表称为索引组织表</p>
-<p>如果创建表时没有显式地定义主键：</p>
-<ul>
-<li>如果表中有<strong>非空的唯一索引</strong>，则该列为主键（根据定义索引的顺序，不是列的顺序）</li>
+<h2 id="一、索引组织表"><a href="#一、索引组织表" class="headerlink" title="一、索引组织表"></a>一、索引组织表</h2><ul>
+<li><p>Innodb中，表都是根据<strong>主键</strong>顺序组织存放的，这种存储方式的表称为索引组织表</p>
+</li>
+<li><p>如果创建表时没有显式地定义主键：</p>
+</li>
+<li><p>如果表中有<strong>非空的唯一索引</strong>，则该列为主键（根据定义索引的顺序，不是列的顺序）</p>
+</li>
 <li>如果没有，自动创建一个<strong>6字节</strong>大小的<strong>指针</strong>，作为主键</li>
 </ul>
 <a id="more"></a>
@@ -758,11 +761,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -770,11 +773,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -782,23 +781,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -810,11 +797,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -826,11 +821,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -846,19 +837,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">lombok</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -866,27 +849,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transient</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+                <a href="javascript:void(0)" class="js-tag color4">iterator</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -898,7 +861,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">id</a>
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -906,11 +877,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">time</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -926,19 +893,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">login</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -994,15 +953,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">utils</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
