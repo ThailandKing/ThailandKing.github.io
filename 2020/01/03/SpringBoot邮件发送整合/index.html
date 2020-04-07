@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://thailandking.github.io/2020/01/03/SpringBoot邮件发送整合/1.png">
 <meta property="og:image" content="https://thailandking.github.io/2020/01/03/SpringBoot邮件发送整合/2.png">
-<meta property="og:updated_time" content="2020-04-02T06:28:06.098Z">
+<meta property="og:updated_time" content="2020-04-07T14:29:26.537Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot邮件发送整合">
 <meta name="twitter:description" content="一、准备工作1、邮箱授权 以网易邮箱举例">
@@ -190,14 +190,11 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testPictureMail</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Map&lt;String, String&gt; picMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    picMap.put(<span class="string">"1"</span>, <span class="string">"C:\\Users\\wgt\\Pictures\\卡车\\一汽卡车.png"</span>);</span><br><span class="line">    picMap.put(<span class="string">"2"</span>, <span class="string">"D:\\BATJ\\docker.png"</span>);</span><br><span class="line">    String subject = <span class="string">"发送图片邮件"</span>;</span><br><span class="line">    <span class="comment">// &lt;img src=cid:1&gt;</span></span><br><span class="line">    String pictureContent = <span class="string">"&lt;html&gt;&lt;body&gt;"</span> + <span class="string">"这是有图片的邮件："</span> + <span class="string">"图片一：&lt;img src=\'cid:"</span> + <span class="number">1</span> + <span class="string">"\' &gt;"</span> + <span class="string">"图片二：&lt;img src=\'cid:"</span> + <span class="number">2</span> + <span class="string">"\' &gt;"</span> + <span class="string">"&lt;/body&gt;&lt;/html&gt;"</span>;</span><br><span class="line">    mailUtil.sendPictureMail(receiver, subject, pictureContent, picMap);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="七、发送模板邮件"><a href="#七、发送模板邮件" class="headerlink" title="七、发送模板邮件"></a>七、发送模板邮件</h2><h3 id="1、添加依赖"><a href="#1、添加依赖" class="headerlink" title="1、添加依赖"></a>1、添加依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--thymeleaf--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="2、编写HTML模板"><a href="#2、编写HTML模板" class="headerlink" title="2、编写HTML模板"></a>2、编写HTML模板</h3><ul>
-<li>src\main\resources\templates下，名称为emailTemplate.html</li>
+<li>src\main\resources\templates下，名称为<strong>registerTemplate.html</strong></li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span> <span class="attr">xmlns:th</span>=<span class="string">"http://www.thymeleaf.org"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>模板邮件<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        您好，<span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">"$&#123;username&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>，欢迎访问我的个人博客：</span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://thailandking.github.io/"</span>&gt;</span>Github<span class="tag">&lt;/<span class="name">a</span>&gt;</span>、</span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">th:href</span>=<span class="string">"@&#123;https://www.imooc.com/u/&#123;id&#125;(id=$&#123;id&#125;)&#125;"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>慕课网<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="3、书写方法"><a href="#3、书写方法" class="headerlink" title="3、书写方法"></a>3、书写方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Date</span> 2020/1/3 10:46</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditTime</span> 2020/1/3 10:46</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Description</span> 6、发送模板邮件</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendTemplateMail</span><span class="params">(String receiver, String subject, String emailTemplate, Map&lt;String,Object&gt; dataMap)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Context context = <span class="keyword">new</span> Context();</span><br><span class="line">        <span class="keyword">for</span>(Map.Entry&lt;String,Object&gt; entry : dataMap.entrySet())&#123;</span><br><span class="line">            context.setVariable(entry.getKey(),entry.getValue());</span><br><span class="line">        &#125;</span><br><span class="line">        String templateContent = templateEngine.process(emailTemplate, context);</span><br><span class="line">        MimeMessage message = javaMailSender.createMimeMessage();</span><br><span class="line">        MimeMessageHelper helper = <span class="keyword">new</span> MimeMessageHelper(message, <span class="keyword">true</span>);</span><br><span class="line">        helper.setFrom(sender);</span><br><span class="line">        helper.setTo(receiver);</span><br><span class="line">        helper.setSubject(subject);</span><br><span class="line">        helper.setText(templateContent, <span class="keyword">true</span>);</span><br><span class="line">        javaMailSender.send(message);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        logger.error(<span class="string">"发送模板邮件时发生异常！"</span>, e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4、调用方法"><a href="#4、调用方法" class="headerlink" title="4、调用方法"></a>4、调用方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> MailUtil mailUtil;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> String receiver = <span class="string">"wgt161110527@163.com"</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testTemplateMail</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    String subject = <span class="string">"发送模板邮件"</span>;</span><br><span class="line">    String emailTemplate = <span class="string">"emailTemplate"</span>;</span><br><span class="line">    Map&lt;String,Object&gt; dataMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    dataMap.put(<span class="string">"username"</span>,<span class="string">"shw"</span>);</span><br><span class="line">    dataMap.put(<span class="string">"id"</span>,<span class="string">"2020"</span>);</span><br><span class="line">    mailUtil.sendTemplateMail(receiver, subject, emailTemplate,dataMap);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="项目源码"><a href="#项目源码" class="headerlink" title="项目源码"></a>项目源码</h2><ul>
-<li><a href="https://github.com/ThailandKing/springboot_mail_demo.git" target="_blank" rel="noopener">https://github.com/ThailandKing/springboot_mail_demo.git</a></li>
-</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span> <span class="attr">xmlns:th</span>=<span class="string">"http://www.thymeleaf.org"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>激活邮件<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-color:#ECECEC; padding: 35px;"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">table</span> <span class="attr">cellpadding</span>=<span class="string">"0"</span> <span class="attr">align</span>=<span class="string">"center"</span></span></span><br><span class="line"><span class="tag">                   <span class="attr">style</span>=<span class="string">"width: 600px; margin: 0px auto; text-align: left; position: relative; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; span-size: 14px; span-family:微软雅黑, 黑体; line-height: 1.5; box-shadow: rgb(153, 153, 153) 0px 0px 5px; border-collapse: collapse; background-position: initial initial; background-repeat: initial initial;background:#fff;"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">th</span> <span class="attr">valign</span>=<span class="string">"middle"</span></span></span><br><span class="line"><span class="tag">                            <span class="attr">style</span>=<span class="string">"height: 25px; line-height: 25px; padding: 15px 35px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #42a3d3; background-color: #49bcff; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px;"</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">h2</span> <span class="attr">face</span>=<span class="string">"微软雅黑"</span> <span class="attr">size</span>=<span class="string">"5"</span> <span class="attr">style</span>=<span class="string">"color: rgb(255, 255, 255); "</span>&gt;</span>欢迎加入SecondGoodTrade! （二手商品交易平台）</span><br><span class="line">                            <span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"padding:25px 35px 40px; background-color:#fff;"</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;<span class="name">h2</span> <span class="attr">style</span>=<span class="string">"margin: 5px 0px; "</span>&gt;</span></span><br><span class="line">                                    <span class="tag">&lt;<span class="name">span</span> <span class="attr">color</span>=<span class="string">"#333333"</span> <span class="attr">style</span>=<span class="string">"line-height: 20px; "</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"line-height: 22px; "</span> <span class="attr">size</span>=<span class="string">"4"</span>&gt;</span>亲爱的用户您好<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                                    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;<span class="name">p</span>&gt;</span>您的邮箱：<span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">"$&#123;email&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;<span class="name">p</span>&gt;</span>您的激活码：<span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">"$&#123;code&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;<span class="name">p</span>&gt;</span>您注册时的日期：<span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">"$&#123;createTime&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;<span class="name">p</span>&gt;</span>当您在使用本网站时，遵守当地法律法规<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;<span class="name">p</span>&gt;</span>如果您有什么疑问可以联系管理员，Email: <span class="tag">&lt;<span class="name">b</span>&gt;</span>wgt161110527@163.com<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width:700px;margin:0 auto;"</span>&gt;</span></span><br><span class="line">                                    <span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">                                         <span class="attr">style</span>=<span class="string">"padding:10px 10px 0;border-top:1px solid #ccc;color:#747474;margin-bottom:20px;line-height:1.3em;span-size:12px;"</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;<span class="name">p</span>&gt;</span>此为系统邮件，请勿回复<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;<span class="name">p</span>&gt;</span>请保管好您的信息，避免被他人盗用<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;<span class="name">p</span>&gt;</span>©shw<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="3、书写工具类"><a href="#3、书写工具类" class="headerlink" title="3、书写工具类"></a>3、书写工具类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MailUtil</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;mail.fromMail.sender&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String sender;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> JavaMailSender javaMailSender;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> TemplateEngine templateEngine;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Date</span> 2020/1/3 10:46</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditTime</span> 2020/1/3 10:46</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Description</span> 6、发送模板邮件</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendTemplateMail</span><span class="params">(String receiver, String subject, String emailTemplate, Map&lt;String, Object&gt; dataMap)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Context context = <span class="keyword">new</span> Context();</span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;String, Object&gt; entry : dataMap.entrySet()) &#123;</span><br><span class="line">            context.setVariable(entry.getKey(), entry.getValue());</span><br><span class="line">        &#125;</span><br><span class="line">        String templateContent = templateEngine.process(emailTemplate, context);</span><br><span class="line">        MimeMessage message = javaMailSender.createMimeMessage();</span><br><span class="line">        MimeMessageHelper helper = <span class="keyword">new</span> MimeMessageHelper(message, <span class="keyword">true</span>);</span><br><span class="line">        helper.setFrom(sender);</span><br><span class="line">        helper.setTo(receiver);</span><br><span class="line">        helper.setSubject(subject);</span><br><span class="line">        helper.setText(templateContent, <span class="keyword">true</span>);</span><br><span class="line">        javaMailSender.send(message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4、调用方法"><a href="#4、调用方法" class="headerlink" title="4、调用方法"></a>4、调用方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> MailUtil mailUtil;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> String receiver = <span class="string">"wgt161110527@163.com"</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testTemplateMail</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//发送邮件</span></span><br><span class="line">    SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy年MM月dd日 HH时mm分ss秒"</span>);</span><br><span class="line">    String subject = <span class="string">"SecondGoodTrade用户注册"</span>;</span><br><span class="line">    String emailTemplate = <span class="string">"registerTemplate"</span>;</span><br><span class="line">    String code = UUIDUtil.getUUID(<span class="number">5</span>);</span><br><span class="line">    Map&lt;String, Object&gt; dataMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    dataMap.put(<span class="string">"email"</span>, email);</span><br><span class="line">    dataMap.put(<span class="string">"code"</span>, code);</span><br><span class="line">    dataMap.put(<span class="string">"createTime"</span>, sdf.format(<span class="keyword">new</span> Date()));</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        mailUtil.sendTemplateMail(receiver, subject, emailTemplate, dataMap);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -350,7 +347,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、准备工作"><span class="toc-number">1.</span> <span class="toc-text">一、准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、邮箱授权"><span class="toc-number">1.1.</span> <span class="toc-text">1、邮箱授权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、添加依赖"><span class="toc-number">1.2.</span> <span class="toc-text">2、添加依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、绑定配置"><span class="toc-number">1.3.</span> <span class="toc-text">3、绑定配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、发送文本邮件"><span class="toc-number">2.</span> <span class="toc-text">二、发送文本邮件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、发送HTML邮件"><span class="toc-number">3.</span> <span class="toc-text">三、发送HTML邮件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、发送附件邮件-本地磁盘"><span class="toc-number">4.</span> <span class="toc-text">四、发送附件邮件-本地磁盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、发送附件邮件-前端上传"><span class="toc-number">5.</span> <span class="toc-text">五、发送附件邮件-前端上传</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、发送图片邮件"><span class="toc-number">6.</span> <span class="toc-text">六、发送图片邮件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、发送模板邮件"><span class="toc-number">7.</span> <span class="toc-text">七、发送模板邮件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、添加依赖"><span class="toc-number">7.1.</span> <span class="toc-text">1、添加依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、编写HTML模板"><span class="toc-number">7.2.</span> <span class="toc-text">2、编写HTML模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、书写方法"><span class="toc-number">7.3.</span> <span class="toc-text">3、书写方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、调用方法"><span class="toc-number">7.4.</span> <span class="toc-text">4、调用方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目源码"><span class="toc-number">8.</span> <span class="toc-text">项目源码</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、准备工作"><span class="toc-number">1.</span> <span class="toc-text">一、准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、邮箱授权"><span class="toc-number">1.1.</span> <span class="toc-text">1、邮箱授权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、添加依赖"><span class="toc-number">1.2.</span> <span class="toc-text">2、添加依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、绑定配置"><span class="toc-number">1.3.</span> <span class="toc-text">3、绑定配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、发送文本邮件"><span class="toc-number">2.</span> <span class="toc-text">二、发送文本邮件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、发送HTML邮件"><span class="toc-number">3.</span> <span class="toc-text">三、发送HTML邮件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、发送附件邮件-本地磁盘"><span class="toc-number">4.</span> <span class="toc-text">四、发送附件邮件-本地磁盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、发送附件邮件-前端上传"><span class="toc-number">5.</span> <span class="toc-text">五、发送附件邮件-前端上传</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、发送图片邮件"><span class="toc-number">6.</span> <span class="toc-text">六、发送图片邮件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、发送模板邮件"><span class="toc-number">7.</span> <span class="toc-text">七、发送模板邮件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、添加依赖"><span class="toc-number">7.1.</span> <span class="toc-text">1、添加依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、编写HTML模板"><span class="toc-number">7.2.</span> <span class="toc-text">2、编写HTML模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、书写工具类"><span class="toc-number">7.3.</span> <span class="toc-text">3、书写工具类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、调用方法"><span class="toc-number">7.4.</span> <span class="toc-text">4、调用方法</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -475,15 +472,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">json</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -499,11 +496,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color4">sso</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -515,11 +512,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
+                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -527,7 +528,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
+                <a href="javascript:void(0)" class="js-tag color4">iterator</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,23 +548,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">lombok</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iterator</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">oss</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -563,11 +556,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+                <a href="javascript:void(0)" class="js-tag color4">oss</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -576,10 +573,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -595,11 +588,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">login</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">login</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,19 +608,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">copy</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
+                <a href="javascript:void(0)" class="js-tag color2">string</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">cross</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -639,11 +636,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">oracle</a>
+                <a href="javascript:void(0)" class="js-tag color4">nio</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nio</a>
+                <a href="javascript:void(0)" class="js-tag color2">oracle</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -652,10 +649,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">mail</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">utils</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -676,6 +669,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">utils</a>
               </li>
              
               <li class="article-tag-list-item">
