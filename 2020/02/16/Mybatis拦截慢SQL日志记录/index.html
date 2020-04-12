@@ -17,7 +17,7 @@
 <meta property="og:description" content="背景 通过分析MySQL慢查询日志不方便，利用数据源不直观，无法了解上下文调用关系 要求通过可配置化的操作实现日志在控制台的输出和在数据库中记录 本文利用SpringBoot和Mybatis，基于AOP和Mybatis Interceptor实现慢SQL拦截日志记录和打印输出">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://thailandking.github.io/2020/02/16/Mybatis拦截慢SQL日志记录/mybatis.png">
-<meta property="og:updated_time" content="2020-02-16T09:43:19.012Z">
+<meta property="og:updated_time" content="2020-04-11T07:11:38.514Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mybatis拦截慢SQL日志记录">
 <meta name="twitter:description" content="背景 通过分析MySQL慢查询日志不方便，利用数据源不直观，无法了解上下文调用关系 要求通过可配置化的操作实现日志在控制台的输出和在数据库中记录 本文利用SpringBoot和Mybatis，基于AOP和Mybatis Interceptor实现慢SQL拦截日志记录和打印输出">
@@ -212,6 +212,33 @@
 <li>通过注解扫描，配置到<strong>BeanDefinition</strong>中</li>
 <li><a href="https://juejin.im/post/5c84b4395188257e342db6eb#heading-4" target="_blank" rel="noopener">mapper方法如何被调用到</a></li>
 </ul>
+<h3 id="4、Mybatis拦截器"><a href="#4、Mybatis拦截器" class="headerlink" title="4、Mybatis拦截器"></a>4、Mybatis拦截器</h3><ul>
+<li>拦截执行器 </li>
+</ul>
+<blockquote>
+<p>Executor (update, query, flushStatements, commit, rollback, getTransaction, close, isClosed) </p>
+</blockquote>
+<ul>
+<li>拦截参数</li>
+</ul>
+<blockquote>
+<p> ParameterHandler (getParameterObject, setParameters) </p>
+</blockquote>
+<ul>
+<li>拦截结果集</li>
+</ul>
+<blockquote>
+<p> ResultSetHandler (handleResultSets, handleOutputParameters) </p>
+</blockquote>
+<ul>
+<li>拦截SQL</li>
+</ul>
+<blockquote>
+<p> StatementHandler (prepare, parameterize, batch, update, query) </p>
+</blockquote>
+<ul>
+<li><a href="https://www.cnblogs.com/fangjian0423/p/mybatis-interceptor.html" target="_blank" rel="noopener">MyBatis拦截器介绍</a></li>
+</ul>
 
       
 
@@ -364,7 +391,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、面向切面编程"><span class="toc-number">2.</span> <span class="toc-text">一、面向切面编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、aop依赖"><span class="toc-number">2.1.</span> <span class="toc-text">1、aop依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、服务配置"><span class="toc-number">2.2.</span> <span class="toc-text">2、服务配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、切面"><span class="toc-number">2.3.</span> <span class="toc-text">3、切面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、缺点"><span class="toc-number">2.4.</span> <span class="toc-text">4、缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、面向Mybatis插件编程"><span class="toc-number">3.</span> <span class="toc-text">二、面向Mybatis插件编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、服务配置"><span class="toc-number">3.1.</span> <span class="toc-text">1、服务配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、拦截器"><span class="toc-number">3.2.</span> <span class="toc-text">2、拦截器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、缺点"><span class="toc-number">3.3.</span> <span class="toc-text">3、缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码地址"><span class="toc-number">4.</span> <span class="toc-text">源码地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展学习"><span class="toc-number">5.</span> <span class="toc-text">扩展学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、Mybatis的执行流程"><span class="toc-number">5.1.</span> <span class="toc-text">1、Mybatis的执行流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、Mybatis有哪些Executor执行器"><span class="toc-number">5.2.</span> <span class="toc-text">2、Mybatis有哪些Executor执行器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、Mybatis如何调用到mapper方法"><span class="toc-number">5.3.</span> <span class="toc-text">3、Mybatis如何调用到mapper方法</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、面向切面编程"><span class="toc-number">2.</span> <span class="toc-text">一、面向切面编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、aop依赖"><span class="toc-number">2.1.</span> <span class="toc-text">1、aop依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、服务配置"><span class="toc-number">2.2.</span> <span class="toc-text">2、服务配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、切面"><span class="toc-number">2.3.</span> <span class="toc-text">3、切面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、缺点"><span class="toc-number">2.4.</span> <span class="toc-text">4、缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、面向Mybatis插件编程"><span class="toc-number">3.</span> <span class="toc-text">二、面向Mybatis插件编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、服务配置"><span class="toc-number">3.1.</span> <span class="toc-text">1、服务配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、拦截器"><span class="toc-number">3.2.</span> <span class="toc-text">2、拦截器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、缺点"><span class="toc-number">3.3.</span> <span class="toc-text">3、缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码地址"><span class="toc-number">4.</span> <span class="toc-text">源码地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展学习"><span class="toc-number">5.</span> <span class="toc-text">扩展学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、Mybatis的执行流程"><span class="toc-number">5.1.</span> <span class="toc-text">1、Mybatis的执行流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、Mybatis有哪些Executor执行器"><span class="toc-number">5.2.</span> <span class="toc-text">2、Mybatis有哪些Executor执行器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、Mybatis如何调用到mapper方法"><span class="toc-number">5.3.</span> <span class="toc-text">3、Mybatis如何调用到mapper方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、Mybatis拦截器"><span class="toc-number">5.4.</span> <span class="toc-text">4、Mybatis拦截器</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -465,10 +492,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -477,15 +500,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -497,10 +524,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
@@ -509,19 +532,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
+                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,11 +548,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
+                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -545,7 +564,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iterator</a>
+                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">udp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -557,15 +580,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">udp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">lombok</a>
+                <a href="javascript:void(0)" class="js-tag color4">iterator</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -573,15 +588,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">oss</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excel</a>
+                <a href="javascript:void(0)" class="js-tag color2">lombok</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">excel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -597,7 +612,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pom</a>
+                <a href="javascript:void(0)" class="js-tag color4">oss</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -605,7 +620,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">login</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pom</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -613,19 +636,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CAS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">copy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -633,11 +644,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cross</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">copy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">cross</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -669,11 +688,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
