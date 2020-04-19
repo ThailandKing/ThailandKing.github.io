@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="thailandking">
 <meta property="og:description" content="一、简介 MybatisPlus简称MP，是Mybatis的增强工具，只做增强，不做改变，为简化开发而生  二、特性 强大的CRUD操作 支持主键自动生成 内置代码生成器 内置分页插件、性能分析插件、全局拦截插件">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-07T10:00:58.830Z">
+<meta property="og:updated_time" content="2020-04-13T02:13:51.885Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MybatisPlus简单使用">
 <meta name="twitter:description" content="一、简介 MybatisPlus简称MP，是Mybatis的增强工具，只做增强，不做改变，为简化开发而生  二、特性 强大的CRUD操作 支持主键自动生成 内置代码生成器 内置分页插件、性能分析插件、全局拦截插件">
@@ -196,7 +196,7 @@
 <h2 id="五、配置"><a href="#五、配置" class="headerlink" title="五、配置"></a>五、配置</h2><ul>
 <li>配置application.properties</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#mysql数据库连接</span><br><span class="line">spring.datasource.driver-class-name=com.mysql.jdbc.Driver</span><br><span class="line">spring.datasource.url=jdbc:mysql://localhost:3306/mybatis_plus?serverTimezone=GMT%2B8&amp;useUnicode=true&amp;characterEncoding=utf-8</span><br><span class="line">spring.datasource.username=root</span><br><span class="line">spring.datasource.password=root</span><br><span class="line"></span><br><span class="line">#mybatis日志</span><br><span class="line">mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl</span><br><span class="line">#关闭自动转换驼峰命名</span><br><span class="line">mybatis-plus.configuration.map-underscore-to-camel-case=false</span><br><span class="line">#允许空值NULL值更新</span><br><span class="line">mybatis-plus.global-config.db-config.update-strategy=ignored</span><br><span class="line"></span><br><span class="line">#逻辑删除</span><br><span class="line">mybatis-plus.global-config.db-config.logic-delete-value=1</span><br><span class="line">mybatis-plus.global-config.db-config.logic-not-delete-value=0</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#mysql数据库连接</span><br><span class="line">spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver</span><br><span class="line">spring.datasource.url=jdbc:mysql://localhost:3306/mybatis_plus?serverTimezone=GMT%2B8&amp;useUnicode=true&amp;characterEncoding=utf-8</span><br><span class="line">spring.datasource.username=root</span><br><span class="line">spring.datasource.password=root</span><br><span class="line"></span><br><span class="line">#mybatis日志</span><br><span class="line">mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl</span><br><span class="line">#关闭自动转换驼峰命名</span><br><span class="line">mybatis-plus.configuration.map-underscore-to-camel-case=false</span><br><span class="line">#允许空值NULL值更新</span><br><span class="line">mybatis-plus.global-config.db-config.update-strategy=ignored</span><br><span class="line"></span><br><span class="line">#逻辑删除</span><br><span class="line">mybatis-plus.global-config.db-config.logic-delete-value=1</span><br><span class="line">mybatis-plus.global-config.db-config.logic-not-delete-value=0</span><br></pre></td></tr></table></figure>
 <h2 id="六、代码编写"><a href="#六、代码编写" class="headerlink" title="六、代码编写"></a>六、代码编写</h2><h3 id="1、配置扫描包"><a href="#1、配置扫描包" class="headerlink" title="1、配置扫描包"></a>1、配置扫描包</h3><ul>
 <li>启动类</li>
 </ul>
@@ -553,7 +553,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -569,11 +569,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -582,6 +582,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -597,14 +601,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tcp</a>
               </li>
              
@@ -613,7 +609,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -622,6 +622,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iterator</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -641,6 +645,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">oss</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cap</a>
               </li>
              
@@ -653,7 +661,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">oss</a>
+                <a href="javascript:void(0)" class="js-tag color4">pom</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -661,23 +669,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">login</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CAS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -697,11 +701,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cross</a>
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+                <a href="javascript:void(0)" class="js-tag color1">cross</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -713,11 +717,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nio</a>
+                <a href="javascript:void(0)" class="js-tag color2">oracle</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">oracle</a>
+                <a href="javascript:void(0)" class="js-tag color4">nio</a>
               </li>
              
               <li class="article-tag-list-item">
