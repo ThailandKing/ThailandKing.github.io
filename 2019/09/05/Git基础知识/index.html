@@ -17,7 +17,7 @@
 <meta property="og:description" content="一、组织结构 工作区 暂存区 本地仓库 远程仓库">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://thailandking.github.io/2019/09/05/Git基础知识/1.webp">
-<meta property="og:updated_time" content="2020-03-30T06:06:53.296Z">
+<meta property="og:updated_time" content="2020-05-20T03:29:17.519Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git基础知识">
 <meta name="twitter:description" content="一、组织结构 工作区 暂存区 本地仓库 远程仓库">
@@ -305,6 +305,22 @@
 <li>部署配置</li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[deploy]-201909091647-部署</span><br></pre></td></tr></table></figure>
+<h2 id="八、常见情景"><a href="#八、常见情景" class="headerlink" title="八、常见情景"></a>八、常见情景</h2><h3 id="1、创建新分支开发"><a href="#1、创建新分支开发" class="headerlink" title="1、创建新分支开发"></a>1、创建新分支开发</h3><ul>
+<li>创建并切换分支</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b uatCode</span><br></pre></td></tr></table></figure>
+<ul>
+<li>推送到远程分支</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin uatCode:uatCode</span><br></pre></td></tr></table></figure>
+<ul>
+<li>切换本地分支到新建分支</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout uatCode</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看本地分支</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
 <h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
 <li><a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">Git在线教程</a></li>
 </ul>
@@ -460,7 +476,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、组织结构"><span class="toc-number">1.</span> <span class="toc-text">一、组织结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、常用命令"><span class="toc-number">2.</span> <span class="toc-text">二、常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、远程仓库"><span class="toc-number">3.</span> <span class="toc-text">三、远程仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、分支管理"><span class="toc-number">4.</span> <span class="toc-text">四、分支管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、标签管理"><span class="toc-number">5.</span> <span class="toc-text">五、标签管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、版本回退"><span class="toc-number">6.</span> <span class="toc-text">六、版本回退</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、提交规范"><span class="toc-number">7.</span> <span class="toc-text">七、提交规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">8.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、组织结构"><span class="toc-number">1.</span> <span class="toc-text">一、组织结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、常用命令"><span class="toc-number">2.</span> <span class="toc-text">二、常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、远程仓库"><span class="toc-number">3.</span> <span class="toc-text">三、远程仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、分支管理"><span class="toc-number">4.</span> <span class="toc-text">四、分支管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、标签管理"><span class="toc-number">5.</span> <span class="toc-text">五、标签管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、版本回退"><span class="toc-number">6.</span> <span class="toc-text">六、版本回退</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、提交规范"><span class="toc-number">7.</span> <span class="toc-text">七、提交规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、常见情景"><span class="toc-number">8.</span> <span class="toc-text">八、常见情景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、创建新分支开发"><span class="toc-number">8.1.</span> <span class="toc-text">1、创建新分支开发</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">9.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -585,6 +601,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
               </li>
              
@@ -593,15 +613,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -614,10 +630,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -637,11 +649,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">udp</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -654,6 +662,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">udp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -677,19 +693,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">excel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+                <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -701,11 +717,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+                <a href="javascript:void(0)" class="js-tag color4">pom</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -713,7 +729,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pom</a>
+                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -737,11 +753,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+                <a href="javascript:void(0)" class="js-tag color1">cross</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cross</a>
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">

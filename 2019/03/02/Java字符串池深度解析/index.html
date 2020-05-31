@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://thailandking.github.io">
   <title>Java字符串池深度解析 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、概述 在工作中，String类是我们使用频率非常高的一种对象类型  JVM为了提升性能和减少内存开销，避免字符串的重复创建，其维护了一块特殊的内存空间，  这就是我们今天要讨论的核心，即字符串池（String Pool），由String类私有的维护  二、字符串对象的创建 我们知道，在Java中有两种创建字符串对象的方式   1）采用字面值的方式赋值   2）采用new关键字新建一个字符串对象">
+  <meta name="description" content="一、概述 在工作中，String类是我们使用频率非常高的一种对象类型  JVM为了提升性能和减少内存开销，避免字符串的重复创建，其维护了一块特殊的内存空间  这就是我们今天要讨论的核心，即字符串池（String Pool），由String类私有的维护  二、字符串对象的创建 我们知道，在Java中有两种创建字符串对象的方式   1）采用字面值的方式赋值   2）采用new关键字新建一个字符串对象">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java字符串池深度解析">
 <meta property="og:url" content="https://thailandking.github.io/2019/03/02/Java字符串池深度解析/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="一、概述 在工作中，String类是我们使用频率非常高的一种对象类型  JVM为了提升性能和减少内存开销，避免字符串的重复创建，其维护了一块特殊的内存空间，  这就是我们今天要讨论的核心，即字符串池（String Pool），由String类私有的维护  二、字符串对象的创建 我们知道，在Java中有两种创建字符串对象的方式   1）采用字面值的方式赋值   2）采用new关键字新建一个字符串对象">
+<meta property="og:description" content="一、概述 在工作中，String类是我们使用频率非常高的一种对象类型  JVM为了提升性能和减少内存开销，避免字符串的重复创建，其维护了一块特殊的内存空间  这就是我们今天要讨论的核心，即字符串池（String Pool），由String类私有的维护  二、字符串对象的创建 我们知道，在Java中有两种创建字符串对象的方式   1）采用字面值的方式赋值   2）采用new关键字新建一个字符串对象">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-31T07:13:48.160Z">
+<meta property="og:updated_time" content="2020-05-29T07:32:39.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java字符串池深度解析">
-<meta name="twitter:description" content="一、概述 在工作中，String类是我们使用频率非常高的一种对象类型  JVM为了提升性能和减少内存开销，避免字符串的重复创建，其维护了一块特殊的内存空间，  这就是我们今天要讨论的核心，即字符串池（String Pool），由String类私有的维护  二、字符串对象的创建 我们知道，在Java中有两种创建字符串对象的方式   1）采用字面值的方式赋值   2）采用new关键字新建一个字符串对象">
+<meta name="twitter:description" content="一、概述 在工作中，String类是我们使用频率非常高的一种对象类型  JVM为了提升性能和减少内存开销，避免字符串的重复创建，其维护了一块特殊的内存空间  这就是我们今天要讨论的核心，即字符串池（String Pool），由String类私有的维护  二、字符串对象的创建 我们知道，在Java中有两种创建字符串对象的方式   1）采用字面值的方式赋值   2）采用new关键字新建一个字符串对象">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -174,7 +174,7 @@
         <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><ul>
 <li><p>在工作中，String类是我们使用频率非常高的一种对象类型</p>
 </li>
-<li><p>JVM为了提升性能和减少内存开销，避免字符串的重复创建，其维护了一块特殊的内存空间，</p>
+<li><p>JVM为了提升性能和减少内存开销，避免字符串的重复创建，其维护了一块特殊的内存空间</p>
 </li>
 <li>这就是我们今天要讨论的核心，即字符串池（String Pool），由String类私有的维护</li>
 </ul>
@@ -503,6 +503,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
               </li>
              
@@ -511,15 +515,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,10 +532,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,11 +551,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">udp</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -572,6 +564,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">udp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -595,19 +595,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">excel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+                <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -619,11 +619,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+                <a href="javascript:void(0)" class="js-tag color4">pom</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -631,7 +631,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pom</a>
+                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -655,11 +655,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+                <a href="javascript:void(0)" class="js-tag color1">cross</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cross</a>
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">
