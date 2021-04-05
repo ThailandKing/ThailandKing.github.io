@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>RestTemplate封装 | thailandking</title>
+  <title>Archives: 2021/4 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、常见Restful接口1、POST json  12345//1、post请求json数据@PostMapping(value = &quot;/post/json&quot;)public User postJsonData(@RequestBody User user, HttpServletRequest request) &amp;#123;    &amp;#125;  form  123456//2、post请求fo">
-<meta name="keywords" content="RestTemplate">
-<meta property="og:type" content="article">
-<meta property="og:title" content="RestTemplate封装">
-<meta property="og:url" content="https://thailandking.github.io/2020/03/23/RestTemplate封装/index.html">
+  <meta name="description" content="personal blog">
+<meta name="keywords" content="computer，programming">
+<meta property="og:type" content="website">
+<meta property="og:title" content="thailandking">
+<meta property="og:url" content="https://thailandking.github.io/archives/2021/04/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="一、常见Restful接口1、POST json  12345//1、post请求json数据@PostMapping(value = &quot;/post/json&quot;)public User postJsonData(@RequestBody User user, HttpServletRequest request) &amp;#123;    &amp;#125;  form  123456//2、post请求fo">
+<meta property="og:description" content="personal blog">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-23T13:55:43.259Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RestTemplate封装">
-<meta name="twitter:description" content="一、常见Restful接口1、POST json  12345//1、post请求json数据@PostMapping(value = &quot;/post/json&quot;)public User postJsonData(@RequestBody User user, HttpServletRequest request) &amp;#123;    &amp;#125;  form  123456//2、post请求fo">
+<meta name="twitter:title" content="thailandking">
+<meta name="twitter:description" content="personal blog">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -151,272 +150,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-RestTemplate封装" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      RestTemplate封装
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2021" class="archive-year">2021</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/04/05/Restful风格API指南/" class="archive-article-date">
+  	<time datetime="2021-04-05T14:57:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-05</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/04/05/Restful风格API指南/">Restful风格API指南</a>
     </h1>
   
 
-        
-        <a href="/2020/03/23/RestTemplate封装/" class="archive-article-date">
-  	<time datetime="2020-03-23T12:53:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、常见Restful接口"><a href="#一、常见Restful接口" class="headerlink" title="一、常见Restful接口"></a>一、常见Restful接口</h2><h3 id="1、POST"><a href="#1、POST" class="headerlink" title="1、POST"></a>1、POST</h3><ul>
-<li>json</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1、post请求json数据</span></span><br><span class="line"><span class="meta">@PostMapping</span>(value = <span class="string">"/post/json"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">postJsonData</span><span class="params">(@RequestBody User user, HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>form</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//2、post请求form数据</span></span><br><span class="line"><span class="meta">@PostMapping</span>(value = <span class="string">"/post/form"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">postParamsData</span><span class="params">(@RequestParam Long id, @RequestParam String name,</span></span></span><br><span class="line"><span class="function"><span class="params">                           @RequestParam String pass, HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<ul>
-<li>file</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//3、post请求file数据</span></span><br><span class="line"><span class="meta">@PostMapping</span>(value = <span class="string">"/post/file"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> FileData <span class="title">postFileData</span><span class="params">(@RequestParam(<span class="string">"file"</span>)</span> MultipartFile uploadFile, 			    							HttpServletRequest request) </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2、GET"><a href="#2、GET" class="headerlink" title="2、GET"></a>2、GET</h3><ul>
-<li>path</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//4、get请求path数据</span></span><br><span class="line"><span class="meta">@GetMapping</span>(value = <span class="string">"/get/path/&#123;page&#125;/&#123;size&#125;"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">getPathData</span><span class="params">(@PathVariable(value = <span class="string">"page"</span>)</span> Integer page,</span></span><br><span class="line"><span class="function">                                       @<span class="title">PathVariable</span><span class="params">(value = <span class="string">"size"</span>)</span> Integer size, 												HttpServletRequest request) </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>params</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//5、get请求params数据</span></span><br><span class="line"><span class="meta">@GetMapping</span>(value = <span class="string">"/get/params"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">getParamsData</span><span class="params">(@RequestParam Long id, @RequestParam String name,</span></span></span><br><span class="line"><span class="function"><span class="params">                          @RequestParam String pass, HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>object params</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//6、get请求object params数据</span></span><br><span class="line"><span class="meta">@GetMapping</span>(value = <span class="string">"/get/object/params"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">getParamsObjectData</span><span class="params">(User user, HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3、PUT"><a href="#3、PUT" class="headerlink" title="3、PUT"></a>3、PUT</h3><ul>
-<li>path</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//7、put请求path数据</span></span><br><span class="line"><span class="meta">@PutMapping</span>(value = <span class="string">"/put/path/&#123;id&#125;"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">putPathData</span><span class="params">(@PathVariable Long id, HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>form</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//8、put请求form数据</span></span><br><span class="line"><span class="meta">@PutMapping</span>(value = <span class="string">"/put/form"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">putParamsData</span><span class="params">(User user, HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4、DELETE"><a href="#4、DELETE" class="headerlink" title="4、DELETE"></a>4、DELETE</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//9、delete请求path数据</span></span><br><span class="line"><span class="meta">@DeleteMapping</span>(value = <span class="string">"/delete/path/&#123;id&#125;"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">deletePathData</span><span class="params">(@PathVariable Long id, HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="二、基于RestTemplate封装API"><a href="#二、基于RestTemplate封装API" class="headerlink" title="二、基于RestTemplate封装API"></a>二、基于RestTemplate封装API</h2><h3 id="1、POST-请求Json数据"><a href="#1、POST-请求Json数据" class="headerlink" title="1、POST 请求Json数据"></a>1、POST 请求Json数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * POST 请求Json数据</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> url          请求URL</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> jsonParams   请求Json数据</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> timeout      超时时间</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> headerParams 头部参数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 数据Map，success标识</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">postJson</span><span class="params">(String url, </span></span></span><br><span class="line"><span class="function"><span class="params">                                    String jsonParams, </span></span></span><br><span class="line"><span class="function"><span class="params">                                    Integer timeout, </span></span></span><br><span class="line"><span class="function"><span class="params">                                    Map&lt;String, String&gt; headerParams)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2、POST-请求Form数据"><a href="#2、POST-请求Form数据" class="headerlink" title="2、POST 请求Form数据"></a>2、POST 请求Form数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * POST 请求Form数据</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> url          请求URL</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> formParams   请求Form数据Map</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> timeout      超时时间</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> headerParams 头部参数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 数据Map，success标识</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">postForm</span><span class="params">(String url, </span></span></span><br><span class="line"><span class="function"><span class="params">                                    Map&lt;String, Object&gt; formParams, </span></span></span><br><span class="line"><span class="function"><span class="params">                                    Integer timeout, </span></span></span><br><span class="line"><span class="function"><span class="params">                                    Map&lt;String, String&gt; headerParams)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3、POST-请求File数据"><a href="#3、POST-请求File数据" class="headerlink" title="3、POST 请求File数据"></a>3、POST 请求File数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * POST 请求File数据</span></span><br><span class="line"><span class="comment">     * 调用方controller接口 <span class="doctag">@RequestParam</span>("file") MultipartFile uploadFile</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> url          请求URL</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> uploadFile   请求File数据</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> timeout      超时时间</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> headerParams 头部参数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 数据Map，success标识</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">postFile</span><span class="params">(String url, </span></span></span><br><span class="line"><span class="function"><span class="params">                                    MultipartFile uploadFile, </span></span></span><br><span class="line"><span class="function"><span class="params">                                    Integer timeout, </span></span></span><br><span class="line"><span class="function"><span class="params">                                    Map&lt;String, String&gt; headerParams)</span> <span class="keyword">throws</span> IOException</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4、GET-请求Path数据"><a href="#4、GET-请求Path数据" class="headerlink" title="4、GET 请求Path数据"></a>4、GET 请求Path数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * GET 请求Path数据</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> url          请求URL</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> pathParams   请求Path数据</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> timeout      超时时间</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> headerParams 头部参数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 数据Map，success标识</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">getPath</span><span class="params">(String url, </span></span></span><br><span class="line"><span class="function"><span class="params">                                   Object[] pathParams, </span></span></span><br><span class="line"><span class="function"><span class="params">                                   Integer timeout, </span></span></span><br><span class="line"><span class="function"><span class="params">                                   Map&lt;String, String&gt; headerParams)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="5、GET-请求Params数据"><a href="#5、GET-请求Params数据" class="headerlink" title="5、GET 请求Params数据"></a>5、GET 请求Params数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * GET 请求Params数据</span></span><br><span class="line"><span class="comment">     * inputParams必须为(String,String)</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> url          请求URL</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> inputParams  请求Params数据</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> timeout      超时时间</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> headerParams 头部参数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 数据Map，success标识</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">getParams</span><span class="params">(String url, </span></span></span><br><span class="line"><span class="function"><span class="params">                                     Map&lt;String, String&gt; inputParams, </span></span></span><br><span class="line"><span class="function"><span class="params">                                     Integer timeout, </span></span></span><br><span class="line"><span class="function"><span class="params">                                     Map&lt;String, String&gt; headerParams)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="6、PUT-请求Path数据"><a href="#6、PUT-请求Path数据" class="headerlink" title="6、PUT 请求Path数据"></a>6、PUT 请求Path数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * PUT 请求Path数据</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> url          请求URL</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> pathParams   请求Path数据</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> timeout      超时时间</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> headerParams 头部参数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 数据Map，success标识</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">putPath</span><span class="params">(String url, </span></span></span><br><span class="line"><span class="function"><span class="params">                                   Object[] pathParams, </span></span></span><br><span class="line"><span class="function"><span class="params">                                   Integer timeout, </span></span></span><br><span class="line"><span class="function"><span class="params">                                   Map&lt;String, String&gt; headerParams)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="7、PUT-请求Form数据"><a href="#7、PUT-请求Form数据" class="headerlink" title="7、PUT 请求Form数据"></a>7、PUT 请求Form数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * PUT 请求Form数据</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> url          请求URL</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> formParams   请求Form数据Map</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> timeout      超时时间</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> headerParams 头部参数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 数据Map，success标识</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">putForm</span><span class="params">(String url, </span></span></span><br><span class="line"><span class="function"><span class="params">                                   Map&lt;String, Object&gt; formParams, </span></span></span><br><span class="line"><span class="function"><span class="params">                                   Integer timeout, </span></span></span><br><span class="line"><span class="function"><span class="params">                                   Map&lt;String, String&gt; headerParams)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="8、DELETE-请求Path数据"><a href="#8、DELETE-请求Path数据" class="headerlink" title="8、DELETE 请求Path数据"></a>8、DELETE 请求Path数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * DELETE 请求Path数据</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> url          请求URL</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> pathParams   请求Path数据</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> timeout      超时时间</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> headerParams 头部参数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 数据Map，success标识</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">deletePath</span><span class="params">(String url, </span></span></span><br><span class="line"><span class="function"><span class="params">                                      Object[] pathParams, </span></span></span><br><span class="line"><span class="function"><span class="params">                                      Integer timeout, </span></span></span><br><span class="line"><span class="function"><span class="params">                                      Map&lt;String, String&gt; headerParams)</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h2><h3 id="0、准备"><a href="#0、准备" class="headerlink" title="0、准备"></a>0、准备</h3><ul>
-<li>创建SpringBoot工程</li>
-<li>添加依赖</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--fastjson--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastjson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.47<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--httpclient--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.httpcomponents<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>httpclient<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>导入<strong>RestTemplateUtil.java</strong>文件</li>
-</ul>
-<h3 id="1、POST-请求Json数据-1"><a href="#1、POST-请求Json数据-1" class="headerlink" title="1、POST 请求Json数据"></a>1、POST 请求Json数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建工具类对象</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> RestTemplateUtil restTemplateUtil = <span class="keyword">new</span> RestTemplateUtil();</span><br><span class="line"><span class="comment">//测试接口的地址</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> String URL = <span class="string">"http://localhost:9024"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//1、测试post请求json数据</span></span><br><span class="line"><span class="meta">@GetMapping</span>(value = <span class="string">"/postJson"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Map <span class="title">testPostJson</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    User user = <span class="keyword">new</span> User(<span class="number">1L</span>, <span class="string">"社会王"</span>, <span class="string">"123abc"</span>);</span><br><span class="line">    Map&lt;String, String&gt; headParams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    headParams.put(<span class="string">"token"</span>, <span class="string">"shw-123-jd"</span>);</span><br><span class="line">    <span class="keyword">return</span> restTemplateUtil.postJson(URL + <span class="string">"/post/json"</span>, JSON.toJSONString(user), <span class="keyword">null</span>, 									headParams);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2、POST-请求Form数据-1"><a href="#2、POST-请求Form数据-1" class="headerlink" title="2、POST 请求Form数据"></a>2、POST 请求Form数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//2、测试post请求form数据</span></span><br><span class="line"><span class="meta">@GetMapping</span>(value = <span class="string">"/postForm"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Map <span class="title">testPostForm</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Map&lt;String, Object&gt; formParams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    formParams.put(<span class="string">"id"</span>, <span class="number">1L</span>);</span><br><span class="line">    formParams.put(<span class="string">"name"</span>, <span class="string">"社会王"</span>);</span><br><span class="line">    formParams.put(<span class="string">"pass"</span>, <span class="string">"123abc"</span>);</span><br><span class="line">    Map&lt;String, String&gt; headParams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    headParams.put(<span class="string">"token"</span>, <span class="string">"shw-123-jd"</span>);</span><br><span class="line">    <span class="keyword">return</span> restTemplateUtil.postForm(URL + <span class="string">"/post/form"</span>, formParams, <span class="keyword">null</span>, headParams);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3、POST-请求File数据-1"><a href="#3、POST-请求File数据-1" class="headerlink" title="3、POST 请求File数据"></a>3、POST 请求File数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//3、测试post请求file数据</span></span><br><span class="line"><span class="meta">@PostMapping</span>(value = <span class="string">"/postFile"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Map <span class="title">testPostFile</span><span class="params">(@RequestParam(value = <span class="string">"file"</span>)</span> MultipartFile multipartFile) </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Map&lt;String, String&gt; headParams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        headParams.put(<span class="string">"token"</span>, <span class="string">"shw-123-jd"</span>);</span><br><span class="line">        <span class="keyword">return</span> restTemplateUtil.postFile(URL + <span class="string">"/post/file"</span>, multipartFile, <span class="keyword">null</span>, 												headParams);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4、GET-请求Path数据-1"><a href="#4、GET-请求Path数据-1" class="headerlink" title="4、GET 请求Path数据"></a>4、GET 请求Path数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//4、测试get请求path数据</span></span><br><span class="line"><span class="meta">@GetMapping</span>(value = <span class="string">"/getPath"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Map <span class="title">testGetPath</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Object[] params = <span class="keyword">new</span> Object[]&#123;<span class="number">1</span>, <span class="number">5</span>&#125;;</span><br><span class="line">    Map&lt;String, String&gt; headParams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    headParams.put(<span class="string">"token"</span>, <span class="string">"shw-123-jd"</span>);</span><br><span class="line">    <span class="keyword">return</span> restTemplateUtil.getPath(URL + <span class="string">"/get/path"</span>, params, <span class="keyword">null</span>, headParams);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="5、GET-请求Params数据-1"><a href="#5、GET-请求Params数据-1" class="headerlink" title="5、GET 请求Params数据"></a>5、GET 请求Params数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//5、测试get请求params数据</span></span><br><span class="line"><span class="meta">@GetMapping</span>(value = <span class="string">"/getParams"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Map <span class="title">testGetParams</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Map&lt;String, String&gt; inputParams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    inputParams.put(<span class="string">"id"</span>, <span class="string">"1"</span>);</span><br><span class="line">    inputParams.put(<span class="string">"name"</span>, <span class="string">"社会王"</span>);</span><br><span class="line">    inputParams.put(<span class="string">"pass"</span>, <span class="string">"123abc"</span>);</span><br><span class="line">    Map&lt;String, String&gt; headParams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    headParams.put(<span class="string">"token"</span>, <span class="string">"shw-123-jd"</span>);</span><br><span class="line">    <span class="keyword">return</span> restTemplateUtil.getParams(URL + <span class="string">"/get/params"</span>, inputParams, <span class="keyword">null</span>, 												headParams);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="6、PUT-请求Path数据-1"><a href="#6、PUT-请求Path数据-1" class="headerlink" title="6、PUT 请求Path数据"></a>6、PUT 请求Path数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//6、测试put请求path数据</span></span><br><span class="line"><span class="meta">@GetMapping</span>(value = <span class="string">"/putPath"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Map <span class="title">testPutPath</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Object[] params = <span class="keyword">new</span> Object[]&#123;<span class="number">1</span>&#125;;</span><br><span class="line">    Map&lt;String, String&gt; headParams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    headParams.put(<span class="string">"token"</span>, <span class="string">"shw-123-jd"</span>);</span><br><span class="line">    <span class="keyword">return</span> restTemplateUtil.putPath(URL + <span class="string">"/put/path"</span>, params, <span class="keyword">null</span>, headParams);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="7、PUT-请求Form数据-1"><a href="#7、PUT-请求Form数据-1" class="headerlink" title="7、PUT 请求Form数据"></a>7、PUT 请求Form数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//7、测试put请求form数据</span></span><br><span class="line"><span class="meta">@GetMapping</span>(value = <span class="string">"/putForm"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Map <span class="title">testPutForm</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Map&lt;String, Object&gt; formParams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    formParams.put(<span class="string">"id"</span>, <span class="number">1L</span>);</span><br><span class="line">    formParams.put(<span class="string">"name"</span>, <span class="string">"社会王"</span>);</span><br><span class="line">    formParams.put(<span class="string">"pass"</span>, <span class="string">"123"</span>);</span><br><span class="line">    Map&lt;String, String&gt; headParams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    headParams.put(<span class="string">"token"</span>, <span class="string">"shw-123-jd"</span>);</span><br><span class="line">    <span class="keyword">return</span> restTemplateUtil.putForm(URL + <span class="string">"/put/form"</span>, formParams, <span class="keyword">null</span>, headParams);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="8、DELETE-请求Path数据-1"><a href="#8、DELETE-请求Path数据-1" class="headerlink" title="8、DELETE 请求Path数据"></a>8、DELETE 请求Path数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//8、测试delete请求path数据</span></span><br><span class="line"><span class="meta">@GetMapping</span>(value = <span class="string">"/deletePath"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Map <span class="title">testDeletePath</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Object[] params = <span class="keyword">new</span> Object[]&#123;<span class="number">1</span>&#125;;</span><br><span class="line">    Map&lt;String, String&gt; headParams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    headParams.put(<span class="string">"token"</span>, <span class="string">"shw-123-jd"</span>);</span><br><span class="line">    <span class="keyword">return</span> restTemplateUtil.deletePath(URL + <span class="string">"/delete/path"</span>, params, <span class="keyword">null</span>, headParams);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="四、统一返回"><a href="#四、统一返回" class="headerlink" title="四、统一返回"></a>四、统一返回</h2><ul>
-<li>统一返回为Map格式，调用接口的响应数据必须能解析成<strong>Map对象</strong>，<strong>不然会报错</strong></li>
-<li><strong>success为成功标识，data为返回数据，业务获取解析data部分即可</strong></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Date</span> 2020/3/19 17:47</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditTime</span> 2020/3/19 17:47</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Description</span> 处理调用结果 (接口返回数据必须能解析成Map对象格式)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">handleResult</span><span class="params">(ResponseEntity&lt;String&gt; resp)</span> </span>&#123;</span><br><span class="line">    Map&lt;String, Object&gt; resultMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="keyword">if</span> (resp.getStatusCodeValue() == <span class="number">200</span>) &#123;</span><br><span class="line">        String body = resp.getBody();</span><br><span class="line">        Map dataMap = JSON.parseObject(body, Map.class);</span><br><span class="line">        resultMap.put(<span class="string">"success"</span>, <span class="keyword">true</span>);</span><br><span class="line">        resultMap.put(<span class="string">"data"</span>, dataMap);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        resultMap.put(<span class="string">"success"</span>, <span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> resultMap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>成功返回</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"data"</span>: &#123;</span><br><span class="line">    <span class="attr">"pass"</span>: <span class="string">"123abc"</span>,</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"社会王_shw-123-jd"</span>,</span><br><span class="line">    <span class="attr">"id"</span>: <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"success"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>错误返回</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"success"</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="源码链接"><a href="#源码链接" class="headerlink" title="源码链接"></a>源码链接</h2><ul>
-<li><a href="https://github.com/ThailandKing/resttemplate-util.git" target="_blank" rel="noopener">https://github.com/ThailandKing/resttemplate-util.git</a></li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/weixinpay.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">RestTemplate</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Restful</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2020/03/23/RestTemplate封装/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/03/24/七牛云对象存储/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          七牛云对象存储
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/03/06/SpringBoot自定义starter/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">SpringBoot自定义starter</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、常见Restful接口"><span class="toc-number">1.</span> <span class="toc-text">一、常见Restful接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、POST"><span class="toc-number">1.1.</span> <span class="toc-text">1、POST</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、GET"><span class="toc-number">1.2.</span> <span class="toc-text">2、GET</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、PUT"><span class="toc-number">1.3.</span> <span class="toc-text">3、PUT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、DELETE"><span class="toc-number">1.4.</span> <span class="toc-text">4、DELETE</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、基于RestTemplate封装API"><span class="toc-number">2.</span> <span class="toc-text">二、基于RestTemplate封装API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、POST-请求Json数据"><span class="toc-number">2.1.</span> <span class="toc-text">1、POST 请求Json数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、POST-请求Form数据"><span class="toc-number">2.2.</span> <span class="toc-text">2、POST 请求Form数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、POST-请求File数据"><span class="toc-number">2.3.</span> <span class="toc-text">3、POST 请求File数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、GET-请求Path数据"><span class="toc-number">2.4.</span> <span class="toc-text">4、GET 请求Path数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、GET-请求Params数据"><span class="toc-number">2.5.</span> <span class="toc-text">5、GET 请求Params数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、PUT-请求Path数据"><span class="toc-number">2.6.</span> <span class="toc-text">6、PUT 请求Path数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、PUT-请求Form数据"><span class="toc-number">2.7.</span> <span class="toc-text">7、PUT 请求Form数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8、DELETE-请求Path数据"><span class="toc-number">2.8.</span> <span class="toc-text">8、DELETE 请求Path数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、使用"><span class="toc-number">3.</span> <span class="toc-text">三、使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0、准备"><span class="toc-number">3.1.</span> <span class="toc-text">0、准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1、POST-请求Json数据-1"><span class="toc-number">3.2.</span> <span class="toc-text">1、POST 请求Json数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、POST-请求Form数据-1"><span class="toc-number">3.3.</span> <span class="toc-text">2、POST 请求Form数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、POST-请求File数据-1"><span class="toc-number">3.4.</span> <span class="toc-text">3、POST 请求File数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、GET-请求Path数据-1"><span class="toc-number">3.5.</span> <span class="toc-text">4、GET 请求Path数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、GET-请求Params数据-1"><span class="toc-number">3.6.</span> <span class="toc-text">5、GET 请求Params数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、PUT-请求Path数据-1"><span class="toc-number">3.7.</span> <span class="toc-text">6、PUT 请求Path数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、PUT-请求Form数据-1"><span class="toc-number">3.8.</span> <span class="toc-text">7、PUT 请求Form数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8、DELETE-请求Path数据-1"><span class="toc-number">3.9.</span> <span class="toc-text">8、DELETE 请求Path数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、统一返回"><span class="toc-number">4.</span> <span class="toc-text">四、统一返回</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码链接"><span class="toc-number">5.</span> <span class="toc-text">源码链接</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -435,8 +222,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -522,11 +309,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
+                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -542,11 +329,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -558,19 +345,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Sonar</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -582,7 +369,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,10 +378,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">udp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -610,15 +393,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">oss</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">lombok</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -638,11 +417,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
+                <a href="javascript:void(0)" class="js-tag color4">oss</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pom</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -654,7 +433,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+                <a href="javascript:void(0)" class="js-tag color4">pom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -670,11 +453,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
+                <a href="javascript:void(0)" class="js-tag color5">copy</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">copy</a>
+                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -698,7 +481,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RestTemplate</a>
+                <a href="javascript:void(0)" class="js-tag color3">Restful</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -711,6 +494,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RestTemplate</a>
               </li>
              
               <li class="article-tag-list-item">

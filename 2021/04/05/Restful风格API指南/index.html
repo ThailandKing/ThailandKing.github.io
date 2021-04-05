@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>Swagger构建Rest API文档 | thailandking</title>
+  <title>Restful风格API指南 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、Swagger简介 Swagger 是一套基于 OpenAPI 规范构建的开源工具，可以帮助我们设计、构建、记录以及使用 Rest API  Swagger 主要包含了以下三个部分： Swagger Editor：基于浏览器的编辑器 Swagger UI：会将我们编写的 OpenAPI 规范呈现为交互式的 API 文档 Swagger Codegen：通过为 OpenAPI 规范定义的任何 A">
-<meta name="keywords" content="swagger">
+  <meta name="description" content="一、请求风格 对于资源的具体操作类型，由HTTP动词表示，常用有下面四个   POST   在服务器新建一个资源   DELETE   从服务器删除资源   PUT   在服务器更新资源   GET   从服务器获取资源（一个或多个）">
+<meta name="keywords" content="Restful">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Swagger构建Rest API文档">
-<meta property="og:url" content="https://thailandking.github.io/2020/02/06/Swagger构建Rest-API文档/index.html">
+<meta property="og:title" content="Restful风格API指南">
+<meta property="og:url" content="https://thailandking.github.io/2021/04/05/Restful风格API指南/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="一、Swagger简介 Swagger 是一套基于 OpenAPI 规范构建的开源工具，可以帮助我们设计、构建、记录以及使用 Rest API  Swagger 主要包含了以下三个部分： Swagger Editor：基于浏览器的编辑器 Swagger UI：会将我们编写的 OpenAPI 规范呈现为交互式的 API 文档 Swagger Codegen：通过为 OpenAPI 规范定义的任何 A">
+<meta property="og:description" content="一、请求风格 对于资源的具体操作类型，由HTTP动词表示，常用有下面四个   POST   在服务器新建一个资源   DELETE   从服务器删除资源   PUT   在服务器更新资源   GET   从服务器获取资源（一个或多个）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-02T08:34:24.974Z">
+<meta property="og:image" content="https://thailandking.github.io/2021/04/05/Restful风格API指南/1.png">
+<meta property="og:updated_time" content="2021-04-05T15:04:10.308Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swagger构建Rest API文档">
-<meta name="twitter:description" content="一、Swagger简介 Swagger 是一套基于 OpenAPI 规范构建的开源工具，可以帮助我们设计、构建、记录以及使用 Rest API  Swagger 主要包含了以下三个部分： Swagger Editor：基于浏览器的编辑器 Swagger UI：会将我们编写的 OpenAPI 规范呈现为交互式的 API 文档 Swagger Codegen：通过为 OpenAPI 规范定义的任何 A">
+<meta name="twitter:title" content="Restful风格API指南">
+<meta name="twitter:description" content="一、请求风格 对于资源的具体操作类型，由HTTP动词表示，常用有下面四个   POST   在服务器新建一个资源   DELETE   从服务器删除资源   PUT   在服务器更新资源   GET   从服务器获取资源（一个或多个）">
+<meta name="twitter:image" content="https://thailandking.github.io/2021/04/05/Restful风格API指南/1.png">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -151,66 +153,135 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Swagger构建Rest-API文档" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Restful风格API指南" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Swagger构建Rest API文档
+      Restful风格API指南
     </h1>
   
 
         
-        <a href="/2020/02/06/Swagger构建Rest-API文档/" class="archive-article-date">
-  	<time datetime="2020-02-06T01:55:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
+        <a href="/2021/04/05/Restful风格API指南/" class="archive-article-date">
+  	<time datetime="2021-04-05T14:57:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、Swagger简介"><a href="#一、Swagger简介" class="headerlink" title="一、Swagger简介"></a>一、Swagger简介</h2><ul>
-<li>Swagger 是一套基于 OpenAPI 规范构建的开源工具，可以帮助我们设计、构建、记录以及使用 Rest API </li>
-<li>Swagger 主要包含了以下三个部分：</li>
-<li>Swagger Editor：基于浏览器的编辑器</li>
-<li>Swagger UI：会将我们编写的 OpenAPI 规范呈现为交互式的 API 文档</li>
-<li>Swagger Codegen：通过为 OpenAPI 规范定义的任何 API 生成服务器存根和客户端 SDK 来简化构建过程</li>
-</ul>
-<a id="more"></a>
-<h2 id="二、Swagger2集成"><a href="#二、Swagger2集成" class="headerlink" title="二、Swagger2集成"></a>二、Swagger2集成</h2><ul>
-<li>访问链接</li>
+        <h2 id="一、请求风格"><a href="#一、请求风格" class="headerlink" title="一、请求风格"></a>一、请求风格</h2><ul>
+<li>对于资源的具体操作类型，由HTTP动词表示，常用有下面四个</li>
 </ul>
 <blockquote>
-<p> <a href="http://localhost:9001/swagger-ui.html" target="_blank" rel="noopener">http://localhost:9001/swagger-ui.html</a> </p>
+<p>POST</p>
 </blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--swagger--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--swagger-ui--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="三、Swagger高级配置"><a href="#三、Swagger高级配置" class="headerlink" title="三、Swagger高级配置"></a>三、Swagger高级配置</h2><ul>
-<li>书写SwaggerConfig配置类</li>
-<li>生产环境关闭、参数类型忽略、接口包扫描</li>
+<ul>
+<li>在服务器新建一个资源</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger</span>2</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    Environment environment;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通过docket来配置Swagger具体参数</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Docket <span class="title">docket</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 只有生产环境才会关闭</span></span><br><span class="line">        Profiles pf = Profiles.of(<span class="string">"prod"</span>);</span><br><span class="line">        <span class="keyword">boolean</span> b = environment.acceptsProfiles(pf);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">            <span class="comment">//是否启动</span></span><br><span class="line">            .enable(!b)</span><br><span class="line">            <span class="comment">// api说明</span></span><br><span class="line">            .apiInfo(apiInfo())</span><br><span class="line">            <span class="comment">// 忽略参数类型</span></span><br><span class="line">            .ignoredParameterTypes(HttpServletRequest.class, HttpServletResponse.class)</span><br><span class="line">            <span class="comment">// 接口包扫描</span></span><br><span class="line">            .select()</span><br><span class="line">            .apis(RequestHandlerSelectors.basePackage(<span class="string">"com.it.shw.controller"</span>))</span><br><span class="line">            .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//配置api文档说明</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> ApiInfo <span class="title">apiInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Contact contact = <span class="keyword">new</span> Contact(<span class="string">"名字"</span>, <span class="string">"http://xxx.xxx.com"</span>, <span class="string">"邮箱"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApiInfo(<span class="string">"Swagger学习"</span>, <span class="comment">// 标题</span></span><br><span class="line">                           <span class="string">"学习演示如何配置Swagger"</span>, <span class="comment">// 描述</span></span><br><span class="line">                           <span class="string">"v1.0"</span>, <span class="comment">// 版本</span></span><br><span class="line">                           <span class="string">"http://terms.service.url/组织链接"</span>, <span class="comment">// 组织链接</span></span><br><span class="line">                           contact, <span class="comment">// 联系人信息</span></span><br><span class="line">                           <span class="string">"Apach 2.0 许可"</span>, <span class="comment">// 许可</span></span><br><span class="line">                           <span class="string">"许可链接"</span>, <span class="comment">// 许可连接</span></span><br><span class="line">                           <span class="keyword">new</span> ArrayList&lt;&gt;()); <span class="comment">// 扩展</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="四、Model注解"><a href="#四、Model注解" class="headerlink" title="四、Model注解"></a>四、Model注解</h2><ul>
-<li>Integer类型字段最好指定example属性，避免控制台报<strong>NumberFormatException</strong>异常</li>
+<blockquote>
+<p>DELETE</p>
+</blockquote>
+<ul>
+<li>从服务器删除资源</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiModel</span>(value = <span class="string">"用户实体"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"用户id"</span>,example = <span class="string">"123"</span>)</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"用户名"</span>)</span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"用户密码"</span>)</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="五、Controller注解"><a href="#五、Controller注解" class="headerlink" title="五、Controller注解"></a>五、Controller注解</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Api</span>(tags = <span class="string">"用户管理接口"</span>)</span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="六、Method注解"><a href="#六、Method注解" class="headerlink" title="六、Method注解"></a>六、Method注解</h2><ul>
-<li>基本形式</li>
+<blockquote>
+<p>PUT</p>
+</blockquote>
+<ul>
+<li>在服务器更新资源</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation</span>(value = <span class="string">"添加用户"</span>)</span><br><span class="line"><span class="meta">@PostMapping</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">postUser</span><span class="params">(User user)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> user;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>GET</p>
+</blockquote>
+<ul>
+<li>从服务器获取资源（一个或多个）</li>
+</ul>
+<a id="more"></a>
+<h2 id="二、API示例"><a href="#二、API示例" class="headerlink" title="二、API示例"></a>二、API示例</h2><blockquote>
+<p>POST</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping</span>(value = <span class="string">"/user"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Response <span class="title">add</span><span class="params">(@RequestBody @Valid UserAddVo userAddVo)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>DELETE</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@DeleteMapping</span>(value = <span class="string">"/user/&#123;id&#125;"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Response <span class="title">delete</span><span class="params">(@PathVariable(value = <span class="string">"id"</span>)</span> Long id) </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>UPDATE</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PutMapping</span>(value = <span class="string">"/user"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Response <span class="title">update</span><span class="params">(@RequestBody @Valid UserVo userVo)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>GET</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping</span>(value = <span class="string">"/users"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Response <span class="title">search</span><span class="params">(UserQuery userQuery)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping</span>(value = <span class="string">"/user/&#123;id&#125;"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Response <span class="title">getById</span><span class="params">(@PathVariable(value = <span class="string">"id"</span>)</span> Long id) </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三、DDD"><a href="#三、DDD" class="headerlink" title="三、DDD"></a>三、DDD</h2><h3 id="1、数据流转图"><a href="#1、数据流转图" class="headerlink" title="1、数据流转图"></a>1、数据流转图</h3><p><img src="/2021/04/05/Restful风格API指南/1.png" alt></p>
+<h3 id="2、数据模型示例"><a href="#2、数据模型示例" class="headerlink" title="2、数据模型示例"></a>2、数据模型示例</h3><ul>
+<li>model</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiModel</span>(value = <span class="string">"用户实体类"</span>)</span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"用户ID"</span>, example = <span class="string">"1L"</span>)</span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"用户名"</span>, example = <span class="string">"wgt"</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"用户密码"</span>, example = <span class="string">"wgt"</span>)</span><br><span class="line">    <span class="keyword">private</span> String pass;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> UserDto <span class="title">toUserDto</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        UserDto userDto = <span class="keyword">new</span> UserDto();</span><br><span class="line">        userDto.setId(<span class="keyword">this</span>.id);</span><br><span class="line">        userDto.setName(<span class="keyword">this</span>.name);</span><br><span class="line">        <span class="keyword">return</span> userDto;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>dto</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiModel</span>(value = <span class="string">"分页数据传输对象"</span>)</span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PageDataDto</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"当前页"</span>, example = <span class="string">"1"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> page;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"每页的数量"</span>, example = <span class="string">"10"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"总页数"</span>, example = <span class="string">"10"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> pages;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"总记录数"</span>, example = <span class="string">"100L"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">long</span> total;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"结果集"</span>, example = <span class="string">"NULL"</span>)</span><br><span class="line">    <span class="keyword">private</span> List&lt;T&gt; list;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PageDataDto</span><span class="params">(List&lt;T&gt; list)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.list = list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiModel</span>(value = <span class="string">"用户实体数据传输对象"</span>)</span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDto</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"用户ID"</span>, example = <span class="string">"1L"</span>)</span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"用户名"</span>, example = <span class="string">"wgt"</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>search</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiModel</span>(value = <span class="string">"用户实体搜索对象"</span>)</span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserSearch</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"用户名"</span>, example = <span class="string">"wgt"</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"用户密码"</span>, example = <span class="string">"wgt"</span>)</span><br><span class="line">    <span class="keyword">private</span> String pass;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>addVo</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiModel</span>(value = <span class="string">"用户实体添加对象"</span>)</span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserAddVo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"用户名"</span>, example = <span class="string">"wgt"</span>, required = <span class="keyword">true</span>)</span><br><span class="line">    <span class="meta">@NotBlank</span>(message = <span class="string">"用户名不能为空"</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"用户密码"</span>, example = <span class="string">"wgt"</span>, required = <span class="keyword">true</span>)</span><br><span class="line">    <span class="meta">@NotBlank</span>(message = <span class="string">"用户密码不能为空"</span>)</span><br><span class="line">    <span class="keyword">private</span> String pass;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">toUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        User user = <span class="keyword">new</span> User();</span><br><span class="line">        user.setName(<span class="keyword">this</span>.name);</span><br><span class="line">        user.setPass(<span class="keyword">this</span>.pass);</span><br><span class="line">        <span class="keyword">return</span> user;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>vo</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiModel</span>(value = <span class="string">"用户实体更新对象"</span>)</span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserVo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"用户ID"</span>, example = <span class="string">"1L"</span>)</span><br><span class="line">    <span class="meta">@NotNull</span>(message = <span class="string">"用户ID不能为空"</span>)</span><br><span class="line">    <span class="meta">@Min</span>(value = <span class="number">1</span>, message = <span class="string">"用户ID不能小于1"</span>)</span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"用户名"</span>, example = <span class="string">"wgt"</span>)</span><br><span class="line">    <span class="meta">@NotNull</span>(message = <span class="string">"用户名不能为空"</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"用户密码"</span>, example = <span class="string">"wgt"</span>)</span><br><span class="line">    <span class="meta">@NotNull</span>(message = <span class="string">"用户密码不能为空"</span>)</span><br><span class="line">    <span class="keyword">private</span> String pass;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">toUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        User user = <span class="keyword">new</span> User();</span><br><span class="line">        user.setId(<span class="keyword">this</span>.id);</span><br><span class="line">        user.setName(<span class="keyword">this</span>.name);</span><br><span class="line">        user.setPass(<span class="keyword">this</span>.pass);</span><br><span class="line">        <span class="keyword">return</span> user;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>query</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiModel</span>(value = <span class="string">"分页查询对象"</span>)</span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PageQuery</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"当前页"</span>, example = <span class="string">"1"</span>)</span><br><span class="line">    <span class="meta">@NotNull</span>(message = <span class="string">"当前页不能为空"</span>)</span><br><span class="line">    <span class="meta">@Min</span>(value = <span class="number">1</span>, message = <span class="string">"当前页不能小于1"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> page = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"每页条数"</span>, example = <span class="string">"10"</span>)</span><br><span class="line">    <span class="meta">@NotNull</span>(message = <span class="string">"每页条数不能为空"</span>)</span><br><span class="line">    <span class="meta">@Min</span>(value = <span class="number">0</span>, message = <span class="string">"每页条数不能小于0"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size = <span class="number">10</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiModel</span>(value = <span class="string">"用户实体查询对象"</span>)</span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserQuery</span> <span class="keyword">extends</span> <span class="title">PageQuery</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"用户名"</span>, example = <span class="string">"wgt"</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> UserSearch <span class="title">toUserSearch</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        UserSearch userSearch = <span class="keyword">new</span> UserSearch();</span><br><span class="line">        userSearch.setName(<span class="keyword">this</span>.name);</span><br><span class="line">        <span class="keyword">return</span> userSearch;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>response</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiModel</span>(value = <span class="string">"统一返回对象"</span>)</span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Response</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"状态码"</span>, example = <span class="string">"ok"</span>)</span><br><span class="line">    <span class="keyword">private</span> String code;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"消息"</span>, example = <span class="string">"message"</span>)</span><br><span class="line">    <span class="keyword">private</span> String message;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"数据"</span>, example = <span class="string">"data"</span>)</span><br><span class="line">    <span class="keyword">private</span> Object data;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"请求ID"</span>, example = <span class="string">"12345"</span>)</span><br><span class="line">    <span class="keyword">private</span> String requestId;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Response</span><span class="params">(String code, String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.code = code;</span><br><span class="line">        <span class="keyword">this</span>.message = message;</span><br><span class="line">        <span class="keyword">this</span>.requestId = UUID.randomUUID().toString().replaceAll(<span class="string">"-"</span>, <span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Response <span class="title">error</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Response(<span class="string">"error"</span>, message);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Response <span class="title">ok</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Response(<span class="string">"ok"</span>, <span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Response <span class="title">ok</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Response(<span class="string">"ok"</span>, message);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Response <span class="title">data</span><span class="params">(Object data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.data = data;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="四、集成Knife4j"><a href="#四、集成Knife4j" class="headerlink" title="四、集成Knife4j"></a>四、集成Knife4j</h2><h3 id="1、添加依赖"><a href="#1、添加依赖" class="headerlink" title="1、添加依赖"></a>1、添加依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">knife4j.version</span>&gt;</span>2.0.7<span class="tag">&lt;/<span class="name">knife4j.version</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--knife4j--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.xiaoymin<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>knife4j-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;knife4j.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2、书写配置类"><a href="#2、书写配置类" class="headerlink" title="2、书写配置类"></a>2、书写配置类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger</span>2WebMvc</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Knife4jConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span> </span><br><span class="line">    <span class="keyword">private</span> Environment environment;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 声明环境</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String ENVIRONMENT = <span class="string">"prod"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 声明扫描包</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String BASE_PACKAGE = <span class="string">"com.it.shw.controller"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 配置docket</span></span><br><span class="line">    <span class="meta">@Bean</span>(value = <span class="string">"defaultApi"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Docket <span class="title">defaultApi</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Profiles pf = Profiles.of(ENVIRONMENT);</span><br><span class="line">        <span class="keyword">boolean</span> isProd = environment.acceptsProfiles(pf);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">            <span class="comment">// 生产环境关闭</span></span><br><span class="line">            .enable(!isProd)</span><br><span class="line">            .apiInfo(apiInfo())</span><br><span class="line">            <span class="comment">// 忽略参数</span></span><br><span class="line">            .ignoredParameterTypes(HttpServletRequest.class, HttpServletResponse.class)</span><br><span class="line">            .groupName(<span class="string">"group name"</span>)</span><br><span class="line">            .select()</span><br><span class="line">            <span class="comment">// 扫描基础包</span></span><br><span class="line">            .apis(RequestHandlerSelectors.basePackage(BASE_PACKAGE))</span><br><span class="line">            .paths(PathSelectors.any())</span><br><span class="line">            .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 配置api文档说明</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> ApiInfo <span class="title">apiInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApiInfoBuilder()</span><br><span class="line">            .description(<span class="string">"knife4j demo description"</span>)</span><br><span class="line">            .contact(<span class="keyword">new</span> Contact(<span class="string">"name"</span>, <span class="string">"url"</span>, <span class="string">"email"</span>))</span><br><span class="line">            .version(<span class="string">"v1.0"</span>)</span><br><span class="line">            .build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3、Model注解"><a href="#3、Model注解" class="headerlink" title="3、Model注解"></a>3、Model注解</h3><ul>
+<li><p><strong>@ApiModel、@ApiModelProperty</strong></p>
+</li>
+<li><p>Integer类型字段要指定example属性，避免控制台报<strong>NumberFormatException</strong>异常</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiModel</span>(value = <span class="string">"用户实体类"</span>)</span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"用户ID"</span>, example = <span class="string">"1L"</span>)</span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"用户名"</span>, example = <span class="string">"wgt"</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"用户密码"</span>, example = <span class="string">"wgt"</span>)</span><br><span class="line">    <span class="keyword">private</span> String pass;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiModel</span>(value = <span class="string">"用户实体添加对象"</span>)</span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserAddVo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"用户名"</span>, example = <span class="string">"wgt"</span>, required = <span class="keyword">true</span>)</span><br><span class="line">    <span class="meta">@NotBlank</span>(message = <span class="string">"用户名不能为空"</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"用户密码"</span>, example = <span class="string">"wgt"</span>, required = <span class="keyword">true</span>)</span><br><span class="line">    <span class="meta">@NotBlank</span>(message = <span class="string">"用户密码不能为空"</span>)</span><br><span class="line">    <span class="keyword">private</span> String pass;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4、Controller注解"><a href="#4、Controller注解" class="headerlink" title="4、Controller注解"></a>4、Controller注解</h3><ul>
+<li><strong>@Api</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Api</span>(tags = <span class="string">"用户管理接口"</span>)</span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5、Method注解"><a href="#5、Method注解" class="headerlink" title="5、Method注解"></a>5、Method注解</h3><ul>
+<li><p><strong>@ApiOperation、@ApiImplicitParam、@ApiIgnore</strong></p>
+</li>
+<li><p>基本形式</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation</span>(value = <span class="string">"添加用户"</span>)</span><br><span class="line"><span class="meta">@PostMapping</span>(value = <span class="string">"/user"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Response <span class="title">add</span><span class="params">(@RequestBody @Valid UserAddVo userAddVo)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>声明请求参数</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation</span>(value = <span class="string">"获取用户信息"</span>)</span><br><span class="line"><span class="meta">@ApiImplicitParams</span>(</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="meta">@ApiImplicitParam</span>(name = <span class="string">"username"</span>,</span><br><span class="line">                          value = <span class="string">"用户名"</span>,</span><br><span class="line">                          dataType = <span class="string">"String"</span>,</span><br><span class="line">                          paramType = <span class="string">"query"</span>,</span><br><span class="line">                          defaultValue = <span class="string">"shw"</span>,</span><br><span class="line">                          example = <span class="string">"wgt"</span>),</span><br><span class="line">        <span class="meta">@ApiImplicitParam</span>(name = <span class="string">"password"</span>,</span><br><span class="line">                          value = <span class="string">"密码"</span>,</span><br><span class="line">                          dataType = <span class="string">"String"</span>,</span><br><span class="line">                          paramType = <span class="string">"query"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line"><span class="meta">@GetMapping</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getUser</span><span class="params">(String username,String password)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> username;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation</span>(value = <span class="string">"获取用户信息"</span>)</span><br><span class="line"><span class="meta">@ApiImplicitParams</span>(</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="meta">@ApiImplicitParam</span>(name = <span class="string">"username"</span>,</span><br><span class="line">                          value = <span class="string">"用户名"</span>,</span><br><span class="line">                          dataType = <span class="string">"String"</span>,</span><br><span class="line">                          paramType = <span class="string">"query"</span>,</span><br><span class="line">                          example = <span class="string">"wgt"</span>),</span><br><span class="line">        <span class="meta">@ApiImplicitParam</span>(name = <span class="string">"password"</span>,</span><br><span class="line">                          value = <span class="string">"密码"</span>,</span><br><span class="line">                          dataType = <span class="string">"String"</span>,</span><br><span class="line">                          paramType = <span class="string">"query"</span>,</span><br><span class="line">                          example = <span class="string">"wgt"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line"><span class="meta">@GetMapping</span>(value = <span class="string">"/user"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Response <span class="title">getUser</span><span class="params">(@RequestParam String username, @RequestParam String password)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>忽略接口</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiIgnore</span></span><br><span class="line"><span class="meta">@ApiOperation</span>(value = <span class="string">"删除用户"</span>)</span><br><span class="line"><span class="meta">@DeleteMapping</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">delUser</span><span class="params">(User user)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> user;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
-<li><a href="https://www.ibm.com/developerworks/cn/java/j-using-swagger-in-a-spring-boot-project/index.html" target="_blank" rel="noopener">Swagger详解</a></li>
-</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiIgnore</span></span><br><span class="line"><span class="meta">@ApiOperation</span>(value = <span class="string">"删除用户"</span>)</span><br><span class="line"><span class="meta">@DeleteMapping</span>(value = <span class="string">"/user/&#123;id&#125;"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Response <span class="title">delete</span><span class="params">(@PathVariable(value = <span class="string">"id"</span>)</span> Long id) </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="6、访问链接"><a href="#6、访问链接" class="headerlink" title="6、访问链接"></a>6、访问链接</h3><blockquote>
+<p><a href="http://localhost:9009/doc.html" target="_blank" rel="noopener">http://localhost:9009/doc.html</a></p>
+</blockquote>
 
       
 
@@ -255,7 +326,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">swagger</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Restful</a>
         		</li>
       		
 		</ul>
@@ -311,7 +382,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2020/02/06/Swagger构建Rest-API文档/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2021/04/05/Restful风格API指南/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -325,18 +396,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/02/06/基于Zxing的二维码生成和识别/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          基于Zxing的二维码生成和识别
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/01/09/为Excel穿上美丽的嫁妆/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">为Excel穿上美丽的嫁妆</div>
+    <a href="/2021/03/14/WebSocket基础知识/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">WebSocket基础知识</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -363,7 +425,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Swagger简介"><span class="toc-number">1.</span> <span class="toc-text">一、Swagger简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Swagger2集成"><span class="toc-number">2.</span> <span class="toc-text">二、Swagger2集成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、Swagger高级配置"><span class="toc-number">3.</span> <span class="toc-text">三、Swagger高级配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、Model注解"><span class="toc-number">4.</span> <span class="toc-text">四、Model注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、Controller注解"><span class="toc-number">5.</span> <span class="toc-text">五、Controller注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、Method注解"><span class="toc-number">6.</span> <span class="toc-text">六、Method注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">7.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、请求风格"><span class="toc-number">1.</span> <span class="toc-text">一、请求风格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、API示例"><span class="toc-number">2.</span> <span class="toc-text">二、API示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、DDD"><span class="toc-number">3.</span> <span class="toc-text">三、DDD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、数据流转图"><span class="toc-number">3.1.</span> <span class="toc-text">1、数据流转图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、数据模型示例"><span class="toc-number">3.2.</span> <span class="toc-text">2、数据模型示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、集成Knife4j"><span class="toc-number">4.</span> <span class="toc-text">四、集成Knife4j</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、添加依赖"><span class="toc-number">4.1.</span> <span class="toc-text">1、添加依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、书写配置类"><span class="toc-number">4.2.</span> <span class="toc-text">2、书写配置类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、Model注解"><span class="toc-number">4.3.</span> <span class="toc-text">3、Model注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、Controller注解"><span class="toc-number">4.4.</span> <span class="toc-text">4、Controller注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、Method注解"><span class="toc-number">4.5.</span> <span class="toc-text">5、Method注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、访问链接"><span class="toc-number">4.6.</span> <span class="toc-text">6、访问链接</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -488,11 +550,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
+                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -508,11 +570,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -524,19 +586,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Sonar</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jwt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -548,7 +610,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -557,10 +619,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">udp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -576,15 +634,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">oss</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">lombok</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -604,11 +658,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
+                <a href="javascript:void(0)" class="js-tag color4">oss</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pom</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -620,7 +674,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+                <a href="javascript:void(0)" class="js-tag color4">pom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -636,11 +694,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
+                <a href="javascript:void(0)" class="js-tag color5">copy</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">copy</a>
+                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -664,7 +722,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RestTemplate</a>
+                <a href="javascript:void(0)" class="js-tag color3">Restful</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -677,6 +735,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RestTemplate</a>
               </li>
              
               <li class="article-tag-list-item">
