@@ -6,23 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>Linux基础知识 | thailandking</title>
+  <title>Linux基础操作 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、Linux简介1.1 发行版本 Ubuntu：最流行的桌面Linux发行版 Redhat：使用最广，性能稳定 Centos：免费，Redhat克隆版  1.2 优缺点 优点：性能稳定、适合嵌入式应用、做服务器、费用低  缺点：专业软件太少（ps、ae）、标准化不足">
+  <meta name="description" content="一、文件和目录1、cd命令 切换到usr目录  1cd usr  切换到上一层目录  1cd ..  切换到系统根目录  1cd /  切换到用户主目录  1cd ~  切换到上一个所在目录  1cd -">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux基础知识">
-<meta property="og:url" content="https://thailandking.github.io/2019/03/09/Linux基础知识/index.html">
+<meta property="og:title" content="Linux基础操作">
+<meta property="og:url" content="https://thailandking.github.io/2021/04/11/Linux基础操作/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="一、Linux简介1.1 发行版本 Ubuntu：最流行的桌面Linux发行版 Redhat：使用最广，性能稳定 Centos：免费，Redhat克隆版  1.2 优缺点 优点：性能稳定、适合嵌入式应用、做服务器、费用低  缺点：专业软件太少（ps、ae）、标准化不足">
+<meta property="og:description" content="一、文件和目录1、cd命令 切换到usr目录  1cd usr  切换到上一层目录  1cd ..  切换到系统根目录  1cd /  切换到用户主目录  1cd ~  切换到上一个所在目录  1cd -">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/09/Linux基础知识/1.png">
-<meta property="og:image" content="https://thailandking.github.io/2019/03/09/Linux基础知识/2.png">
-<meta property="og:updated_time" content="2020-05-15T08:54:19.515Z">
+<meta property="og:updated_time" content="2021-04-11T13:56:42.809Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux基础知识">
-<meta name="twitter:description" content="一、Linux简介1.1 发行版本 Ubuntu：最流行的桌面Linux发行版 Redhat：使用最广，性能稳定 Centos：免费，Redhat克隆版  1.2 优缺点 优点：性能稳定、适合嵌入式应用、做服务器、费用低  缺点：专业软件太少（ps、ae）、标准化不足">
-<meta name="twitter:image" content="https://thailandking.github.io/2019/03/09/Linux基础知识/1.png">
+<meta name="twitter:title" content="Linux基础操作">
+<meta name="twitter:description" content="一、文件和目录1、cd命令 切换到usr目录  1cd usr  切换到上一层目录  1cd ..  切换到系统根目录  1cd /  切换到用户主目录  1cd ~  切换到上一个所在目录  1cd -">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -154,199 +151,229 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Linux基础知识" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Linux基础操作" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Linux基础知识
+      Linux基础操作
     </h1>
   
 
         
-        <a href="/2019/03/09/Linux基础知识/" class="archive-article-date">
-  	<time datetime="2019-03-09T07:24:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-09</time>
+        <a href="/2021/04/11/Linux基础操作/" class="archive-article-date">
+  	<time datetime="2021-04-11T13:50:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、Linux简介"><a href="#一、Linux简介" class="headerlink" title="一、Linux简介"></a>一、Linux简介</h2><h3 id="1-1-发行版本"><a href="#1-1-发行版本" class="headerlink" title="1.1 发行版本"></a>1.1 发行版本</h3><ul>
-<li>Ubuntu：最流行的桌面Linux发行版</li>
-<li>Redhat：使用最广，性能稳定</li>
-<li>Centos：免费，Redhat克隆版</li>
+        <h2 id="一、文件和目录"><a href="#一、文件和目录" class="headerlink" title="一、文件和目录"></a>一、文件和目录</h2><h3 id="1、cd命令"><a href="#1、cd命令" class="headerlink" title="1、cd命令"></a>1、cd命令</h3><ul>
+<li>切换到usr目录</li>
 </ul>
-<h3 id="1-2-优缺点"><a href="#1-2-优缺点" class="headerlink" title="1.2 优缺点"></a>1.2 优缺点</h3><ul>
-<li><p>优点：性能稳定、适合嵌入式应用、做服务器、费用低</p>
-</li>
-<li><p>缺点：专业软件太少（ps、ae）、标准化不足</p>
-</li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd usr</span><br></pre></td></tr></table></figure>
+<ul>
+<li>切换到上一层目录</li>
 </ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ..</span><br></pre></td></tr></table></figure>
+<ul>
+<li>切换到系统根目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /</span><br></pre></td></tr></table></figure>
+<ul>
+<li>切换到用户主目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br></pre></td></tr></table></figure>
+<ul>
+<li>切换到上一个所在目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd -</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="1-3-分区"><a href="#1-3-分区" class="headerlink" title="1.3 分区"></a>1.3 分区</h3><div align="center">
-
-<p><img src="/2019/03/09/Linux基础知识/1.png" alt="目录树"></p>
-<p></p></div><br><p></p>
-<h3 id="1-4-文件系统"><a href="#1-4-文件系统" class="headerlink" title="1.4 文件系统"></a>1.4 文件系统</h3><ul>
-<li>Linux文件和目录区分大小写</li>
-<li>路径通过 <strong>/</strong> 分隔开</li>
-<li><strong>..</strong> 表示上级目录</li>
-<li><strong>.</strong> 表示当前目录</li>
-<li>隐藏文件和目录以 <strong>.</strong> 开始</li>
+<h3 id="2、pwd命令"><a href="#2、pwd命令" class="headerlink" title="2、pwd命令"></a>2、pwd命令</h3><ul>
+<li>显示工作路径</li>
 </ul>
-<h3 id="1-5-重要目录说明"><a href="#1-5-重要目录说明" class="headerlink" title="1.5 重要目录说明"></a>1.5 重要目录说明</h3><p><img src="/2019/03/09/Linux基础知识/2.png" alt></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">1、home目录</span><br><span class="line">1》root用户的home目录是/root</span><br><span class="line">2》普通用户目录是/home/username</span><br><span class="line"></span><br><span class="line">2、bin目录</span><br><span class="line">1》常用的可执行文件</span><br><span class="line">2》/bin 	/usr/bin 	/sbin</span><br><span class="line"></span><br><span class="line">3、外部设备mountpoint</span><br><span class="line">1》/media	/mnt</span><br><span class="line">2》当检测到设备接入自动产生挂载点</span><br><span class="line"></span><br><span class="line">4、/etc</span><br><span class="line">系统的配置文件</span><br><span class="line"></span><br><span class="line">5、/tmp</span><br><span class="line">临时文件</span><br><span class="line"></span><br><span class="line">6、/boot</span><br><span class="line">系统内核和开机必要文件</span><br><span class="line"></span><br><span class="line">7、/dev</span><br><span class="line">系统所有的设备文件</span><br><span class="line"></span><br><span class="line">8、/usr</span><br><span class="line">保存程序的相关文件</span><br><span class="line"></span><br><span class="line">9、/lost+found</span><br><span class="line">每个分区都会自动创建，防止丢失</span><br><span class="line"></span><br><span class="line">10、/var	/srv</span><br><span class="line">1》系统用户数据、数据库数据</span><br><span class="line">2》程序运行数据</span><br><span class="line"></span><br><span class="line">11、/proc</span><br><span class="line">1》虚拟的文件系统、数据在内存中</span><br><span class="line">2》程序进程信息、系统内核、网络状态</span><br><span class="line"></span><br><span class="line">12、/lib	/usr/lib	/usr/locat/lib</span><br><span class="line">运行库文件</span><br></pre></td></tr></table></figure>
-<h3 id="1-6-安全性模型"><a href="#1-6-安全性模型" class="headerlink" title="1.6 安全性模型"></a>1.6 安全性模型</h3><ul>
-<li>用户</li>
-<li><p>用户群组</p>
-</li>
-<li><p>root用户</p>
-</li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br></pre></td></tr></table></figure>
+<h3 id="3、ls命令"><a href="#3、ls命令" class="headerlink" title="3、ls命令"></a>3、ls命令</h3><ul>
+<li>显示文件和目录的详细资料</li>
 </ul>
-<h3 id="1-7-权限"><a href="#1-7-权限" class="headerlink" title="1.7 权限"></a>1.7 权限</h3><ul>
-<li>r：只读、w：只写、x：可执行、-：无权限</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">权限验证</span><br><span class="line">r------------&gt;u----------&gt;g------------&gt;o</span><br><span class="line">root用户	user用户	group用户 other用户</span><br></pre></td></tr></table></figure>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">默认权限控制</span><br><span class="line">1.内核级别：</span><br><span class="line">目录	777</span><br><span class="line">文件	666</span><br><span class="line"></span><br><span class="line">2.umask：022</span><br><span class="line"></span><br><span class="line">3.默认权限：</span><br><span class="line">目录	755</span><br><span class="line">文件	644</span><br><span class="line">777：rwx		rwx		rwx</span><br><span class="line">022：---		-w-		-w-</span><br><span class="line">默认：rwx	   r-x	   r-x</span><br><span class="line">按位与运算</span><br></pre></td></tr></table></figure>
-<h3 id="1-8-远程访问"><a href="#1-8-远程访问" class="headerlink" title="1.8 远程访问"></a>1.8 远程访问</h3><ul>
-<li>SSH</li>
-<li>安全外壳协议</li>
-<li>应用层和传输层上的协议</li>
-</ul>
-<h2 id="二、常用命令"><a href="#二、常用命令" class="headerlink" title="二、常用命令"></a>二、常用命令</h2><h3 id="1-1-目录切换"><a href="#1-1-目录切换" class="headerlink" title="1.1 目录切换"></a>1.1 目录切换</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd usr		切换到该目录下usr目录</span><br><span class="line">cd ..		切换到上一层目录</span><br><span class="line">cd /		切换到系统根目录</span><br><span class="line">cd ~		切换到用户主目录</span><br><span class="line">cd -		切换到上一个所在目录</span><br></pre></td></tr></table></figure>
-<h3 id="1-2-目录操作"><a href="#1-2-目录操作" class="headerlink" title="1.2  目录操作"></a>1.2  目录操作</h3><ul>
-<li>增加目录</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir 目录名称</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l</span><br></pre></td></tr></table></figure>
 <ul>
-<li>查看目录</li>
+<li>列出全部文件，包含隐藏文件</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ll</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -a</span><br></pre></td></tr></table></figure>
 <ul>
-<li>查找目录</li>
+<li>显示权限和大小</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find 目录 参数</span><br><span class="line">find /root -name ‘test*’</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -lh</span><br></pre></td></tr></table></figure>
+<h3 id="4、cp命令"><a href="#4、cp命令" class="headerlink" title="4、cp命令"></a>4、cp命令</h3><ul>
+<li>递归持续复制，用于目录的复制行为</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r /usr/test /test</span><br></pre></td></tr></table></figure>
+<h3 id="5、mv命令"><a href="#5、mv命令" class="headerlink" title="5、mv命令"></a>5、mv命令</h3><ul>
+<li>用于移动文件、目录或更名</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv test /test</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv oldName newName</span><br></pre></td></tr></table></figure>
+<h3 id="6、rm命令"><a href="#6、rm命令" class="headerlink" title="6、rm命令"></a>6、rm命令</h3><ul>
+<li>用于删除文件或目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf logs/error.log</span><br></pre></td></tr></table></figure>
+<h3 id="7、cat命令"><a href="#7、cat命令" class="headerlink" title="7、cat命令"></a>7、cat命令</h3><ul>
+<li>用于查看文本文件的内容</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat error.log</span><br></pre></td></tr></table></figure>
 <ul>
-<li>修改目录名称</li>
+<li>标示文件的行数</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv 目录名称 新目录名称</span><br><span class="line">mv oldTest newTest</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat -n error.log</span><br></pre></td></tr></table></figure>
 <ul>
-<li>移动目录位置</li>
+<li>查看一个文件的前两行</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv 目录名称 目录的新位置</span><br><span class="line">mv newTest /usr</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">head -n +2 error.log</span><br></pre></td></tr></table></figure>
 <ul>
-<li>拷贝目录</li>
+<li>查看一个文件的最后两行</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp -r 目录名称 目录拷贝的目标位置</span><br><span class="line">cp -r /usr/newTest /test</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -n -2 error.log</span><br></pre></td></tr></table></figure>
 <ul>
-<li>删除目录</li>
+<li>显示1000行到3000行</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf 目录/文件/压缩包</span><br></pre></td></tr></table></figure>
-<h3 id="1-3-文件操作"><a href="#1-3-文件操作" class="headerlink" title="1.3 文件操作"></a>1.3 文件操作</h3><ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat error.log | head -n 3000 | tail -n +1000</span><br></pre></td></tr></table></figure>
+<h3 id="8、find命令"><a href="#8、find命令" class="headerlink" title="8、find命令"></a>8、find命令</h3><ul>
+<li>搜索文件和目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /usr -name 'error*'</span><br></pre></td></tr></table></figure>
+<h3 id="9、chmod命令"><a href="#9、chmod命令" class="headerlink" title="9、chmod命令"></a>9、chmod命令</h3><ul>
+<li>设置文件和目录权限</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod +rwx log.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod -wx log.sh</span><br></pre></td></tr></table></figure>
+<h3 id="10、chown命令"><a href="#10、chown命令" class="headerlink" title="10、chown命令"></a>10、chown命令</h3><ul>
+<li>设置文件和目录拥有者</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R user:user log</span><br></pre></td></tr></table></figure>
+<h3 id="11、mkdir命令"><a href="#11、mkdir命令" class="headerlink" title="11、mkdir命令"></a>11、mkdir命令</h3><ul>
+<li>创建目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir log</span><br></pre></td></tr></table></figure>
+<h3 id="12、touch命令"><a href="#12、touch命令" class="headerlink" title="12、touch命令"></a>12、touch命令</h3><ul>
 <li>创建文件</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch 文件名称</span><br></pre></td></tr></table></figure>
-<ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch error.log</span><br></pre></td></tr></table></figure>
+<h3 id="13、vi命令"><a href="#13、vi命令" class="headerlink" title="13、vi命令"></a>13、vi命令</h3><ul>
 <li>编辑文件</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vi 文件</span><br><span class="line">点击键盘i/a/o进入编辑模式</span><br><span class="line">编辑完成后，按下Esc，退回命令模式</span><br><span class="line">:wq 保存退出</span><br><span class="line">:q! 强制退出</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi error.log</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i/a/o</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Esc</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:wq</span><br><span class="line">:q!</span><br></pre></td></tr></table></figure>
+<h2 id="二、文本处理"><a href="#二、文本处理" class="headerlink" title="二、文本处理"></a>二、文本处理</h2><h3 id="1、grep命令"><a href="#1、grep命令" class="headerlink" title="1、grep命令"></a>1、grep命令</h3><ul>
+<li>分析一行的信息</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep 'error' error.log</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep 'error' error-2021-*</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -E '04/08/2021 12:('09' | '10' | '11')' error.log | grep 'error'</span><br></pre></td></tr></table></figure>
+<h3 id="2、paste命令"><a href="#2、paste命令" class="headerlink" title="2、paste命令"></a>2、paste命令</h3><ul>
+<li>合并内容</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paste file1 file2</span><br></pre></td></tr></table></figure>
 <ul>
-<li>删除文件</li>
+<li>合并内容，中间用<strong>+</strong>区分</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf 文件</span><br></pre></td></tr></table></figure>
-<h3 id="1-4-压缩与解压（重点）"><a href="#1-4-压缩与解压（重点）" class="headerlink" title="1.4 压缩与解压（重点）"></a>1.4 压缩与解压（重点）</h3><ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paste -d '+' file1 file2</span><br></pre></td></tr></table></figure>
+<h2 id="三、打包和压缩"><a href="#三、打包和压缩" class="headerlink" title="三、打包和压缩"></a>三、打包和压缩</h2><ul>
+<li>打包文件一般是以<strong>.tar</strong>结尾的，压缩文件一般是以<strong>.gz</strong>结尾的</li>
+</ul>
+<h3 id="1、tar命令"><a href="#1、tar命令" class="headerlink" title="1、tar命令"></a>1、tar命令</h3><ul>
 <li>打包压缩</li>
-<li>打包文件一般是以.tar结尾的，压缩文件一般是以.gz结尾的</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tar -zcvf test.tar.gz aaa.txt bbb.txt ccc.txt</span><br><span class="line"></span><br><span class="line">z：调用gzip压缩命令进行压缩</span><br><span class="line">c：打包文件</span><br><span class="line">v：显示运行过程</span><br><span class="line">f：指定文件名</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zcvf test.tar.gz aaa.txt bbb.txt ccc.txt</span><br></pre></td></tr></table></figure>
 <ul>
 <li>解压</li>
-<li>-C代表指定解压的位置</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf xxx.tar.gz</span><br><span class="line">tar -zxvf xxx.tar.gz -C /usr</span><br></pre></td></tr></table></figure>
-<h3 id="1-5-用户切换"><a href="#1-5-用户切换" class="headerlink" title="1.5 用户切换"></a>1.5 用户切换</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">su 用户名</span><br><span class="line">su root</span><br></pre></td></tr></table></figure>
-<h3 id="1-6-防火墙"><a href="#1-6-防火墙" class="headerlink" title="1.6 防火墙"></a>1.6 防火墙</h3><ul>
-<li>CentOs7</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//临时关闭</span><br><span class="line">systemctl stop firewalld</span><br><span class="line">//禁止开机启动</span><br><span class="line">systemctl disable firewalld</span><br></pre></td></tr></table></figure>
-<h3 id="1-7-网络"><a href="#1-7-网络" class="headerlink" title="1.7 网络"></a>1.7 网络</h3><ul>
-<li>安装网络工具</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install net-tools</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf test.tar.gz</span><br></pre></td></tr></table></figure>
 <ul>
-<li>重启网络服务</li>
+<li>指定解压的位置</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart network</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf test.tar.gz -C /test</span><br></pre></td></tr></table></figure>
+<h3 id="2、gzip命令"><a href="#2、gzip命令" class="headerlink" title="2、gzip命令"></a>2、gzip命令</h3><ul>
+<li>压缩</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip filename</span><br></pre></td></tr></table></figure>
 <ul>
-<li>查看IP</li>
+<li>解压</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip -d filename</span><br></pre></td></tr></table></figure>
+<h2 id="四、进程和端口"><a href="#四、进程和端口" class="headerlink" title="四、进程和端口"></a>四、进程和端口</h2><h3 id="1、ps命令"><a href="#1、ps命令" class="headerlink" title="1、ps命令"></a>1、ps命令</h3><ul>
+<li>输出某个时间点进程运行情况</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -aux</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef</span><br></pre></td></tr></table></figure>
+<h3 id="2、kill命令"><a href="#2、kill命令" class="headerlink" title="2、kill命令"></a>2、kill命令</h3><ul>
+<li>正常杀死进程</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -15 pid</span><br></pre></td></tr></table></figure>
 <ul>
-<li>判断网络连接</li>
+<li>强制杀死进程</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping www.baidu.com</span><br></pre></td></tr></table></figure>
-<ul>
-<li>查看端口使用</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9 pid</span><br></pre></td></tr></table></figure>
+<h3 id="3、top命令"><a href="#3、top命令" class="headerlink" title="3、top命令"></a>3、top命令</h3><ul>
+<li>实时显示系统中各个进程的资源占用状况</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano</span><br></pre></td></tr></table></figure>
-<h3 id="1-8-关机重启"><a href="#1-8-关机重启" class="headerlink" title="1.8 关机重启"></a>1.8 关机重启</h3><ul>
-<li>关机</li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top</span><br></pre></td></tr></table></figure>
+<h3 id="4、netstat命令"><a href="#4、netstat命令" class="headerlink" title="4、netstat命令"></a>4、netstat命令</h3><ul>
+<li>查看进程端口号</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shutdown -h now</span><br></pre></td></tr></table></figure>
-<ul>
-<li>重启</li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -anp</span><br></pre></td></tr></table></figure>
+<h2 id="五、系统和开关机"><a href="#五、系统和开关机" class="headerlink" title="五、系统和开关机"></a>五、系统和开关机</h2><h3 id="1、shutdown命令"><a href="#1、shutdown命令" class="headerlink" title="1、shutdown命令"></a>1、shutdown命令</h3><ul>
+<li>关闭系统</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
-<h3 id="1-9-其他"><a href="#1-9-其他" class="headerlink" title="1.9 其他"></a>1.9 其他</h3><ul>
-<li>显示当前位置</li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shutdown -h now</span><br></pre></td></tr></table></figure>
+<h3 id="2、reboot命令"><a href="#2、reboot命令" class="headerlink" title="2、reboot命令"></a>2、reboot命令</h3><ul>
+<li>重启系统</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br></pre></td></tr></table></figure>
-<ul>
-<li>搜索命令</li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
+<h3 id="3、su命令"><a href="#3、su命令" class="headerlink" title="3、su命令"></a>3、su命令</h3><ul>
+<li>切换用户</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep str sudo.conf --color</span><br></pre></td></tr></table></figure>
-<ul>
-<li>查看进程</li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure>
+<h3 id="4、ip命令"><a href="#4、ip命令" class="headerlink" title="4、ip命令"></a>4、ip命令</h3><ul>
+<li>查看系统IP</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef</span><br></pre></td></tr></table></figure>
-<ul>
-<li>杀死进程</li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+<h3 id="5、ping命令"><a href="#5、ping命令" class="headerlink" title="5、ping命令"></a>5、ping命令</h3><ul>
+<li>查看网络</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//强制中断</span><br><span class="line">kill -9 pid</span><br><span class="line">//正常结束</span><br><span class="line">kill -15 pid</span><br></pre></td></tr></table></figure>
-<ul>
-<li>修改权限</li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping ip</span><br></pre></td></tr></table></figure>
+<h3 id="6、telnet命令"><a href="#6、telnet命令" class="headerlink" title="6、telnet命令"></a>6、telnet命令</h3><ul>
+<li>远程登录</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 764 aaa.txt</span><br></pre></td></tr></table></figure>
-<ul>
-<li>查看内核版本</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">telnet ip port</span><br></pre></td></tr></table></figure>
+<h3 id="7、uname命令"><a href="#7、uname命令" class="headerlink" title="7、uname命令"></a>7、uname命令</h3><ul>
+<li>查看系统内核版本</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure>
-<ul>
-<li>查看系统版本</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/issue</span><br><span class="line">cat /etc/redhat-release</span><br></pre></td></tr></table></figure>
-<ul>
-<li>显示当前系统执行情况</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top</span><br></pre></td></tr></table></figure>
-<ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -srm</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/version</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure>
+<h3 id="8、df命令"><a href="#8、df命令" class="headerlink" title="8、df命令"></a>8、df命令</h3><ul>
 <li>查看磁盘空间</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br></pre></td></tr></table></figure>
-<ul>
-<li>查看文件夹空间</li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br></pre></td></tr></table></figure>
+<h3 id="9、du命令"><a href="#9、du命令" class="headerlink" title="9、du命令"></a>9、du命令</h3><ul>
+<li>查看目录空间</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -h</span><br></pre></td></tr></table></figure>
-<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
-<li><a href="https://www.cnblogs.com/neo98/articles/6185737.html" target="_blank" rel="noopener">centos7常用命令变更</a></li>
-<li><a href="https://www.jianshu.com/p/608c63268f52" target="_blank" rel="noopener">top命令详解</a></li>
-<li><a href="https://www.jianshu.com/p/8579313ea1c0" target="_blank" rel="noopener">VMware 安装 Centos7 后网络配置</a></li>
-<li><a href="https://www.jianshu.com/p/41036a2fdb28" target="_blank" rel="noopener">虚拟机下CentOS7开启SSH连接</a></li>
-<li><a href="https://www.jianshu.com/p/18207167b1e7" target="_blank" rel="noopener">使用VirtualBox安装CentOS7</a></li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -h --max-depth=1</span><br></pre></td></tr></table></figure>
+<h3 id="10、free命令"><a href="#10、free命令" class="headerlink" title="10、free命令"></a>10、free命令</h3><ul>
+<li>查看内存使用</li>
 </ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -m</span><br></pre></td></tr></table></figure>
+<h3 id="11、date命令"><a href="#11、date命令" class="headerlink" title="11、date命令"></a>11、date命令</h3><ul>
+<li>查看系统时间</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date</span><br></pre></td></tr></table></figure>
 
       
 
@@ -447,7 +474,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/03/09/Linux基础知识/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2021/04/11/Linux基础操作/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -461,18 +488,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/31/MySQL主从复制原理解析与最佳实践/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/04/11/Linux日常运维/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          MySQL主从复制原理解析与最佳实践
+          Linux日常运维
         
       </div>
     </a>
   
   
-    <a href="/2019/03/07/HTTP状态码/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HTTP状态码</div>
+    <a href="/2021/04/05/Restful风格API指南/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Restful风格API指南</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -499,7 +526,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Linux简介"><span class="toc-number">1.</span> <span class="toc-text">一、Linux简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-发行版本"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 发行版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-优缺点"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 优缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-分区"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 分区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-文件系统"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 文件系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-重要目录说明"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 重要目录说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-安全性模型"><span class="toc-number">1.6.</span> <span class="toc-text">1.6 安全性模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-权限"><span class="toc-number">1.7.</span> <span class="toc-text">1.7 权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-8-远程访问"><span class="toc-number">1.8.</span> <span class="toc-text">1.8 远程访问</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、常用命令"><span class="toc-number">2.</span> <span class="toc-text">二、常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-目录切换"><span class="toc-number">2.1.</span> <span class="toc-text">1.1 目录切换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-目录操作"><span class="toc-number">2.2.</span> <span class="toc-text">1.2  目录操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-文件操作"><span class="toc-number">2.3.</span> <span class="toc-text">1.3 文件操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-压缩与解压（重点）"><span class="toc-number">2.4.</span> <span class="toc-text">1.4 压缩与解压（重点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-用户切换"><span class="toc-number">2.5.</span> <span class="toc-text">1.5 用户切换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-防火墙"><span class="toc-number">2.6.</span> <span class="toc-text">1.6 防火墙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-网络"><span class="toc-number">2.7.</span> <span class="toc-text">1.7 网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-8-关机重启"><span class="toc-number">2.8.</span> <span class="toc-text">1.8 关机重启</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-9-其他"><span class="toc-number">2.9.</span> <span class="toc-text">1.9 其他</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">3.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、文件和目录"><span class="toc-number">1.</span> <span class="toc-text">一、文件和目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、cd命令"><span class="toc-number">1.1.</span> <span class="toc-text">1、cd命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、pwd命令"><span class="toc-number">1.2.</span> <span class="toc-text">2、pwd命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、ls命令"><span class="toc-number">1.3.</span> <span class="toc-text">3、ls命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、cp命令"><span class="toc-number">1.4.</span> <span class="toc-text">4、cp命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、mv命令"><span class="toc-number">1.5.</span> <span class="toc-text">5、mv命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、rm命令"><span class="toc-number">1.6.</span> <span class="toc-text">6、rm命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、cat命令"><span class="toc-number">1.7.</span> <span class="toc-text">7、cat命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8、find命令"><span class="toc-number">1.8.</span> <span class="toc-text">8、find命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9、chmod命令"><span class="toc-number">1.9.</span> <span class="toc-text">9、chmod命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10、chown命令"><span class="toc-number">1.10.</span> <span class="toc-text">10、chown命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11、mkdir命令"><span class="toc-number">1.11.</span> <span class="toc-text">11、mkdir命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12、touch命令"><span class="toc-number">1.12.</span> <span class="toc-text">12、touch命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13、vi命令"><span class="toc-number">1.13.</span> <span class="toc-text">13、vi命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、文本处理"><span class="toc-number">2.</span> <span class="toc-text">二、文本处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、grep命令"><span class="toc-number">2.1.</span> <span class="toc-text">1、grep命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、paste命令"><span class="toc-number">2.2.</span> <span class="toc-text">2、paste命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、打包和压缩"><span class="toc-number">3.</span> <span class="toc-text">三、打包和压缩</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、tar命令"><span class="toc-number">3.1.</span> <span class="toc-text">1、tar命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、gzip命令"><span class="toc-number">3.2.</span> <span class="toc-text">2、gzip命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、进程和端口"><span class="toc-number">4.</span> <span class="toc-text">四、进程和端口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、ps命令"><span class="toc-number">4.1.</span> <span class="toc-text">1、ps命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、kill命令"><span class="toc-number">4.2.</span> <span class="toc-text">2、kill命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、top命令"><span class="toc-number">4.3.</span> <span class="toc-text">3、top命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、netstat命令"><span class="toc-number">4.4.</span> <span class="toc-text">4、netstat命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、系统和开关机"><span class="toc-number">5.</span> <span class="toc-text">五、系统和开关机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、shutdown命令"><span class="toc-number">5.1.</span> <span class="toc-text">1、shutdown命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、reboot命令"><span class="toc-number">5.2.</span> <span class="toc-text">2、reboot命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、su命令"><span class="toc-number">5.3.</span> <span class="toc-text">3、su命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、ip命令"><span class="toc-number">5.4.</span> <span class="toc-text">4、ip命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、ping命令"><span class="toc-number">5.5.</span> <span class="toc-text">5、ping命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、telnet命令"><span class="toc-number">5.6.</span> <span class="toc-text">6、telnet命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、uname命令"><span class="toc-number">5.7.</span> <span class="toc-text">7、uname命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8、df命令"><span class="toc-number">5.8.</span> <span class="toc-text">8、df命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9、du命令"><span class="toc-number">5.9.</span> <span class="toc-text">9、du命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10、free命令"><span class="toc-number">5.10.</span> <span class="toc-text">10、free命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11、date命令"><span class="toc-number">5.11.</span> <span class="toc-text">11、date命令</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -604,15 +631,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">debug</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">debug</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -624,11 +651,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
+                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -636,11 +663,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -652,15 +679,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">netty</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Sonar</a>
+                <a href="javascript:void(0)" class="js-tag color1">netty</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -668,15 +691,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Sonar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jwt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -684,7 +703,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -696,15 +719,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iterator</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -720,11 +747,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
+                <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -732,11 +759,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">oss</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -748,19 +771,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pom</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CAS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -776,11 +795,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cross</a>
+                <a href="javascript:void(0)" class="js-tag color4">oss</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+                <a href="javascript:void(0)" class="js-tag color1">cross</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -800,11 +819,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mail</a>
+                <a href="javascript:void(0)" class="js-tag color5">websocket</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">websocket</a>
+                <a href="javascript:void(0)" class="js-tag color5">mail</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -817,6 +836,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">
