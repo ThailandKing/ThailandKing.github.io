@@ -6,19 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>Tag: springboot | thailandking</title>
+  <title>Lombok | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="personal blog">
-<meta name="keywords" content="computer，programming">
-<meta property="og:type" content="website">
-<meta property="og:title" content="thailandking">
-<meta property="og:url" content="https://thailandking.github.io/tags/springboot/index.html">
+  <meta name="description" content="一、idea安装Lombok插件">
+<meta name="keywords" content="Lombok">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lombok">
+<meta property="og:url" content="https://thailandking.github.io/2019/07/13/Lombok/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="personal blog">
+<meta property="og:description" content="一、idea安装Lombok插件">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/13/Lombok/1.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/13/Lombok/2.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/13/Lombok/3.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/07/13/Lombok/4.png">
+<meta property="og:updated_time" content="2021-04-18T12:55:05.387Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="thailandking">
-<meta name="twitter:description" content="personal blog">
+<meta name="twitter:title" content="Lombok">
+<meta name="twitter:description" content="一、idea安装Lombok插件">
+<meta name="twitter:image" content="https://thailandking.github.io/2019/07/13/Lombok/1.png">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -150,212 +156,217 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Lombok" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Lombok
+    </h1>
+  
+
+        
+        <a href="/2019/07/13/Lombok/" class="archive-article-date">
+  	<time datetime="2019-07-13T10:46:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-13</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、idea安装Lombok插件"><a href="#一、idea安装Lombok插件" class="headerlink" title="一、idea安装Lombok插件"></a>一、idea安装Lombok插件</h2><p><img src="/2019/07/13/Lombok/1.png" alt="安装lombok插件"></p>
+<a id="more"></a>
+<p><img src="/2019/07/13/Lombok/2.png" alt="lombok安装"></p>
+<h2 id="二、重启idea"><a href="#二、重启idea" class="headerlink" title="二、重启idea"></a>二、重启idea</h2><p><img src="/2019/07/13/Lombok/3.png" alt="开启注解编译"></p>
+<h2 id="三、添加maven依赖"><a href="#三、添加maven依赖" class="headerlink" title="三、添加maven依赖"></a>三、添加maven依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.16.10<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="四、书写一个实体类"><a href="#四、书写一个实体类" class="headerlink" title="四、书写一个实体类"></a>四、书写一个实体类</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import lombok.Data;</span><br><span class="line"></span><br><span class="line">@Data</span><br><span class="line">public class MyTestBean &#123;</span><br><span class="line">    private Integer id;</span><br><span class="line">    private String name;</span><br><span class="line">    private String password;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="五、测试代码"><a href="#五、测试代码" class="headerlink" title="五、测试代码"></a>五、测试代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class TestMyBean &#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        MyTestBean m=new MyTestBean();</span><br><span class="line">        m.setId(1);</span><br><span class="line">        m.setName(&quot;zhangsan&quot;);</span><br><span class="line">        m.setPassword(&quot;123456&quot;);</span><br><span class="line">        System.out.println(m);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="六、结果"><a href="#六、结果" class="headerlink" title="六、结果"></a>六、结果</h2><p><img src="/2019/07/13/Lombok/4.png" alt="运行结果"></p>
+<h2 id="七、扩展"><a href="#七、扩展" class="headerlink" title="七、扩展"></a>七、扩展</h2><ul>
+<li>@Getter</li>
+<li>@Setter</li>
+<li>@ToString</li>
+<li>@EqualsAndHashCode</li>
+<li>@NoArgsConstructor</li>
+<li>@AllArgsConstructor</li>
+<li>@Data是一个集合体，包含Getter,Setter,RequiredArgsConstructor,ToString,EqualsAndHashCode</li>
+<li>@Value是一个集合体，包含Getter,AllArgsConstructor,ToString,EqualsAndHashCode，生成一个不可变对象，所有字段都被final修饰</li>
+<li><a href="https://projectlombok.org/features/all" target="_blank" rel="noopener">更多注解使用</a></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixinpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/13/SpringBoot事务处理/" class="archive-article-date">
-  	<time datetime="2020-04-13T02:48:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/13/SpringBoot事务处理/">SpringBoot事务处理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Lombok</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/07/13/Lombok/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/06/SpringBoot自定义starter/" class="archive-article-date">
-  	<time datetime="2020-03-06T02:35:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-06</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/07/14/设计模式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          设计模式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/08/Redis核心技术/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Redis核心技术</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/06/SpringBoot自定义starter/">SpringBoot自定义starter</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、idea安装Lombok插件"><span class="toc-number">1.</span> <span class="toc-text">一、idea安装Lombok插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、重启idea"><span class="toc-number">2.</span> <span class="toc-text">二、重启idea</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、添加maven依赖"><span class="toc-number">3.</span> <span class="toc-text">三、添加maven依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、书写一个实体类"><span class="toc-number">4.</span> <span class="toc-text">四、书写一个实体类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、测试代码"><span class="toc-number">5.</span> <span class="toc-text">五、测试代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、结果"><span class="toc-number">6.</span> <span class="toc-text">六、结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、扩展"><span class="toc-number">7.</span> <span class="toc-text">七、扩展</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/04/SpringBoot日志/" class="archive-article-date">
-  	<time datetime="2020-03-04T08:03:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-04</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/04/SpringBoot日志/">SpringBoot日志</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/07/SpringBoot全局异常处理/" class="archive-article-date">
-  	<time datetime="2020-02-07T02:05:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/07/SpringBoot全局异常处理/">SpringBoot全局异常处理</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/07/SpringBoot定时任务/" class="archive-article-date">
-  	<time datetime="2020-01-07T02:11:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/07/SpringBoot定时任务/">SpringBoot定时任务</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -374,9 +385,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -437,6 +448,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">debug</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -449,7 +468,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">debug</a>
+                <a href="javascript:void(0)" class="js-tag color4">JWT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -461,7 +480,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -469,15 +492,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -501,26 +524,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Sonar</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tcp</a>
               </li>
              
@@ -529,11 +532,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iterator</a>
+                <a href="javascript:void(0)" class="js-tag color1">Sonar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -541,15 +548,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+                <a href="javascript:void(0)" class="js-tag color4">iterator</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">lombok</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">oss</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -561,7 +576,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
+                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -569,27 +584,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">swap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">login</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -605,11 +604,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">oss</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">cross</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">swap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -618,6 +629,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">LinkedHashMap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">MybatisPlus</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -633,10 +648,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mail</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
@@ -649,15 +660,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">desgin</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
+                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -670,6 +677,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringBoot基础知识</a>
               </li>
             
             <div class="clearfix"></div>

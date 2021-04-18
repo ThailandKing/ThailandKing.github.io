@@ -152,6 +152,90 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Sonar基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/30/Sonar基础知识/">Sonar基础知识</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/30/Sonar基础知识/" class="archive-article-date">
+  	<time datetime="2020-04-30T02:32:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><ul>
+<li>Sonar是一款开源的<strong>代码质量检查</strong>工具，基本支持所有流行的编程语言</li>
+</ul>
+<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><h3 id="1、环境设置"><a href="#1、环境设置" class="headerlink" title="1、环境设置"></a>1、环境设置</h3><ul>
+<li>设置进程拥有虚拟内存区域数量</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -w vm.max_map_count=<span class="number">262144</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>设置系统打开文件句柄数量</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -w fs.file-max=<span class="number">65536</span></span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Sonar</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/30/Sonar基础知识/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-MongoDB基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -390,96 +474,19 @@
 
 
   
-    <article id="post-SpringBoot事务处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-FastDFS基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/13/SpringBoot事务处理/">SpringBoot事务处理</a>
+      <a class="article-title" href="/2020/03/29/FastDFS基础知识/">FastDFS基础知识</a>
     </h1>
   
 
         
-        <a href="/2020/04/13/SpringBoot事务处理/" class="archive-article-date">
-  	<time datetime="2020-04-13T02:48:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、隔离级别"><a href="#一、隔离级别" class="headerlink" title="一、隔离级别"></a>一、隔离级别</h2><ul>
-<li>DEFAULT 表示使用数据库默认的事务隔离级别，其他隔离级别和数据库中的隔离级别对应 </li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Isolation &#123;</span><br><span class="line">    DEFAULT(TransactionDefinition.ISOLATION_DEFAULT),</span><br><span class="line">    READ_UNCOMMITTED(TransactionDefinition.ISOLATION_READ_UNCOMMITTED),</span><br><span class="line">    READ_COMMITTED(TransactionDefinition.ISOLATION_READ_COMMITTED),</span><br><span class="line">    REPEATABLE_READ(TransactionDefinition.ISOLATION_REPEATABLE_READ),</span><br><span class="line">    SERIALIZABLE(TransactionDefinition.ISOLATION_SERIALIZABLE);</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> value;</span><br><span class="line">    Isolation(<span class="keyword">int</span> value) &#123; <span class="keyword">this</span>.value = value; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">value</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> <span class="keyword">this</span>.value; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/13/SpringBoot事务处理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringBoot整合FastDFS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/29/SpringBoot整合FastDFS/">SpringBoot整合FastDFS</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/29/SpringBoot整合FastDFS/" class="archive-article-date">
+        <a href="/2020/03/29/FastDFS基础知识/" class="archive-article-date">
   	<time datetime="2020-03-29T07:59:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-29</time>
 </a>
         
@@ -491,7 +498,7 @@
 <li>FastDFS 由淘宝余庆大佬在 2008 年开源的一款轻量级分布式文件管理系统</li>
 <li>FastDFS 用 C 语言实现，支持 Linux、FreeBSD、MacOS 等类 UNIX 系统</li>
 </ul>
-<p><img src="/2020/03/29/SpringBoot整合FastDFS/1.png" alt></p>
+<p><img src="/2020/03/29/FastDFS基础知识/1.png" alt></p>
         
       
 
@@ -515,7 +522,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/29/SpringBoot整合FastDFS/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/03/29/FastDFS基础知识/">展开全文 >></a>
         </p>
       
 
@@ -705,177 +712,19 @@
 
 
   
-    <article id="post-SpringBoot自定义starter" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-SpringCloud基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/06/SpringBoot自定义starter/">SpringBoot自定义starter</a>
+      <a class="article-title" href="/2020/03/02/SpringCloud基础知识/">SpringCloud基础知识</a>
     </h1>
   
 
         
-        <a href="/2020/03/06/SpringBoot自定义starter/" class="archive-article-date">
-  	<time datetime="2020-03-06T02:35:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、Spring-Boot-Starter"><a href="#一、Spring-Boot-Starter" class="headerlink" title="一、Spring Boot Starter"></a>一、Spring Boot Starter</h2><blockquote>
-<p>一个完整的Spring Boot Starter可能包含以下组件 ：</p>
-</blockquote>
-<ul>
-<li><strong>autoconfigure</strong>模块：包含自动配置的代码 </li>
-<li><strong>starter</strong>模块：提供对<strong>autoconfigure</strong>模块的依赖，以及一些其它的依赖 </li>
-<li>简而言之，starter应该提供使用该库所需的一切 </li>
-</ul>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/06/SpringBoot自定义starter/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringBoot日志" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/04/SpringBoot日志/">SpringBoot日志</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/04/SpringBoot日志/" class="archive-article-date">
-  	<time datetime="2020-03-04T08:03:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、日志"><a href="#一、日志" class="headerlink" title="一、日志"></a>一、日志</h2><ul>
-<li>SpringBoot底层也是使用 <strong>slf4j+logback</strong> 的方式进行日志记录</li>
-</ul>
-<h2 id="二、配置"><a href="#二、配置" class="headerlink" title="二、配置"></a>二、配置</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">logging:</span></span><br><span class="line"><span class="attr">  level:</span></span><br><span class="line"><span class="attr">    root:</span> <span class="string">info</span> <span class="comment"># 自定义root日志等级</span></span><br><span class="line">    <span class="string">com.isxcode.oxygen.wechatgo:</span> <span class="string">debug</span>  <span class="comment"># 可自定义到具体的包</span></span><br><span class="line"><span class="attr">  file:</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">./logs/spring.log</span> <span class="comment"># 日志保存的地址，名称地址都可自定义</span></span><br><span class="line"><span class="attr">    max-size:</span> <span class="number">10</span><span class="string">MB</span> <span class="comment"># 当前日志最大存储量，超出的进行压缩</span></span><br><span class="line"><span class="attr">    max-history:</span> <span class="number">30</span> <span class="comment"># 最大保存天数</span></span><br><span class="line"><span class="attr">    total-size-cap:</span> <span class="number">100</span><span class="string">MB</span> <span class="comment"># 总日志的最大存储量</span></span><br><span class="line"><span class="attr">    clean-history-on-start:</span> <span class="literal">true</span> <span class="comment"># 超出总日志存储量，启动项目时先进行删除旧日志</span></span><br><span class="line"><span class="attr">  exception-conversion-word:</span> <span class="string">'%wEx'</span> <span class="comment"># 日志message格式</span></span><br><span class="line"><span class="attr">  pattern:</span></span><br><span class="line"><span class="attr">    level:</span> <span class="string">'%5p'</span> <span class="comment"># 日志等级定义</span></span><br><span class="line"><span class="attr">    dateformat:</span> <span class="string">'yyyy-MM-dd HH:mm:ss.SSS'</span> <span class="comment"># 日志时间定义</span></span><br><span class="line"><span class="attr">    console:</span> <span class="string">'%clr(%d&#123;$&#123;LOG_DATEFORMAT_PATTERN&#125;&#125;)&#123;faint&#125; %clr($&#123;LOG_LEVEL_PATTERN&#125;) %clr($&#123;PID:- &#125;)&#123;magenta&#125; %clr(---)&#123;faint&#125; %clr([%15.15t])&#123;faint&#125; %clr(%-40.40logger&#123;39&#125;)&#123;cyan&#125; %clr(:)&#123;faint&#125; %m%n$&#123;LOG_EXCEPTION_CONVERSION_WORD&#125;'</span> <span class="comment"># 控制台打印格式</span></span><br><span class="line"><span class="attr">    file:</span> <span class="string">'%d&#123;$&#123;LOG_DATEFORMAT_PATTERN&#125;&#125; $&#123;LOG_LEVEL_PATTERN&#125; %-5($&#123;PID:- &#125;) --- [%15.15t] %-40.40logger&#123;39&#125; : %m%n$&#123;LOG_EXCEPTION_CONVERSION_WORD&#125;&#125;'</span> <span class="comment"># 日志保存格式定义</span></span><br><span class="line"><span class="attr">    rolling-file-name:</span> <span class="string">'$&#123;LOG_FILE&#125;.%d&#123;yyyy-MM-dd&#125;.%i.gz'</span> <span class="comment"># 压缩日志的文件名格式定义</span></span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/04/SpringBoot日志/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring-Cloud基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/02/Spring-Cloud基础知识/">Spring Cloud基础知识</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/02/Spring-Cloud基础知识/" class="archive-article-date">
+        <a href="/2020/03/02/SpringCloud基础知识/" class="archive-article-date">
   	<time datetime="2020-03-02T13:05:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-02</time>
 </a>
         
@@ -907,7 +756,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">springcloud</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
         		</li>
       		
 		</ul>
@@ -917,7 +766,167 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/02/Spring-Cloud基础知识/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/03/02/SpringCloud基础知识/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Hexo搭建个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/02/Hexo搭建个人博客/">Hexo搭建个人博客</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/02/Hexo搭建个人博客/" class="archive-article-date">
+  	<time datetime="2020-03-02T05:54:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h2><ul>
+<li>Windows8以上系统</li>
+<li>Node.js <strong>v10.16.2</strong></li>
+<li>npm <strong>6.9.0</strong></li>
+<li>git <strong>2.21.0.windows.1</strong></li>
+<li>注册一个GitHub账号</li>
+</ul>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/02/Hexo搭建个人博客/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Vue基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/25/Vue基础知识/">Vue基础知识</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/25/Vue基础知识/" class="archive-article-date">
+  	<time datetime="2020-02-25T14:07:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、Vue核心"><a href="#一、Vue核心" class="headerlink" title="一、Vue核心"></a>一、Vue核心</h2><h3 id="1、基础知识"><a href="#1、基础知识" class="headerlink" title="1、基础知识"></a>1、基础知识</h3><h4 id="1-1-特点"><a href="#1-1-特点" class="headerlink" title="1.1 特点"></a>1.1 特点</h4><ul>
+<li>编码简洁, 体积小, 运行效率高, 适合移动/PC 端开发</li>
+</ul>
+<h4 id="1-2-MVVM"><a href="#1-2-MVVM" class="headerlink" title="1.2 MVVM"></a>1.2 MVVM</h4><ul>
+<li>DOM监听</li>
+<li>数据绑定</li>
+</ul>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/25/Vue基础知识/">展开全文 >></a>
         </p>
       
 
@@ -1033,6 +1042,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">debug</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -1045,7 +1062,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">debug</a>
+                <a href="javascript:void(0)" class="js-tag color4">JWT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1057,7 +1074,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1065,15 +1086,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1097,26 +1118,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Sonar</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tcp</a>
               </li>
              
@@ -1125,11 +1126,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iterator</a>
+                <a href="javascript:void(0)" class="js-tag color1">Sonar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1137,15 +1142,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+                <a href="javascript:void(0)" class="js-tag color4">iterator</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">lombok</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">oss</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1157,7 +1170,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
+                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1165,27 +1178,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">swap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">login</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1201,11 +1198,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">oss</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">cross</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">swap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1214,6 +1223,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">LinkedHashMap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">MybatisPlus</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1229,10 +1242,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mail</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
@@ -1245,15 +1254,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">desgin</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
+                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1266,6 +1271,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringBoot基础知识</a>
               </li>
             
             <div class="clearfix"></div>

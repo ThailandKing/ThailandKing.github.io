@@ -17,7 +17,7 @@
 <meta property="og:description" content="一、概述1、为什么需要数据库 存储数据的容器：内存、文件、数据库 内存，易丢失，文件，不易查询 数据库，易持久化、方便查询  2、相关概念 DB：数据库 DBMS：数据库管理系统 DBA：数据库管理员 SQL：结构化查询语言">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://thailandking.github.io/2019/05/07/MySQL核心技术/1.png">
-<meta property="og:updated_time" content="2020-02-24T07:17:11.386Z">
+<meta property="og:updated_time" content="2021-04-17T12:03:09.395Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL核心技术">
 <meta name="twitter:description" content="一、概述1、为什么需要数据库 存储数据的容器：内存、文件、数据库 内存，易丢失，文件，不易查询 数据库，易持久化、方便查询  2、相关概念 DB：数据库 DBMS：数据库管理系统 DBA：数据库管理员 SQL：结构化查询语言">
@@ -201,7 +201,7 @@
 <li>4.注释</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">单行注释：#注释文字</span><br><span class="line">单行注释：-- 注释文字</span><br><span class="line">多行注释：/* 注释文字  */</span><br></pre></td></tr></table></figure>
-<h2 id="三、常见命令"><a href="#三、常见命令" class="headerlink" title="三、常见命令"></a>三、常见命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#1.查看当前所有的数据库</span><br><span class="line">show databases;</span><br><span class="line">#2.打开指定的库</span><br><span class="line">use 库名</span><br><span class="line">#3.查看当前库的所有表</span><br><span class="line">show tables;</span><br><span class="line">#4.查看其它库的所有表</span><br><span class="line">show tables from 库名;</span><br><span class="line">#5.创建表</span><br><span class="line">create table 表名(</span><br><span class="line">	列名 列类型,</span><br><span class="line">	列名 列类型，</span><br><span class="line">	。。。</span><br><span class="line">);</span><br><span class="line">#6.查看表结构</span><br><span class="line">desc 表名;</span><br><span class="line">#8.查看建表语句</span><br><span class="line">show create table 表名;</span><br><span class="line">#9.查看服务器的版本</span><br><span class="line">方式一：登录到mysql服务端</span><br><span class="line">select version();</span><br><span class="line">方式二：没有登录到mysql服务端</span><br><span class="line">mysql --version/mysql --V</span><br><span class="line">#10.查看当前所在数据库</span><br><span class="line">select database();</span><br><span class="line">#11.查看当前字符集</span><br><span class="line">show variables like &apos;%char%&apos;;</span><br></pre></td></tr></table></figure>
+<h2 id="三、常见命令"><a href="#三、常见命令" class="headerlink" title="三、常见命令"></a>三、常见命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#1.查看当前所有的数据库</span><br><span class="line">show databases;</span><br><span class="line">#2.打开指定的库</span><br><span class="line">use 库名</span><br><span class="line">#3.查看当前库的所有表</span><br><span class="line">show tables;</span><br><span class="line">#4.查看其它库的所有表</span><br><span class="line">show tables from 库名;</span><br><span class="line">#5.创建表</span><br><span class="line">create table 表名(</span><br><span class="line">	列名 列类型,</span><br><span class="line">	列名 列类型，</span><br><span class="line">	。。。</span><br><span class="line">);</span><br><span class="line">#6.查看表结构</span><br><span class="line">desc 表名;</span><br><span class="line">#8.查看建表语句</span><br><span class="line">show create table 表名;</span><br><span class="line">#9.查看服务器的版本</span><br><span class="line">方式一：登录到mysql服务端</span><br><span class="line">select version();</span><br><span class="line">方式二：没有登录到mysql服务端</span><br><span class="line">mysql --version/mysql --V</span><br><span class="line">#10.查看当前所在数据库</span><br><span class="line">select database();</span><br><span class="line">#11.查看当前字符集</span><br><span class="line">show variables like &apos;%char%&apos;;</span><br><span class="line">#12.查看最大连接数</span><br><span class="line">show variables like &apos;%max_connections%&apos;;</span><br><span class="line">#13.查看连接数</span><br><span class="line">show status like &apos;%connection%&apos;;</span><br><span class="line">#14.查看进程列表</span><br><span class="line">show processlist;</span><br><span class="line">#15.导出数据</span><br><span class="line">select * from user into outfile &apos;/var/lib/mysql-files/user.csv&apos;;</span><br></pre></td></tr></table></figure>
 <h2 id="四、DQL语言学习"><a href="#四、DQL语言学习" class="headerlink" title="四、DQL语言学习"></a>四、DQL语言学习</h2><h3 id="1、基础查询"><a href="#1、基础查询" class="headerlink" title="1、基础查询"></a>1、基础查询</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">语法：</span><br><span class="line">	SELECT 要查询的东西</span><br><span class="line">	【FROM 表名】;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#查询单个字段</span><br><span class="line">select field_1 from test_table;</span><br><span class="line">#查询多个字段</span><br><span class="line">select field_1,field_2,field_3 from test_table;</span><br><span class="line">#查询所有字段</span><br><span class="line">select * from test_table;</span><br><span class="line">#查询常量</span><br><span class="line">select 100;</span><br><span class="line">select &apos;abc&apos;;</span><br><span class="line">#查询表达式</span><br><span class="line">select 100%98;</span><br><span class="line">#查询函数</span><br><span class="line">select version();</span><br><span class="line">select database();</span><br><span class="line">#查询起别名</span><br><span class="line">select field_1 as a from test_table;</span><br><span class="line">select field_1 as &apos;out put&apos; from test_table; </span><br><span class="line">#查询去重</span><br><span class="line">select distinct field_1 from test_table;</span><br><span class="line">#+号的作用：只能作为运算符</span><br><span class="line">select num_1+num_2 as total from test_table;</span><br><span class="line">#concat连接</span><br><span class="line">select concat(last_name,first_name) as name from test_table;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#问题：查询表test_table中所有列名，中间用，隔开，结果作为out_put输出</span><br><span class="line">select contact(&apos;field_1&apos;,&apos;,&apos;,&apos;field_2&apos;,&apos;,&apos;,&apos;field_3&apos;) as out_put from test_table;</span><br></pre></td></tr></table></figure>
@@ -756,6 +756,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">debug</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -768,7 +776,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">debug</a>
+                <a href="javascript:void(0)" class="js-tag color4">JWT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -780,7 +788,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -788,15 +800,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -820,26 +832,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Sonar</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tcp</a>
               </li>
              
@@ -848,11 +840,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iterator</a>
+                <a href="javascript:void(0)" class="js-tag color1">Sonar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -860,15 +856,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+                <a href="javascript:void(0)" class="js-tag color4">iterator</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">lombok</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">oss</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -880,7 +884,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
+                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -888,27 +892,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">swap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">login</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -924,11 +912,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">oss</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">cross</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">swap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -937,6 +937,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">LinkedHashMap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">MybatisPlus</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -952,10 +956,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mail</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
@@ -968,15 +968,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">desgin</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
+                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -989,6 +985,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringBoot基础知识</a>
               </li>
             
             <div class="clearfix"></div>
