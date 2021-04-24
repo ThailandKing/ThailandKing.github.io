@@ -17,7 +17,7 @@
 <meta property="og:description" content="一、请求风格 对于资源的具体操作类型，由HTTP动词表示，常用有下面四个   POST   在服务器新建一个资源   DELETE   从服务器删除资源   PUT   在服务器更新资源   GET   从服务器获取资源（一个或多个）">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://thailandking.github.io/2021/04/05/Restful风格API指南/1.png">
-<meta property="og:updated_time" content="2021-04-05T15:04:10.308Z">
+<meta property="og:updated_time" content="2021-04-24T15:02:56.538Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Restful风格API指南">
 <meta name="twitter:description" content="一、请求风格 对于资源的具体操作类型，由HTTP动词表示，常用有下面四个   POST   在服务器新建一个资源   DELETE   从服务器删除资源   PUT   在服务器更新资源   GET   从服务器获取资源（一个或多个）">
@@ -282,6 +282,7 @@
 <h3 id="6、访问链接"><a href="#6、访问链接" class="headerlink" title="6、访问链接"></a>6、访问链接</h3><blockquote>
 <p><a href="http://localhost:9009/doc.html" target="_blank" rel="noopener">http://localhost:9009/doc.html</a></p>
 </blockquote>
+<h3 id="7、拦截器去除拦截"><a href="#7、拦截器去除拦截" class="headerlink" title="7、拦截器去除拦截"></a>7、拦截器去除拦截</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebMvcConfig</span> <span class="keyword">extends</span> <span class="title">WebMvcConfigurationSupport</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> RequestIdInterceptor requestIdInterceptor;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">addInterceptors</span><span class="params">(InterceptorRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addInterceptor(<span class="keyword">this</span>.requestIdInterceptor).addPathPatterns(<span class="string">"/**"</span>).excludePathPatterns(<span class="string">"/doc.html"</span>, <span class="string">"/swagger-resources/**"</span>, <span class="string">"/webjars/**"</span>, <span class="string">"/v2/**"</span>, <span class="string">"/swagger-ui.html/**"</span>);</span><br><span class="line">        <span class="keyword">super</span>.addInterceptors(registry);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -434,7 +435,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、请求风格"><span class="toc-number">1.</span> <span class="toc-text">一、请求风格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、API示例"><span class="toc-number">2.</span> <span class="toc-text">二、API示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、DDD"><span class="toc-number">3.</span> <span class="toc-text">三、DDD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、数据流转图"><span class="toc-number">3.1.</span> <span class="toc-text">1、数据流转图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、数据模型示例"><span class="toc-number">3.2.</span> <span class="toc-text">2、数据模型示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、集成Knife4j"><span class="toc-number">4.</span> <span class="toc-text">四、集成Knife4j</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、添加依赖"><span class="toc-number">4.1.</span> <span class="toc-text">1、添加依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、书写配置类"><span class="toc-number">4.2.</span> <span class="toc-text">2、书写配置类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、Model注解"><span class="toc-number">4.3.</span> <span class="toc-text">3、Model注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、Controller注解"><span class="toc-number">4.4.</span> <span class="toc-text">4、Controller注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、Method注解"><span class="toc-number">4.5.</span> <span class="toc-text">5、Method注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、访问链接"><span class="toc-number">4.6.</span> <span class="toc-text">6、访问链接</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、请求风格"><span class="toc-number">1.</span> <span class="toc-text">一、请求风格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、API示例"><span class="toc-number">2.</span> <span class="toc-text">二、API示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、DDD"><span class="toc-number">3.</span> <span class="toc-text">三、DDD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、数据流转图"><span class="toc-number">3.1.</span> <span class="toc-text">1、数据流转图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、数据模型示例"><span class="toc-number">3.2.</span> <span class="toc-text">2、数据模型示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、集成Knife4j"><span class="toc-number">4.</span> <span class="toc-text">四、集成Knife4j</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、添加依赖"><span class="toc-number">4.1.</span> <span class="toc-text">1、添加依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、书写配置类"><span class="toc-number">4.2.</span> <span class="toc-text">2、书写配置类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、Model注解"><span class="toc-number">4.3.</span> <span class="toc-text">3、Model注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、Controller注解"><span class="toc-number">4.4.</span> <span class="toc-text">4、Controller注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、Method注解"><span class="toc-number">4.5.</span> <span class="toc-text">5、Method注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、访问链接"><span class="toc-number">4.6.</span> <span class="toc-text">6、访问链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、拦截器去除拦截"><span class="toc-number">4.7.</span> <span class="toc-text">7、拦截器去除拦截</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -535,15 +536,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">debug</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -551,11 +548,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JWT</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -563,15 +556,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
+                <a href="javascript:void(0)" class="js-tag color4">JWT</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -583,19 +580,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
+                <a href="javascript:void(0)" class="js-tag color2">Lombok</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,6 +612,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Sonar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tcp</a>
               </li>
              
@@ -619,15 +624,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Sonar</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -635,15 +636,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iterator</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color4">iterator</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -651,7 +648,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -663,7 +660,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
+                <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -671,11 +668,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">swap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">login</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pom</a>
+                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -691,23 +704,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">cross</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">swap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -767,7 +768,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringBoot基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
             
             <div class="clearfix"></div>
