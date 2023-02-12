@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="https://thailandking.github.io">
   <title>Git基础知识 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、组织结构 工作区 暂存区 本地仓库 远程仓库">
+  <meta name="description" content="一、设计结构 工作区 暂存区 本地仓库 远程仓库">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git基础知识">
 <meta property="og:url" content="https://thailandking.github.io/2019/09/05/Git基础知识/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="一、组织结构 工作区 暂存区 本地仓库 远程仓库">
+<meta property="og:description" content="一、设计结构 工作区 暂存区 本地仓库 远程仓库">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://thailandking.github.io/2019/09/05/Git基础知识/1.webp">
-<meta property="og:updated_time" content="2019-09-20T08:37:26.187Z">
+<meta property="og:updated_time" content="2023-02-12T09:03:03.435Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git基础知识">
-<meta name="twitter:description" content="一、组织结构 工作区 暂存区 本地仓库 远程仓库">
+<meta name="twitter:description" content="一、设计结构 工作区 暂存区 本地仓库 远程仓库">
 <meta name="twitter:image" content="https://thailandking.github.io/2019/09/05/Git基础知识/1.webp">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
@@ -173,7 +173,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、组织结构"><a href="#一、组织结构" class="headerlink" title="一、组织结构"></a>一、组织结构</h2><ul>
+        <h2 id="一、设计结构"><a href="#一、设计结构" class="headerlink" title="一、设计结构"></a>一、设计结构</h2><ul>
 <li>工作区</li>
 <li>暂存区</li>
 <li>本地仓库</li>
@@ -181,102 +181,118 @@
 </ul>
 <p><img src="/2019/09/05/Git基础知识/1.webp" alt></p>
 <a id="more"></a>
-<h2 id="二、常用命令"><a href="#二、常用命令" class="headerlink" title="二、常用命令"></a>二、常用命令</h2><ul>
+<h2 id="二、仓库管理"><a href="#二、仓库管理" class="headerlink" title="二、仓库管理"></a>二、仓库管理</h2><ul>
 <li>初始化仓库</li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
 <ul>
+<li>克隆项目</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone <span class="tag">&lt;<span class="name">git_url</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="三、分支管理"><a href="#三、分支管理" class="headerlink" title="三、分支管理"></a>三、分支管理</h2><ul>
+<li>查看分支</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br><span class="line">git branch -a</span><br></pre></td></tr></table></figure>
+<ul>
+<li>切换分支</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout <span class="tag">&lt;<span class="name">branch_name</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建+切换分支</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b <span class="tag">&lt;<span class="name">branch_name</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>删除分支</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d <span class="tag">&lt;<span class="name">branch_name</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>重命名分支</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -m <span class="tag">&lt;<span class="name">new_branch_name</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="四、标签管理"><a href="#四、标签管理" class="headerlink" title="四、标签管理"></a>四、标签管理</h2><ul>
+<li>查看标签</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git tag</span><br><span class="line">git show <span class="tag">&lt;<span class="name">tag_name</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建标签</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git tag <span class="tag">&lt;<span class="name">tag_name</span>&gt;</span></span><br><span class="line">git tag <span class="tag">&lt;<span class="name">tag_name</span>&gt;</span> <span class="tag">&lt;<span class="name">commit_id</span>&gt;</span></span><br><span class="line">git tag -a <span class="tag">&lt;<span class="name">tag_name</span>&gt;</span> -m '<span class="tag">&lt;<span class="name">message</span>&gt;</span>' <span class="tag">&lt;<span class="name">commit_id</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>删除本地标签</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -d <span class="tag">&lt;<span class="name">tag_name</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="五、提交管理"><a href="#五、提交管理" class="headerlink" title="五、提交管理"></a>五、提交管理</h2><ul>
 <li>查看状态</li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
 <ul>
 <li>添加文件</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add <span class="tag">&lt;<span class="name">file</span>&gt;</span></span><br><span class="line">git add .</span><br><span class="line">git add -A</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add <span class="tag">&lt;<span class="name">file_name</span>&gt;</span></span><br><span class="line">git add .</span><br><span class="line">git add -A</span><br></pre></td></tr></table></figure>
 <ul>
 <li>提交文件</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m 'message'</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m '<span class="tag">&lt;<span class="name">message</span>&gt;</span>'</span><br></pre></td></tr></table></figure>
 <ul>
-<li>推送</li>
+<li>远程推送</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin <span class="tag">&lt;<span class="name">local_branch</span>&gt;</span>:<span class="tag">&lt;<span class="name">remote_branch</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>提交历史</li>
+<li>远程拉取</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin <span class="tag">&lt;<span class="name">remote_branch</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>拉取分支</li>
+<li>远程获取</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin wgt_prod</span><br></pre></td></tr></table></figure>
-<h2 id="三、远程仓库"><a href="#三、远程仓库" class="headerlink" title="三、远程仓库"></a>三、远程仓库</h2><ul>
-<li>添加远程库</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:michaelliao/learngit.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin <span class="tag">&lt;<span class="name">remote_branch</span>&gt;</span>:<span class="tag">&lt;<span class="name">local_branch</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>克隆远程库</li>
+<li>放弃本地新增（未add）</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:michaelliao/gitskills.git</span><br><span class="line">git clone -b branch_name git@github.com:michaelliao/gitskills.git</span><br></pre></td></tr></table></figure>
-<h2 id="四、分支管理"><a href="#四、分支管理" class="headerlink" title="四、分支管理"></a>四、分支管理</h2><ul>
-<li>查看分支</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br><span class="line">git branch -a</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf <span class="tag">&lt;<span class="name">file_name</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>创建分支</li>
+<li>放弃本地修改（未add）</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch branch_name</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout <span class="tag">&lt;<span class="name">file_name</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>切换分支</li>
+<li>放弃本地修改（已add）</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git switch branch_name</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD <span class="tag">&lt;<span class="name">file_name</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>创建+切换分支</li>
+<li>撤销本地提交</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git switch -c branch_name</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset <span class="tag">&lt;<span class="name">commit_id</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>合并分支到当前分支</li>
+<li>强制撤销本地提交（不保留变更）</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge branch_name</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard <span class="tag">&lt;<span class="name">commit_id</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>删除分支</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d branch_name</span><br></pre></td></tr></table></figure>
-<h2 id="五、标签管理"><a href="#五、标签管理" class="headerlink" title="五、标签管理"></a>五、标签管理</h2><ul>
-<li>查看标签</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git tag</span><br><span class="line">git show tag_name</span><br></pre></td></tr></table></figure>
-<ul>
-<li>创建标签</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git tag tag_name</span><br><span class="line">git tag tag_name commit_id</span><br><span class="line">git tag -a tag_name -m 'message' commit_id</span><br></pre></td></tr></table></figure>
-<ul>
-<li>推送本地标签</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin tag_name</span><br></pre></td></tr></table></figure>
-<ul>
-<li>推送本地全部未推送标签</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --tags</span><br></pre></td></tr></table></figure>
-<ul>
-<li>删除本地标签</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -d tag_name</span><br></pre></td></tr></table></figure>
-<ul>
-<li>删除远程标签</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin :refs/tags/tag_name</span><br></pre></td></tr></table></figure>
-<h2 id="六、版本回退"><a href="#六、版本回退" class="headerlink" title="六、版本回退"></a>六、版本回退</h2><ul>
 <li>查看提交历史</li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
 <ul>
-<li>查看命令历史</li>
+<li>查看提交记录</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflag</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br></pre></td></tr></table></figure>
+<h2 id="六、子模块管理"><a href="#六、子模块管理" class="headerlink" title="六、子模块管理"></a>六、子模块管理</h2><ul>
+<li>查看子模块</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule</span><br></pre></td></tr></table></figure>
 <ul>
-<li>回退版本</li>
+<li>初始化子模块</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD@&#123;0&#125;</span><br><span class="line">git reset --hard commit_id</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule init</span><br></pre></td></tr></table></figure>
+<ul>
+<li>更新子模块</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule update</span><br></pre></td></tr></table></figure>
+<ul>
+<li>添加子模块</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule add <span class="tag">&lt;<span class="name">submodule_to_path</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>移除子模块</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm --cached <span class="tag">&lt;<span class="name">submodule_to_path</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="七、提交规范"><a href="#七、提交规范" class="headerlink" title="七、提交规范"></a>七、提交规范</h2><ul>
 <li>提交格式</li>
 </ul>
@@ -297,13 +313,6 @@
 <li>解决BUG</li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bug]-201909091647-解决删除用户BUG</span><br></pre></td></tr></table></figure>
-<ul>
-<li>部署配置</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[deploy]-201909091647-部署</span><br></pre></td></tr></table></figure>
-<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
-<li><a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">Git在线教程</a></li>
-</ul>
 
       
 
@@ -418,11 +427,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/21/Java多线程编程核心技术/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/11/26/MybatisPlus基础知识/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Java多线程编程核心技术
+          MybatisPlus基础知识
         
       </div>
     </a>
@@ -456,7 +465,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、组织结构"><span class="toc-number">1.</span> <span class="toc-text">一、组织结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、常用命令"><span class="toc-number">2.</span> <span class="toc-text">二、常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、远程仓库"><span class="toc-number">3.</span> <span class="toc-text">三、远程仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、分支管理"><span class="toc-number">4.</span> <span class="toc-text">四、分支管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、标签管理"><span class="toc-number">5.</span> <span class="toc-text">五、标签管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、版本回退"><span class="toc-number">6.</span> <span class="toc-text">六、版本回退</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、提交规范"><span class="toc-number">7.</span> <span class="toc-text">七、提交规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">8.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、设计结构"><span class="toc-number">1.</span> <span class="toc-text">一、设计结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、仓库管理"><span class="toc-number">2.</span> <span class="toc-text">二、仓库管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、分支管理"><span class="toc-number">3.</span> <span class="toc-text">三、分支管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、标签管理"><span class="toc-number">4.</span> <span class="toc-text">四、标签管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、提交管理"><span class="toc-number">5.</span> <span class="toc-text">五、提交管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、子模块管理"><span class="toc-number">6.</span> <span class="toc-text">六、子模块管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、提交规范"><span class="toc-number">7.</span> <span class="toc-text">七、提交规范</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -557,7 +566,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color1">dubbo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -565,51 +578,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">time</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color4">JWT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -617,7 +590,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -629,91 +618,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">udp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transient</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">id</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -721,43 +626,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">swap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">login</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">copy</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -765,11 +638,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cross</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+                <a href="javascript:void(0)" class="js-tag color5">copy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -781,39 +650,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">MybatisPlus</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nio</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">oracle</a>
+                <a href="javascript:void(0)" class="js-tag color5">websocket</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mail</a>
+                <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">desgin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">utils</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">thread</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
             
             <div class="clearfix"></div>

@@ -34,7 +34,15 @@
 <meta property="og:image" content="https://thailandking.github.io/2019/09/04/IDEA使用/7.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/09/04/IDEA使用/8.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/09/04/IDEA使用/18.png">
-<meta property="og:updated_time" content="2020-01-06T15:41:25.168Z">
+<meta property="og:image" content="https://thailandking.github.io/2019/09/04/IDEA使用/25.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/09/04/IDEA使用/19.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/09/04/IDEA使用/20.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/09/04/IDEA使用/23.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/09/04/IDEA使用/21.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/09/04/IDEA使用/22.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/09/04/IDEA使用/24.png">
+<meta property="og:image" content="https://thailandking.github.io/2019/09/04/IDEA使用/26.png">
+<meta property="og:updated_time" content="2023-02-12T09:03:03.503Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IDEA使用">
 <meta name="twitter:description" content="一、环境设置1、JDK设置">
@@ -212,7 +220,7 @@
 <li>CTRL+D：复制代码到下一行</li>
 <li>CTRL+Y：删除一行</li>
 <li>CTRL+F：查找</li>
-<li>CTRL+R</li>
+<li>CTRL+R：替换</li>
 <li>ALT+ENTER：提示</li>
 <li>ALT+INSERT：插入方法</li>
 <li>CTRL+N：按类名搜索</li>
@@ -223,35 +231,92 @@
 <li>CTRL+ALT+左箭头：返回上一次编辑位置</li>
 </ul>
 <h2 id="四、注释设置"><a href="#四、注释设置" class="headerlink" title="四、注释设置"></a>四、注释设置</h2><h3 id="1、File-Header"><a href="#1、File-Header" class="headerlink" title="1、File Header"></a>1、File Header</h3><p><img src="/2019/09/04/IDEA使用/6.png" alt></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@Copyright</span>: Shanghai Definesys Company.All rights reserved.</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@Description</span>: </span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@author</span>: thailandking</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@since</span>: $&#123;DATE&#125; $&#123;TIME&#125;</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@history</span>: </span></span><br><span class="line"><span class="comment"> *          1.$&#123;DATE&#125; created by thailandking</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@Copyright</span>: Harbin Institute of Technology.All rights reserved.</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@Description</span>: </span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@author</span>: ThailandKing</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@since</span>: $&#123;DATE&#125; $&#123;TIME&#125;</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@history</span>: </span></span><br><span class="line"><span class="comment"> *          1.$&#123;DATE&#125; created by ThailandKing</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
 <h3 id="2、方法注释"><a href="#2、方法注释" class="headerlink" title="2、方法注释"></a>2、方法注释</h3><p><img src="/2019/09/04/IDEA使用/7.png" alt></p>
 <p><img src="/2019/09/04/IDEA使用/8.png" alt></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">*</span><br><span class="line"> *<span class="meta">@Author</span> thailandking</span><br><span class="line"> *<span class="meta">@Date</span> $date$ $time$ </span><br><span class="line"> *<span class="meta">@LastEditors</span> thailandking</span><br><span class="line"> *<span class="meta">@LastEditTime</span> $date$ $time$</span><br><span class="line"> *<span class="meta">@Description</span> demo</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">*</span><br><span class="line"> *<span class="meta">@Author</span> ThailandKing</span><br><span class="line"> *<span class="meta">@Date</span> $date$ $time$ </span><br><span class="line"> *<span class="meta">@LastEditors</span> ThailandKing</span><br><span class="line"> *<span class="meta">@LastEditTime</span> $date$ $time$</span><br><span class="line"> *<span class="meta">@Description</span> demo</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
 <h3 id="3、快捷代码"><a href="#3、快捷代码" class="headerlink" title="3、快捷代码"></a>3、快捷代码</h3><ul>
-<li>syso标准输出</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println();</span><br></pre></td></tr></table></figure>
-<ul>
 <li>main函数</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>mytry异常捕获</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
 <li>forlist集合foreach遍历</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">items.forEach(item -&gt; System.out.println(item));</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forEach(item -&gt; System.out.println(item));</span><br></pre></td></tr></table></figure>
 <ul>
 <li>formap集合foreach遍历</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">items.forEach((k,v)-&gt;System.out.println(<span class="string">"key:"</span> + k + <span class="string">"value:"</span> + v));</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forEach((k,v)-&gt;System.out.println(<span class="string">"key:"</span> + k + <span class="string">"value:"</span> + v));</span><br></pre></td></tr></table></figure>
 <p><img src="/2019/09/04/IDEA使用/18.png" alt></p>
-<h2 id="五、插件设置"><a href="#五、插件设置" class="headerlink" title="五、插件设置"></a>五、插件设置</h2><ul>
-<li>Lombok</li>
-<li>Alibaba Java Coding</li>
+<h3 id="4、Postfix-Completion"><a href="#4、Postfix-Completion" class="headerlink" title="4、Postfix Completion"></a>4、Postfix Completion</h3><blockquote>
+<p>变量后加点选择，如users.for</p>
+</blockquote>
+<ul>
+<li>for</li>
+<li>只适用数组、集合</li>
 </ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">m</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] values = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">        values.<span class="keyword">for</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">m</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] values = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> value : values) &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>fori</li>
+<li>只适用于int</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">m</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> foo = <span class="number">100</span>;</span><br><span class="line">        foo.fori</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">m</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> foo = <span class="number">100</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; foo; i++) &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>forr</li>
+<li>只适用于int</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">m</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> foo = <span class="number">100</span>;</span><br><span class="line">        foo.forr</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">m</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> foo = <span class="number">100</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = foo; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>null</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">m</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        o.<span class="keyword">null</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">m</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (o == <span class="keyword">null</span>)&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>nn</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">m</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        o.nn</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">m</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (o != <span class="keyword">null</span>)&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>sout</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">m</span><span class="params">(<span class="keyword">boolean</span> b)</span> </span>&#123;</span><br><span class="line">    b.sout</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">m</span><span class="params">(<span class="keyword">boolean</span> b)</span> </span>&#123;</span><br><span class="line">      System.out.println(b);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>return</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">m</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="string">"result"</span>.return</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">m</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"result"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>try</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">m2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  m().<span class="keyword">try</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">m2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    m();</span><br><span class="line">  &#125; <span class="keyword">catch</span>(CheckedException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>var</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">m</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        o <span class="keyword">instanceof</span> String.<span class="keyword">var</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">m</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> foo = o <span class="keyword">instanceof</span> String;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/09/04/IDEA使用/25.png" alt></p>
+<h2 id="五、插件设置"><a href="#五、插件设置" class="headerlink" title="五、插件设置"></a>五、插件设置</h2><h3 id="1、背景图片"><a href="#1、背景图片" class="headerlink" title="1、背景图片"></a>1、背景图片</h3><ul>
+<li>Ctrl+Shift+A(或者help -&gt; find action)调用弹窗后输入Set Background Image </li>
+</ul>
+<p><img src="/2019/09/04/IDEA使用/19.png" alt></p>
+<h3 id="2、Maven-Helper"><a href="#2、Maven-Helper" class="headerlink" title="2、Maven Helper"></a>2、Maven Helper</h3><p><img src="/2019/09/04/IDEA使用/20.png" alt></p>
+<h3 id="3、Alibaba-Java-Coding"><a href="#3、Alibaba-Java-Coding" class="headerlink" title="3、Alibaba Java Coding"></a>3、Alibaba Java Coding</h3><ul>
+<li>阿里巴巴Java开发代码规约</li>
+</ul>
+<h3 id="4、Lombok"><a href="#4、Lombok" class="headerlink" title="4、Lombok"></a>4、Lombok</h3><ul>
+<li>参考<a href="https://thailandking.github.io/2019/07/13/springboot%E4%BD%BF%E7%94%A8-data%E6%B3%A8%E8%A7%A3/">SpringBoot使用@Data注解</a></li>
+</ul>
+<h3 id="5、String-Manipulation"><a href="#5、String-Manipulation" class="headerlink" title="5、String Manipulation"></a>5、String Manipulation</h3><ul>
+<li>字符串常用变换操作整合</li>
+<li>鼠标选中，右键</li>
+</ul>
+<p><img src="/2019/09/04/IDEA使用/23.png" alt></p>
+<h3 id="6、Free-Mybatis-plugin"><a href="#6、Free-Mybatis-plugin" class="headerlink" title="6、Free Mybatis plugin"></a>6、Free Mybatis plugin</h3><ul>
+<li>XML文件自动提示，补全，识别@Param参数</li>
+</ul>
+<h3 id="7、SequenceDiagram"><a href="#7、SequenceDiagram" class="headerlink" title="7、SequenceDiagram"></a>7、SequenceDiagram</h3><ul>
+<li>自动生成方法调用的时序图</li>
+</ul>
+<p><img src="/2019/09/04/IDEA使用/21.png" alt></p>
+<h3 id="8、RestfulToolkit"><a href="#8、RestfulToolkit" class="headerlink" title="8、RestfulToolkit"></a>8、RestfulToolkit</h3><p><img src="/2019/09/04/IDEA使用/22.png" alt></p>
+<h3 id="9、Grep-Console"><a href="#9、Grep-Console" class="headerlink" title="9、Grep Console"></a>9、<strong>Grep Console</strong></h3><p><img src="/2019/09/04/IDEA使用/24.png" alt></p>
+<h3 id="10、EasyCode"><a href="#10、EasyCode" class="headerlink" title="10、EasyCode"></a>10、EasyCode</h3><p><img src="/2019/09/04/IDEA使用/26.png" alt></p>
 <h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
 <li><a href="http://www.phperz.com/article/15/0923/159043.html" target="_blank" rel="noopener">IDEA 常用设置讲解</a></li>
 <li><a href="https://www.imsxm.com/jetbrains-license-server.html" target="_blank" rel="noopener">IDEA激活码</a></li>
@@ -380,8 +445,8 @@
     </a>
   
   
-    <a href="/2019/08/27/前后端分离关于时间处理/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">前后端分离关于时间处理</div>
+    <a href="/2019/08/22/JWT/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JWT</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -408,7 +473,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、环境设置"><span class="toc-number">1.</span> <span class="toc-text">一、环境设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、JDK设置"><span class="toc-number">1.1.</span> <span class="toc-text">1、JDK设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、MAVEN设置"><span class="toc-number">1.2.</span> <span class="toc-text">2、MAVEN设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、GIT设置"><span class="toc-number">1.3.</span> <span class="toc-text">3、GIT设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、编码设置"><span class="toc-number">1.4.</span> <span class="toc-text">4、编码设置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、常用设置"><span class="toc-number">2.</span> <span class="toc-text">二、常用设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、主题"><span class="toc-number">2.1.</span> <span class="toc-text">1、主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、字体"><span class="toc-number">2.2.</span> <span class="toc-text">2、字体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、自动导包"><span class="toc-number">2.3.</span> <span class="toc-text">3、自动导包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、智能提示"><span class="toc-number">2.4.</span> <span class="toc-text">4、智能提示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、关闭自动更新提示"><span class="toc-number">2.5.</span> <span class="toc-text">5、关闭自动更新提示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、关闭折叠包"><span class="toc-number">2.6.</span> <span class="toc-text">6、关闭折叠包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、代码分屏"><span class="toc-number">2.7.</span> <span class="toc-text">7、代码分屏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8、TAB多行显示"><span class="toc-number">2.8.</span> <span class="toc-text">8、TAB多行显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9、显示行号和方法线"><span class="toc-number">2.9.</span> <span class="toc-text">9、显示行号和方法线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、快捷键设置"><span class="toc-number">3.</span> <span class="toc-text">三、快捷键设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、注释设置"><span class="toc-number">4.</span> <span class="toc-text">四、注释设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、File-Header"><span class="toc-number">4.1.</span> <span class="toc-text">1、File Header</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、方法注释"><span class="toc-number">4.2.</span> <span class="toc-text">2、方法注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、快捷代码"><span class="toc-number">4.3.</span> <span class="toc-text">3、快捷代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、插件设置"><span class="toc-number">5.</span> <span class="toc-text">五、插件设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">6.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、环境设置"><span class="toc-number">1.</span> <span class="toc-text">一、环境设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、JDK设置"><span class="toc-number">1.1.</span> <span class="toc-text">1、JDK设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、MAVEN设置"><span class="toc-number">1.2.</span> <span class="toc-text">2、MAVEN设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、GIT设置"><span class="toc-number">1.3.</span> <span class="toc-text">3、GIT设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、编码设置"><span class="toc-number">1.4.</span> <span class="toc-text">4、编码设置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、常用设置"><span class="toc-number">2.</span> <span class="toc-text">二、常用设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、主题"><span class="toc-number">2.1.</span> <span class="toc-text">1、主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、字体"><span class="toc-number">2.2.</span> <span class="toc-text">2、字体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、自动导包"><span class="toc-number">2.3.</span> <span class="toc-text">3、自动导包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、智能提示"><span class="toc-number">2.4.</span> <span class="toc-text">4、智能提示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、关闭自动更新提示"><span class="toc-number">2.5.</span> <span class="toc-text">5、关闭自动更新提示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、关闭折叠包"><span class="toc-number">2.6.</span> <span class="toc-text">6、关闭折叠包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、代码分屏"><span class="toc-number">2.7.</span> <span class="toc-text">7、代码分屏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8、TAB多行显示"><span class="toc-number">2.8.</span> <span class="toc-text">8、TAB多行显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9、显示行号和方法线"><span class="toc-number">2.9.</span> <span class="toc-text">9、显示行号和方法线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、快捷键设置"><span class="toc-number">3.</span> <span class="toc-text">三、快捷键设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、注释设置"><span class="toc-number">4.</span> <span class="toc-text">四、注释设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、File-Header"><span class="toc-number">4.1.</span> <span class="toc-text">1、File Header</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、方法注释"><span class="toc-number">4.2.</span> <span class="toc-text">2、方法注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、快捷代码"><span class="toc-number">4.3.</span> <span class="toc-text">3、快捷代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、Postfix-Completion"><span class="toc-number">4.4.</span> <span class="toc-text">4、Postfix Completion</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、插件设置"><span class="toc-number">5.</span> <span class="toc-text">五、插件设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、背景图片"><span class="toc-number">5.1.</span> <span class="toc-text">1、背景图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、Maven-Helper"><span class="toc-number">5.2.</span> <span class="toc-text">2、Maven Helper</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、Alibaba-Java-Coding"><span class="toc-number">5.3.</span> <span class="toc-text">3、Alibaba Java Coding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、Lombok"><span class="toc-number">5.4.</span> <span class="toc-text">4、Lombok</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、String-Manipulation"><span class="toc-number">5.5.</span> <span class="toc-text">5、String Manipulation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、Free-Mybatis-plugin"><span class="toc-number">5.6.</span> <span class="toc-text">6、Free Mybatis plugin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、SequenceDiagram"><span class="toc-number">5.7.</span> <span class="toc-text">7、SequenceDiagram</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8、RestfulToolkit"><span class="toc-number">5.8.</span> <span class="toc-text">8、RestfulToolkit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9、Grep-Console"><span class="toc-number">5.9.</span> <span class="toc-text">9、Grep Console</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10、EasyCode"><span class="toc-number">5.10.</span> <span class="toc-text">10、EasyCode</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">6.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -509,7 +574,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color1">dubbo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,51 +586,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">time</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color4">JWT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -569,7 +598,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -581,91 +626,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">udp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transient</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">id</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -673,43 +634,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">swap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">login</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">copy</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -717,11 +646,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cross</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+                <a href="javascript:void(0)" class="js-tag color5">copy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -733,39 +658,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">MybatisPlus</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nio</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">oracle</a>
+                <a href="javascript:void(0)" class="js-tag color5">websocket</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mail</a>
+                <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">desgin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">utils</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">thread</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
             
             <div class="clearfix"></div>

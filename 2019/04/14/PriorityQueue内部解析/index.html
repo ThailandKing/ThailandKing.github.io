@@ -8,22 +8,22 @@
   <link rel="dns-prefetch" href="https://thailandking.github.io">
   <title>PriorityQueue内部解析 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、概述Java中PriorityQueue通过二叉小顶堆实现，可以用一棵完全二叉树表示，本文是基于JDK 1.8展开的 二、PriorityQueue1、存储结构1234567public class PriorityQueue&amp;lt;E&amp;gt; extends AbstractQueue&amp;lt;E&amp;gt; implements java.io.Serializable&amp;#123;    pri">
+  <meta name="description" content="一、概述 Java中PriorityQueue通过二叉小顶堆实现，可以用一棵完全二叉树表示，本文是基于JDK 1.8展开的  二、PriorityQueue1、存储结构1234567public class PriorityQueue&amp;lt;E&amp;gt; extends AbstractQueue&amp;lt;E&amp;gt; implements java.io.Serializable&amp;#123;    p">
 <meta name="keywords" content="PriorityQueue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PriorityQueue内部解析">
 <meta property="og:url" content="https://thailandking.github.io/2019/04/14/PriorityQueue内部解析/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="一、概述Java中PriorityQueue通过二叉小顶堆实现，可以用一棵完全二叉树表示，本文是基于JDK 1.8展开的 二、PriorityQueue1、存储结构1234567public class PriorityQueue&amp;lt;E&amp;gt; extends AbstractQueue&amp;lt;E&amp;gt; implements java.io.Serializable&amp;#123;    pri">
+<meta property="og:description" content="一、概述 Java中PriorityQueue通过二叉小顶堆实现，可以用一棵完全二叉树表示，本文是基于JDK 1.8展开的  二、PriorityQueue1、存储结构1234567public class PriorityQueue&amp;lt;E&amp;gt; extends AbstractQueue&amp;lt;E&amp;gt; implements java.io.Serializable&amp;#123;    p">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://thailandking.github.io/2019/04/14/PriorityQueue内部解析/1.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/04/14/PriorityQueue内部解析/2.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/04/14/PriorityQueue内部解析/3.png">
 <meta property="og:image" content="https://thailandking.github.io/2019/04/14/PriorityQueue内部解析/4.png">
-<meta property="og:updated_time" content="2019-04-14T16:09:11.845Z">
+<meta property="og:updated_time" content="2023-02-12T09:03:03.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PriorityQueue内部解析">
-<meta name="twitter:description" content="一、概述Java中PriorityQueue通过二叉小顶堆实现，可以用一棵完全二叉树表示，本文是基于JDK 1.8展开的 二、PriorityQueue1、存储结构1234567public class PriorityQueue&amp;lt;E&amp;gt; extends AbstractQueue&amp;lt;E&amp;gt; implements java.io.Serializable&amp;#123;    pri">
+<meta name="twitter:description" content="一、概述 Java中PriorityQueue通过二叉小顶堆实现，可以用一棵完全二叉树表示，本文是基于JDK 1.8展开的  二、PriorityQueue1、存储结构1234567public class PriorityQueue&amp;lt;E&amp;gt; extends AbstractQueue&amp;lt;E&amp;gt; implements java.io.Serializable&amp;#123;    p">
 <meta name="twitter:image" content="https://thailandking.github.io/2019/04/14/PriorityQueue内部解析/1.png">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
@@ -176,37 +176,40 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>Java中PriorityQueue通过二叉小顶堆实现，可以用一棵完全二叉树表示，本文是基于JDK 1.8展开的</p>
+        <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><ul>
+<li>Java中PriorityQueue通过二叉小顶堆实现，可以用一棵完全二叉树表示，本文是基于JDK 1.8展开的</li>
+</ul>
 <h2 id="二、PriorityQueue"><a href="#二、PriorityQueue" class="headerlink" title="二、PriorityQueue"></a>二、PriorityQueue</h2><h3 id="1、存储结构"><a href="#1、存储结构" class="headerlink" title="1、存储结构"></a>1、存储结构</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PriorityQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_INITIAL_CAPACITY = <span class="number">11</span>;<span class="comment">//默认初始容量为11</span></span><br><span class="line">    <span class="keyword">transient</span> Object[] queue;<span class="comment">//保存数据的数组</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size = <span class="number">0</span>;<span class="comment">//当前数组中元素数量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Comparator&lt;? <span class="keyword">super</span> E&gt; comparator;<span class="comment">//元素比较器</span></span><br><span class="line">    <span class="keyword">transient</span> <span class="keyword">int</span> modCount = <span class="number">0</span>;<span class="comment">//修改次数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//常用构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">PriorityQueue</span><span class="params">(<span class="keyword">int</span> initialCapacity,Comparator&lt;? <span class="keyword">super</span> E&gt; comparator)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (initialCapacity &lt; <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();</span><br><span class="line">    <span class="keyword">this</span>.queue = <span class="keyword">new</span> Object[initialCapacity];</span><br><span class="line">    <span class="keyword">this</span>.comparator = comparator;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h3 id="2、add与offer"><a href="#2、add与offer" class="headerlink" title="2、add与offer"></a>2、add与offer</h3><ul>
-<li><strong>add(E e)</strong>和<strong>offer(E e)</strong>的语义相同，都是向优先队列中插入元素，只是Queue接口规定二者对插入失败时的处理不同，前者在插入失败时抛出<strong>异常</strong>，后则则会返回<strong>false</strong>，对于PriorityQueue这两个方法其实没什么差别</li>
+<li><strong>add(E e)</strong>和<strong>offer(E e)</strong>的语义相同，都是向优先队列中插入元素，只是Queue接口规定二者对插入失败时的处理不同，前者在插入失败时抛出<strong>异常</strong>，后者则会返回<strong>false</strong>，<strong>对于PriorityQueue这两个方法其实没什么差别</strong></li>
 <li>新加入的元素x可能会破坏小顶堆的性质，因此需要进行调整。调整的过程为：从k指定的位置开始，将x逐层与当前点的parent进行比较并交换，直到满足x &gt;= queue[parent]为止</li>
 <li>注意这里的比较可以是元素的自然顺序，也可以是依靠比较器的顺序</li>
 </ul>
 <p><img src="/2019/04/14/PriorityQueue内部解析/1.png" alt></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//add(E e)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> offer(e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//offer(E e)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">offer</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (e == <span class="keyword">null</span>)<span class="comment">//不允许放入null元素</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">    modCount++;</span><br><span class="line">    <span class="keyword">int</span> i = size;</span><br><span class="line">    <span class="keyword">if</span> (i &gt;= queue.length)</span><br><span class="line">        grow(i + <span class="number">1</span>);<span class="comment">//自动扩容</span></span><br><span class="line">    size = i + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (i == <span class="number">0</span>)<span class="comment">//队列原来为空，这是插入的第一个元素</span></span><br><span class="line">        queue[<span class="number">0</span>] = e;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        siftUp(i, e);<span class="comment">//调整</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//siftUp()</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">siftUp</span><span class="params">(<span class="keyword">int</span> k, E x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (k &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> parent = (k - <span class="number">1</span>) &gt;&gt;&gt; <span class="number">1</span>;<span class="comment">//parentNo = (nodeNo-1)/2</span></span><br><span class="line">        Object e = queue[parent];</span><br><span class="line">        <span class="keyword">if</span> (comparator.compare(x, (E) e) &gt;= <span class="number">0</span>)<span class="comment">//调用比较器的比较方法</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        queue[k] = e;</span><br><span class="line">        k = parent;</span><br><span class="line">    &#125;</span><br><span class="line">    queue[k] = x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3、element与peek"><a href="#3、element与peek" class="headerlink" title="3、element与peek"></a>3、element与peek</h3><ul>
-<li><code>element()</code>和<code>peek()</code>的语义完全相同，都是获取但不删除队首元素，也就是队列中权值最小的那个元素，二者唯一的区别是当方法失败时前者抛出异常，后者返回<code>null</code>。根据小顶堆的性质，堆顶那个元素就是全局最小的那个；由于堆用数组表示，根据下标关系，<code>0</code>下标处的那个元素既是堆顶元素。所以<strong>直接返回数组0下标处的那个元素即可</strong></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//siftUp()</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">siftUp</span><span class="params">(<span class="keyword">int</span> k, E x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (comparator != <span class="keyword">null</span>)</span><br><span class="line">        siftUpUsingComparator(k, x);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        siftUpComparable(k, x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3、peek"><a href="#3、peek" class="headerlink" title="3、peek"></a>3、peek</h3><ul>
+<li>获取但不删除队首元素，也就是队列中权值最小的那个元素</li>
+<li>根据小顶堆的性质，堆顶那个元素就是全局最小的那个</li>
 </ul>
 <p><img src="/2019/04/14/PriorityQueue内部解析/2.png" alt></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//peek()</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">peek</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (size == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">return</span> (E) queue[<span class="number">0</span>];<span class="comment">//0下标处的那个元素就是最小的那个</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4、remove与poll"><a href="#4、remove与poll" class="headerlink" title="4、remove与poll"></a>4、remove与poll</h3><ul>
-<li><code>remove()</code>和<code>poll()</code>方法的语义也完全相同，都是获取并删除队首元素，区别是当方法失败时前者抛出异常，后者返回<code>null</code></li>
+<h3 id="4、poll"><a href="#4、poll" class="headerlink" title="4、poll"></a>4、poll</h3><ul>
+<li>获取并删除队首元素</li>
 <li>由于删除操作会改变队列的结构，为维护小顶堆的性质，需要进行必要的调整</li>
 </ul>
 <p><img src="/2019/04/14/PriorityQueue内部解析/3.png" alt></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//poll()</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">poll</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (size == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">int</span> s = --size;</span><br><span class="line">    modCount++;</span><br><span class="line">    E result = (E) queue[<span class="number">0</span>];<span class="comment">//0下标处的那个元素就是最小的那个</span></span><br><span class="line">    E x = (E) queue[s];</span><br><span class="line">    queue[s] = <span class="keyword">null</span>;<span class="comment">//最后一个元素改为null</span></span><br><span class="line">    <span class="keyword">if</span> (s != <span class="number">0</span>)</span><br><span class="line">        siftDown(<span class="number">0</span>, x);<span class="comment">//调整</span></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>首先记录<code>0</code>下标处的元素，并用最后一个元素替换<code>0</code>下标位置的元素，之后调用<code>siftDown()</code>方法对堆进行调整，最后返回原来<code>0</code>下标处的那个元素（也就是最小的那个元素）。</li>
-<li>siftDown(int k, E x)`方法，该方法的作用是<strong>从k指定的位置开始，将x逐层向下与当前点的左右孩子中较小的那个交换，直到x小于或等于左右孩子中的任何一个为止</strong></li>
+<li>首先记录<strong>0</strong>下标处的元素，并用最后一个元素替换0下标位置的元素，之后调用<strong>siftDown()</strong>方法对堆进行调整，最后返回原来0下标处的那个元素（也就是最小的那个元素）</li>
+<li>siftDown(int k, E x)方法，该方法的作用是<strong>从k指定的位置开始，将x逐层向下与当前点的左右孩子中较小的那个交换，直到x小于或等于左右孩子中的任何一个为止</strong></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//siftDown()</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">siftDown</span><span class="params">(<span class="keyword">int</span> k, E x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> half = size &gt;&gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (k &lt; half) &#123;</span><br><span class="line">        <span class="comment">//首先找到左右孩子中较小的那个，记录到c里，并用child记录其下标</span></span><br><span class="line">        <span class="keyword">int</span> child = (k &lt;&lt; <span class="number">1</span>) + <span class="number">1</span>;<span class="comment">//leftNo = parentNo*2+1</span></span><br><span class="line">        Object c = queue[child];</span><br><span class="line">        <span class="keyword">int</span> right = child + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (right &lt; size &amp;&amp;</span><br><span class="line">            comparator.compare((E) c, (E) queue[right]) &gt; <span class="number">0</span>)</span><br><span class="line">            c = queue[child = right];</span><br><span class="line">        <span class="keyword">if</span> (comparator.compare(x, (E) c) &lt;= <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        queue[k] = c;<span class="comment">//然后用c取代原来的值</span></span><br><span class="line">        k = child;</span><br><span class="line">    &#125;</span><br><span class="line">    queue[k] = x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="5、remove-Object-o"><a href="#5、remove-Object-o" class="headerlink" title="5、remove(Object o)"></a>5、remove(Object o)</h3><ul>
 <li>remove(Object o)方法用于删除队列中跟o相等的某一个元素（如果有多个相等，只删除一个），该方法不是Queue接口内的方法，而是Collection接口的方法</li>
-<li>remove(Object o)<code>可以分为2种情况：1. 删除的是最后一个元素。直接删除即可，不需要调整。2. 删除的不是最后一个元素，从删除点开始以最后一个元素为参照调用一次</code>siftDown()`即可。此处不再赘述。</li>
 </ul>
 <p><img src="/2019/04/14/PriorityQueue内部解析/4.png" alt></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//remove()</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = indexOf(o);<span class="comment">//获取删除元素的下标</span></span><br><span class="line">    <span class="keyword">if</span> (i == -<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        removeAt(i);<span class="comment">//调用删除方法</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -333,11 +336,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/04/16/常见置换实现方式/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/04/25/静态代理与动态代理详解/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          常见置换实现方式
+          静态代理与动态代理详解
         
       </div>
     </a>
@@ -371,7 +374,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、概述"><span class="toc-number">1.</span> <span class="toc-text">一、概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、PriorityQueue"><span class="toc-number">2.</span> <span class="toc-text">二、PriorityQueue</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、存储结构"><span class="toc-number">2.1.</span> <span class="toc-text">1、存储结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、add与offer"><span class="toc-number">2.2.</span> <span class="toc-text">2、add与offer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、element与peek"><span class="toc-number">2.3.</span> <span class="toc-text">3、element与peek</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、remove与poll"><span class="toc-number">2.4.</span> <span class="toc-text">4、remove与poll</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、remove-Object-o"><span class="toc-number">2.5.</span> <span class="toc-text">5、remove(Object o)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、grow"><span class="toc-number">2.6.</span> <span class="toc-text">6、grow</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、应用场景"><span class="toc-number">3.</span> <span class="toc-text">三、应用场景</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、概述"><span class="toc-number">1.</span> <span class="toc-text">一、概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、PriorityQueue"><span class="toc-number">2.</span> <span class="toc-text">二、PriorityQueue</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、存储结构"><span class="toc-number">2.1.</span> <span class="toc-text">1、存储结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、add与offer"><span class="toc-number">2.2.</span> <span class="toc-text">2、add与offer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、peek"><span class="toc-number">2.3.</span> <span class="toc-text">3、peek</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、poll"><span class="toc-number">2.4.</span> <span class="toc-text">4、poll</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、remove-Object-o"><span class="toc-number">2.5.</span> <span class="toc-text">5、remove(Object o)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、grow"><span class="toc-number">2.6.</span> <span class="toc-text">6、grow</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、应用场景"><span class="toc-number">3.</span> <span class="toc-text">三、应用场景</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -472,7 +475,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color1">dubbo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -480,51 +487,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">time</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color4">JWT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,7 +499,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -544,91 +527,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">udp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transient</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">id</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -636,43 +535,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">swap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">login</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">copy</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -680,11 +547,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cross</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+                <a href="javascript:void(0)" class="js-tag color5">copy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -696,39 +559,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">MybatisPlus</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nio</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">oracle</a>
+                <a href="javascript:void(0)" class="js-tag color5">websocket</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mail</a>
+                <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">desgin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">utils</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">thread</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
             
             <div class="clearfix"></div>

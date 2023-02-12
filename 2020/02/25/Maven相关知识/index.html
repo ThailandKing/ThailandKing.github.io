@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://thailandking.github.io/2020/02/25/Maven相关知识/2.png">
 <meta property="og:image" content="https://thailandking.github.io/2020/02/25/Maven相关知识/3.png">
 <meta property="og:image" content="https://thailandking.github.io/2020/02/25/Maven相关知识/4.png">
-<meta property="og:updated_time" content="2020-02-25T01:34:48.740Z">
+<meta property="og:updated_time" content="2023-02-12T09:03:03.779Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven相关知识">
 <meta name="twitter:description" content="一、安装配置1、安装 将压缩包解压到指定文件夹">
@@ -236,6 +236,25 @@
 <li>不执行测试用例，也不编译测试用例类 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean <span class="keyword">package</span> -Dmaven.test.skip=<span class="keyword">true</span></span><br></pre></td></tr></table></figure>
+<h2 id="四、dependencyManagement"><a href="#四、dependencyManagement" class="headerlink" title="四、dependencyManagement"></a>四、dependencyManagement</h2><h3 id="1、作用"><a href="#1、作用" class="headerlink" title="1、作用"></a>1、作用</h3><ul>
+<li>对所依赖jar包进行版本管理的管理器 </li>
+</ul>
+<h3 id="2、范围"><a href="#2、范围" class="headerlink" title="2、范围"></a>2、范围</h3><ul>
+<li>如果dependencies里的dependency自己没有声明version元素，那么maven就去dependencyManagement里面去找有没有对该artifactId和groupId进行过版本声明，如果有，就继承它，如果没有就会报错，告诉你必须为dependency声明一个version</li>
+<li>如果dependencies中的dependency声明了version，那么无论dependencyManagement中有无对该jar的version声明，都以dependency里的version为准 </li>
+</ul>
+<h3 id="3、使用"><a href="#3、使用" class="headerlink" title="3、使用"></a>3、使用</h3><ul>
+<li>父pom</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.2.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>子模块</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="五、本地安装与卸载"><a href="#五、本地安装与卸载" class="headerlink" title="五、本地安装与卸载"></a>五、本地安装与卸载</h2><h3 id="1、安装jar"><a href="#1、安装jar" class="headerlink" title="1、安装jar"></a>1、安装jar</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn install:install-file -Dfile=D:\myDoc\<span class="keyword">private</span>\private_jars\javailp-<span class="number">1.2</span>a\javailp-<span class="number">1.2</span>a.jar -DgroupId=net.sf.javailp -DartifactId=javailp -Dversion=<span class="number">1.2</span>a -Dpackaging=jar</span><br></pre></td></tr></table></figure>
+<h3 id="2、卸载"><a href="#2、卸载" class="headerlink" title="2、卸载"></a>2、卸载</h3><ul>
+<li>删除本地Maven仓库中对应依赖的文件夹</li>
+</ul>
 
       
 
@@ -350,18 +369,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/02/25/跨域问题/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/03/02/Hexo搭建个人博客/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          跨域问题
+          Hexo搭建个人博客
         
       </div>
     </a>
   
   
-    <a href="/2020/02/20/常用POM文件汇总/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">常用POM文件汇总</div>
+    <a href="/2020/02/19/Mybatis大数据量导出避免OOM解决方案/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mybatis大数据量导出避免OOM解决方案</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -388,7 +407,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、安装配置"><span class="toc-number">1.</span> <span class="toc-text">一、安装配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、安装"><span class="toc-number">1.1.</span> <span class="toc-text">1、安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、配置"><span class="toc-number">1.2.</span> <span class="toc-text">2、配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、作用域"><span class="toc-number">2.</span> <span class="toc-text">二、作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、compile"><span class="toc-number">2.1.</span> <span class="toc-text">1、compile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、provided"><span class="toc-number">2.2.</span> <span class="toc-text">2、provided</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、runtime"><span class="toc-number">2.3.</span> <span class="toc-text">3、runtime</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、test"><span class="toc-number">2.4.</span> <span class="toc-text">4、test</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、打包"><span class="toc-number">3.</span> <span class="toc-text">三、打包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、配置"><span class="toc-number">3.1.</span> <span class="toc-text">1、配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、命令"><span class="toc-number">3.2.</span> <span class="toc-text">2、命令</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、安装配置"><span class="toc-number">1.</span> <span class="toc-text">一、安装配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、安装"><span class="toc-number">1.1.</span> <span class="toc-text">1、安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、配置"><span class="toc-number">1.2.</span> <span class="toc-text">2、配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、作用域"><span class="toc-number">2.</span> <span class="toc-text">二、作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、compile"><span class="toc-number">2.1.</span> <span class="toc-text">1、compile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、provided"><span class="toc-number">2.2.</span> <span class="toc-text">2、provided</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、runtime"><span class="toc-number">2.3.</span> <span class="toc-text">3、runtime</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、test"><span class="toc-number">2.4.</span> <span class="toc-text">4、test</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、打包"><span class="toc-number">3.</span> <span class="toc-text">三、打包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、配置"><span class="toc-number">3.1.</span> <span class="toc-text">1、配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、命令"><span class="toc-number">3.2.</span> <span class="toc-text">2、命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、dependencyManagement"><span class="toc-number">4.</span> <span class="toc-text">四、dependencyManagement</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、作用"><span class="toc-number">4.1.</span> <span class="toc-text">1、作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、范围"><span class="toc-number">4.2.</span> <span class="toc-text">2、范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、使用"><span class="toc-number">4.3.</span> <span class="toc-text">3、使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、本地安装与卸载"><span class="toc-number">5.</span> <span class="toc-text">五、本地安装与卸载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、安装jar"><span class="toc-number">5.1.</span> <span class="toc-text">1、安装jar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、卸载"><span class="toc-number">5.2.</span> <span class="toc-text">2、卸载</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -489,7 +508,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color1">dubbo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -497,51 +520,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">time</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color4">JWT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,7 +532,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -561,91 +560,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">udp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transient</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">id</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -653,43 +568,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">swap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">login</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">copy</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -697,11 +580,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cross</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+                <a href="javascript:void(0)" class="js-tag color5">copy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -713,39 +592,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">MybatisPlus</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nio</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">oracle</a>
+                <a href="javascript:void(0)" class="js-tag color5">websocket</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mail</a>
+                <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">desgin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">utils</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">thread</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
             
             <div class="clearfix"></div>

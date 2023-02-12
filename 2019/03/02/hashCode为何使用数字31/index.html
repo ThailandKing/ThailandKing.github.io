@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://thailandking.github.io">
   <title>hashCode为何使用数字31 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="源码123456789101112public int hashCode() &amp;#123;    int h = hash;    if (h == 0 &amp;amp;&amp;amp; value.length &amp;gt; 0) &amp;#123;        char val[] = value;        for (int i = 0; i &amp;lt; value.length; i++) &amp;#123;">
-<meta name="keywords" content="java,hashcode">
+  <meta name="description" content="一、源码123456789101112public int hashCode() &amp;#123;    int h = hash;    if (h == 0 &amp;amp;&amp;amp; value.length &amp;gt; 0) &amp;#123;        char val[] = value;        for (int i = 0; i &amp;lt; value.length; i++) &amp;#123;">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hashCode为何使用数字31">
 <meta property="og:url" content="https://thailandking.github.io/2019/03/02/hashCode为何使用数字31/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="源码123456789101112public int hashCode() &amp;#123;    int h = hash;    if (h == 0 &amp;amp;&amp;amp; value.length &amp;gt; 0) &amp;#123;        char val[] = value;        for (int i = 0; i &amp;lt; value.length; i++) &amp;#123;">
+<meta property="og:description" content="一、源码123456789101112public int hashCode() &amp;#123;    int h = hash;    if (h == 0 &amp;amp;&amp;amp; value.length &amp;gt; 0) &amp;#123;        char val[] = value;        for (int i = 0; i &amp;lt; value.length; i++) &amp;#123;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-02T15:43:55.360Z">
+<meta property="og:updated_time" content="2023-02-12T09:03:04.070Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hashCode为何使用数字31">
-<meta name="twitter:description" content="源码123456789101112public int hashCode() &amp;#123;    int h = hash;    if (h == 0 &amp;amp;&amp;amp; value.length &amp;gt; 0) &amp;#123;        char val[] = value;        for (int i = 0; i &amp;lt; value.length; i++) &amp;#123;">
+<meta name="twitter:description" content="一、源码123456789101112public int hashCode() &amp;#123;    int h = hash;    if (h == 0 &amp;amp;&amp;amp; value.length &amp;gt; 0) &amp;#123;        char val[] = value;        for (int i = 0; i &amp;lt; value.length; i++) &amp;#123;">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -171,12 +171,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> h = hash;</span><br><span class="line">    <span class="keyword">if</span> (h == <span class="number">0</span> &amp;&amp; value.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">char</span> val[] = value;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; value.length; i++) &#123;</span><br><span class="line">            h = <span class="number">31</span> * h + val[i];</span><br><span class="line">        &#125;</span><br><span class="line">        hash = h;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> h;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="原因一：更少的乘积结果冲突"><a href="#原因一：更少的乘积结果冲突" class="headerlink" title="原因一：更少的乘积结果冲突"></a>原因一：更少的乘积结果冲突</h2><p>31是质子数中一个“不大不小”的存在，如果你使用的是一个如2的较小质数，那么得出的乘积会在一个很小的范围，很容易造成哈希值的冲突。而如果选择一个100以上的质数，得出的哈希值会超出int的最大范围，这两种都不合适。而如果对超过 50,000 个英文单词（由两个不同版本的 Unix 字典合并而成）进行 hash code 运算，并使用常数 31, 33, 37, 39 和 41 作为乘子，每个常数算出的哈希值冲突数都小于7个（国外大神做的测试），那么这几个数就被作为生成hashCode值得备选乘数了。 </p>
-<h2 id="原因二：31可以被JVM优化"><a href="#原因二：31可以被JVM优化" class="headerlink" title="原因二：31可以被JVM优化"></a>原因二：31可以被JVM优化</h2><p>JVM里最有效的计算方式就是进行位运算了： </p>
-<p>左移 &lt;&lt; : 左边的最高位丢弃，右边补全0（把 &lt;&lt; 左边的数据*2的移动次幂） </p>
-<p>右移 &gt;&gt; : 把&gt;&gt;左边的数据/2的移动次幂 </p>
-<p><code>31 * i = (i &lt;&lt; 5) - i（左边  31*2=62,右边   2*2^5-2=62）</code></p>
+        <h2 id="一、源码"><a href="#一、源码" class="headerlink" title="一、源码"></a>一、源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> h = hash;</span><br><span class="line">    <span class="keyword">if</span> (h == <span class="number">0</span> &amp;&amp; value.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">char</span> val[] = value;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; value.length; i++) &#123;</span><br><span class="line">            h = <span class="number">31</span> * h + val[i];</span><br><span class="line">        &#125;</span><br><span class="line">        hash = h;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> h;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二、原因"><a href="#二、原因" class="headerlink" title="二、原因"></a>二、原因</h2><h3 id="1、更少的乘积结果冲突"><a href="#1、更少的乘积结果冲突" class="headerlink" title="1、更少的乘积结果冲突"></a>1、更少的乘积结果冲突</h3><ul>
+<li>31是质子数中一个“不大不小”的存在，如果你使用的是一个如2的较小质数，那么得出的乘积会在一个很小的范围，很容易造成哈希值的冲突</li>
+<li>如果选择一个100以上的质数，得出的哈希值会超出int的最大范围</li>
+<li>国外大神对超过 50,000 个英文单词进行 hashCode 运算，并使用常数 31, 33, 37, 39 和 41 作为乘子，每个常数算出的哈希值冲突数都小于7个，被作为生成 hashCode 备选乘数</li>
+</ul>
+<h3 id="2、可以被JVM优化"><a href="#2、可以被JVM优化" class="headerlink" title="2、可以被JVM优化"></a>2、可以被JVM优化</h3><ul>
+<li>JVM里最有效的计算方式就是<strong>位运算</strong></li>
+<li>31可被如下优化：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">31</span> * i = (i &lt;&lt; <span class="number">5</span>) - i</span><br></pre></td></tr></table></figure>
 
       
 
@@ -222,10 +227,6 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hashcode</a>
         		</li>
       		
 		</ul>
@@ -295,20 +296,15 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/03/transient与volatile关键字/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/03/03/位掩码在程序设计中的使用/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          transient与volatile关键字
+          位掩码在程序设计中的使用
         
       </div>
     </a>
   
-  
-    <a href="/2019/03/02/深入理解Java中的String、StringBuilder与StringBuffer/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">深入理解Java中的String、StringBuilder与StringBuffer</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
@@ -333,7 +329,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#源码"><span class="toc-number">1.</span> <span class="toc-text">源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原因一：更少的乘积结果冲突"><span class="toc-number">2.</span> <span class="toc-text">原因一：更少的乘积结果冲突</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原因二：31可以被JVM优化"><span class="toc-number">3.</span> <span class="toc-text">原因二：31可以被JVM优化</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、源码"><span class="toc-number">1.</span> <span class="toc-text">一、源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、原因"><span class="toc-number">2.</span> <span class="toc-text">二、原因</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、更少的乘积结果冲突"><span class="toc-number">2.1.</span> <span class="toc-text">1、更少的乘积结果冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、可以被JVM优化"><span class="toc-number">2.2.</span> <span class="toc-text">2、可以被JVM优化</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -434,7 +430,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color1">dubbo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -442,51 +442,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">time</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BitMask</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string pool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">List</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java8</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color4">JWT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -494,7 +454,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,91 +482,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sso</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jwt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">swagger</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">tcp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">udp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hashcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-fast</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fail-safe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transient</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">id</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">snowflake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -598,43 +490,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">zxing</a>
+                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Arrays</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">swap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">serializable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">login</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dfcloud</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CAS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">copy</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -642,11 +502,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cross</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+                <a href="javascript:void(0)" class="js-tag color5">copy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -658,39 +514,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">MybatisPlus</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nio</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">oracle</a>
+                <a href="javascript:void(0)" class="js-tag color5">websocket</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mail</a>
+                <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">word</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">desgin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">utils</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">thread</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
             
             <div class="clearfix"></div>
