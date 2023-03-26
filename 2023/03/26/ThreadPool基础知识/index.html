@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>thailandking</title>
+  <title>ThreadPool基础知识 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="personal blog">
-<meta name="keywords" content="computer，programming">
-<meta property="og:type" content="website">
-<meta property="og:title" content="thailandking">
-<meta property="og:url" content="https://thailandking.github.io/page/4/index.html">
+  <meta name="description" content="一、好处 减少线程创建、消亡的开销，集中统一管理，降低资源消耗  二、构造函数123456789public ThreadPoolExecutor(int corePoolSize,                          int maximumPoolSize,                          long keepAliveTime,">
+<meta name="keywords" content="ThreadPool">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ThreadPool基础知识">
+<meta property="og:url" content="https://thailandking.github.io/2023/03/26/ThreadPool基础知识/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="personal blog">
+<meta property="og:description" content="一、好处 减少线程创建、消亡的开销，集中统一管理，降低资源消耗  二、构造函数123456789public ThreadPoolExecutor(int corePoolSize,                          int maximumPoolSize,                          long keepAliveTime,">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://thailandking.github.io/2023/03/26/ThreadPool基础知识/1.png">
+<meta property="og:updated_time" content="2023-03-26T08:38:00.486Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="thailandking">
-<meta name="twitter:description" content="personal blog">
+<meta name="twitter:title" content="ThreadPool基础知识">
+<meta name="twitter:description" content="一、好处 减少线程创建、消亡的开销，集中统一管理，降低资源消耗  二、构造函数123456789public ThreadPoolExecutor(int corePoolSize,                          int maximumPoolSize,                          long keepAliveTime,">
+<meta name="twitter:image" content="https://thailandking.github.io/2023/03/26/ThreadPool基础知识/1.png">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -150,526 +153,98 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-静态代理与动态代理详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-ThreadPool基础知识" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/25/静态代理与动态代理详解/">静态代理与动态代理详解</a>
+    <h1 class="article-title" itemprop="name">
+      ThreadPool基础知识
     </h1>
   
 
         
-        <a href="/2019/04/25/静态代理与动态代理详解/" class="archive-article-date">
-  	<time datetime="2019-04-25T14:19:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-25</time>
+        <a href="/2023/03/26/ThreadPool基础知识/" class="archive-article-date">
+  	<time datetime="2023-03-26T08:35:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、代理模式"><a href="#一、代理模式" class="headerlink" title="一、代理模式"></a>一、代理模式</h2><ul>
-<li>通过代理对象来增强原有对象的功能</li>
+        <h2 id="一、好处"><a href="#一、好处" class="headerlink" title="一、好处"></a>一、好处</h2><ul>
+<li>减少线程创建、消亡的开销，集中统一管理，降低资源消耗</li>
 </ul>
-<p><img src="/2019/04/25/静态代理与动态代理详解/1.jpg" alt></p>
-<ul>
-<li>分为静态代理、动态代理两种</li>
-</ul>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">proxy</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/25/静态代理与动态代理详解/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PriorityQueue内部解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/14/PriorityQueue内部解析/">PriorityQueue内部解析</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/14/PriorityQueue内部解析/" class="archive-article-date">
-  	<time datetime="2019-04-14T14:13:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><ul>
-<li>Java中PriorityQueue通过二叉小顶堆实现，可以用一棵完全二叉树表示，本文是基于JDK 1.8展开的</li>
-</ul>
-<h2 id="二、PriorityQueue"><a href="#二、PriorityQueue" class="headerlink" title="二、PriorityQueue"></a>二、PriorityQueue</h2><h3 id="1、存储结构"><a href="#1、存储结构" class="headerlink" title="1、存储结构"></a>1、存储结构</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PriorityQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_INITIAL_CAPACITY = <span class="number">11</span>;<span class="comment">//默认初始容量为11</span></span><br><span class="line">    <span class="keyword">transient</span> Object[] queue;<span class="comment">//保存数据的数组</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size = <span class="number">0</span>;<span class="comment">//当前数组中元素数量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Comparator&lt;? <span class="keyword">super</span> E&gt; comparator;<span class="comment">//元素比较器</span></span><br><span class="line">    <span class="keyword">transient</span> <span class="keyword">int</span> modCount = <span class="number">0</span>;<span class="comment">//修改次数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//常用构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">PriorityQueue</span><span class="params">(<span class="keyword">int</span> initialCapacity,Comparator&lt;? <span class="keyword">super</span> E&gt; comparator)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (initialCapacity &lt; <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();</span><br><span class="line">    <span class="keyword">this</span>.queue = <span class="keyword">new</span> Object[initialCapacity];</span><br><span class="line">    <span class="keyword">this</span>.comparator = comparator;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PriorityQueue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/14/PriorityQueue内部解析/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-LinkedHashMap内部解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/14/LinkedHashMap内部解析/">LinkedHashMap内部解析</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/14/LinkedHashMap内部解析/" class="archive-article-date">
-  	<time datetime="2019-04-14T09:03:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><ul>
-<li><p>LinkedHashMap继承于HashMap，如果对HashMap原理还不清楚的同学，请先看<a href="https://thailandking.github.io/2019/03/05/HashMap%E5%86%85%E9%83%A8%E8%A7%A3%E6%9E%90/">HashMap内部解析</a>这一篇文章，同样，本文也是基于JDK 1.8展开的</p>
-</li>
-<li><p>LinkedHashMap是插入有序，线程不安全的</p>
-</li>
-</ul>
-<h2 id="二、LinkedHashMap"><a href="#二、LinkedHashMap" class="headerlink" title="二、LinkedHashMap"></a>二、LinkedHashMap</h2><h3 id="1、存储结构"><a href="#1、存储结构" class="headerlink" title="1、存储结构"></a>1、存储结构</h3><p><img src="/2019/04/14/LinkedHashMap内部解析/1.png" alt></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LinkedHashMap</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/14/LinkedHashMap内部解析/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-深拷贝与浅拷贝的理解及实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/05/深拷贝与浅拷贝的理解及实现/">深拷贝与浅拷贝的理解及实现</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/05/深拷贝与浅拷贝的理解及实现/" class="archive-article-date">
-  	<time datetime="2019-04-05T14:11:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、原理分析"><a href="#一、原理分析" class="headerlink" title="一、原理分析"></a>一、原理分析</h2><h3 id="1、直接赋值"><a href="#1、直接赋值" class="headerlink" title="1、直接赋值"></a>1、直接赋值</h3><p><img src="/2019/04/05/深拷贝与浅拷贝的理解及实现/直接赋值.png" alt></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">copy</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/05/深拷贝与浅拷贝的理解及实现/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MySQL主从复制原理解析与最佳实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/31/MySQL主从复制原理解析与最佳实践/">MySQL主从复制原理解析与最佳实践</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/31/MySQL主从复制原理解析与最佳实践/" class="archive-article-date">
-  	<time datetime="2019-03-31T07:24:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、主从复制"><a href="#一、主从复制" class="headerlink" title="一、主从复制"></a>一、主从复制</h2><h3 id="1、复制的基本原理"><a href="#1、复制的基本原理" class="headerlink" title="1、复制的基本原理"></a>1、复制的基本原理</h3><ul>
-<li><p>主要涉及三个线程：binlog 线程、I/O 线程和 SQL 线程</p>
-</li>
-<li><p><strong>binlog 线程</strong> ：负责将主服务器上的数据更改写入二进制日志（Binary log）中</p>
-</li>
-<li><strong>I/O 线程</strong> ：负责在主服务器上读取二进制日志，并写入从服务器的中继日志（Relay log）</li>
-<li><strong>SQL 线程</strong> ：负责读取中继日志，解析出主服务器已经执行的数据更改并在从服务器中执行</li>
-</ul>
-<p><img src="/2019/03/31/MySQL主从复制原理解析与最佳实践/1.png" alt></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/31/MySQL主从复制原理解析与最佳实践/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-HashMap内部解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/05/HashMap内部解析/">HashMap内部解析</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/05/HashMap内部解析/" class="archive-article-date">
-  	<time datetime="2019-03-05T14:38:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><ul>
-<li>为了便于理解，以下源码分析以 JDK 1.8 为主</li>
-</ul>
-<h2 id="二、HashMap"><a href="#二、HashMap" class="headerlink" title="二、HashMap"></a>二、HashMap</h2><h3 id="1-存储结构"><a href="#1-存储结构" class="headerlink" title="1. 存储结构"></a>1. 存储结构</h3><ul>
-<li>内部包含了一个 Node 类型的数组 table</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">transient</span> Node&lt;K,V&gt;[] table;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> hash;</span><br><span class="line">    <span class="keyword">final</span> K key;</span><br><span class="line">    V value;</span><br><span class="line">    Node&lt;K,V&gt; next;</span><br><span class="line"></span><br><span class="line">    Node(<span class="keyword">int</span> hash, K key, V value, Node&lt;K,V&gt; next) &#123;</span><br><span class="line">        <span class="keyword">this</span>.hash = hash;</span><br><span class="line">        <span class="keyword">this</span>.key = key;</span><br><span class="line">        <span class="keyword">this</span>.value = value;</span><br><span class="line">        <span class="keyword">this</span>.next = next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">hashmap</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/05/HashMap内部解析/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-NIO基础知识梳理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/05/NIO基础知识梳理/">NIO基础知识梳理</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/05/NIO基础知识梳理/" class="archive-article-date">
-  	<time datetime="2019-03-05T12:36:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><ul>
-<li>nio全称non-blocking IO，是指jdk1.4 及以上版本里提供的新api（New IO）</li>
-<li>为所有的原始类型（boolean类型除外）提供缓存支持的数据容器，使用它可以提供非阻塞式的高伸缩性网络</li>
-</ul>
-<h2 id="二、流与块"><a href="#二、流与块" class="headerlink" title="二、流与块"></a>二、流与块</h2><ul>
-<li>I/O 与 NIO 最重要的区别是数据打包和传输的方式，I/O 以流的方式处理数据，而 NIO 以块的方式处理数据</li>
+<h2 id="二、构造函数"><a href="#二、构造函数" class="headerlink" title="二、构造函数"></a>二、构造函数</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,</span></span></span><br><span class="line"><span class="function"><span class="params">                          <span class="keyword">int</span> maximumPoolSize,</span></span></span><br><span class="line"><span class="function"><span class="params">                          <span class="keyword">long</span> keepAliveTime,</span></span></span><br><span class="line"><span class="function"><span class="params">                          TimeUnit unit,</span></span></span><br><span class="line"><span class="function"><span class="params">                          BlockingQueue&lt;Runnable&gt; workQueue,</span></span></span><br><span class="line"><span class="function"><span class="params">                          ThreadFactory threadFactory,</span></span></span><br><span class="line"><span class="function"><span class="params">                          RejectedExecutionHandler handler)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="三、参数"><a href="#三、参数" class="headerlink" title="三、参数"></a>三、参数</h2><ul>
+<li><strong>corePoolSize：</strong>核心线程数，默认情况下，在创建了线程池后，线程池中的线程数为0，当有任务来之后，就会创建一个线程去执行任务</li>
+<li><strong>maximumPoolSize：</strong>最大线程数，表示在线程池中最多能创建多少个线程</li>
+<li><strong>keepAliveTime：</strong>空闲时间，表示线程没有任务执行时最多保持多久时间会终止，默认情况下，只有当线程池中的线程数大于corePoolSize时才会起作用</li>
+<li><strong>unit：</strong>时间单位，参数keepAliveTime的时间单位</li>
+<li><strong>workQueue：</strong>阻塞队列，用来存储等待执行的任务</li>
 </ul>
 <blockquote>
-<p>流</p>
+<p>ArrayBlockingQueue：基于数组的先进先出队列，此队列创建时必须指定大小；</p>
+<p>LinkedBlockingQueue（常用）：基于链表的先进先出队列，如果创建时没有指定此队列大小，则默认为Integer.MAX_VALUE；</p>
+<p>SynchronousQueue：这个队列比较特殊，它不会保存提交的任务，而是将直接新建一个线程来执行新来的任务；</p>
+<p>PriorityBlockingQueue：具有优先级的无限阻塞队列；</p>
 </blockquote>
 <ul>
-<li>面向流的 I/O 一次处理一个字节数据：一个输入流产生一个字节数据，一个输出流消费一个字节数据。</li>
-<li>为流式数据创建过滤器非常容易，链接几个过滤器，以便每个过滤器只负责复杂处理机制的一部分。不利的一面是，面向流的 I/O 通常相当慢</li>
+<li><strong>threadFactory：</strong>线程工厂，用来创建线程</li>
+<li><strong>handler：</strong>拒绝策略，拒绝处理线程池任务</li>
 </ul>
 <blockquote>
-<p>块</p>
+<p>ThreadPoolExecutor.AbortPolicy：丢弃任务并抛出RejectedExecutionException异常；</p>
+<p>ThreadPoolExecutor.DiscardPolicy：也是丢弃任务，但是不抛出异常；</p>
+<p>ThreadPoolExecutor.DiscardOldestPolicy（常用）：丢弃队列最前面的任务，然后重新尝试执行新提交的任务；</p>
+<p>ThreadPoolExecutor.CallerRunsPolicy：主线程会自己去执行该任务；</p>
 </blockquote>
+<h2 id="四、执行过程"><a href="#四、执行过程" class="headerlink" title="四、执行过程"></a>四、执行过程</h2><p><img src="/2023/03/26/ThreadPool基础知识/1.png" alt></p>
+<h2 id="五、SpringBoot优雅使用"><a href="#五、SpringBoot优雅使用" class="headerlink" title="五、SpringBoot优雅使用"></a>五、SpringBoot优雅使用</h2><ul>
+<li>配置</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadPoolConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 自定义TaskThreadPoolTaskExecutor</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">    <span class="meta">@Bean</span>(value = <span class="string">"TaskThreadPoolTaskExecutor"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ThreadPoolTaskExecutor <span class="title">getThreadPoolTaskExecutor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ThreadPoolTaskExecutor executor = <span class="keyword">new</span> ThreadPoolTaskExecutor();</span><br><span class="line">        executor.setCorePoolSize(<span class="number">4</span>);</span><br><span class="line">        executor.setMaxPoolSize(<span class="number">10</span>);</span><br><span class="line">        executor.setKeepAliveSeconds(<span class="number">60</span>);</span><br><span class="line">        executor.setQueueCapacity(<span class="number">5</span>);</span><br><span class="line">        <span class="comment">// 丢弃最老</span></span><br><span class="line">        executor.setRejectedExecutionHandler(<span class="keyword">new</span> ThreadPoolExecutor.DiscardOldestPolicy());</span><br><span class="line">        executor.setThreadNamePrefix(<span class="string">"Task-ThreadPool-"</span>);</span><br><span class="line">        executor.initialize();</span><br><span class="line">        <span class="keyword">return</span> executor;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>面向块的 I/O 一次处理一个数据块，按块处理数据比按流处理数据要快得多。但是面向块的 I/O 缺少一些面向流的 I/O 所具有的优雅性和简单性</li>
+<li>使用</li>
 </ul>
-        
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Resource</span>(name = <span class="string">"TaskThreadPoolTaskExecutor"</span>)</span><br><span class="line"><span class="keyword">private</span> ThreadPoolTaskExecutor cachedThreadPool;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cachedThreadPool.execute(() -&gt; &#123;</span><br><span class="line">    Thread.currentThread().setUncaughtExceptionHandler((t, e) -&gt; log.error(<span class="string">"ThreadPool execute task catch exception."</span>, e));</span><br><span class="line">    task();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixinpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -680,7 +255,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">nio</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ThreadPool</a>
         		</li>
       		
 		</ul>
@@ -689,16 +264,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/05/NIO基础知识梳理/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2023/03/26/ThreadPool基础知识/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2023/03/19/Kafka基础知识/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Kafka基础知识</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -713,260 +347,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-线程安全的ArrayList" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/03/线程安全的ArrayList/">线程安全的ArrayList</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/03/线程安全的ArrayList/" class="archive-article-date">
-  	<time datetime="2019-03-03T14:31:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、Collections获取"><a href="#一、Collections获取" class="headerlink" title="一、Collections获取"></a>一、Collections获取</h2><ul>
-<li>增加synchronized同步锁</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">List&lt;String&gt; synList = Collections.synchronizedList(list);</span><br></pre></td></tr></table></figure>
-<h2 id="二、CopyOnWriteArrayList"><a href="#二、CopyOnWriteArrayList" class="headerlink" title="二、CopyOnWriteArrayList"></a>二、CopyOnWriteArrayList</h2><ul>
-<li>concurrent 并发包下的 CopyOnWriteArrayList 类</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> CopyOnWriteArrayList&lt;&gt;();</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ArrayList</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/03/线程安全的ArrayList/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、好处"><span class="toc-number">1.</span> <span class="toc-text">一、好处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、构造函数"><span class="toc-number">2.</span> <span class="toc-text">二、构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、参数"><span class="toc-number">3.</span> <span class="toc-text">三、参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、执行过程"><span class="toc-number">4.</span> <span class="toc-text">四、执行过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、SpringBoot优雅使用"><span class="toc-number">5.</span> <span class="toc-text">五、SpringBoot优雅使用</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-位掩码在程序设计中的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/03/位掩码在程序设计中的使用/">位掩码在程序设计中的使用</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/03/位掩码在程序设计中的使用/" class="archive-article-date">
-  	<time datetime="2019-03-03T13:23:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、问题情景"><a href="#一、问题情景" class="headerlink" title="一、问题情景"></a>一、问题情景</h2><ul>
-<li>例如，在一个系统中，用户一般有查询(Select)、新增(Insert)、修改(Update)、删除(Delete)四种权限，四种权限有多种组合方式，也就是有16中不同的权限状态（2的4次方）</li>
-</ul>
-<h2 id="二、传统设计"><a href="#二、传统设计" class="headerlink" title="二、传统设计"></a>二、传统设计</h2><p>一般情况下会想到用四个boolean类型变量来保存： </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Permission</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否允许查询</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> allowSelect;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否允许新增</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> allowInsert;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否允许删除</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> allowDelete;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否允许更新</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> allowUpdate;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 省略Getter和Setter</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/03/位掩码在程序设计中的使用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hashCode为何使用数字31" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/02/hashCode为何使用数字31/">hashCode为何使用数字31</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/02/hashCode为何使用数字31/" class="archive-article-date">
-  	<time datetime="2019-03-02T15:33:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、源码"><a href="#一、源码" class="headerlink" title="一、源码"></a>一、源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> h = hash;</span><br><span class="line">    <span class="keyword">if</span> (h == <span class="number">0</span> &amp;&amp; value.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">char</span> val[] = value;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; value.length; i++) &#123;</span><br><span class="line">            h = <span class="number">31</span> * h + val[i];</span><br><span class="line">        &#125;</span><br><span class="line">        hash = h;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> h;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="二、原因"><a href="#二、原因" class="headerlink" title="二、原因"></a>二、原因</h2><h3 id="1、更少的乘积结果冲突"><a href="#1、更少的乘积结果冲突" class="headerlink" title="1、更少的乘积结果冲突"></a>1、更少的乘积结果冲突</h3><ul>
-<li>31是质子数中一个“不大不小”的存在，如果你使用的是一个如2的较小质数，那么得出的乘积会在一个很小的范围，很容易造成哈希值的冲突</li>
-<li>如果选择一个100以上的质数，得出的哈希值会超出int的最大范围</li>
-<li>国外大神对超过 50,000 个英文单词进行 hashCode 运算，并使用常数 31, 33, 37, 39 和 41 作为乘子，每个常数算出的哈希值冲突数都小于7个，被作为生成 hashCode 备选乘数</li>
-</ul>
-<h3 id="2、可以被JVM优化"><a href="#2、可以被JVM优化" class="headerlink" title="2、可以被JVM优化"></a>2、可以被JVM优化</h3><ul>
-<li>JVM里最有效的计算方式就是<strong>位运算</strong></li>
-<li>31可被如下优化：</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">31</span> * i = (i &lt;&lt; <span class="number">5</span>) - i</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/02/hashCode为何使用数字31/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -985,8 +391,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
@@ -1057,6 +463,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JWT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">dubbo</a>
               </li>
              
@@ -1065,39 +487,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JWT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1109,11 +499,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">https</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1125,27 +515,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">https</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">copy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hashmap</a>
+                <a href="javascript:void(0)" class="js-tag color1">ThreadPool</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1153,15 +527,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LinkedHashMap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">MybatisPlus</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nio</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1170,14 +536,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
             
             <div class="clearfix"></div>

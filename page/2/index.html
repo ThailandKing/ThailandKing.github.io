@@ -152,89 +152,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Linux日常运维" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/04/11/Linux日常运维/">Linux日常运维</a>
-    </h1>
-  
-
-        
-        <a href="/2021/04/11/Linux日常运维/" class="archive-article-date">
-  	<time datetime="2021-04-11T13:50:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、服务器监控"><a href="#一、服务器监控" class="headerlink" title="一、服务器监控"></a>一、服务器监控</h2><h3 id="1、内存监控"><a href="#1、内存监控" class="headerlink" title="1、内存监控"></a>1、内存监控</h3><blockquote>
-<p>free -m</p>
-</blockquote>
-<p><img src="/2021/04/11/Linux日常运维/1.png" alt></p>
-<ul>
-<li>重点查看free，cache，swap等参数</li>
-<li>free代表空余的内存，如果较大，说明服务器内存够用，cache是缓存，如果较大，说明服务器内存够用</li>
-<li>如果free和cache都很小，说明服务器内存紧张，需要增加服务器的内存</li>
-<li>如果swap的free很小，说明服务器内存紧张，需要增加服务器的内存</li>
-</ul>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/04/11/Linux日常运维/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Linux基础操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -807,32 +724,30 @@
 
 
   
-    <article id="post-Hexo搭建个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Mybatis拦截慢SQL日志记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/02/Hexo搭建个人博客/">Hexo搭建个人博客</a>
+      <a class="article-title" href="/2020/02/16/Mybatis拦截慢SQL日志记录/">Mybatis拦截慢SQL日志记录</a>
     </h1>
   
 
         
-        <a href="/2020/03/02/Hexo搭建个人博客/" class="archive-article-date">
-  	<time datetime="2020-03-02T05:54:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-02</time>
+        <a href="/2020/02/16/Mybatis拦截慢SQL日志记录/" class="archive-article-date">
+  	<time datetime="2020-02-16T08:48:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h2><ul>
-<li>Windows8以上系统</li>
-<li>Node.js <strong>v10.16.2</strong></li>
-<li>npm <strong>6.9.0</strong></li>
-<li>git <strong>2.21.0.windows.1</strong></li>
-<li>注册一个GitHub账号</li>
+        <h2 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h2><ul>
+<li>通过分析MySQL慢查询日志不方便，利用数据源不直观，无法了解上下文调用关系</li>
+<li>要求通过可配置化的操作实现日志在控制台的输出和在数据库中记录</li>
+<li>本文利用SpringBoot和Mybatis，基于Mybatis Interceptor实现慢SQL拦截日志记录和打印输出</li>
 </ul>
         
       
@@ -847,7 +762,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
         		</li>
       		
 		</ul>
@@ -857,7 +772,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/02/Hexo搭建个人博客/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/02/16/Mybatis拦截慢SQL日志记录/">展开全文 >></a>
         </p>
       
 
@@ -887,30 +802,35 @@
 
 
   
-    <article id="post-Maven相关知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-MybatisPlus基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/25/Maven相关知识/">Maven相关知识</a>
+      <a class="article-title" href="/2019/11/26/MybatisPlus基础知识/">MybatisPlus基础知识</a>
     </h1>
   
 
         
-        <a href="/2020/02/25/Maven相关知识/" class="archive-article-date">
-  	<time datetime="2020-02-25T01:20:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-25</time>
+        <a href="/2019/11/26/MybatisPlus基础知识/" class="archive-article-date">
+  	<time datetime="2019-11-26T08:56:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、安装配置"><a href="#一、安装配置" class="headerlink" title="一、安装配置"></a>一、安装配置</h2><h3 id="1、安装"><a href="#1、安装" class="headerlink" title="1、安装"></a>1、安装</h3><ul>
-<li>将压缩包解压到指定文件夹</li>
+        <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><ul>
+<li>MybatisPlus简称MP，是Mybatis的增强工具，只做增强，不做改变，为简化开发而生</li>
 </ul>
-<p><img src="/2020/02/25/Maven相关知识/1.png" alt></p>
+<h2 id="二、特性"><a href="#二、特性" class="headerlink" title="二、特性"></a>二、特性</h2><ul>
+<li>强大的CRUD操作</li>
+<li>支持主键自动生成</li>
+<li>内置代码生成器</li>
+<li>内置分页插件、性能分析插件、全局拦截插件</li>
+</ul>
         
       
 
@@ -924,7 +844,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">maven</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">MybatisPlus</a>
         		</li>
       		
 		</ul>
@@ -934,7 +854,87 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/25/Maven相关知识/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/11/26/MybatisPlus基础知识/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Git基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/05/Git基础知识/">Git基础知识</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/05/Git基础知识/" class="archive-article-date">
+  	<time datetime="2019-09-05T01:30:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、设计结构"><a href="#一、设计结构" class="headerlink" title="一、设计结构"></a>一、设计结构</h2><ul>
+<li>工作区</li>
+<li>暂存区</li>
+<li>本地仓库</li>
+<li>远程仓库</li>
+</ul>
+<p><img src="/2019/09/05/Git基础知识/1.webp" alt></p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/05/Git基础知识/">展开全文 >></a>
         </p>
       
 
@@ -966,7 +966,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -1058,6 +1058,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JWT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">dubbo</a>
               </li>
              
@@ -1066,39 +1082,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JWT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1110,11 +1094,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">https</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1126,27 +1110,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">https</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">copy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hashmap</a>
+                <a href="javascript:void(0)" class="js-tag color1">ThreadPool</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1154,15 +1122,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LinkedHashMap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">MybatisPlus</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nio</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1171,14 +1131,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
             
             <div class="clearfix"></div>

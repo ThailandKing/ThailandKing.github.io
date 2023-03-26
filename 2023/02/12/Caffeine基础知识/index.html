@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="thailandking">
 <meta property="og:description" content="一、简介 Caffeine是基于Java 8的高性能缓存库，可提供接近最佳的命中率  二、配置参数   参数 类型 描述     initialCapacity integer 初始的缓存空间大小   maximumSize long 缓存的最大条数   maximumWeight long 缓存的最大权重   expireAfterAccess duration 最后一次写入或访问后经过固定时间">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-02-12T14:02:23.595Z">
+<meta property="og:updated_time" content="2023-03-26T08:29:35.006Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Caffeine基础知识">
 <meta name="twitter:description" content="一、简介 Caffeine是基于Java 8的高性能缓存库，可提供接近最佳的命中率  二、配置参数   参数 类型 描述     initialCapacity integer 初始的缓存空间大小   maximumSize long 缓存的最大条数   maximumWeight long 缓存的最大权重   expireAfterAccess duration 最后一次写入或访问后经过固定时间">
@@ -335,15 +335,16 @@
 <blockquote>
 <p>@CacheEvict(key = “#id”)</p>
 </blockquote>
-<h3 id="5、基于API使用"><a href="#5、基于API使用" class="headerlink" title="5、基于API使用"></a>5、基于API使用</h3><h4 id="5-1-注入bean"><a href="#5-1-注入bean" class="headerlink" title="5.1 注入bean"></a>5.1 注入bean</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Resource</span>(name = <span class="string">"cacheManager"</span>)</span><br><span class="line"><span class="keyword">private</span> CacheManager cacheManager;</span><br></pre></td></tr></table></figure>
+<h3 id="5、基于API使用"><a href="#5、基于API使用" class="headerlink" title="5、基于API使用"></a>5、基于API使用</h3><h4 id="5-1-注入bean"><a href="#5-1-注入bean" class="headerlink" title="5.1 注入bean"></a>5.1 注入bean</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CaffeineConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 配置缓存</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">    <span class="meta">@Bean</span>(<span class="string">"caffeineCache"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Cache&lt;String, Object&gt; <span class="title">caffeineCache</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Caffeine.newBuilder()</span><br><span class="line">            <span class="comment">// 设置最后一次写入经过固定时间过期</span></span><br><span class="line">            .expireAfterWrite(<span class="number">60</span>, TimeUnit.SECONDS)</span><br><span class="line">            <span class="comment">// 初始的缓存空间大小</span></span><br><span class="line">            .initialCapacity(<span class="number">100</span>)</span><br><span class="line">            <span class="comment">// 缓存的最大条数</span></span><br><span class="line">            .maximumSize(<span class="number">1000</span>)</span><br><span class="line">            .build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Resource</span>(name = <span class="string">"caffeineCache"</span>)</span><br><span class="line"><span class="keyword">private</span> Cache&lt;String, Object&gt; cache;</span><br></pre></td></tr></table></figure>
 <h4 id="5-2-操作"><a href="#5-2-操作" class="headerlink" title="5.2 操作"></a>5.2 操作</h4><blockquote>
-<p>cacheManager.getCache(name).put(key, value);</p>
+<p>cache.put(key, value);</p>
 </blockquote>
 <blockquote>
-<p>cacheManager.getCache(name).get(key);</p>
+<p>Object o = cache.getIfPresent(key);</p>
 </blockquote>
 <blockquote>
-<p>cacheManager.getCache(name).evict(key);</p>
+<p>cache.invalidate(key);</p>
 </blockquote>
 <h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
 <li><a href="https://www.cnblogs.com/crazymakercircle/p/16939890.html" target="_blank" rel="noopener">常见本地缓存原理与介绍</a></li>
@@ -609,6 +610,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JWT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">dubbo</a>
               </li>
              
@@ -617,39 +634,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JWT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -661,11 +646,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PriorityQueue</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">https</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -677,27 +662,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">https</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">singleton</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ArrayList</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">copy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hashmap</a>
+                <a href="javascript:void(0)" class="js-tag color1">ThreadPool</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -705,15 +674,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LinkedHashMap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">MybatisPlus</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nio</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -722,14 +683,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
             
             <div class="clearfix"></div>
