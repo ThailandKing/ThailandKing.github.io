@@ -17,7 +17,7 @@
 <meta property="og:description" content="一、好处 减少线程创建、消亡的开销，集中统一管理，降低资源消耗  二、构造函数123456789public ThreadPoolExecutor(int corePoolSize,                          int maximumPoolSize,                          long keepAliveTime,">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://thailandking.github.io/2023/03/26/ThreadPool基础知识/1.png">
-<meta property="og:updated_time" content="2023-03-26T08:38:00.486Z">
+<meta property="og:updated_time" content="2023-09-17T10:27:04.900Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ThreadPool基础知识">
 <meta name="twitter:description" content="一、好处 减少线程创建、消亡的开销，集中统一管理，降低资源消耗  二、构造函数123456789public ThreadPoolExecutor(int corePoolSize,                          int maximumPoolSize,                          long keepAliveTime,">
@@ -211,6 +211,12 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Resource</span>(name = <span class="string">"TaskThreadPoolTaskExecutor"</span>)</span><br><span class="line"><span class="keyword">private</span> ThreadPoolTaskExecutor cachedThreadPool;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cachedThreadPool.execute(() -&gt; &#123;</span><br><span class="line">    Thread.currentThread().setUncaughtExceptionHandler((t, e) -&gt; log.error(<span class="string">"ThreadPool execute task catch exception."</span>, e));</span><br><span class="line">    task();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="六、参数设置建议"><a href="#六、参数设置建议" class="headerlink" title="六、参数设置建议"></a>六、参数设置建议</h2><ul>
+<li>耗时业务，线程池配置中的核心线程数就要调大，队列就要适当调小</li>
+<li>耗时低流量大业务，线程池配置中的核心线程数就要调小，队列就要适当调大</li>
+<li>I/O密集型：包括磁盘I/O，网络I/O，指的是任务中I/O操作占据主要时间，此时往往对CPU的使用率不高，一般为2*CPU核心数</li>
+<li>CPU密集型：又叫计算密集型，指的是任务中计算逻辑占据主要时间，此时往往对CPU会有比较高的使用率，一般为CPU核心数+1</li>
+</ul>
 
       
 
@@ -325,6 +331,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2023/09/17/SpringBoot源码解读/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          SpringBoot源码解读
+        
+      </div>
+    </a>
+  
   
     <a href="/2023/03/19/Kafka基础知识/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Kafka基础知识</div>
@@ -354,7 +369,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、好处"><span class="toc-number">1.</span> <span class="toc-text">一、好处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、构造函数"><span class="toc-number">2.</span> <span class="toc-text">二、构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、参数"><span class="toc-number">3.</span> <span class="toc-text">三、参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、执行过程"><span class="toc-number">4.</span> <span class="toc-text">四、执行过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、SpringBoot优雅使用"><span class="toc-number">5.</span> <span class="toc-text">五、SpringBoot优雅使用</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、好处"><span class="toc-number">1.</span> <span class="toc-text">一、好处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、构造函数"><span class="toc-number">2.</span> <span class="toc-text">二、构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、参数"><span class="toc-number">3.</span> <span class="toc-text">三、参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、执行过程"><span class="toc-number">4.</span> <span class="toc-text">四、执行过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、SpringBoot优雅使用"><span class="toc-number">5.</span> <span class="toc-text">五、SpringBoot优雅使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、参数设置建议"><span class="toc-number">6.</span> <span class="toc-text">六、参数设置建议</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -455,27 +470,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">canal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">cache</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JWT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
+                <a href="javascript:void(0)" class="js-tag color1">canal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -483,7 +482,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JWT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -492,6 +507,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,19 +526,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">ThreadPool</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ThreadPool</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">devops</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -528,6 +547,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">MybatisPlus</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
