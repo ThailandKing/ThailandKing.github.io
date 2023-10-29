@@ -6,22 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://thailandking.github.io">
-  <title>JWT | thailandking</title>
+  <title>Archives: 2023 | thailandking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、定义 JSON Web Token（JWT）是一个开放的标准（RFC 7519） 定义了一个紧凑且自包含的方式，用于在各方之间以JSON对象安全地传输信息 信息可以通过数字签名进行验证和信任 可以使用秘密（使用HMAC算法）或使用RSA的公钥/私钥对来对JWT进行签名">
-<meta name="keywords" content="JWT">
-<meta property="og:type" content="article">
-<meta property="og:title" content="JWT">
-<meta property="og:url" content="https://thailandking.github.io/2019/08/22/JWT/index.html">
+  <meta name="description" content="personal blog">
+<meta name="keywords" content="computer，programming">
+<meta property="og:type" content="website">
+<meta property="og:title" content="thailandking">
+<meta property="og:url" content="https://thailandking.github.io/archives/2023/page/2/index.html">
 <meta property="og:site_name" content="thailandking">
-<meta property="og:description" content="一、定义 JSON Web Token（JWT）是一个开放的标准（RFC 7519） 定义了一个紧凑且自包含的方式，用于在各方之间以JSON对象安全地传输信息 信息可以通过数字签名进行验证和信任 可以使用秘密（使用HMAC算法）或使用RSA的公钥/私钥对来对JWT进行签名">
+<meta property="og:description" content="personal blog">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://thailandking.github.io/2019/08/22/JWT/1.png">
-<meta property="og:updated_time" content="2023-02-12T09:03:03.652Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JWT">
-<meta name="twitter:description" content="一、定义 JSON Web Token（JWT）是一个开放的标准（RFC 7519） 定义了一个紧凑且自包含的方式，用于在各方之间以JSON对象安全地传输信息 信息可以通过数字签名进行验证和信任 可以使用秘密（使用HMAC算法）或使用RSA的公钥/私钥对来对JWT进行签名">
-<meta name="twitter:image" content="https://thailandking.github.io/2019/08/22/JWT/1.png">
+<meta name="twitter:title" content="thailandking">
+<meta name="twitter:description" content="personal blog">
   
     <link rel="alternative" href="/atom.xml" title="thailandking" type="application/atom+xml">
   
@@ -153,245 +150,63 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JWT" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      JWT
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2023" class="archive-year">2023</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2023/02/12/Caffeine基础知识/" class="archive-article-date">
+  	<time datetime="2023-02-12T14:01:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-12</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2023/02/12/Caffeine基础知识/">Caffeine基础知识</a>
     </h1>
   
 
-        
-        <a href="/2019/08/22/JWT/" class="archive-article-date">
-  	<time datetime="2019-08-22T07:38:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、定义"><a href="#一、定义" class="headerlink" title="一、定义"></a>一、定义</h2><ul>
-<li>JSON Web Token（JWT）是一个开放的标准（RFC 7519）</li>
-<li>定义了一个紧凑且自包含的方式，用于在各方之间以JSON对象安全地传输信息</li>
-<li>信息可以通过数字签名进行验证和信任</li>
-<li>可以使用秘密（使用HMAC算法）或使用RSA的公钥/私钥对来对JWT进行签名</li>
-</ul>
-<a id="more"></a>
-<h2 id="二、请求流程"><a href="#二、请求流程" class="headerlink" title="二、请求流程"></a>二、请求流程</h2><p><img src="/2019/08/22/JWT/1.png" alt></p>
-<ul>
-<li>1、用户在浏览器中输入用户名、密码进行登录验证</li>
-<li>2、服务端登录验证</li>
-<li>3、成功则返回生成的JWT，失败则抛出异常报错</li>
-<li>4、用户以后每次请求服务端时，请求头携带JWT</li>
-<li>5、服务端进行JWT验证</li>
-<li>6、成功则返回接口调用信息，失败则抛出异常报错</li>
-</ul>
-<h2 id="三、组成"><a href="#三、组成" class="headerlink" title="三、组成"></a>三、组成</h2><h3 id="1、头部（header）"><a href="#1、头部（header）" class="headerlink" title="1、头部（header）"></a>1、头部（header）</h3><ul>
-<li>声明类型</li>
-<li>声明加密的算法（通常使用HMAC SHA256）</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"typ"</span>:<span class="string">"JWT"</span>,</span><br><span class="line">    <span class="attr">"alg"</span>:<span class="string">"HS256"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2、载荷（payload）"><a href="#2、载荷（payload）" class="headerlink" title="2、载荷（payload）"></a>2、载荷（payload）</h3><ul>
-<li>存放一些有效的信息（自定义数据）</li>
-<li>iss：该JWT的签发者</li>
-<li>sub: 该JWT所面向的用户</li>
-<li>aud: 接收该JWT的一方</li>
-<li>exp(expires): 什么时候过期，这里是一个Unix时间戳</li>
-<li>iat(issued at): 在什么时候签发的</li>
-</ul>
-<h3 id="3、签证（signature）"><a href="#3、签证（signature）" class="headerlink" title="3、签证（signature）"></a>3、签证（signature）</h3><blockquote>
-<p>使用了HS256加密后的数据，包含三个部分：</p>
-</blockquote>
-<ul>
-<li>header (base64后的)</li>
-<li>payload (base64后的)</li>
-<li>secret 私钥</li>
-</ul>
-<h2 id="四、SpringBoot应用JWT"><a href="#四、SpringBoot应用JWT" class="headerlink" title="四、SpringBoot应用JWT"></a>四、SpringBoot应用JWT</h2><h3 id="1、添加依赖"><a href="#1、添加依赖" class="headerlink" title="1、添加依赖"></a>1、添加依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.jsonwebtoken<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jjwt<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.6.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="2、配置信息"><a href="#2、配置信息" class="headerlink" title="2、配置信息"></a>2、配置信息</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#jwt</span><br><span class="line">audience.clientId=098f6bcd4621d373cade4e832627b4f6</span><br><span class="line">audience.base64Secret=MDk4ZjZiY2Q0NjIxZDM3M2NhZGU0ZTgzMjYyN2I0ZjY=</span><br><span class="line">audience.name=restapiuser</span><br><span class="line">#24小时</span><br><span class="line">audience.expiresSecond=86400000</span><br></pre></td></tr></table></figure>
-<h3 id="3、书写JWT工具类"><a href="#3、书写JWT工具类" class="headerlink" title="3、书写JWT工具类"></a>3、书写JWT工具类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2019/8/22 16:20</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@LastEditTime</span> 2019/8/22 16:20</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> JWT工具类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JwtUtil</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;audience.clientId&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String clientId;</span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;audience.base64Secret&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String base64Secret;</span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;audience.name&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;audience.expiresSecond&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> Long expiresSecond;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//解析jwt</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">parseJWT</span><span class="params">(String jsonWebToken)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Claims claims = Jwts.parser()</span><br><span class="line">                    .setSigningKey(DatatypeConverter.parseBase64Binary(base64Secret))</span><br><span class="line">                    .parseClaimsJws(jsonWebToken).getBody();</span><br><span class="line">            <span class="keyword">if</span> (claims == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            Long id = (Long) claims.get(<span class="string">"id"</span>);</span><br><span class="line">            String name = (String) claims.get(<span class="string">"name"</span>);</span><br><span class="line">            User user = <span class="keyword">new</span> User();</span><br><span class="line">            user.setId(id);</span><br><span class="line">            user.setName(name);</span><br><span class="line">            <span class="keyword">return</span> user;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//构建jwt</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">createJWT</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">        SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;</span><br><span class="line">        <span class="comment">//生成签名密钥</span></span><br><span class="line">        <span class="keyword">byte</span>[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(base64Secret);</span><br><span class="line">        Key signingKey = <span class="keyword">new</span> SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());</span><br><span class="line">        <span class="comment">//添加构成JWT的参数</span></span><br><span class="line">        JwtBuilder builder = Jwts.builder().setHeaderParam(<span class="string">"typ"</span>, <span class="string">"JWT"</span>)</span><br><span class="line">                .claim(<span class="string">"id"</span>, user.getId())</span><br><span class="line">                .claim(<span class="string">"name"</span>, user.getName())</span><br><span class="line">                .setIssuer(clientId)</span><br><span class="line">                .setAudience(name)</span><br><span class="line">                .signWith(signatureAlgorithm, signingKey);</span><br><span class="line">        <span class="comment">//添加Token过期时间</span></span><br><span class="line">        <span class="keyword">long</span> nowMillis = System.currentTimeMillis();</span><br><span class="line">        Date now = <span class="keyword">new</span> Date(nowMillis);</span><br><span class="line">        <span class="keyword">long</span> expMillis = nowMillis + expiresSecond;</span><br><span class="line">        Date exp = <span class="keyword">new</span> Date(expMillis);</span><br><span class="line">        builder.setExpiration(exp).setNotBefore(now);</span><br><span class="line">        <span class="comment">//生成JWT</span></span><br><span class="line">        <span class="keyword">return</span> builder.compact();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4、书写拦截器"><a href="#4、书写拦截器" class="headerlink" title="4、书写拦截器"></a>4、书写拦截器</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginIntercepter</span> <span class="keyword">implements</span> <span class="title">HandlerInterceptor</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> JwtUtil jwtUtil;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">preHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        String token = request.getHeader(<span class="string">"token"</span>);</span><br><span class="line">        <span class="comment">//401</span></span><br><span class="line">        <span class="keyword">if</span> (StringUtils.isEmpty(token)) &#123;</span><br><span class="line">            response.setStatus(HttpStatus.UNAUTHORIZED.value());</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//403</span></span><br><span class="line">        <span class="comment">// 注入工具类</span></span><br><span class="line">        <span class="keyword">if</span> (jwtUtil == <span class="keyword">null</span>) &#123;</span><br><span class="line">            BeanFactory factory = WebApplicationContextUtils.getRequiredWebApplicationContext(request.getServletContext());</span><br><span class="line">            jwtUtil = (JwtUtil) factory.getBean(<span class="string">"jwtUtil"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        User user = jwtUtil.parseJWT(token);</span><br><span class="line">        <span class="keyword">if</span> (user == <span class="keyword">null</span>) &#123;</span><br><span class="line">            response.setStatus(HttpStatus.FORBIDDEN.value());</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="5、配置拦截器"><a href="#5、配置拦截器" class="headerlink" title="5、配置拦截器"></a>5、配置拦截器</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntercepterConfig</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addInterceptors</span><span class="params">(InterceptorRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addInterceptor(<span class="keyword">new</span> LoginIntercepter()).addPathPatterns(<span class="string">"/user/**"</span>);</span><br><span class="line">        WebMvcConfigurer.<span class="keyword">super</span>.addInterceptors(registry);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="6、书写登录代码"><a href="#6、书写登录代码" class="headerlink" title="6、书写登录代码"></a>6、书写登录代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> JwtUtil jwtUtil;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Author</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Date</span> 2019/8/22 14:13</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditors</span> thailandking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@LastEditTime</span> 2019/8/22 14:13</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Description</span> jwt示例 用户登录</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/login"</span>, method = RequestMethod.POST)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Response <span class="title">login</span><span class="params">(@RequestParam(value = <span class="string">"name"</span>)</span> String name,</span></span><br><span class="line"><span class="function">                      @<span class="title">RequestParam</span><span class="params">(value = <span class="string">"pass"</span>)</span> String pass) </span>&#123;</span><br><span class="line">    <span class="comment">// 登录判定</span></span><br><span class="line">    User user = userService.getLoginUserService(name, pass);</span><br><span class="line">    <span class="comment">// 生成token</span></span><br><span class="line">    String token = jwtUtil.createJWT(user);</span><br><span class="line">    <span class="keyword">return</span> Response.ok().data(token);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="7、跨域配置"><a href="#7、跨域配置" class="headerlink" title="7、跨域配置"></a>7、跨域配置</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CrossConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> FilterRegistrationBean <span class="title">corsFilter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        UrlBasedCorsConfigurationSource source = <span class="keyword">new</span> UrlBasedCorsConfigurationSource();</span><br><span class="line">        CorsConfiguration config = <span class="keyword">new</span> CorsConfiguration();</span><br><span class="line">        config.setAllowCredentials(<span class="keyword">true</span>);</span><br><span class="line">        config.addAllowedOrigin(<span class="string">"*"</span>);</span><br><span class="line">        config.addAllowedHeader(<span class="string">"*"</span>);</span><br><span class="line">        config.addAllowedMethod(<span class="string">"OPTIONS"</span>);</span><br><span class="line">        config.addAllowedMethod(<span class="string">"HEAD"</span>);</span><br><span class="line">        config.addAllowedMethod(<span class="string">"GET"</span>);</span><br><span class="line">        config.addAllowedMethod(<span class="string">"PUT"</span>);</span><br><span class="line">        config.addAllowedMethod(<span class="string">"POST"</span>);</span><br><span class="line">        config.addAllowedMethod(<span class="string">"DELETE"</span>);</span><br><span class="line">        config.addAllowedMethod(<span class="string">"PATCH"</span>);</span><br><span class="line">        source.registerCorsConfiguration(<span class="string">"/**"</span>, config);</span><br><span class="line">        <span class="keyword">final</span> FilterRegistrationBean bean = <span class="keyword">new</span> FilterRegistrationBean(<span class="keyword">new</span> CorsFilter(source));</span><br><span class="line">        bean.setOrder(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> WebMvcConfigurer <span class="title">mvcConfigurer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> WebMvcConfigurer() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addCorsMappings</span><span class="params">(CorsRegistry registry)</span> </span>&#123;</span><br><span class="line">                registry.addMapping(<span class="string">"/**"</span>).allowedMethods(<span class="string">"GET"</span>, <span class="string">"PUT"</span>, <span class="string">"POST"</span>, <span class="string">"GET"</span>, <span class="string">"OPTIONS"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
-<li><a href="https://jwt.io/introduction/" target="_blank" rel="noopener">JWT官网</a></li>
-<li><a href="https://www.cnblogs.com/xiekeli/p/5607107.html" target="_blank" rel="noopener">基于Token的WEB后台认证机制</a></li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/weixinpay.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JWT</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cache</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://thailandking.github.io/2019/08/22/JWT/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/09/05/Git基础知识/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Git基础知识
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/07/08/Redis核心技术/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Redis核心技术</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、定义"><span class="toc-number">1.</span> <span class="toc-text">一、定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、请求流程"><span class="toc-number">2.</span> <span class="toc-text">二、请求流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、组成"><span class="toc-number">3.</span> <span class="toc-text">三、组成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、头部（header）"><span class="toc-number">3.1.</span> <span class="toc-text">1、头部（header）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、载荷（payload）"><span class="toc-number">3.2.</span> <span class="toc-text">2、载荷（payload）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、签证（signature）"><span class="toc-number">3.3.</span> <span class="toc-text">3、签证（signature）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、SpringBoot应用JWT"><span class="toc-number">4.</span> <span class="toc-text">四、SpringBoot应用JWT</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、添加依赖"><span class="toc-number">4.1.</span> <span class="toc-text">1、添加依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、配置信息"><span class="toc-number">4.2.</span> <span class="toc-text">2、配置信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、书写JWT工具类"><span class="toc-number">4.3.</span> <span class="toc-text">3、书写JWT工具类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、书写拦截器"><span class="toc-number">4.4.</span> <span class="toc-text">4、书写拦截器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、配置拦截器"><span class="toc-number">4.5.</span> <span class="toc-text">5、配置拦截器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、书写登录代码"><span class="toc-number">4.6.</span> <span class="toc-text">6、书写登录代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、跨域配置"><span class="toc-number">4.7.</span> <span class="toc-text">7、跨域配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">5.</span> <span class="toc-text">扩展阅读</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/2023/">&laquo; Prev</a><a class="page-number" href="/archives/2023/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -411,8 +226,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -474,15 +289,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cache</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">canal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">dubbo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">cache</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -490,19 +301,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">FastDFS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JWT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color1">canal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -510,11 +309,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,7 +317,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -534,11 +329,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ThreadPool</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ThreadPool</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -550,7 +349,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">MybatisPlus</a>
+                <a href="javascript:void(0)" class="js-tag color5">websocket</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -558,11 +357,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">websocket</a>
+                <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
+                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
             
             <div class="clearfix"></div>
