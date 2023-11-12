@@ -618,83 +618,6 @@
 
 
   
-    <article id="post-Retrofit基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/12/Retrofit基础知识/">Retrofit基础知识</a>
-    </h1>
-  
-
-        
-        <a href="/2023/02/12/Retrofit基础知识/" class="archive-article-date">
-  	<time datetime="2023-02-12T14:14:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><ul>
-<li>Retrofit是适用于 Android 和 Java 且类型安全的轻量级HTTP客户端，其最大的特性的是支持通过接口的方式发起HTTP请求，与SpringBoot框架快速整合，支持诸多功能增强，极大简化开发</li>
-</ul>
-<h2 id="二、集成SpringBoot使用"><a href="#二、集成SpringBoot使用" class="headerlink" title="二、集成SpringBoot使用"></a>二、集成SpringBoot使用</h2><h3 id="1、引入依赖"><a href="#1、引入依赖" class="headerlink" title="1、引入依赖"></a>1、引入依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.lianjiatech<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>retrofit-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">https</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/02/12/Retrofit基础知识/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Shell基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -874,20 +797,20 @@
 
 
   
-    <article id="post-Canal基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Caffeine基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/12/Canal基础知识/">Canal基础知识</a>
+      <a class="article-title" href="/2023/02/12/Caffeine基础知识/">Caffeine基础知识</a>
     </h1>
   
 
         
-        <a href="/2023/02/12/Canal基础知识/" class="archive-article-date">
-  	<time datetime="2023-02-12T14:03:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-12</time>
+        <a href="/2023/02/12/Caffeine基础知识/" class="archive-article-date">
+  	<time datetime="2023-02-12T14:01:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-12</time>
 </a>
         
       </header>
@@ -895,15 +818,69 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><ul>
-<li>一个系统最重要的是数据，但是很多时候不单保存在数据库中，还要同步保存到Elastic Search、HBase、Redis等</li>
-<li>Canal，同步增量数据的一个工具，主要用途是基于 MySQL 数据库增量日志解析，提供增量数据订阅和消费</li>
+<li>Caffeine是基于Java 8的高性能缓存库，可提供接近最佳的命中率</li>
 </ul>
-<h2 id="二、工作原理"><a href="#二、工作原理" class="headerlink" title="二、工作原理"></a>二、工作原理</h2><p><img src="/2023/02/12/Canal基础知识/1.png" alt></p>
-<ul>
-<li>Canal 模拟 MySQL slave 的交互协议，伪装自己为 MySQL slave ，向 MySQL master 发送dump 协议</li>
-<li>MySQL master 收到 dump 请求，开始推送 binary log 给 slave (即 Canal )</li>
-<li>Canal 解析 binary log 对象(原始为 byte 流)，再发送到存储目的地</li>
-</ul>
+<h2 id="二、配置参数"><a href="#二、配置参数" class="headerlink" title="二、配置参数"></a>二、配置参数</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>initialCapacity</td>
+<td>integer</td>
+<td>初始的缓存空间大小</td>
+</tr>
+<tr>
+<td>maximumSize</td>
+<td>long</td>
+<td>缓存的最大条数</td>
+</tr>
+<tr>
+<td>maximumWeight</td>
+<td>long</td>
+<td>缓存的最大权重</td>
+</tr>
+<tr>
+<td>expireAfterAccess</td>
+<td>duration</td>
+<td>最后一次写入或访问后经过固定时间过期</td>
+</tr>
+<tr>
+<td>expireAfterWrite</td>
+<td>duration</td>
+<td>最后一次写入后经过固定时间过期</td>
+</tr>
+<tr>
+<td>refreshAfterWrite</td>
+<td>duration</td>
+<td>创建缓存或者最近一次更新缓存后经过固定的时间间隔，刷新缓存</td>
+</tr>
+<tr>
+<td>weakKeys</td>
+<td>boolean</td>
+<td>打开key的弱引用</td>
+</tr>
+<tr>
+<td>weakValues</td>
+<td>boolean</td>
+<td>打开value的弱引用</td>
+</tr>
+<tr>
+<td>softValues</td>
+<td>boolean</td>
+<td>打开value的软引用</td>
+</tr>
+<tr>
+<td>recordStats</td>
+<td>Method</td>
+<td>开发统计功能</td>
+</tr>
+</tbody>
+</table>
         
       
 
@@ -917,7 +894,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">canal</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cache</a>
         		</li>
       		
 		</ul>
@@ -927,7 +904,100 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/02/12/Canal基础知识/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/02/12/Caffeine基础知识/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux基础操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/11/Linux基础操作/">Linux基础操作</a>
+    </h1>
+  
+
+        
+        <a href="/2021/04/11/Linux基础操作/" class="archive-article-date">
+  	<time datetime="2021-04-11T13:50:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、文件和目录"><a href="#一、文件和目录" class="headerlink" title="一、文件和目录"></a>一、文件和目录</h2><h3 id="1、cd命令"><a href="#1、cd命令" class="headerlink" title="1、cd命令"></a>1、cd命令</h3><ul>
+<li>切换到usr目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd usr</span><br></pre></td></tr></table></figure>
+<ul>
+<li>切换到上一层目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ..</span><br></pre></td></tr></table></figure>
+<ul>
+<li>切换到系统根目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /</span><br></pre></td></tr></table></figure>
+<ul>
+<li>切换到用户主目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br></pre></td></tr></table></figure>
+<ul>
+<li>切换到上一个所在目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd -</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/04/11/Linux基础操作/">展开全文 >></a>
         </p>
       
 
@@ -959,7 +1029,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1043,31 +1113,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">dubbo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">cache</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">canal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1075,15 +1121,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">https</a>
+                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1103,23 +1161,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">websocket</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
             
             <div class="clearfix"></div>

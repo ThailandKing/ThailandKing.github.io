@@ -152,499 +152,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Caffeine基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/12/Caffeine基础知识/">Caffeine基础知识</a>
-    </h1>
-  
-
-        
-        <a href="/2023/02/12/Caffeine基础知识/" class="archive-article-date">
-  	<time datetime="2023-02-12T14:01:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><ul>
-<li>Caffeine是基于Java 8的高性能缓存库，可提供接近最佳的命中率</li>
-</ul>
-<h2 id="二、配置参数"><a href="#二、配置参数" class="headerlink" title="二、配置参数"></a>二、配置参数</h2><table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>initialCapacity</td>
-<td>integer</td>
-<td>初始的缓存空间大小</td>
-</tr>
-<tr>
-<td>maximumSize</td>
-<td>long</td>
-<td>缓存的最大条数</td>
-</tr>
-<tr>
-<td>maximumWeight</td>
-<td>long</td>
-<td>缓存的最大权重</td>
-</tr>
-<tr>
-<td>expireAfterAccess</td>
-<td>duration</td>
-<td>最后一次写入或访问后经过固定时间过期</td>
-</tr>
-<tr>
-<td>expireAfterWrite</td>
-<td>duration</td>
-<td>最后一次写入后经过固定时间过期</td>
-</tr>
-<tr>
-<td>refreshAfterWrite</td>
-<td>duration</td>
-<td>创建缓存或者最近一次更新缓存后经过固定的时间间隔，刷新缓存</td>
-</tr>
-<tr>
-<td>weakKeys</td>
-<td>boolean</td>
-<td>打开key的弱引用</td>
-</tr>
-<tr>
-<td>weakValues</td>
-<td>boolean</td>
-<td>打开value的弱引用</td>
-</tr>
-<tr>
-<td>softValues</td>
-<td>boolean</td>
-<td>打开value的软引用</td>
-</tr>
-<tr>
-<td>recordStats</td>
-<td>Method</td>
-<td>开发统计功能</td>
-</tr>
-</tbody>
-</table>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cache</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/02/12/Caffeine基础知识/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Zookeeper基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/28/Zookeeper基础知识/">Zookeeper基础知识</a>
-    </h1>
-  
-
-        
-        <a href="/2021/11/28/Zookeeper基础知识/" class="archive-article-date">
-  	<time datetime="2021-11-28T03:53:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><ul>
-<li>一个开源的分布式应用程序协调服务，现在比较流行的微服务框架Dubbo、Spring Cloud都可以使用Zookeeper作为服务发现与注册中心</li>
-</ul>
-<h2 id="二、特性"><a href="#二、特性" class="headerlink" title="二、特性"></a>二、特性</h2><p><strong>1、树状</strong></p>
-<ul>
-<li>树状的文件目录结构，类似于应用系统中的文件系统，每个子目录被称为znode，可以对每个znode进行增删改查与监听</li>
-</ul>
-<p><strong>2、持久节点（PERSISTENT）</strong></p>
-<ul>
-<li>客户端与服务端断开连接后，该节点仍然存在</li>
-</ul>
-<p><strong>3、持久有序节点（PERSISTENT_SEQUENTIAL）</strong></p>
-<ul>
-<li>在持久节点基础上，节点名称进行有序编号</li>
-</ul>
-<p><strong>4、临时节点（EPHEMERAL）</strong></p>
-<ul>
-<li>客户端与服务端断开连接后，该节点被删除，临时节点下，不存在子节点</li>
-</ul>
-<p><strong>5、临时有序节点（EPHEMERAL_SEQUENTIAL）</strong></p>
-<ul>
-<li>在临时节点基础上，节点名称进行有序编号</li>
-</ul>
-<p><strong>6、节点监听（WATCHER）</strong></p>
-<ul>
-<li>节点发生变化时，通知客户端，只会通知一次</li>
-</ul>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Zookeeper</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/11/28/Zookeeper基础知识/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Dubbo基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/24/Dubbo基础知识/">Dubbo基础知识</a>
-    </h1>
-  
-
-        
-        <a href="/2021/10/24/Dubbo基础知识/" class="archive-article-date">
-  	<time datetime="2021-10-24T13:12:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、RPC简介"><a href="#一、RPC简介" class="headerlink" title="一、RPC简介"></a>一、RPC简介</h2><h3 id="1、定义"><a href="#1、定义" class="headerlink" title="1、定义"></a>1、定义</h3><ul>
-<li>Remote Procedure Call，是指远程过程调用，是一种进程间通信方式</li>
-</ul>
-<h3 id="2、原理"><a href="#2、原理" class="headerlink" title="2、原理"></a>2、原理</h3><ul>
-<li>两个核心模块：通讯+序列化</li>
-</ul>
-<p><img src="/2021/10/24/Dubbo基础知识/1.png" alt></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">dubbo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/10/24/Dubbo基础知识/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux基础操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/04/11/Linux基础操作/">Linux基础操作</a>
-    </h1>
-  
-
-        
-        <a href="/2021/04/11/Linux基础操作/" class="archive-article-date">
-  	<time datetime="2021-04-11T13:50:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、文件和目录"><a href="#一、文件和目录" class="headerlink" title="一、文件和目录"></a>一、文件和目录</h2><h3 id="1、cd命令"><a href="#1、cd命令" class="headerlink" title="1、cd命令"></a>1、cd命令</h3><ul>
-<li>切换到usr目录</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd usr</span><br></pre></td></tr></table></figure>
-<ul>
-<li>切换到上一层目录</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ..</span><br></pre></td></tr></table></figure>
-<ul>
-<li>切换到系统根目录</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /</span><br></pre></td></tr></table></figure>
-<ul>
-<li>切换到用户主目录</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br></pre></td></tr></table></figure>
-<ul>
-<li>切换到上一个所在目录</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd -</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/04/11/Linux基础操作/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-WebSocket基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/14/WebSocket基础知识/">WebSocket基础知识</a>
-    </h1>
-  
-
-        
-        <a href="/2021/03/14/WebSocket基础知识/" class="archive-article-date">
-  	<time datetime="2021-03-14T13:37:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><h3 id="1、HTTP协议缺陷"><a href="#1、HTTP协议缺陷" class="headerlink" title="1、HTTP协议缺陷"></a>1、HTTP协议缺陷</h3><ul>
-<li>通信只能由客户端发起，服务器返回响应，做不到服务器主动向客户端推送信息</li>
-<li>这种单向请求的特点，注定了如果服务器有连续的状态变化，客户端要获知就非常麻烦，只能通过轮询</li>
-<li>轮询的效率低，非常浪费资源（因为必须不停连接，或者 HTTP 连接始终打开）</li>
-</ul>
-<h3 id="2、WebSocket协议优势"><a href="#2、WebSocket协议优势" class="headerlink" title="2、WebSocket协议优势"></a>2、WebSocket协议优势</h3><ul>
-<li>服务器可以主动向客户端推送信息，客户端也可以主动向服务器发送信息，是真正的双向平等对话</li>
-<li>建立在 TCP 协议之上，服务器端的实现比较容易</li>
-<li>可以发送文本，也可以发送二进制数据</li>
-</ul>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">websocket</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/14/WebSocket基础知识/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Junit单元测试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1041,9 +548,87 @@
 
 
   
+    <article id="post-位掩码在程序设计中的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/03/位掩码在程序设计中的使用/">位掩码在程序设计中的使用</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/03/位掩码在程序设计中的使用/" class="archive-article-date">
+  	<time datetime="2019-03-03T13:23:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、问题情景"><a href="#一、问题情景" class="headerlink" title="一、问题情景"></a>一、问题情景</h2><ul>
+<li>例如，在一个系统中，用户一般有查询(Select)、新增(Insert)、修改(Update)、删除(Delete)四种权限，四种权限有多种组合方式，也就是有16中不同的权限状态（2的4次方）</li>
+</ul>
+<h2 id="二、传统设计"><a href="#二、传统设计" class="headerlink" title="二、传统设计"></a>二、传统设计</h2><p>一般情况下会想到用四个boolean类型变量来保存： </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Permission</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否允许查询</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> allowSelect;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否允许新增</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> allowInsert;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否允许删除</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> allowDelete;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否允许更新</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> allowUpdate;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 省略Getter和Setter</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/03/位掩码在程序设计中的使用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
     </nav>
   
 
@@ -1127,31 +712,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">dubbo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">cache</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">canal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1159,15 +720,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">https</a>
+                <a href="javascript:void(0)" class="js-tag color1">Junit</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1187,23 +760,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">websocket</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
             
             <div class="clearfix"></div>
