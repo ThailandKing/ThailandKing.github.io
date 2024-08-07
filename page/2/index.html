@@ -152,32 +152,41 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Junit单元测试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Shell基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/13/Junit单元测试/">Junit单元测试</a>
+      <a class="article-title" href="/2023/02/12/Shell基础知识/">Shell基础知识</a>
     </h1>
   
 
         
-        <a href="/2021/03/13/Junit单元测试/" class="archive-article-date">
-  	<time datetime="2021-03-13T09:27:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-13</time>
+        <a href="/2023/02/12/Shell基础知识/" class="archive-article-date">
+  	<time datetime="2023-02-12T14:12:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、背景简介"><a href="#一、背景简介" class="headerlink" title="一、背景简介"></a>一、背景简介</h2><h3 id="1-1-单元测试"><a href="#1-1-单元测试" class="headerlink" title="1.1 单元测试"></a>1.1 单元测试</h3><blockquote>
-<p>什么是单元测试呢？</p>
-</blockquote>
-<ul>
-<li>单元测试就是针对最小的功能单元编写测试代码</li>
-<li>Java程序最小的功能单元是方法，因此，对Java程序进行单元测试就是针对单个Java方法的测试</li>
+        <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><ul>
+<li>Linux下有一门脚本语言叫做Shell 脚本，可以帮助我们简化很多工作，是很又学习必要的</li>
+</ul>
+<h2 id="二、编写流程"><a href="#二、编写流程" class="headerlink" title="二、编写流程"></a>二、编写流程</h2><ul>
+<li>编写Shell脚本</li>
+<li>赋予可执行权限</li>
+<li>调用或执行或调试</li>
+</ul>
+<h2 id="三、语法"><a href="#三、语法" class="headerlink" title="三、语法"></a>三、语法</h2><h3 id="1、关键字"><a href="#1、关键字" class="headerlink" title="1、关键字"></a>1、关键字</h3><ul>
+<li>read：读标准输入</li>
+<li>echo：写标准输出</li>
+<li>exec：执行Shell脚本</li>
+<li>expr：对整数型变量进行算术运算</li>
+<li>test：测试变量是否相等、 是否为空、文件类型等</li>
+<li>exit：退出</li>
 </ul>
         
       
@@ -192,7 +201,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Junit</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
         		</li>
       		
 		</ul>
@@ -202,7 +211,327 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/13/Junit单元测试/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/02/12/Shell基础知识/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Filter、HandlerInterceptor、MethodInterceptor区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/12/Filter、HandlerInterceptor、MethodInterceptor区别/">Filter、HandlerInterceptor、MethodInterceptor区别</a>
+    </h1>
+  
+
+        
+        <a href="/2023/02/12/Filter、HandlerInterceptor、MethodInterceptor区别/" class="archive-article-date">
+  	<time datetime="2023-02-12T14:08:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、Filter"><a href="#一、Filter" class="headerlink" title="一、Filter"></a>一、Filter</h2><h3 id="1、特点"><a href="#1、特点" class="headerlink" title="1、特点"></a>1、特点</h3><ul>
+<li>基于servlet实现</li>
+<li>拦截的目标是资源</li>
+<li>可以拿到原始的http请求和响应信息，但是拿不到真正处理这个请求方法的信息</li>
+</ul>
+<h3 id="2、问题"><a href="#2、问题" class="headerlink" title="2、问题"></a>2、问题</h3><ul>
+<li>只能从请求和响应中获得一些参数，不清楚请求实际上真正是由哪个控制器的哪个方法来处理的</li>
+</ul>
+<h3 id="3、核心方法"><a href="#3、核心方法" class="headerlink" title="3、核心方法"></a>3、核心方法</h3><blockquote>
+<p>default public void init(FilterConfig filterConfig)</p>
+</blockquote>
+<blockquote>
+<p>public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)</p>
+</blockquote>
+<blockquote>
+<p>default public void destroy()</p>
+</blockquote>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/02/12/Filter、HandlerInterceptor、MethodInterceptor区别/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Caffeine基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/12/Caffeine基础知识/">Caffeine基础知识</a>
+    </h1>
+  
+
+        
+        <a href="/2023/02/12/Caffeine基础知识/" class="archive-article-date">
+  	<time datetime="2023-02-12T14:01:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><ul>
+<li>Caffeine是基于Java 8的高性能缓存库，可提供接近最佳的命中率</li>
+</ul>
+<h2 id="二、配置参数"><a href="#二、配置参数" class="headerlink" title="二、配置参数"></a>二、配置参数</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>initialCapacity</td>
+<td>integer</td>
+<td>初始的缓存空间大小</td>
+</tr>
+<tr>
+<td>maximumSize</td>
+<td>long</td>
+<td>缓存的最大条数</td>
+</tr>
+<tr>
+<td>maximumWeight</td>
+<td>long</td>
+<td>缓存的最大权重</td>
+</tr>
+<tr>
+<td>expireAfterAccess</td>
+<td>duration</td>
+<td>最后一次写入或访问后经过固定时间过期</td>
+</tr>
+<tr>
+<td>expireAfterWrite</td>
+<td>duration</td>
+<td>最后一次写入后经过固定时间过期</td>
+</tr>
+<tr>
+<td>refreshAfterWrite</td>
+<td>duration</td>
+<td>创建缓存或者最近一次更新缓存后经过固定的时间间隔，刷新缓存</td>
+</tr>
+<tr>
+<td>weakKeys</td>
+<td>boolean</td>
+<td>打开key的弱引用</td>
+</tr>
+<tr>
+<td>weakValues</td>
+<td>boolean</td>
+<td>打开value的弱引用</td>
+</tr>
+<tr>
+<td>softValues</td>
+<td>boolean</td>
+<td>打开value的软引用</td>
+</tr>
+<tr>
+<td>recordStats</td>
+<td>Method</td>
+<td>开发统计功能</td>
+</tr>
+</tbody>
+</table>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cache</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/02/12/Caffeine基础知识/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux基础操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/11/Linux基础操作/">Linux基础操作</a>
+    </h1>
+  
+
+        
+        <a href="/2021/04/11/Linux基础操作/" class="archive-article-date">
+  	<time datetime="2021-04-11T13:50:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、文件和目录"><a href="#一、文件和目录" class="headerlink" title="一、文件和目录"></a>一、文件和目录</h2><h3 id="1、cd命令"><a href="#1、cd命令" class="headerlink" title="1、cd命令"></a>1、cd命令</h3><ul>
+<li>切换到usr目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd usr</span><br></pre></td></tr></table></figure>
+<ul>
+<li>切换到上一层目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ..</span><br></pre></td></tr></table></figure>
+<ul>
+<li>切换到系统根目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /</span><br></pre></td></tr></table></figure>
+<ul>
+<li>切换到用户主目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br></pre></td></tr></table></figure>
+<ul>
+<li>切换到上一个所在目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd -</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/04/11/Linux基础操作/">展开全文 >></a>
         </p>
       
 
@@ -712,11 +1041,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cache</a>
+                <a href="javascript:void(0)" class="js-tag color5">Disruptor</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color1">cache</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -728,11 +1057,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -740,7 +1069,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color4">SPI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">op</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -748,11 +1085,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ThreadPool</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">devops</a>
+                <a href="javascript:void(0)" class="js-tag color1">ThreadPool</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -765,6 +1102,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nacos</a>
               </li>
             
             <div class="clearfix"></div>
